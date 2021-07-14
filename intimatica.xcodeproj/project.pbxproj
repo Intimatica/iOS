@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
 		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
+		DB2F8B1B269EDB62007020C0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */; };
+		DB2F8B21269EE8CE007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */; };
+		DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */; };
+		DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B2D269F3CB2007020C0 /* Localizable.strings */; };
+		DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */; };
+		DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
-		DB6F317C269DA973005E7578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F317B269DA973005E7578 /* ViewController.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
-		DB6F3184269DA977005E7578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +25,18 @@
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Utils.swift"; path = "/Users/rustfox/work/intimatica/intimatica/Application/UIColor+Utils.swift"; sourceTree = "<absolute>"; };
+		DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
+		DB2F8B2C269F3CB2007020C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB2F8B30269F3CF5007020C0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB2F8B31269F3FEB007020C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB6F317B269DA973005E7578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB6F3183269DA977005E7578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DB6F3185269DA977005E7578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +63,10 @@
 		DB2F8B13269ECEF9007020C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */,
 				DB6F3180269DA977005E7578 /* Assets.xcassets */,
-				DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */,
-				DB6F3185269DA977005E7578 /* Info.plist */,
+				DB2F8B31269F3FEB007020C0 /* Info.plist */,
+				DB2F8B2D269F3CB2007020C0 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -64,11 +74,54 @@
 		DB2F8B17269EDA69007020C0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F8B3A269F5716007020C0 /* Extensions */,
+				DB2F8B22269F3890007020C0 /* UI */,
 				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		DB2F8B18269EDAE7007020C0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B1C269EDC27007020C0 /* Controllers */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DB2F8B19269EDB21007020C0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B18269EDAE7007020C0 /* Auth */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DB2F8B1C269EDC27007020C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB2F8B22269F3890007020C0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DB2F8B3A269F5716007020C0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */,
+				DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -92,7 +145,7 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
-				DB6F317B269DA973005E7578 /* ViewController.swift */,
+				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
 			);
@@ -150,6 +203,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DB6F316B269DA973005E7578;
 			productRefGroup = DB6F3175269DA973005E7578 /* Products */;
@@ -166,7 +220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6F3184269DA977005E7578 /* LaunchScreen.storyboard in Resources */,
+				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
+				DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */,
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,21 +276,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
-				DB6F317C269DA973005E7578 /* ViewController.swift in Sources */,
+				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
+				DB2F8B1B269EDB62007020C0 /* AuthViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
+				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
+				DB2F8B21269EE8CE007020C0 /* UIColor+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */ = {
+		DB2F8B2D269F3CB2007020C0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DB6F3183269DA977005E7578 /* Base */,
+				DB2F8B2C269F3CB2007020C0 /* en */,
+				DB2F8B30269F3CF5007020C0 /* ru */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -245,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -306,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

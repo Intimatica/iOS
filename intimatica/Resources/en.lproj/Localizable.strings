@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  intimatica
+
+  Created by Andrey RustFox on 7/14/21.
+  
+*/
+
+
+AUTH_SIGN_IN = "Войти";
+AUTH_SIGN_UP = "Зарегистрироваться";
+AUTH_WELCOME_TEXT = "Заходи, у нас интересно!";
+

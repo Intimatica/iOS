@@ -7,9 +7,11 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     // MARK: - Properties
+    private var presenter: WelcomePresenterProtocol!
+    
     private lazy var titleImage: UIImageView = {
         let imageName = "Intimatica_title"
         let imageView = UIImageView(image: UIImage(named: imageName))
@@ -20,32 +22,52 @@ class AuthViewController: UIViewController {
     private lazy var signInButton: UIButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(l10n("AUTH_SIGN_IN"), for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
+        button.setTitle(l10n("WELCOME_SIGN_IN"), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .appYellow
+        
+        button.addAction { [weak self] in
+            self?.presenter.singInButtonDidTap()
+        }
+        
         return button
     }()
     
     private lazy var signUpButton: UIButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(l10n("AUTH_SIGN_UP"), for: .normal)
+        button.setTitle(l10n("WELCOME_SIGN_UP"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
+        
+        button.addAction { [weak self] in
+            self?.presenter.singUpButtonDidTap()
+        }
+        
         return button
     }()
     
     private lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = l10n("AUTH_WELCOME_TEXT")
+        label.text = l10n("WELCOME_GREETING_TEXT")
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
         return label
     }()
+    
+    // MARK: - Initializers
+    init(presenter: WelcomePresenterProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

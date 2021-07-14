@@ -7,6 +7,6 @@
 */
 
 
-AUTH_SIGN_IN = "Войти";
-AUTH_SIGN_UP = "Зарегистрироваться";
-AUTH_WELCOME_TEXT = "Заходи, у нас интересно!";
+WELCOME_SIGN_IN = "Войти";
+WELCOME_SIGN_UP = "Зарегистрироваться";
+WELCOME_GREETING_TEXT = "Заходи, у нас интересно!";

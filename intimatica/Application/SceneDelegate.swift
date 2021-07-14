@@ -11,7 +11,7 @@ import XCoordinator
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let router = AppListCoordinator().strongRouter
+    let router = AppCoordinator().strongRouter
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
 		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
-		DB2F8B1B269EDB62007020C0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */; };
+		DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */; };
 		DB2F8B21269EE8CE007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */; };
 		DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */; };
 		DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B2D269F3CB2007020C0 /* Localizable.strings */; };
 		DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */; };
 		DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */; };
+		DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */; };
+		DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */; };
+		DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -25,7 +28,7 @@
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Utils.swift"; path = "/Users/rustfox/work/intimatica/intimatica/Application/UIColor+Utils.swift"; sourceTree = "<absolute>"; };
 		DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
 		DB2F8B2C269F3CB2007020C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -33,6 +36,9 @@
 		DB2F8B31269F3FEB007020C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Utils.swift"; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +92,8 @@
 		DB2F8B18269EDAE7007020C0 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F8B1C269EDC27007020C0 /* Controllers */,
+				DB2F8B3D269F6431007020C0 /* Presenter */,
+				DB2F8B1C269EDC27007020C0 /* View */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -99,12 +106,13 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		DB2F8B1C269EDC27007020C0 /* Controllers */ = {
+		DB2F8B1C269EDC27007020C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F8B1A269EDB62007020C0 /* AuthViewController.swift */,
+				DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */,
+				DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */,
 			);
-			path = Controllers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB2F8B22269F3890007020C0 /* UI */ = {
@@ -120,8 +128,17 @@
 			children = (
 				DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */,
 				DB2F8B20269EE8CE007020C0 /* UIColor+Utils.swift */,
+				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB2F8B3D269F6431007020C0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -276,8 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
+				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
+				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
-				DB2F8B1B269EDB62007020C0 /* AuthViewController.swift in Sources */,
+				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
+				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,

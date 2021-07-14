@@ -10,23 +10,30 @@ import XCoordinator
 
 enum AppRoute: Route {
     case launch
-    case auth
+    case welcome
     case signIn
     case signUp
     case logout
     case home
 }
 
-class AppListCoordinator: NavigationCoordinator<AppRoute> {
+class AppCoordinator: NavigationCoordinator<AppRoute> {
     init() {
-        super.init(initialRoute: .auth)
+        super.init(initialRoute: .welcome)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
-        case .auth:
-            let viewController = AuthViewController()
-            return .show(viewController)
+        
+        case .welcome:
+            let presenter = WelcomePresenter(router: strongRouter)
+            let viewController = WelcomeViewController(presenter: presenter)
+            return .push(viewController)
+            
+        case .signUp:
+            let viewController = SignUpViewController()
+            return .push(viewController)
+            
         default:
             fatalError("in progress")
         }

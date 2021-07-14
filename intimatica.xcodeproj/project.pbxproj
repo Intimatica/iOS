@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
+		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F317C269DA973005E7578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F317B269DA973005E7578 /* ViewController.swift */; };
-		DB6F317F269DA973005E7578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6F317D269DA973005E7578 /* Main.storyboard */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
 		DB6F3184269DA977005E7578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,11 +20,11 @@
 		1B1D93AEC6467AC0D96AA317 /* Pods-intimatica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.debug.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.debug.xcconfig"; sourceTree = "<group>"; };
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB6F317B269DA973005E7578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DB6F317E269DA973005E7578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6F3183269DA977005E7578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6F3185269DA977005E7578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,8 +48,27 @@
 				1B1D93AEC6467AC0D96AA317 /* Pods-intimatica.debug.xcconfig */,
 				674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB2F8B13269ECEF9007020C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB6F3180269DA977005E7578 /* Assets.xcassets */,
+				DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */,
+				DB6F3185269DA977005E7578 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB2F8B17269EDA69007020C0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
+				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
+				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -73,13 +92,9 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
-				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
-				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB6F317B269DA973005E7578 /* ViewController.swift */,
-				DB6F317D269DA973005E7578 /* Main.storyboard */,
-				DB6F3180269DA977005E7578 /* Assets.xcassets */,
-				DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */,
-				DB6F3185269DA977005E7578 /* Info.plist */,
+				DB2F8B17269EDA69007020C0 /* Application */,
+				DB2F8B13269ECEF9007020C0 /* Resources */,
 			);
 			path = intimatica;
 			sourceTree = "<group>";
@@ -103,6 +118,7 @@
 				DB6F3170269DA973005E7578 /* Sources */,
 				DB6F3171269DA973005E7578 /* Frameworks */,
 				DB6F3172269DA973005E7578 /* Resources */,
+				D6BF8FFC829410A67C7A88BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,7 +168,6 @@
 			files = (
 				DB6F3184269DA977005E7578 /* LaunchScreen.storyboard in Resources */,
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
-				DB6F317F269DA973005E7578 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +196,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D6BF8FFC829410A67C7A88BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-intimatica/Pods-intimatica-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-intimatica/Pods-intimatica-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-intimatica/Pods-intimatica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -188,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB6F317C269DA973005E7578 /* ViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
@@ -197,14 +230,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DB6F317D269DA973005E7578 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB6F317E269DA973005E7578 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DB6F3182269DA977005E7578 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -340,7 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C5MKFGUVA;
-				INFOPLIST_FILE = intimatica/Info.plist;
+				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C5MKFGUVA;
-				INFOPLIST_FILE = intimatica/Info.plist;
+				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

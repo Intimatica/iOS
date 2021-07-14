@@ -1,3 +1,22 @@
-PODFILE CHECKSUM: c235c76d1faf7a9b78355122a12d37f7d0db3987
+PODS:
+  - Alamofire (5.4.3)
+  - XCoordinator (2.0.7):
+    - XCoordinator/Core (= 2.0.7)
+  - XCoordinator/Core (2.0.7)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.4)
+  - XCoordinator (~> 2.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - XCoordinator
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
+
+PODFILE CHECKSUM: 892caadf8ad72f860016f19e9b9a21b12cb5ae63
 
 COCOAPODS: 1.10.1

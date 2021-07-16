@@ -32,7 +32,7 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             
         case .signUp:
             let viewController = SignUpViewController()
-            return .push(viewController)
+            return .present(viewController)
             
         default:
             fatalError("in progress")

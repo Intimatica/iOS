@@ -101,8 +101,8 @@ class WelcomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             titleImage.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -30),
-            titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 78),
-            titleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -78),
+            titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleImageLeadingTrailing),
+            titleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleImageLeadingTrailing),
             titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor,
                                                multiplier: titleImage.frame.height / titleImage.frame.width),
 
@@ -119,5 +119,14 @@ class WelcomeViewController: UIViewController {
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             welcomeLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 30)
         ])
+    }
+}
+
+// MARK: - Helpers/Constraints
+
+private extension WelcomeViewController {
+    
+    struct Constants {
+        static let titleImageLeadingTrailing: CGFloat = 78
     }
 }

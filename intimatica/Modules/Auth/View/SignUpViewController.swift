@@ -7,33 +7,37 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
-    //MARK: - Properties
+class SignUpViewController: AuthViewController {
     
-    var pageTitle: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = l10n("SING_UP_TITLE")
-        label.text = "Registration"
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        return label
-    }()
-    
-    var emailField: UITextField = {
-        let textField = UITextField()
-        return textField
-    }()
+    // MARK: - Properties
+    private lazy var emailView = TextFieldView(field: .email,
+                                               placeholder: l10n("AUTH_EMAIL_FIELD_PLACEHOLDER"))
+    private lazy var passwordView = TextFieldView(field: .password,
+                                                  placeholder: l10n("AUTH_PASSWORD_FIELD_PLACEHOLDER"))
+    private lazy var passwordConfirmedView = TextFieldView(field: .password,
+                                                           placeholder: l10n("AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER"))
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupView()
+        setupConstraints()
     }
     
     // MARK: - Layout
-    private func setupUI() {
-        
+    private func setupView() {
+        stackView.addArrangedSubview(emailView)
+        stackView.addArrangedSubview(passwordView)
+        stackView.addArrangedSubview(passwordConfirmedView)
+        view.addSubview(stackView)
     }
     
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 1),
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            stackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
+        ])
+    }
 }

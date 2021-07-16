@@ -6,8 +6,12 @@
   
 */
 
+// ENGLISH
 
 WELCOME_SIGN_IN = "Войти";
 WELCOME_SIGN_UP = "Зарегистрироваться";
 WELCOME_GREETING_TEXT = "Заходи, у нас интересно!";
 
+AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
+AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль";
+AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторите пароль";

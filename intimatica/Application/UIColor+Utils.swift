@@ -22,6 +22,10 @@ extension UIColor {
         UIColor(hex: 0x7633FF)
     }
     
+    class  var appLightPuple: UIColor  {
+        UIColor(hex: 0xE4D7FF)
+    }
+    
     class var appYellow: UIColor {
         UIColor(hex: 0xFFDC24)
     }

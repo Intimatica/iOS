@@ -28,7 +28,7 @@ class SignUpViewController: AuthViewController {
     
     // MARK: - Initializers
     init(presenter: SignUpPresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(presenter: presenter)
         
         self.presenter = presenter
     }
@@ -76,7 +76,7 @@ class SignUpViewController: AuthViewController {
 // MARK: - Helper/Constraints
 extension SignUpViewController {
     private struct Constants {
-        static let termsViewHeight: CGFloat = 45
+        static let termsViewHeight: CGFloat = 35
         static let termsViewTop: CGFloat = 80
         static let authButtonTop: CGFloat = 30
     }

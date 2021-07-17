@@ -20,7 +20,7 @@ class SignInViewController: AuthViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(l10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
         button.setTitleColor(.appPurple, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.titleLabel?.font = .rubik(fontSize: .small, fontWeight: .medium)
         button.addAction { [weak self] in
             self?.presenter.forgotPasswordButtonDidTap()
         }
@@ -31,7 +31,7 @@ class SignInViewController: AuthViewController {
     
     // MARK: - Initializers
     init(presenter: SignInPresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(presenter: presenter)
         
         self.presenter = presenter
     }

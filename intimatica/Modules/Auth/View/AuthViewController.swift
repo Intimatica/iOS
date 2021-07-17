@@ -10,7 +10,6 @@ import UIKit
 class AuthViewController: UIViewController {
 
     // MARK: - Properties
-    // TODO: is it possible to do such
     private var presenter: AuthPresenterProtocol!
     
     private lazy var closeButton: UIButton = {
@@ -37,10 +36,21 @@ class AuthViewController: UIViewController {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .appPurple
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.titleLabel?.font = .rubik(fontWeight: .medium)
         
         return button
     }()
+    
+    // MARK: - Initializer
+    init(presenter: AuthPresenterProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -100,7 +110,7 @@ extension AuthViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = l10n(text)
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = .rubik(fontSize: .title, fontWeight: .medium)
         return label
     }
 }

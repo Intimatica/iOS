@@ -14,7 +14,9 @@ enum AppRoute: Route {
     case signIn
     case signUp
     case logout
+    case forgotPassword
     case home
+    case dismiss
 }
 
 class AppCoordinator: NavigationCoordinator<AppRoute> {
@@ -31,9 +33,18 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .push(viewController)
             
         case .signUp:
-            let viewController = SignUpViewController()
+            let presenter = SignUpPresenter(router: strongRouter)
+            let viewController = SignUpViewController(presenter: presenter)
             return .present(viewController)
             
+        case .signIn:
+            let presenter = SignInPresenter(router: strongRouter)
+            let viewController = SignInViewController(presenter: presenter)
+            return .present(viewController)
+        
+        case .dismiss:
+            return .dismiss()
+        
         default:
             fatalError("in progress")
         }

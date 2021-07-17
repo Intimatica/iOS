@@ -10,28 +10,34 @@ import UIKit
 class AuthViewController: UIViewController {
 
     // MARK: - Properties
+    // TODO: is it possible to do such
+    private var presenter: AuthPresenterProtocol!
+    
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(named: "close_button_image"), for: .normal)
+        button.addAction { [weak self] in
+            self?.presenter.closeButtonDidTap()
+        }
         return button
     }()
     
-    lazy var titleLabel = createTitleLabel(with: "Регистрация")
+    lazy var titleLabel = createTitleLabel(with: "")
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 80
+        stackView.spacing = 60
         return stackView
     }()
     
-    private lazy var actionButton: UIButton = {
+    lazy var authButton: UIButton = {
         let button = UIRoundedButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .appPurple
-//        button.setTitle("Зарегистроваться", for: .normal)
-        button.setTitle(l10n("AUTH_SIGN_UP"), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         return button
     }()
@@ -48,24 +54,49 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
+        view.addSubview(stackView)
+        view.addSubview(authButton)
         
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: 40),
+            closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
             
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 135),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -44),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.titleLabelTop),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
+            
+            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.stackViewTop),
+            stackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            
+            authButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            authButton.heightAnchor.constraint(equalToConstant: Constants.authButtonHeigh),
+            authButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
-    
 }
 
-// MARK: - Helper
+// MARK: - Helper/Constants
 extension AuthViewController {
-    func createTitleLabel(with text: String) -> UIView {
+    private struct Constants {
+        static let closeButtonWidth: CGFloat = 40
+        static let closeButtonTopTrailing: CGFloat = 15
+        
+        static let titleLabelLeadingTrailing: CGFloat = 45
+        static let titleLabelTop: CGFloat = 120
+        static let titleLabel: CGFloat = 45
+        
+        static let stackViewTop: CGFloat = 50
+        
+        static let authButtonHeigh: CGFloat = 50
+    }
+}
+
+// MARK: - Helper/UIField
+extension AuthViewController {
+    func createTitleLabel(with text: String) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = l10n(text)

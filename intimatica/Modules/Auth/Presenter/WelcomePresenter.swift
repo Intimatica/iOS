@@ -13,7 +13,7 @@ protocol WelcomePresenterProtocol {
     func singUpButtonDidTap()
 }
 
-class WelcomePresenter: WelcomePresenterProtocol {
+class WelcomePresenter {
     typealias Router = StrongRouter<AppRoute>
 
     let router: Router!
@@ -21,7 +21,10 @@ class WelcomePresenter: WelcomePresenterProtocol {
     init(router: Router) {
         self.router = router
     }
-    
+}
+
+// MARK: - WelcomePresenterProtocol
+extension WelcomePresenter: WelcomePresenterProtocol {
     func singInButtonDidTap() {
         router.trigger(.signIn)
     }

@@ -7,21 +7,35 @@
 
 import UIKit
 
+struct TextFieldViewFieldSettings {
+    var placeholder: String
+    var returnKeyType: UIReturnKeyType
+    
+    static func settings(placeholder: String = "", returnKeyType: UIReturnKeyType = .done) -> TextFieldViewFieldSettings {
+        .init(placeholder: placeholder, returnKeyType: returnKeyType)
+    }
+}
+
 enum TextFieldViewField {
-    case email
-    case password
+    case email(TextFieldViewFieldSettings)
+    case password(TextFieldViewFieldSettings)
+}
+
+protocol TextFieldViewDelegate {
+    func textFieldShouldReturn(_ textFieldView: TextFieldView)
 }
 
 final class TextFieldView: UIView {
     // MARK: - Properties
     var textField: UITextField!
     lazy var spacer = createSpacer()
+    var delegate: TextFieldViewDelegate?
     
     // MARK: - Initializers
-    init(field: TextFieldViewField, placeholder: String) {
+    init(field: TextFieldViewField) {
         super.init(frame: .zero)
         
-        setupTextField(field: field, placeholder: placeholder)
+        setupTextField(field: field)
         setupUI()
     }
     
@@ -33,14 +47,14 @@ final class TextFieldView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupTextField(field: TextFieldViewField, placeholder: String) {
+    private func setupTextField(field: TextFieldViewField) {
         switch field {
         
-        case .email:
-            textField = createEmailField(placeholder: placeholder)
+        case .email(let settings):
+            textField = createEmailField(from: settings)
         
-        case .password:
-            textField = createPasswordField(placeholder: placeholder)
+        case .password(let settings):
+            textField = createPasswordField(from: settings)
         }
         
         textField.delegate = self
@@ -57,36 +71,46 @@ final class TextFieldView: UIView {
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             textField.topAnchor.constraint(equalTo: view.topAnchor),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            textField.heightAnchor.constraint(equalToConstant: 25),
+            textField.heightAnchor.constraint(equalToConstant: Constants.textFieldHeigh),
             
             spacer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            spacer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 8),
+            spacer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: Constants.spacerTop),
             spacer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            spacer.heightAnchor.constraint(equalToConstant: 1)
+            spacer.heightAnchor.constraint(equalToConstant: Constants.spacerHeight)
         ])
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helpers/Contraints
+extension TextFieldView {
+    private struct Constants {
+        static let textFieldHeigh: CGFloat = 25
+        static let spacerHeight: CGFloat = 1
+        static let spacerTop: CGFloat = 8
+    }
+}
+
+// MARK: - Helpers/UIFileds
 extension TextFieldView {
 
-    func createEmailField(placeholder: String) -> UITextField {
+    func createEmailField(from settings: TextFieldViewFieldSettings) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = placeholder
+        textField.placeholder = settings.placeholder
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
-        textField.returnKeyType = .next
+        textField.returnKeyType = settings.returnKeyType
         textField.becomeFirstResponder()
         return textField
     }
     
-    func createPasswordField(placeholder: String) -> UITextField {
+    func createPasswordField(from settings: TextFieldViewFieldSettings) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = placeholder
+        textField.placeholder = settings.placeholder
         textField.textContentType = .password
-        textField.returnKeyType = .next
+        textField.isSecureTextEntry = true
+        textField.returnKeyType = settings.returnKeyType
         return textField
     }
     
@@ -106,5 +130,10 @@ extension TextFieldView: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         spacer.backgroundColor = .appLightPuple
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.textFieldShouldReturn(self)
+        return true
     }
 }

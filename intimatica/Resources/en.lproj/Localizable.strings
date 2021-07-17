@@ -15,3 +15,11 @@ WELCOME_GREETING_TEXT = "Заходи, у нас интересно!";
 AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
 AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль";
 AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторите пароль";
+
+SIGN_UP_VIEW_TITLE = "Регистрация";
+SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";
+
+SIGN_IN_VIEW_TITLE = "Войти";
+SIGN_IN_BUTTON_TITLE = "Войти";
+SIGN_IN_FORGOT_PASSWORD_BUTTON = "Не помню пароль";
+

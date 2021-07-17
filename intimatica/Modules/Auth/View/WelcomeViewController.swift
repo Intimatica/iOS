@@ -74,11 +74,6 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-//    override func loadView() {
-//        super.loadView()
-//        setupUI()
-//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -100,33 +95,37 @@ class WelcomeViewController: UIViewController {
         view.addSubview(welcomeLabel)
 
         NSLayoutConstraint.activate([
-            titleImage.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -30),
+            titleImage.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: Constants.signInButtonTop),
             titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleImageLeadingTrailing),
             titleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleImageLeadingTrailing),
             titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor,
                                                multiplier: titleImage.frame.height / titleImage.frame.width),
 
-            signInButton.widthAnchor.constraint(equalToConstant: 285),
-            signInButton.heightAnchor.constraint(equalToConstant: 50),
+            signInButton.widthAnchor.constraint(equalToConstant: Constants.signInButtonWidth),
+            signInButton.heightAnchor.constraint(equalToConstant: Constants.signInButtonHeigh),
             signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signInButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            signInButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Constants.singInButtonTop),
 
             signUpButton.widthAnchor.constraint(equalTo: signInButton.widthAnchor),
             signUpButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor),
-            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 20),
+            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: Constants.signUpButtonTop),
             signUpButton.centerXAnchor.constraint(equalTo: signInButton.centerXAnchor),
 
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 30)
+            welcomeLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.welcomeLabelTop)
         ])
     }
 }
 
 // MARK: - Helpers/Constraints
-
 private extension WelcomeViewController {
-    
     struct Constants {
+        static let signInButtonTop: CGFloat = -30
         static let titleImageLeadingTrailing: CGFloat = 78
+        static let signInButtonWidth: CGFloat = 285
+        static let signInButtonHeigh: CGFloat = 50
+        static let singInButtonTop: CGFloat = -50
+        static let signUpButtonTop: CGFloat = 20
+        static let welcomeLabelTop: CGFloat = 30
     }
 }

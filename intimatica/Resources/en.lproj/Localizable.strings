@@ -23,3 +23,18 @@ SIGN_IN_VIEW_TITLE = "Войти";
 SIGN_IN_BUTTON_TITLE = "Войти";
 SIGN_IN_FORGOT_PASSWORD_BUTTON = "Не помню пароль";
 
+//"Auth.form.error.blocked": "Ваш аккаунт был заблокирован администратором.",
+//"Auth.form.error.code.provide": "Указан неверный код.",
+//"Auth.form.error.confirmed": "Ваш e-mail не подтвержден.",
+//"Auth.form.error.email.invalid": "Неправильный e-mail.",
+//"Auth.form.error.email.provide": "Укажите свое имя пользователя или e-mail.",
+//"Auth.form.error.email.taken": "Данный e-mail уже используется",
+//"Auth.form.error.invalid": "Неверный логин или пароль.",
+//"Auth.form.error.params.provide": "Предоставлены неверные параметры.",
+//"Auth.form.error.password.format": "Пароль не может содержать символ `$` больше трех раз.",
+//"Auth.form.error.password.local": "Этот пользователь никогда не задавал пароль, пожалуйста, войдите в систему через провайдера, используемого при создании учетной записи.",
+//"Auth.form.error.password.matching": "Пароли не совпадают.",
+//"Auth.form.error.password.provide": "Укажите свой пароль.",
+//"Auth.form.error.ratelimit": "Слишком много попыток, повторите через минуту",
+//"Auth.form.error.user.not-exist": "Этот e-mail не существует.",
+//"Auth.form.error.username.taken": "Имя пользователя уже используется",

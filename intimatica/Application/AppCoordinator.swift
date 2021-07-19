@@ -20,6 +20,7 @@ enum AppRoute: Route {
 }
 
 class AppCoordinator: NavigationCoordinator<AppRoute> {
+    
     init() {
         super.init(initialRoute: .welcome)
     }
@@ -27,18 +28,24 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
         
+//        case .launch:
+//            let viewController = TestViewController()
+//            return .present(viewController)
+        
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)
             let viewController = WelcomeViewController(presenter: presenter)
             return .push(viewController)
             
         case .signUp:
-            let presenter = SignUpPresenter(router: strongRouter)
+            let networkService = AuthNetworkService()
+            let presenter = SignUpPresenter(router: strongRouter, networkService: networkService)
             let viewController = SignUpViewController(presenter: presenter)
             return .present(viewController)
             
         case .signIn:
-            let presenter = SignInPresenter(router: strongRouter)
+            let networkService = AuthNetworkService()
+            let presenter = SignInPresenter(router: strongRouter, networkService: networkService)
             let viewController = SignInViewController(presenter: presenter)
             return .present(viewController)
         

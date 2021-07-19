@@ -44,6 +44,13 @@
 		DB2F8B9B26A371B9007020C0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B8926A371B8007020C0 /* README.txt */; };
 		DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B8A26A371B8007020C0 /* Rubik-Italic-VariableFont_wght.ttf */; };
 		DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */; };
+		DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */; };
+		DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */; };
+		DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA826A5BAF9007020C0 /* SignIn.swift */; };
+		DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */; };
+		DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAE26A5E234007020C0 /* AppConstants.swift */; };
+		DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB026A5E2FD007020C0 /* StorageService.swift */; };
+		DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB226A5FDB1007020C0 /* SignUp.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -90,6 +97,13 @@
 		DB2F8B8926A371B8007020C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		DB2F8B8A26A371B8007020C0 /* Rubik-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Utils.swift"; sourceTree = "<group>"; };
+		DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkService.swift; sourceTree = "<group>"; };
+		DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		DB2F8BA826A5BAF9007020C0 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrapiError.swift; sourceTree = "<group>"; };
+		DB2F8BAE26A5E234007020C0 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		DB2F8BB026A5E2FD007020C0 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DB2F8BB226A5FDB1007020C0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +151,7 @@
 				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
+				DB2F8BAE26A5E234007020C0 /* AppConstants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -153,6 +168,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
 			);
 			path = Modules;
@@ -162,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8B4626A219E6007020C0 /* Helpers */,
-				DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */,
 				DB2F8B4426A037D0007020C0 /* AuthViewController.swift */,
 				DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */,
 				DB2F8B7426A35726007020C0 /* SignInViewController.swift */,
@@ -192,7 +207,6 @@
 		DB2F8B3D269F6431007020C0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */,
 				DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */,
 				DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */,
 				DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */,
@@ -250,6 +264,51 @@
 			path = static;
 			sourceTree = "<group>";
 		};
+		DB2F8B9F26A59E10007020C0 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8BA026A59E24007020C0 /* Presenter */,
+				DB2F8BA126A59E2A007020C0 /* View */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DB2F8BA026A59E24007020C0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB2F8BA126A59E2A007020C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB2F8BA226A5A40A007020C0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */,
+				DB2F8BB026A5E2FD007020C0 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DB2F8BA726A5BA7C007020C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */,
+				DB2F8BA826A5BAF9007020C0 /* SignIn.swift */,
+				DB2F8BB226A5FDB1007020C0 /* SignUp.swift */,
+				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DB6F316B269DA973005E7578 = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +330,8 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F8BA726A5BA7C007020C0 /* Models */,
+				DB2F8BA226A5A40A007020C0 /* Services */,
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
@@ -423,17 +484,24 @@
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6A26A2F498007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
+				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
+				DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */,
+				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
+				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
+				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
+				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
+				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,
 				DB2F8B21269EE8CE007020C0 /* UIColor+Utils.swift in Sources */,

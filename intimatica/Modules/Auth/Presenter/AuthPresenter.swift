@@ -18,10 +18,12 @@ class AuthPresenter {
     
     //MARK: - Properties
     let router: Router!
+    let networkService: AuthNetworkService!
     
     // MARK: - Initializers
-    init(router: Router) {
+    init(router: Router, networkService: AuthNetworkService) {
         self.router = router
+        self.networkService = networkService
     }
 }
 

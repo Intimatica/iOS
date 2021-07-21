@@ -12,10 +12,30 @@ class AuthViewController: UIViewController {
     // MARK: - Properties
     private var presenter: AuthPresenterProtocol!
     
-    private lazy var closeButton: UIButton = {
+    lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(named: "close_button_image"), for: .normal)
+        
+        return button
+    }()
+    
+    lazy var emailView = TextFieldView(field: .email(
+                                                .settings(placeholder: L10n("AUTH_EMAIL_FIELD_PLACEHOLDER"), returnKeyType: .next)))
+    
+    lazy var passwordView = TextFieldView(field: .password(
+                                                    .settings(placeholder: L10n("AUTH_PASSWORD_FIELD_PLACEHOLDER"), returnKeyType: .done)))
+    
+    lazy var passwordConfirmedView = TextFieldView(field: .password(
+                                                            .settings(placeholder: L10n("AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER"),  returnKeyType: .done)
+    ))
+    
+    lazy var forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(L10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
+        button.setTitleColor(.appPurple, for: .normal)
+        button.titleLabel?.font = .rubik(fontSize: .small, fontWeight: .medium)
         
         return button
     }()
@@ -90,6 +110,15 @@ class AuthViewController: UIViewController {
         closeButton.addAction { [weak self] in
             self?.presenter.closeButtonDidTap()
         }
+        
+        authButton.addAction { [weak self] in
+            guard let self = self,
+                  let email = self.emailView.textField.text,
+                  let password = self.passwordView.textField.text
+            else { return }
+            
+            self.presenter.doAuthButtonDidTap(email: email, password: password)
+        }
     }
 }
 
@@ -115,8 +144,63 @@ extension AuthViewController {
     func createTitleLabel(with text: String) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = l10n(text)
+        label.text = L10n(text)
         label.font = .rubik(fontSize: .title, fontWeight: .medium)
         return label
+    }
+}
+
+// MARK: - AuthViewProtocol
+extension AuthViewController: AuthViewProtocol {
+    func showNotification(_ message: String) {
+        showError(message)
+    }
+    
+    func showValidationError(for fieldContent: FieldType, message: String) {
+        switch fieldContent {
+        case .email:
+            emailView.showError(message: L10n(message))
+        case .password:
+            passwordView.showError(message: L10n(message))
+        case .passwordConfirm:
+            passwordConfirmedView.showError(message: L10n(message))
+        }
+    }
+    
+    func hideValidationError(for fieldContent: FieldType) {
+        switch fieldContent {
+        case .email:
+            emailView.hideError()
+        case .password:
+            passwordView.hideError()
+        case .passwordConfirm:
+            passwordConfirmedView.hideError()
+        }
+    }
+}
+
+// MARK: - TextFieldViewDelegate
+extension AuthViewController: TextFieldViewDelegate {
+    func textFieldEndEditing(_ textFieldView: TextFieldView) {
+        switch textFieldView {
+        case emailView:
+            presenter.validate(.email, with: emailView.textField.text)
+        case passwordView:
+            presenter.validate(.password, with: passwordView.textField.text)
+        case passwordConfirmedView:
+            presenter.validate(.passwordConfirm, with: passwordConfirmedView.textField.text)
+        default:
+            break
+        }
+    }
+    
+    func textFieldShouldReturn(_ textFieldView: TextFieldView) {
+        if textFieldView == emailView {
+            passwordView.textField.becomeFirstResponder()
+        } else if textFieldView == passwordView && passwordView.textField.returnKeyType == .next {
+            passwordConfirmedView.textField.becomeFirstResponder()
+        } else {
+            view.endEditing(true)
+        }
     }
 }

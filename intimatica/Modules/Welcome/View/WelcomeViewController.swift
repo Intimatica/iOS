@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController {
     private lazy var signInButton: UIButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(l10n("WELCOME_SIGN_IN"), for: .normal)
+        button.setTitle(L10n("WELCOME_SIGN_IN"), for: .normal)
         button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .appYellow
@@ -37,7 +37,7 @@ class WelcomeViewController: UIViewController {
     private lazy var signUpButton: UIButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(l10n("WELCOME_SIGN_UP"), for: .normal)
+        button.setTitle(L10n("WELCOME_SIGN_UP"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.layer.borderWidth = 1
@@ -53,7 +53,7 @@ class WelcomeViewController: UIViewController {
     private lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = l10n("WELCOME_GREETING_TEXT")
+        label.text = L10n("WELCOME_GREETING_TEXT")
         label.textColor = .white
         label.font = .rubik(fontWeight: .medium)
         return label

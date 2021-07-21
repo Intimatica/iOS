@@ -16,14 +16,14 @@ enum FieldType {
 
 protocol AuthPresenterProtocol {
     func closeButtonDidTap()
-    func authButtoDidTap()
-    
+    func doAuthButtonDidTap(email : String, password: String)
     func validate(_ field: FieldType, with value: String?)
 }
 
 protocol AuthViewProtocol: AnyObject {
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
+    func showNotification(_ message: String)
 }
 
 class AuthPresenter {
@@ -39,17 +39,48 @@ class AuthPresenter {
         self.router = router
         self.networkService = networkService
     }
+    
+    func getLocalizedAuthErrorMessage(from authError: AuthError) -> String {
+        switch authError {
+        case .blocked:
+            return L10n("AUTH_ERROR_BLOCKED")
+        case .connectionFailed:
+            return L10n("AUTH_ERROR_CONNECTION_FAILED")
+        case .emailInvalid:
+            return L10n("AUTH_ERROR_EMAIL_INVALID")
+        case .emailNotConfirmed:
+            return L10n("AUTH_ERROR_EMAIL_NOT_CONFIRMED")
+        case .emailProvide:
+            return L10n("AUTH_ERROR_PROVIDE_EMAIL")
+        case .emailTaken:
+            return L10n("AUTH_ERROR_EMAIL_TAKEN")
+        case .invalid:
+            return L10n("AUTH_ERROR_INVALID")
+        case .passwordFormat:
+            return L10n("AUTH_ERROR_PASSWORD_FORMAT")
+        case .passwordLocal:
+            return L10n("AUTH_ERROR_PASSWORD_LOCAL")
+        case .passwordProvide:
+            return L10n("AUTH_ERROR_PASSWORD_PROVIDE")
+        case .rateLimit:
+            return L10n("AUTH_ERROR_RATE_LIMIT")
+        case .userNotExist:
+            return L10n("AUTH_ERROR_USER_NOT_EXIST")
+        case .usernameTaken:
+            return L10n("AUTH_ERROR_USERNAME_TAKEN")
+        case .unhandledError(let error):
+            return error
+        }
+    }
 }
 
 // MARK: - AuthPresenterProtocol
 extension AuthPresenter: AuthPresenterProtocol {
+    @objc func doAuthButtonDidTap(email: String, password: String) {
+    }
     
     func closeButtonDidTap() {
         router.trigger(.dismiss)
-    }
-    
-    func authButtoDidTap() {
-        
     }
     
     func validate(_ field: FieldType, with value: String?) {

@@ -47,6 +47,7 @@ class SignUpViewController: AuthViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     // MARK: - Layout
@@ -71,6 +72,18 @@ class SignUpViewController: AuthViewController {
             authButton.topAnchor.constraint(equalTo: termsView.bottomAnchor, constant: Constants.authButtonTop)
         ])
     }
+    
+    private func setupActions() {
+        authButton.addAction { [weak self] in
+            guard let self = self,
+                  let email = self.emailView.textField.text,
+                  let password = self.passwordView.textField.text,
+                  let passwordConfirm = self.passwordConfirmedView.textField.text
+            else { return }
+            
+            self.presenter.doAuthButtonDidTap(email: email, password: password, passwordConfirm: passwordConfirm)
+        }
+    }
 }
 
 // MARK: - Helper/Constraints
@@ -82,10 +95,44 @@ extension SignUpViewController {
     }
 }
 
+// MARK: - AuthViewProtocol
+extension SignUpViewController: AuthViewProtocol {
+    func showValidationError(for fieldContent: FieldType, message: String) {
+        switch fieldContent {
+        case .email:
+            emailView.showError(message: l10n(message))
+        case .password:
+            passwordView.showError(message: l10n(message))
+        case .passwordConfirm:
+            passwordConfirmedView.showError(message: l10n(message))
+        }
+    }
+    
+    func hideValidationError(for fieldContent: FieldType) {
+        switch fieldContent {
+        case .email:
+            emailView.hideError()
+        case .password:
+            passwordView.hideError()
+        case .passwordConfirm:
+            passwordConfirmedView.hideError()
+        }
+    }
+}
+
 // MARK: - TextFieldViewDelegate
 extension SignUpViewController: TextFieldViewDelegate {
     func textFieldEndEditing(_ textFieldView: TextFieldView) {
-        
+        switch textFieldView {
+        case emailView:
+            presenter.validate(.email, with: emailView.textField.text)
+        case passwordView:
+            presenter.validate(.password, with: passwordView.textField.text)
+        case passwordConfirmedView:
+            presenter.validate(.passwordConfirm, with: passwordConfirmedView.textField.text)
+        default:
+            break
+        }
     }
     
     func textFieldShouldReturn(_ textFieldView: TextFieldView) {

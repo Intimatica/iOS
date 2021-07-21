@@ -32,38 +32,33 @@ final class TextFieldView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     
     lazy var fieldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Email"
-        label.textColor = .gray
+        label.text = " " // space for avoding collaple label
+        label.textColor = .appGray
         label.font = .rubik(fontSize: .small, fontWeight: .regular)
-        label.isHidden = true
         return label
     }()
     
     lazy var errorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Some error message"
         label.textColor = .appRed
         label.font = .rubik(fontSize: .small, fontWeight: .regular)
         label.isHidden = true
         return label
     }()
     
-    lazy var showPasswordButton: UIButton = {
-        let button = UIButton()
+    lazy var eyeButton: EyeButton = {
+        let button = EyeButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(UIImage(named: "eye_gray_cross_out"), for: .normal)
-//        button.setBackgroundImage(UIImage(named: "eye_black_cross_out"), for: .highlighted)
-//        button.setBackgroundImage(UIImage(named: "eye_black"), for: .selected)
-        button.addAction {
-            
+        button.addAction { [weak self] in
+            self?.eyeButtonDidTap()
         }
         return button
     }()
@@ -123,25 +118,46 @@ final class TextFieldView: UIView {
         ])
         
         if case .password(_) = field {
-            addShowPasswordButton()
+            addEyeButton()
         }
     }
+
+    func showError(message: String) {
+        errorLabel.text = message
+        errorLabel.isHidden = false
+        spacer.backgroundColor = .appRed
+    }
     
-    private func addShowPasswordButton() {
-        view.addSubview(showPasswordButton)
+    func hideError() {
+        errorLabel.isHidden = true
+        spacer.backgroundColor = .appGray
+    }
+    
+    private func addEyeButton() {
+        view.addSubview(eyeButton)
         
         NSLayoutConstraint.activate([
-            showPasswordButton.topAnchor.constraint(equalTo: textField.topAnchor),
-            showPasswordButton.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
-            showPasswordButton.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
-            showPasswordButton.widthAnchor.constraint(equalTo: showPasswordButton.heightAnchor)
+            eyeButton.topAnchor.constraint(equalTo: textField.topAnchor),
+            eyeButton.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            eyeButton.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+            eyeButton.widthAnchor.constraint(equalTo: eyeButton.heightAnchor)
         ])
+    }
+    
+    private func eyeButtonDidTap() {
+        guard let _ = textField.text?.isEmpty else {
+            return
+        }
+        
+        textField.isSecureTextEntry = !textField.isSecureTextEntry
+        eyeButton.toggleSecure()
     }
 }
 
 // MARK: - Helpers/Contraints
 extension TextFieldView {
     private struct Constants {
+        static let stackViewSpacing: CGFloat = 8
         static let textFieldHeigh: CGFloat = 25
         static let spacerHeight: CGFloat = 1
     }
@@ -157,6 +173,8 @@ extension TextFieldView {
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
         textField.returnKeyType = settings.returnKeyType
+        textField.spellCheckingType = .no
+        textField.autocapitalizationType = .none
         return textField
     }
     
@@ -173,7 +191,7 @@ extension TextFieldView {
      func createSpacer() -> UIView {
         let progress = UIView()
         progress.translatesAutoresizingMaskIntoConstraints = false
-        progress.backgroundColor = .gray
+        progress.backgroundColor = .appGray
         return progress
     }
 }
@@ -183,11 +201,29 @@ extension TextFieldView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         spacer.backgroundColor = .appPurple
         
-        delegate?.textFieldEndEditing(self)
+        fieldLabel.textColor = .appPurple
+        fieldLabel.text = textField.placeholder
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        spacer.backgroundColor = .gray
+        spacer.backgroundColor = .appGray
+        
+        fieldLabel.textColor = .appGray
+        if let text = textField.text, text.isEmpty {
+            fieldLabel.text = " "
+        }
+        
+        delegate?.textFieldEndEditing(self)
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard textField.textContentType == .password else { return }
+        
+        if let text = textField.text, text.count > 0 {
+            eyeButton.backgroundImageState = textField.isSecureTextEntry ? .active : .insecure
+        } else {
+            eyeButton.backgroundImageState = .inactive
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

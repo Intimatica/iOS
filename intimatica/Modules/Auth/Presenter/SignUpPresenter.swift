@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SignUpPresenterProtocol: AuthPresenterProtocol {
-    func doAuthButtonDidTap(email: String, password: String, passwordConfirm: String)
+    func doAuthButtonDidTap(email : String, password: String, passwordConfirm: String)
 }
 
 final class SignUpPresenter: AuthPresenter {
@@ -20,4 +20,5 @@ extension SignUpPresenter: SignUpPresenterProtocol {
     func doAuthButtonDidTap(email: String, password: String, passwordConfirm: String) {
         
     }
+
 }

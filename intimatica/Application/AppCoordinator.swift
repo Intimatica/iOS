@@ -41,12 +41,14 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             let networkService = AuthNetworkService()
             let presenter = SignUpPresenter(router: strongRouter, networkService: networkService)
             let viewController = SignUpViewController(presenter: presenter)
+            presenter.view = viewController
             return .present(viewController)
             
         case .signIn:
             let networkService = AuthNetworkService()
             let presenter = SignInPresenter(router: strongRouter, networkService: networkService)
             let viewController = SignInViewController(presenter: presenter)
+            presenter.view = viewController
             return .present(viewController)
         
         case .dismiss:

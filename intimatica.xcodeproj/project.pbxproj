@@ -51,6 +51,7 @@
 		DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB026A5E2FD007020C0 /* StorageService.swift */; };
 		DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB226A5FDB1007020C0 /* SignUp.swift */; };
 		DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */; };
+		DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB826A84427007020C0 /* EyeButton.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		DB2F8BB026A5E2FD007020C0 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		DB2F8BB226A5FDB1007020C0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				DB2F8B4726A219FC007020C0 /* TextFieldView.swift */,
 				DB2F8B6926A2F498007020C0 /* TermsAndConditionsView.swift */,
+				DB2F8BB826A84427007020C0 /* EyeButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
+				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,

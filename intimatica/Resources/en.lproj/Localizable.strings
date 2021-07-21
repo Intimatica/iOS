@@ -16,6 +16,10 @@ AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
 AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль (8+ символов)";
 AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторить пароль";
 
+AUTH_EMAIL_INVALID = "Некорректно введен email";
+AUTH_PASSWORD_INVALID = "Пароль должен включать 8+ символов";
+AUTH_PASSWORD_CONFIRM_DONT_MATCH = "Пароли не совпадают";
+
 SIGN_UP_VIEW_TITLE = "Регистрация";
 SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";
 

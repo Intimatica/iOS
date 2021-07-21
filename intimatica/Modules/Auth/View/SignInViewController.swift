@@ -85,11 +85,41 @@ extension SignInViewController {
     }
 }
 
+// MARK: - AuthViewProtocol
+extension SignInViewController: AuthViewProtocol {
+    func showValidationError(for fieldContent: FieldType, message: String) {
+        switch fieldContent {
+        case .email:
+            emailView.showError(message: l10n(message))
+        case .password:
+            passwordView.showError(message: l10n(message))
+        default:
+            break
+        }
+    }
+    
+    func hideValidationError(for fieldContent: FieldType) {
+        switch fieldContent {
+        case .email:
+            emailView.hideError()
+        case .password:
+            passwordView.hideError()
+        default:
+            break
+        }
+    }
+}
+
 // MARK: - TextFieldViewDelegate
 extension SignInViewController: TextFieldViewDelegate {
     func textFieldEndEditing(_ textFieldView: TextFieldView) {
-        if textFieldView == emailView {
-            
+        switch textFieldView {
+        case emailView:
+            presenter.validate(.email, with: emailView.textField.text)
+        case passwordView:
+            presenter.validate(.password, with: passwordView.textField.text)
+        default:
+            break
         }
     }
     

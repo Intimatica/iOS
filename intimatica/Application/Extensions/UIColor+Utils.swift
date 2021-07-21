@@ -33,5 +33,9 @@ extension UIColor {
     class var appRed: UIColor {
         UIColor(hex: 0xFF3333)
     }
+    
+    class var appGray: UIColor {
+        .gray
+    }
 }
 

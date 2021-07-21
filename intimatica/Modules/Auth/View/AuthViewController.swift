@@ -16,9 +16,7 @@ class AuthViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(named: "close_button_image"), for: .normal)
-        button.addAction { [weak self] in
-            self?.presenter.closeButtonDidTap()
-        }
+        
         return button
     }()
     
@@ -57,6 +55,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        setupActions()
     }
     
     // MARK: - Layout
@@ -86,6 +85,12 @@ class AuthViewController: UIViewController {
             authButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
     }
+    
+    private func setupActions() {
+        closeButton.addAction { [weak self] in
+            self?.presenter.closeButtonDidTap()
+        }
+    }
 }
 
 // MARK: - Helper/Constants
@@ -98,8 +103,8 @@ extension AuthViewController {
         static let titleLabelTop: CGFloat = 120
         static let titleLabel: CGFloat = 45
         
-        static let stackViewSpacing: CGFloat = 40
-        static let stackViewTop: CGFloat = 50
+        static let stackViewSpacing: CGFloat = 30
+        static let stackViewTop: CGFloat = 20
         
         static let authButtonHeigh: CGFloat = 50
     }

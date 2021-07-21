@@ -25,9 +25,9 @@ final class TermsAndConditionsView: UIView {
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Я согласна (ен) с Условиями использования"
+        label.text = "Я согласна (ен) с Условиями использования и Политикой конфидентиальности"
         label.font = .rubik(fontSize: .small, fontWeight: .regular)
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
         
         return label

@@ -28,7 +28,7 @@ class AuthViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 60
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     
@@ -98,6 +98,7 @@ extension AuthViewController {
         static let titleLabelTop: CGFloat = 120
         static let titleLabel: CGFloat = 45
         
+        static let stackViewSpacing: CGFloat = 40
         static let stackViewTop: CGFloat = 50
         
         static let authButtonHeigh: CGFloat = 50

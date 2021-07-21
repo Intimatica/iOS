@@ -22,11 +22,52 @@ enum TextFieldViewField {
 }
 
 protocol TextFieldViewDelegate {
+    func textFieldEndEditing(_ textFieldView: TextFieldView)
     func textFieldShouldReturn(_ textFieldView: TextFieldView)
 }
 
 final class TextFieldView: UIView {
     // MARK: - Properties
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    lazy var fieldLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.text = "Email"
+        label.textColor = .gray
+        label.font = .rubik(fontSize: .small, fontWeight: .regular)
+        label.isHidden = true
+        return label
+    }()
+    
+    lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.text = "Some error message"
+        label.textColor = .appRed
+        label.font = .rubik(fontSize: .small, fontWeight: .regular)
+        label.isHidden = true
+        return label
+    }()
+    
+    lazy var showPasswordButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "eye_gray_cross_out"), for: .normal)
+//        button.setBackgroundImage(UIImage(named: "eye_black_cross_out"), for: .highlighted)
+//        button.setBackgroundImage(UIImage(named: "eye_black"), for: .selected)
+        button.addAction {
+            
+        }
+        return button
+    }()
+    
     var textField: UITextField!
     lazy var spacer = createSpacer()
     var delegate: TextFieldViewDelegate?
@@ -36,7 +77,7 @@ final class TextFieldView: UIView {
         super.init(frame: .zero)
         
         setupTextField(field: field)
-        setupUI()
+        setupUI(field: field)
     }
     
     override init(frame: CGRect) {
@@ -61,22 +102,39 @@ final class TextFieldView: UIView {
     }
     
     // MARK: - Layout
-    private func setupUI() {
+    private func setupUI(field: TextFieldViewField) {
         translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(textField)
-        addSubview(spacer)
+        addSubview(stackView)
         
+        stackView.addArrangedSubview(fieldLabel)
+        stackView.addArrangedSubview(textField)
+        stackView.addArrangedSubview(spacer)
+        stackView.addArrangedSubview(errorLabel)
+  
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            textField.topAnchor.constraint(equalTo: view.topAnchor),
-            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            spacer.heightAnchor.constraint(equalToConstant: Constants.spacerHeight),
             textField.heightAnchor.constraint(equalToConstant: Constants.textFieldHeigh),
             
-            spacer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            spacer.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: Constants.spacerTop),
-            spacer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            spacer.heightAnchor.constraint(equalToConstant: Constants.spacerHeight)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        if case .password(_) = field {
+            addShowPasswordButton()
+        }
+    }
+    
+    private func addShowPasswordButton() {
+        view.addSubview(showPasswordButton)
+        
+        NSLayoutConstraint.activate([
+            showPasswordButton.topAnchor.constraint(equalTo: textField.topAnchor),
+            showPasswordButton.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            showPasswordButton.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+            showPasswordButton.widthAnchor.constraint(equalTo: showPasswordButton.heightAnchor)
         ])
     }
 }
@@ -86,7 +144,6 @@ extension TextFieldView {
     private struct Constants {
         static let textFieldHeigh: CGFloat = 25
         static let spacerHeight: CGFloat = 1
-        static let spacerTop: CGFloat = 8
     }
 }
 
@@ -100,7 +157,6 @@ extension TextFieldView {
         textField.textContentType = .emailAddress
         textField.keyboardType = .emailAddress
         textField.returnKeyType = settings.returnKeyType
-        textField.becomeFirstResponder()
         return textField
     }
     
@@ -117,7 +173,7 @@ extension TextFieldView {
      func createSpacer() -> UIView {
         let progress = UIView()
         progress.translatesAutoresizingMaskIntoConstraints = false
-        progress.backgroundColor = .appLightPuple
+        progress.backgroundColor = .gray
         return progress
     }
 }
@@ -126,10 +182,12 @@ extension TextFieldView {
 extension TextFieldView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         spacer.backgroundColor = .appPurple
+        
+        delegate?.textFieldEndEditing(self)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        spacer.backgroundColor = .appLightPuple
+        spacer.backgroundColor = .gray
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

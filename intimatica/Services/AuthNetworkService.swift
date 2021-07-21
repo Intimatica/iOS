@@ -68,6 +68,7 @@ class AuthNetworkService: NetworkServiceProtocol {
                    parameters: parameters,
                    encoder: JSONParameterEncoder.default,
                    headers: headers)
+//            .validate(statusCode: 200..<300)
             .responseDecodable(of: AuthResponse.self) { response in
             
             switch response.result {

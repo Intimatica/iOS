@@ -16,7 +16,7 @@ enum FontWeight: String {
 }
 
 enum FontSize: CGFloat {
-    case small = 14
+    case small = 12
     case regular = 18
     case title = 30
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol  SignInPresenterProtocol: AuthPresenterProtocol {
+//    func doAuthButtonDidTap()
     func forgotPasswordButtonDidTap()
 }
 

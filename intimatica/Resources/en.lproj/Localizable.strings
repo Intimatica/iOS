@@ -13,8 +13,8 @@ WELCOME_SIGN_UP = "Зарегистрироваться";
 WELCOME_GREETING_TEXT = "Заходи, у нас интересно!";
 
 AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
-AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль";
-AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторите пароль";
+AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль (8+ символов)";
+AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторить пароль";
 
 SIGN_UP_VIEW_TITLE = "Регистрация";
 SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";

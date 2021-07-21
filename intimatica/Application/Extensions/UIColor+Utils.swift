@@ -1,6 +1,6 @@
 //
 //  UIColorExtension.swift
-//  
+//
 //
 //  Created by Andrey RustFox on 7/14/21.
 //
@@ -28,6 +28,10 @@ extension UIColor {
     
     class var appYellow: UIColor {
         UIColor(hex: 0xFFDC24)
+    }
+    
+    class var appRed: UIColor {
+        UIColor(hex: 0xFF3333)
     }
 }
 

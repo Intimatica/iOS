@@ -76,14 +76,18 @@ class SignUpViewController: AuthViewController {
 // MARK: - Helper/Constraints
 extension SignUpViewController {
     private struct Constants {
-        static let termsViewHeight: CGFloat = 35
-        static let termsViewTop: CGFloat = 80
-        static let authButtonTop: CGFloat = 30
+        static let termsViewHeight: CGFloat = 45
+        static let termsViewTop: CGFloat = 30
+        static let authButtonTop: CGFloat = 20
     }
 }
 
 // MARK: - TextFieldViewDelegate
 extension SignUpViewController: TextFieldViewDelegate {
+    func textFieldEndEditing(_ textFieldView: TextFieldView) {
+        
+    }
+    
     func textFieldShouldReturn(_ textFieldView: TextFieldView) {
         if textFieldView == emailView {
             passwordView.textField.becomeFirstResponder()

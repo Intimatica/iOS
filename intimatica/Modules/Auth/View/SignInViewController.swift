@@ -87,6 +87,12 @@ extension SignInViewController {
 
 // MARK: - TextFieldViewDelegate
 extension SignInViewController: TextFieldViewDelegate {
+    func textFieldEndEditing(_ textFieldView: TextFieldView) {
+        if textFieldView == emailView {
+            
+        }
+    }
+    
     func textFieldShouldReturn(_ textFieldView: TextFieldView) {
         if textFieldView == emailView {
             passwordView.textField.becomeFirstResponder()

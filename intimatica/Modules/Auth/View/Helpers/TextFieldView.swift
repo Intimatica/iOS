@@ -175,6 +175,7 @@ extension TextFieldView {
         textField.returnKeyType = settings.returnKeyType
         textField.spellCheckingType = .no
         textField.autocapitalizationType = .none
+        textField.text = "a@key42.net"
         return textField
     }
     
@@ -185,6 +186,7 @@ extension TextFieldView {
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.returnKeyType = settings.returnKeyType
+        textField.text = "12345678"
         return textField
     }
     

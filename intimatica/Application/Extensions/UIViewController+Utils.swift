@@ -8,7 +8,10 @@
 import UIKit
 
 extension UIViewController {
-    func l10n(_ text: String) -> String {
-        NSLocalizedString(text, comment: "")
+    func showError(_ message: String, title: String = L10n("ERROR")) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: L10n("OK"), style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }

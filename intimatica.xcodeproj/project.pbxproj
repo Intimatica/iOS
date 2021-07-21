@@ -52,6 +52,7 @@
 		DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB226A5FDB1007020C0 /* SignUp.swift */; };
 		DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */; };
 		DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB826A84427007020C0 /* EyeButton.swift */; };
+		DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBA26A8B7CF007020C0 /* Utils.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		DB2F8BB226A5FDB1007020C0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
+		DB2F8BBA26A8B7CF007020C0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
 				DB2F8BAE26A5E234007020C0 /* AppConstants.swift */,
+				DB2F8BBA26A8B7CF007020C0 /* Utils.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			files = (
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
+				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6A26A2F498007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,

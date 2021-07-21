@@ -12,6 +12,12 @@ class AuthViewController: UIViewController {
     // MARK: - Properties
     private var presenter: AuthPresenterProtocol!
     
+    lazy var emailView = TextFieldView(field: .email(
+                                                .settings(placeholder: L10n("AUTH_EMAIL_FIELD_PLACEHOLDER"), returnKeyType: .next)))
+    
+    lazy var passwordView = TextFieldView(field: .password(
+                                                    .settings(placeholder: L10n("AUTH_PASSWORD_FIELD_PLACEHOLDER"), returnKeyType: .done)))
+    
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -90,6 +96,15 @@ class AuthViewController: UIViewController {
         closeButton.addAction { [weak self] in
             self?.presenter.closeButtonDidTap()
         }
+        
+        authButton.addAction { [weak self] in
+            guard let self = self,
+                  let email = self.emailView.textField.text,
+                  let password = self.passwordView.textField.text
+            else { return }
+            
+            self.presenter.doAuthButtonDidTap(email: email, password: password)
+        }
     }
 }
 
@@ -115,7 +130,7 @@ extension AuthViewController {
     func createTitleLabel(with text: String) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = l10n(text)
+        label.text = L10n(text)
         label.font = .rubik(fontSize: .title, fontWeight: .medium)
         return label
     }

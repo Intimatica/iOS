@@ -10,16 +10,8 @@ import UIKit
 class SignUpViewController: AuthViewController {
     
     // MARK: - Properties
-    private lazy var emailView = TextFieldView(field: .email(
-                                                .settings(placeholder: l10n("AUTH_EMAIL_FIELD_PLACEHOLDER"),returnKeyType: .next)
-    ))
-    
-    private lazy var passwordView = TextFieldView(field: .password(
-                                                    .settings(placeholder: l10n("AUTH_PASSWORD_FIELD_PLACEHOLDER"),returnKeyType: .next)
-    ))
-
     private lazy var passwordConfirmedView = TextFieldView(field: .password(
-                                                            .settings(placeholder: l10n("AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER"), returnKeyType: .done)
+                                                            .settings(placeholder: L10n("AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER"),  returnKeyType: .done)
     ))
     
     private lazy var termsView = TermsAndConditionsView()
@@ -47,19 +39,20 @@ class SignUpViewController: AuthViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
     }
     
     // MARK: - Layout
     private func setupView() {
+        passwordView.textField.returnKeyType = .next
+        
         stackView.addArrangedSubview(emailView)
         stackView.addArrangedSubview(passwordView)
         stackView.addArrangedSubview(passwordConfirmedView)
         
         view.addSubview(termsView)
         
-        titleLabel.text = l10n("SIGN_UP_VIEW_TITLE")
-        authButton.setTitle(l10n("SIGN_UP_BUTTON_TITLE"), for: .normal)
+        titleLabel.text = L10n("SIGN_UP_VIEW_TITLE")
+        authButton.setTitle(L10n("SIGN_UP_BUTTON_TITLE"), for: .normal)
     }
     
     private func setupConstraints() {
@@ -71,18 +64,6 @@ class SignUpViewController: AuthViewController {
             
             authButton.topAnchor.constraint(equalTo: termsView.bottomAnchor, constant: Constants.authButtonTop)
         ])
-    }
-    
-    private func setupActions() {
-        authButton.addAction { [weak self] in
-            guard let self = self,
-                  let email = self.emailView.textField.text,
-                  let password = self.passwordView.textField.text,
-                  let passwordConfirm = self.passwordConfirmedView.textField.text
-            else { return }
-            
-            self.presenter.doAuthButtonDidTap(email: email, password: password, passwordConfirm: passwordConfirm)
-        }
     }
 }
 
@@ -97,14 +78,18 @@ extension SignUpViewController {
 
 // MARK: - AuthViewProtocol
 extension SignUpViewController: AuthViewProtocol {
+    func showNotification(_ message: String) {
+        showError(message)
+    }
+    
     func showValidationError(for fieldContent: FieldType, message: String) {
         switch fieldContent {
         case .email:
-            emailView.showError(message: l10n(message))
+            emailView.showError(message: L10n(message))
         case .password:
-            passwordView.showError(message: l10n(message))
+            passwordView.showError(message: L10n(message))
         case .passwordConfirm:
-            passwordConfirmedView.showError(message: l10n(message))
+            passwordConfirmedView.showError(message: L10n(message))
         }
     }
     

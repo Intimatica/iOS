@@ -9,21 +9,13 @@ import UIKit
 
 class SignInViewController: AuthViewController {
     // MARK: - Properties
-    private lazy var emailView = TextFieldView(field: .email(
-                                                .settings(placeholder: l10n("AUTH_EMAIL_FIELD_PLACEHOLDER"), returnKeyType: .next)))
-    
-    private lazy var passwordView = TextFieldView(field: .password(
-                                                    .settings(placeholder: l10n("AUTH_PASSWORD_FIELD_PLACEHOLDER"), returnKeyType: .done)))
-    
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(l10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
+        button.setTitle(L10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
         button.setTitleColor(.appPurple, for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .small, fontWeight: .medium)
-        button.addAction { [weak self] in
-            self?.presenter.forgotPasswordButtonDidTap()
-        }
+        
         return button
     }()
     
@@ -58,8 +50,8 @@ class SignInViewController: AuthViewController {
         
         view.addSubview(forgotPasswordButton)
         
-        titleLabel.text = l10n("SIGN_IN_VIEW_TITLE")
-        authButton.setTitle(l10n("SIGN_IN_BUTTON_TITLE"), for: .normal)
+        titleLabel.text = L10n("SIGN_IN_VIEW_TITLE")
+        authButton.setTitle(L10n("SIGN_IN_BUTTON_TITLE"), for: .normal)
     }
     
     private func setupConstraints() {
@@ -71,6 +63,12 @@ class SignInViewController: AuthViewController {
             forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             forgotPasswordButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: Constants.forgotPasswordButtonTop)
         ])
+    }
+    
+    private func setupActions() {
+        forgotPasswordButton.addAction { [weak self] in
+            self?.presenter.forgotPasswordButtonDidTap()
+        }
     }
 }
 
@@ -87,12 +85,17 @@ extension SignInViewController {
 
 // MARK: - AuthViewProtocol
 extension SignInViewController: AuthViewProtocol {
+    func showNotification(_ message: String) {
+        showError(message)
+    }
+    
+    
     func showValidationError(for fieldContent: FieldType, message: String) {
         switch fieldContent {
         case .email:
-            emailView.showError(message: l10n(message))
+            emailView.showError(message: L10n(message))
         case .password:
-            passwordView.showError(message: l10n(message))
+            passwordView.showError(message: L10n(message))
         default:
             break
         }

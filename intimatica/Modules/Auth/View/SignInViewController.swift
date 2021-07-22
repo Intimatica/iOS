@@ -69,5 +69,6 @@ extension SignInViewController {
         static let forgotPasswordButtonTop: CGFloat = 25
         static let forgotPasswrodButtonHeight: CGFloat = 50
         static let forgotPasswordButtonWidth: CGFloat = 200
+
     }
 }

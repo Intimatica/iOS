@@ -10,6 +10,7 @@ import XCoordinator
 
 enum AppRoute: Route {
     case launch
+    case ageConfirm
     case welcome
     case signIn
     case signUp
@@ -22,7 +23,7 @@ enum AppRoute: Route {
 class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
-        super.init(initialRoute: .welcome)
+        super.init(initialRoute: .ageConfirm)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -32,10 +33,15 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
 //            let viewController = TestViewController()
 //            return .present(viewController)
         
+        case .ageConfirm:
+            let presenter = AgeConfirmPresenter(router: strongRouter)
+            let viewController = AgeConfirmViewController(presenter: presenter)
+            return .push(viewController)
+        
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)
             let viewController = WelcomeViewController(presenter: presenter)
-            return .push(viewController)
+            return .set([viewController])
             
         case .signUp:
             let networkService = AuthNetworkService()

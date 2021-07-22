@@ -19,7 +19,7 @@
 		DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */; };
 		DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4426A037D0007020C0 /* AuthViewController.swift */; };
 		DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4726A219FC007020C0 /* TextFieldView.swift */; };
-		DB2F8B6A26A2F498007020C0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6926A2F498007020C0 /* TermsAndConditionsView.swift */; };
+		DB2F8B6A26A2F498007020C0 /* TermsAndConditionsViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */; };
 		DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */; };
 		DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */; };
 		DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */; };
@@ -53,6 +53,10 @@
 		DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */; };
 		DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB826A84427007020C0 /* EyeButton.swift */; };
 		DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBA26A8B7CF007020C0 /* Utils.swift */; };
+		DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBC26A9486D007020C0 /* AgeConfirmViewController.swift */; };
+		DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */; };
+		DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */; };
+		DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -74,7 +78,7 @@
 		DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8B4426A037D0007020C0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DB2F8B4726A219FC007020C0 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
-		DB2F8B6926A2F498007020C0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewHelper.swift; sourceTree = "<group>"; };
 		DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -108,6 +112,10 @@
 		DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		DB2F8BBA26A8B7CF007020C0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DB2F8BBC26A9486D007020C0 /* AgeConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmViewController.swift; sourceTree = "<group>"; };
+		DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
+		DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 				DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */,
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
 				DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */,
+				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8B4726A219FC007020C0 /* TextFieldView.swift */,
-				DB2F8B6926A2F498007020C0 /* TermsAndConditionsView.swift */,
+				DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */,
 				DB2F8BB826A84427007020C0 /* EyeButton.swift */,
 			);
 			path = Helpers;
@@ -283,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */,
+				DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -290,7 +300,9 @@
 		DB2F8BA126A59E2A007020C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB2F8BBE26A951E4007020C0 /* Helpers */,
 				DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */,
+				DB2F8BBC26A9486D007020C0 /* AgeConfirmViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +325,14 @@
 				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DB2F8BBE26A951E4007020C0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -490,8 +510,9 @@
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
-				DB2F8B6A26A2F498007020C0 /* TermsAndConditionsView.swift in Sources */,
+				DB2F8B6A26A2F498007020C0 /* TermsAndConditionsViewHelper.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
+				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
@@ -505,7 +526,10 @@
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
+				DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */,
+				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
+				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,

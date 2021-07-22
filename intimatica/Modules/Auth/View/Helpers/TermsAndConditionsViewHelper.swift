@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TermsAndConditionsView: UIView {
+final class TermsAndConditionsViewHelper: UIView {
 
     // MARK: - Properties
     private lazy var radioButton: UIButton = {
@@ -67,7 +67,7 @@ final class TermsAndConditionsView: UIView {
 }
 
 // MARK: - Helper/Constraints
-extension TermsAndConditionsView {
+extension TermsAndConditionsViewHelper {
     private struct Constraints {
         static let radioButtonTopButtom: CGFloat = 5
         static let textLabelLeading: CGFloat = 14

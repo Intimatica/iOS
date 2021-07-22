@@ -10,7 +10,7 @@ import UIKit
 final class SignUpViewController: AuthViewController {
     
     // MARK: - Properties
-    private lazy var termsView = TermsAndConditionsView()
+    private lazy var termsView = TermsAndConditionsViewHelper()
     private var presenter: SignUpPresenterProtocol!
     
     // MARK: - Initializers

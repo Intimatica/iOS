@@ -12,6 +12,15 @@ class WelcomeViewController: UIViewController {
     // MARK: - Properties
     private var presenter: WelcomePresenterProtocol!
     
+    private lazy var backgroundImage: UIImageView = {
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "WelcomeScreenBackground")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.center = view.center
+        return imageView
+    }()
+    
     private lazy var titleImage: UIImageView = {
         let imageName = "Intimatica_title"
         let imageView = UIImageView(image: UIImage(named: imageName))
@@ -69,7 +78,7 @@ class WelcomeViewController: UIViewController {
  
     // MARK: - Layout
     private func setupUI() {
-        view.backgroundColor = .appPurple
+        view.addSubview(backgroundImage)
         
         view.addSubview(titleImage)
         view.addSubview(signInButton)
@@ -77,6 +86,11 @@ class WelcomeViewController: UIViewController {
         view.addSubview(welcomeLabel)
 
         NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             titleImage.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: Constants.signInButtonTop),
             titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleImageLeadingTrailing),
             titleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleImageLeadingTrailing),

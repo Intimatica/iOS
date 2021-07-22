@@ -36,7 +36,7 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
             let viewController = AgeConfirmViewController(presenter: presenter)
-            return .push(viewController)
+            return .set([viewController])
         
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)

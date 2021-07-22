@@ -26,11 +26,6 @@ class WelcomeViewController: UIViewController {
         button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .appYellow
-        
-        button.addAction { [weak self] in
-            self?.presenter.singInButtonDidTap()
-        }
-        
         return button
     }()
     
@@ -42,11 +37,6 @@ class WelcomeViewController: UIViewController {
         button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
-        
-        button.addAction { [weak self] in
-            self?.presenter.singUpButtonDidTap()
-        }
-        
         return button
     }()
     
@@ -72,19 +62,11 @@ class WelcomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
+        setupActions()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
+ 
     // MARK: - Layout
     private func setupUI() {
         view.backgroundColor = .appPurple
@@ -114,6 +96,16 @@ class WelcomeViewController: UIViewController {
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             welcomeLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.welcomeLabelTop)
         ])
+    }
+    
+    private func setupActions() {
+        signInButton.addAction { [weak self] in
+            self?.presenter.singInButtonDidTap()
+        }
+        
+        signUpButton.addAction { [weak self] in
+            self?.presenter.singUpButtonDidTap()
+        }
     }
 }
 

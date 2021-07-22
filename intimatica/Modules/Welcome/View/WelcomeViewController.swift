@@ -20,12 +20,26 @@ class WelcomeViewController: UIViewController {
         imageView.center = view.center
         return imageView
     }()
+
+    private lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = L10n("WELCOME_GREETING_TEXT")
+        label.textColor = .white
+        label.font = .rubik(fontSize: .subTitle, fontWeight: .medium)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
     
-    private lazy var titleImage: UIImageView = {
-        let imageName = "Intimatica_title"
-        let imageView = UIImageView(image: UIImage(named: imageName))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private lazy var signUpButton: UIButton = {
+        let button = UIRoundedButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(L10n("WELCOME_SIGN_UP"), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = .rubik(fontWeight: .medium)
+        button.backgroundColor = .appYellow
+        return button
     }()
     
     private lazy var signInButton: UIButton = {
@@ -33,29 +47,10 @@ class WelcomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("WELCOME_SIGN_IN"), for: .normal)
         button.titleLabel?.font = .rubik(fontWeight: .medium)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .appYellow
-        return button
-    }()
-    
-    private lazy var signUpButton: UIButton = {
-        let button = UIRoundedButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(L10n("WELCOME_SIGN_UP"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
         return button
-    }()
-    
-    private lazy var welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = L10n("WELCOME_GREETING_TEXT")
-        label.textColor = .white
-        label.font = .rubik(fontWeight: .medium)
-        return label
     }()
     
     // MARK: - Initializers
@@ -80,10 +75,10 @@ class WelcomeViewController: UIViewController {
     private func setupUI() {
         view.addSubview(backgroundImage)
         
-        view.addSubview(titleImage)
-        view.addSubview(signInButton)
-        view.addSubview(signUpButton)
         view.addSubview(welcomeLabel)
+        view.addSubview(signUpButton)
+        view.addSubview(signInButton)
+        
 
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -91,24 +86,20 @@ class WelcomeViewController: UIViewController {
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            titleImage.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: Constants.signInButtonTop),
-            titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleImageLeadingTrailing),
-            titleImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleImageLeadingTrailing),
-            titleImage.heightAnchor.constraint(equalTo: titleImage.widthAnchor,
-                                               multiplier: titleImage.frame.height / titleImage.frame.width),
-
-            signInButton.widthAnchor.constraint(equalToConstant: Constants.signInButtonWidth),
-            signInButton.heightAnchor.constraint(equalToConstant: Constants.signInButtonHeigh),
-            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signInButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Constants.singInButtonTop),
-
-            signUpButton.widthAnchor.constraint(equalTo: signInButton.widthAnchor),
-            signUpButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor),
-            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: Constants.signUpButtonTop),
-            signUpButton.centerXAnchor.constraint(equalTo: signInButton.centerXAnchor),
-
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.welcomeLabelTop)
+            welcomeLabel.widthAnchor.constraint(equalToConstant: Constants.welcomeLabelWidth),
+            welcomeLabel.heightAnchor.constraint(equalToConstant: Constants.welcomeLabelHeight),
+            welcomeLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -Constants.welcomeLabelBottom),
+         
+            signUpButton.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            signUpButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
+            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signUpButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Constants.singUpButtonTop),
+
+            signInButton.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            signInButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
+            signInButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.signInButtonTop),
+            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
     
@@ -126,12 +117,14 @@ class WelcomeViewController: UIViewController {
 // MARK: - Helpers/Constraints
 private extension WelcomeViewController {
     struct Constants {
-        static let signInButtonTop: CGFloat = -30
-        static let titleImageLeadingTrailing: CGFloat = 78
-        static let signInButtonWidth: CGFloat = 285
-        static let signInButtonHeigh: CGFloat = 50
-        static let singInButtonTop: CGFloat = -50
-        static let signUpButtonTop: CGFloat = 20
-        static let welcomeLabelTop: CGFloat = 30
+        static let buttonWidth: CGFloat = 285
+        static let buttonHeight: CGFloat = 50
+        
+        static let welcomeLabelWidth: CGFloat = 280
+        static let welcomeLabelHeight: CGFloat = 60
+        static let welcomeLabelBottom: CGFloat = 30
+        
+        static let singUpButtonTop: CGFloat = -50
+        static let signInButtonTop: CGFloat = 20
     }
 }

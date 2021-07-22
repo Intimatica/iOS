@@ -47,7 +47,7 @@ class AuthNetworkService: NetworkServiceProtocol {
     // MARK: - signUp
     func signUp(email: String, password: String, completionHandler: @escaping AuthHandler) {
         let url = AppConstants.serverURL + "/auth/local/register"
-        let parameters: [String: String] = ["email": email, "username": email, "password": password]
+        let parameters: [String: String] = ["email": email, "password": password]
         
         auth(url: url, parameters: parameters, completionHandler: completionHandler)
     }
@@ -90,7 +90,7 @@ class AuthNetworkService: NetworkServiceProtocol {
         do {
             let strapiError = try JSONDecoder().decode(StrapiError.self, from: data)
             
-            switch strapiError.data.first?.messages.first?.id {
+            switch strapiError.message.first?.messages.first?.id {
             // auth
             case "Auth.form.error.ratelimit":
                 return .rateLimit

@@ -13,28 +13,32 @@ struct AuthResponse: Decodable {
 }
 
 // MARK: - User
-struct User: Decodable {
-    let id: Int
-    let username: String
-    let email: String
-    let provider: String
-    let confirmed: Bool
-    let blocked: Bool?
-    let role: Role
-    let createdAt: String
-    let updatedAt: String
+extension AuthResponse {
+    struct User: Decodable {
+        let id: Int
+        let username: String?
+        let email: String
+        let provider: String
+        let confirmed: Bool
+        let blocked: Bool?
+        let role: Role
+        let createdAt: String
+        let updatedAt: String
 
-    enum CodingKeys: String, CodingKey {
-        case id, username, email, provider, confirmed, blocked, role
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        enum CodingKeys: String, CodingKey {
+            case id, username, email, provider, confirmed, blocked, role
+            case createdAt = "created_at"
+            case updatedAt = "updated_at"
+        }
     }
 }
 
 // MARK: - Role
-struct Role: Decodable {
-    let id: Int
-    let name: String
-    let description: String
-    let type: String
+extension AuthResponse {
+    struct Role: Decodable {
+        let id: Int
+        let name: String
+        let description: String
+        let type: String
+    }
 }

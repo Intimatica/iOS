@@ -7,21 +7,29 @@
 
 import Foundation
 
+/**
+ Pay attantion rate limit error message doesn't have statusCode, error and data field
+ */
+
 // MARK: - StrapiError
-struct StrapiError: Codable {
-    let statusCode: Int
-    let error: String
+struct StrapiError: Decodable {
+//    let statusCode: Int
+//    let error: String
     let message: [Datum]
-    let data: [Datum]
+//    let data: [Datum]
 }
 
 // MARK: - Datum
-struct Datum: Codable {
-    let messages: [Message]
+extension StrapiError {
+    struct Datum: Decodable {
+        let messages: [Message]
+    }
 }
 
 // MARK: - Message
-struct Message: Codable {
-    let id: String
-    let message: String
+extension StrapiError {
+    struct Message: Decodable {
+        let id: String
+        let message: String
+    }
 }

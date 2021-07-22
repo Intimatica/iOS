@@ -19,7 +19,6 @@
 		DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */; };
 		DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4426A037D0007020C0 /* AuthViewController.swift */; };
 		DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4726A219FC007020C0 /* TextFieldView.swift */; };
-		DB2F8B6A26A2F498007020C0 /* TermsAndConditionsViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */; };
 		DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */; };
 		DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */; };
 		DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */; };
@@ -78,7 +77,6 @@
 		DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8B4426A037D0007020C0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DB2F8B4726A219FC007020C0 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
-		DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewHelper.swift; sourceTree = "<group>"; };
 		DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8B4726A219FC007020C0 /* TextFieldView.swift */,
-				DB2F8B6926A2F498007020C0 /* TermsAndConditionsViewHelper.swift */,
 				DB2F8BB826A84427007020C0 /* EyeButton.swift */,
 			);
 			path = Helpers;
@@ -510,7 +507,6 @@
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
-				DB2F8B6A26A2F498007020C0 /* TermsAndConditionsViewHelper.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,

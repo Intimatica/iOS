@@ -10,7 +10,6 @@ import UIKit
 final class SignUpViewController: AuthViewController {
     
     // MARK: - Properties
-    private lazy var termsView = TermsAndConditionsViewHelper()
     private var presenter: SignUpPresenterProtocol!
     
     // MARK: - Initializers
@@ -43,30 +42,17 @@ final class SignUpViewController: AuthViewController {
         stackView.addArrangedSubview(emailView)
         stackView.addArrangedSubview(passwordView)
         stackView.addArrangedSubview(passwordConfirmedView)
-        
-        view.addSubview(termsView)
-        
+
         titleLabel.text = L10n("SIGN_UP_VIEW_TITLE")
         authButton.setTitle(L10n("SIGN_UP_BUTTON_TITLE"), for: .normal)
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            termsView.heightAnchor.constraint(equalToConstant: Constants.termsViewHeight),
-            termsView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Constants.termsViewTop),
-            termsView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            termsView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            
-            authButton.topAnchor.constraint(equalTo: termsView.bottomAnchor, constant: Constants.authButtonTop)
-        ])
     }
 }
 
 // MARK: - Helper/Constraints
 extension SignUpViewController {
     private struct Constants {
-        static let termsViewHeight: CGFloat = 45
-        static let termsViewTop: CGFloat = 30
-        static let authButtonTop: CGFloat = 20
     }
 }

@@ -45,9 +45,7 @@ final class SignInViewController: AuthViewController {
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            authButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Constants.authButtonTop),
-            
+        NSLayoutConstraint.activate([            
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: Constants.forgotPasswordButtonWidth),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: Constants.forgotPasswrodButtonHeight),
             forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -65,10 +63,8 @@ final class SignInViewController: AuthViewController {
 // MARK: - Helper/Constraints
 extension SignInViewController {
     private struct Constants {
-        static let authButtonTop: CGFloat = 80
         static let forgotPasswordButtonTop: CGFloat = 25
         static let forgotPasswrodButtonHeight: CGFloat = 50
         static let forgotPasswordButtonWidth: CGFloat = 200
-
     }
 }

@@ -100,6 +100,7 @@ class AuthViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.stackViewTop),
             stackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
+            authButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Constants.authButtonTop),
             authButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             authButton.heightAnchor.constraint(equalToConstant: Constants.authButtonHeigh),
             authButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
@@ -135,6 +136,7 @@ extension AuthViewController {
         static let stackViewSpacing: CGFloat = 30
         static let stackViewTop: CGFloat = 20
         
+        static let authButtonTop: CGFloat = 40
         static let authButtonHeigh: CGFloat = 50
     }
 }

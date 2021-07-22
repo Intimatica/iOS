@@ -30,6 +30,7 @@ AUTH_PASSWORD_CONFIRM_DONT_MATCH = "Пароли не совпадают";
 
 SIGN_UP_VIEW_TITLE = "Регистрация";
 SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";
+SIGN_UP_I_HAVE_ACCOUNT_BUTTON = "У меня уже есть аккаунт";
 
 SIGN_IN_VIEW_TITLE = "Войти";
 SIGN_IN_BUTTON_TITLE = "Войти";

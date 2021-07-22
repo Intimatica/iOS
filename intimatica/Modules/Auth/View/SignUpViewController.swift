@@ -33,6 +33,7 @@ final class SignUpViewController: AuthViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     // MARK: - Layout
@@ -45,14 +46,31 @@ final class SignUpViewController: AuthViewController {
 
         titleLabel.text = L10n("SIGN_UP_VIEW_TITLE")
         authButton.setTitle(L10n("SIGN_UP_BUTTON_TITLE"), for: .normal)
+        
+        view.addSubview(accountExistButton)
     }
     
     private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            accountExistButton.widthAnchor.constraint(equalToConstant: Constants.accountExistButtonWidth),
+            accountExistButton.heightAnchor.constraint(equalToConstant: Constants.accountExistButtonHeight),
+            accountExistButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: Constants.accountExistButtonTop),
+            accountExistButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func setupActions() {
+        accountExistButton.addAction { [weak self] in
+            self?.presenter.accountExistButtonDidTap()
+        }
     }
 }
 
 // MARK: - Helper/Constraints
 extension SignUpViewController {
     private struct Constants {
+        static let accountExistButtonTop: CGFloat = 20
+        static let accountExistButtonWidth: CGFloat = 250
+        static let accountExistButtonHeight: CGFloat = 20
     }
 }

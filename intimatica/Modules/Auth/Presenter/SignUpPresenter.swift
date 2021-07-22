@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SignUpPresenterProtocol: AuthPresenterProtocol {
-    
+    func accountExistButtonDidTap()
 }
 
 final class SignUpPresenter: AuthPresenter {
@@ -17,6 +17,10 @@ final class SignUpPresenter: AuthPresenter {
 
 // MARK: - SignUpPresenterProtocol
 extension SignUpPresenter: SignUpPresenterProtocol {
+    func accountExistButtonDidTap() {
+        router.trigger(.signIn)
+    }
+    
     override func doAuthButtonDidTap(email: String, password: String) {
         networkService.signUp(email: email, password: password) { [weak self] result in
             guard let self = self else { return }

@@ -35,8 +35,17 @@ class AuthViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
         button.setTitleColor(.appPurple, for: .normal)
-        button.titleLabel?.font = .rubik(fontSize: .small, fontWeight: .medium)
+        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
         
+        return button
+    }()
+    
+    lazy var accountExistButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(L10n("SIGN_UP_I_HAVE_ACCOUNT_BUTTON"), for: .normal)
+        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
+        button.setTitleColor(.appPurple, for: .normal)
         return button
     }()
     
@@ -53,9 +62,10 @@ class AuthViewController: UIViewController {
     lazy var authButton: UIButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .appPurple
         button.titleLabel?.font = .rubik(fontWeight: .medium)
-        
+        button.setBackgroundColor(.appPurple, for: .normal)
+        button.setBackgroundColor(.appGray, for: .disabled)
+//        button.isEnabled = false
         return button
     }()
     
@@ -85,7 +95,7 @@ class AuthViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(stackView)
         view.addSubview(authButton)
-        
+                
         NSLayoutConstraint.activate([
             closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),

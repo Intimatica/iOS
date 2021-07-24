@@ -130,7 +130,6 @@ final class TextFieldView: UIView {
     
     func hideError() {
         errorLabel.isHidden = true
-        spacer.backgroundColor = .appGray
     }
     
     private func addEyeButton() {
@@ -219,17 +218,35 @@ extension TextFieldView: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard textField.textContentType == .password else { return }
+        spacer.backgroundColor = .appPurple
+        hideError()
         
+        NSObject.cancelPreviousPerformRequests(
+            withTarget: self,
+            selector: #selector(TextFieldView.stopedEditing),
+            object: textField)
+        self.perform(
+            #selector(TextFieldView.stopedEditing),
+            with: textField,
+            afterDelay: 0.75)
+        
+        // eye button for password field
+        guard textField.textContentType == .password else { return }
+
         if let text = textField.text, text.count > 0 {
             eyeButton.backgroundImageState = textField.isSecureTextEntry ? .active : .insecure
         } else {
             eyeButton.backgroundImageState = .inactive
         }
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         delegate?.textFieldShouldReturn(self)
         return true
+    }
+    
+    @objc func stopedEditing(textField: UITextField) {
+        delegate?.textFieldEndEditing(self)
     }
 }

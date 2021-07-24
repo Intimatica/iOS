@@ -24,6 +24,7 @@ protocol AuthViewProtocol: AnyObject {
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
     func showNotification(_ message: String)
+    func changeAuthButton(isEnabled: Bool)
 }
 
 class AuthPresenter {
@@ -32,12 +33,16 @@ class AuthPresenter {
     //MARK: - Properties
     let router: Router!
     weak var view: AuthViewProtocol?
-    let networkService: AuthNetworkService!
+    let useCase: AuthUseCaseProtocol!
+    
+    var emailFieldIsValid = false
+    var passwordFieldIsValid = false
+    var passwordConfirmFieldIsValid = false
     
     // MARK: - Initializers
-    init(router: Router, networkService: AuthNetworkService) {
+    init(router: Router, useCase: AuthUseCaseProtocol) {
         self.router = router
-        self.networkService = networkService
+        self.useCase = useCase
     }
     
     func getLocalizedAuthErrorMessage(from authError: AuthError) -> String {
@@ -72,16 +77,6 @@ class AuthPresenter {
             return error
         }
     }
-}
-
-// MARK: - AuthPresenterProtocol
-extension AuthPresenter: AuthPresenterProtocol {
-    @objc func doAuthButtonDidTap(email: String, password: String) {
-    }
-    
-    func closeButtonDidTap() {
-        router.trigger(.dismiss)
-    }
     
     func validate(_ field: FieldType, with value: String?) {
         switch field {
@@ -94,8 +89,14 @@ extension AuthPresenter: AuthPresenterProtocol {
         }
     }
     
+    /*
+     TODO: compact this into one func
+     */
+    
     private func validateEmail(_ string: String?) {
-        if (Validators.isEmailValid(string)) {
+        emailFieldIsValid = useCase.isEmailValid(string)
+        
+        if emailFieldIsValid {
             view?.hideValidationError(for: .email)
         } else {
             view?.showValidationError(for: .email, message: "AUTH_EMAIL_INVALID")
@@ -103,7 +104,9 @@ extension AuthPresenter: AuthPresenterProtocol {
     }
     
     private func validatePassword(_ string: String?) {
-        if (Validators.isPasswordValid(string)) {
+        passwordFieldIsValid = useCase.isPasswordValid(string)
+        
+        if passwordFieldIsValid {
             view?.hideValidationError(for: .password)
         } else {
             view?.showValidationError(for: .password, message: "AUTH_PASSWORD_INVALID")
@@ -111,7 +114,9 @@ extension AuthPresenter: AuthPresenterProtocol {
     }
     
     private func validatePasswordConfirm(_ string: String?) {
-        if (Validators.isPasswordValid(string)) {
+        passwordConfirmFieldIsValid = useCase.isPasswordValid(string)
+        
+        if passwordConfirmFieldIsValid {
             view?.hideValidationError(for: .passwordConfirm)
         } else {
             view?.showValidationError(for: .passwordConfirm, message: "AUTH_PASSWORD_CONFIRM_DONT_MATCH")
@@ -119,21 +124,12 @@ extension AuthPresenter: AuthPresenterProtocol {
     }
 }
 
-// MARK: - Helper/Validators
-struct Validators {
-    
-    static func isEmailValid(_ string: String?) -> Bool {
-        guard let string = string else { return false }
-        
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        
-        return emailPredicate.evaluate(with: string)
+// MARK: - AuthPresenterProtocol
+extension AuthPresenter: AuthPresenterProtocol {
+    @objc func doAuthButtonDidTap(email: String, password: String) {
     }
     
-    static func isPasswordValid(_ password: String?) -> Bool {
-        guard let password = password else { return false }
-
-        return password.count >= 8
+    func closeButtonDidTap() {
+        router.trigger(.dismiss)
     }
 }

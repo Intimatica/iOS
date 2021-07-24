@@ -12,7 +12,11 @@ protocol  SignInPresenterProtocol: AuthPresenterProtocol {
 }
 
 final class SignInPresenter: AuthPresenter {
-    
+    override func validate(_ field: FieldType, with value: String?) {
+        super.validate(field, with: value)
+        
+        view?.changeAuthButton(isEnabled: emailFieldIsValid && passwordFieldIsValid)
+    }
 }
 
 // MARK: - SingInPresenterProtocol
@@ -22,7 +26,7 @@ extension SignInPresenter: SignInPresenterProtocol {
     }
     
     override func doAuthButtonDidTap(email: String, password: String) {
-        networkService.signIn(email: email, password: password) { [weak self] result in
+        useCase.signIn(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

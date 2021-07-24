@@ -45,14 +45,22 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             
         case .signUp:
             let networkService = AuthNetworkService()
-            let presenter = SignUpPresenter(router: strongRouter, networkService: networkService)
+            let validatorService = AuthValidatorService()
+            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
+            let useCase = AuthUseCase(repository: repository)
+            
+            let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
             let viewController = SignUpViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .signIn:
             let networkService = AuthNetworkService()
-            let presenter = SignInPresenter(router: strongRouter, networkService: networkService)
+            let validatorService = AuthValidatorService()
+            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
+            let useCase = AuthUseCase(repository: repository)
+            
+            let presenter = SignInPresenter(router: strongRouter, useCase: useCase)
             let viewController = SignInViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

@@ -19,6 +19,7 @@ struct TextFieldViewFieldSettings {
 enum TextFieldViewField {
     case email(TextFieldViewFieldSettings)
     case password(TextFieldViewFieldSettings)
+    case nickname(TextFieldViewFieldSettings)
 }
 
 protocol TextFieldViewDelegate {
@@ -91,7 +92,12 @@ final class TextFieldView: UIView {
         
         case .password(let settings):
             textField = createPasswordField(from: settings)
+            
+        case .nickname(let settings):
+            textField = createNicknameField(from: settings)
         }
+        
+        
         
         textField.delegate = self
     }
@@ -175,7 +181,7 @@ extension TextFieldView {
         textField.returnKeyType = settings.returnKeyType
         textField.spellCheckingType = .no
         textField.autocapitalizationType = .none
-        textField.text = "a12@key42.net"
+        textField.text = "a@key42.net"
         return textField
     }
     
@@ -187,6 +193,15 @@ extension TextFieldView {
         textField.isSecureTextEntry = true
         textField.returnKeyType = settings.returnKeyType
         textField.text = "12345678"
+        return textField
+    }
+    
+    func createNicknameField(from settings: TextFieldViewFieldSettings) -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = settings.placeholder
+        textField.textContentType = .nickname
+        textField.returnKeyType = settings.returnKeyType
         return textField
     }
     

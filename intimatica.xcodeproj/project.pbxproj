@@ -56,6 +56,8 @@
 		DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */; };
 		DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */; };
 		DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */; };
+		DB2F8BCB26A9FB11007020C0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BCA26A9FB11007020C0 /* ProfileViewController.swift */; };
+		DB2F8BCD26AA0260007020C0 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BCC26AA0260007020C0 /* ProfilePresenter.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -114,6 +116,8 @@
 		DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
+		DB2F8BCA26A9FB11007020C0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DB2F8BCC26AA0260007020C0 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				DB2F8B4426A037D0007020C0 /* AuthViewController.swift */,
 				DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */,
 				DB2F8B7426A35726007020C0 /* SignInViewController.swift */,
+				DB2F8BCA26A9FB11007020C0 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				DB2F8B6B26A34DEF007020C0 /* AuthPresenter.swift */,
 				DB2F8B6D26A35644007020C0 /* SignInPresenter.swift */,
 				DB2F8B7226A356B2007020C0 /* SignUpPresenter.swift */,
+				DB2F8BCC26AA0260007020C0 /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
+				DB2F8BCD26AA0260007020C0 /* ProfilePresenter.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
@@ -515,6 +522,7 @@
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */,
+				DB2F8BCB26A9FB11007020C0 /* ProfileViewController.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,

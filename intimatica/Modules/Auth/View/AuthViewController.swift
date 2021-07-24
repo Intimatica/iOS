@@ -30,6 +30,10 @@ class AuthViewController: UIViewController {
                                                             .settings(placeholder: L10n("AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER"),  returnKeyType: .done)
     ))
     
+    lazy var nicknameView = TextFieldView(field: .nickname(
+                                                            .settings(placeholder: L10n("PROFILE_NICKNAME_FIELD_TITLE"),  returnKeyType: .next)
+    ))
+    
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

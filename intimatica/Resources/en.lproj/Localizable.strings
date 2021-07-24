@@ -49,3 +49,11 @@ AUTH_ERROR_PASSWORD_PROVIDE = "Укажите свой пароль.";
 AUTH_ERROR_RATE_LIMIT = "Слишком много попыток, повторите через минуту";
 AUTH_ERROR_USER_NOT_EXIST = "Этот e-mail не существует.";
 AUTH_ERROR_USERNAME_TAKEN = "Имя пользователя уже используется";
+
+PROFILE_VIEW_TITLE = "Мой профиль";
+PROFILE_NICKNAME_FIELD_TITLE = "Никнейм";
+PROFILE_SEX_FIELD_TITLE = "Пол";
+PROFILE_BIRTHDATE_FIELD_TITLE = "Дата рождения";
+PROFILE_SAVE_BUTTON_TITLE = "Сохранить";
+PROFILE_FILL_LATER_BUTTON_TITLE = "Заполнить позже";
+

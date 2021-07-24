@@ -14,6 +14,7 @@ enum AppRoute: Route {
     case welcome
     case signIn
     case signUp
+    case profile
     case logout
     case forgotPassword
     case home
@@ -23,7 +24,7 @@ enum AppRoute: Route {
 class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
-        super.init(initialRoute: .ageConfirm)
+        super.init(initialRoute: .profile)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -57,6 +58,12 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             presenter.view = viewController
             return .present(viewController)
         
+        case .profile:
+            let networkService = AuthNetworkService()
+            let presenter = ProfilePresenter(router: strongRouter, networkService: networkService)
+            let viewController = ProfileViewController(presenter: presenter)
+            return .present(viewController)
+            
         case .dismiss:
             return .dismiss()
         

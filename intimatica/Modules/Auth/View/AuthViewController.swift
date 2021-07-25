@@ -69,7 +69,7 @@ class AuthViewController: UIViewController {
         button.titleLabel?.font = .rubik(fontWeight: .medium)
         button.setBackgroundColor(.appPurple, for: .normal)
         button.setBackgroundColor(.appGray, for: .disabled)
-//        button.isEnabled = false
+        button.isEnabled = false
         return button
     }()
     
@@ -90,6 +90,7 @@ class AuthViewController: UIViewController {
         
         setupUI()
         setupActions()
+        enableHideKeyboardOnTap()
     }
     
     // MARK: - Layout
@@ -168,6 +169,10 @@ extension AuthViewController {
 
 // MARK: - AuthViewProtocol
 extension AuthViewController: AuthViewProtocol {
+    func changeAuthButton(isEnabled: Bool) {
+        authButton.isEnabled = isEnabled
+    }
+    
     func showNotification(_ message: String) {
         showError(message)
     }

@@ -86,6 +86,7 @@ class AuthViewController: UIViewController {
         
         setupUI()
         setupActions()
+        enableHideKeyboardOnTap()
     }
     
     // MARK: - Layout

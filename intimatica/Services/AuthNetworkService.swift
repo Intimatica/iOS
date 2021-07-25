@@ -15,30 +15,6 @@ protocol NetworkServiceProtocol {
     func signIn(email: String, password: String, completionHandler: @escaping AuthHandler)
 }
 
-enum AuthError: Error {
-    case connectionFailed
-    case unhandledError(String)
-    
-    // auth
-    case emailProvide
-    case passwordProvide
-    case rateLimit
-    
-    //sign up
-    case usernameTaken
-    case emailInvalid
-    case emailTaken
-    case passwordFormat
-
-    
-    // sign in
-    case invalid
-    case blocked
-    case passwordLocal
-    case userNotExist
-    case emailNotConfirmed
-}
-
 class AuthNetworkService: NetworkServiceProtocol {
     let headers: HTTPHeaders = [
         "Accept": "application/json"

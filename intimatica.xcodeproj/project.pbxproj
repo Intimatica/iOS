@@ -62,6 +62,7 @@
 		DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595026AC998A00842771 /* AuthRepository.swift */; };
 		DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595226AC9B4600842771 /* AuthValidatorService.swift */; };
 		DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595526ACA2F900842771 /* AuthUseCase.swift */; };
+		DB8A595826AD553200842771 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595726AD553200842771 /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		DB8A595026AC998A00842771 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		DB8A595226AC9B4600842771 /* AuthValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidatorService.swift; sourceTree = "<group>"; };
 		DB8A595526ACA2F900842771 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		DB8A595726AD553200842771 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,10 +325,7 @@
 		DB2F8BA726A5BA7C007020C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */,
-				DB2F8BA826A5BAF9007020C0 /* SignIn.swift */,
-				DB2F8BB226A5FDB1007020C0 /* SignUp.swift */,
-				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
+				DB8A595926AD556300842771 /* Auth */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +384,18 @@
 				DB8A595526ACA2F900842771 /* AuthUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		DB8A595926AD556300842771 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */,
+				DB2F8BA826A5BAF9007020C0 /* SignIn.swift */,
+				DB2F8BB226A5FDB1007020C0 /* SignUp.swift */,
+				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
+				DB8A595726AD553200842771 /* AuthError.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -544,6 +555,7 @@
 				DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
+				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,

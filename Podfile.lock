@@ -1,22 +1,30 @@
 PODS:
   - Alamofire (5.4.3)
+  - KeychainSwift (19.0.0)
+  - SwiftLint (0.43.1)
   - XCoordinator (2.0.7):
     - XCoordinator/Core (= 2.0.7)
   - XCoordinator/Core (2.0.7)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - KeychainSwift (~> 19.0)
+  - SwiftLint
   - XCoordinator (~> 2.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - KeychainSwift
+    - SwiftLint
     - XCoordinator
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: 892caadf8ad72f860016f19e9b9a21b12cb5ae63
+PODFILE CHECKSUM: b7f298e954c475d4569a442901c627733bfd9ed4
 
 COCOAPODS: 1.10.1

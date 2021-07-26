@@ -23,15 +23,15 @@ enum AppRoute: Route {
 class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
-        super.init(initialRoute: .ageConfirm)
+        super.init(initialRoute: .launch)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
         
-//        case .launch:
-//            let viewController = TestViewController()
-//            return .present(viewController)
+        case .launch:
+            let viewController = LaunchViewController()
+            return .set([viewController])
         
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
@@ -45,8 +45,9 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             
         case .signUp:
             let networkService = AuthNetworkService()
+            let keychainService = KeychainService()
             let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
+            let repository = AuthRepository(networkService: networkService, keychainService: keychainService, validatorService: validatorService)
             let useCase = AuthUseCase(repository: repository)
             
             let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
@@ -56,8 +57,9 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             
         case .signIn:
             let networkService = AuthNetworkService()
+            let keychainService = KeychainService()
             let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
+            let repository = AuthRepository(networkService: networkService, keychainService: keychainService, validatorService: validatorService)
             let useCase = AuthUseCase(repository: repository)
             
             let presenter = SignInPresenter(router: strongRouter, useCase: useCase)
@@ -71,5 +73,9 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         default:
             fatalError("in progress")
         }
+    }
+    
+    func configureLauch() {
+        
     }
 }

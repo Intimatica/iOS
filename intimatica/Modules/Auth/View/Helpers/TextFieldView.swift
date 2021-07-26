@@ -20,6 +20,8 @@ enum TextFieldViewField {
     case email(TextFieldViewFieldSettings)
     case password(TextFieldViewFieldSettings)
     case nickname(TextFieldViewFieldSettings)
+    case gender(TextFieldViewFieldSettings)
+    case birthdate(TextFieldViewFieldSettings)
 }
 
 protocol TextFieldViewDelegate {
@@ -95,10 +97,14 @@ final class TextFieldView: UIView {
             
         case .nickname(let settings):
             textField = createNicknameField(from: settings)
+            
+        case .gender(let settings):
+            textField = createGenderField(from: settings)
+        
+        case .birthdate(let settings):
+            textField = createBirthDateField(from: settings)
         }
-        
-        
-        
+
         textField.delegate = self
     }
     
@@ -204,11 +210,37 @@ extension TextFieldView {
         return textField
     }
     
+    func createGenderField(from settings: TextFieldViewFieldSettings) -> UITextField {
+        let pickerKeyboard = PickerKeyboard()
+        pickerKeyboard.data = ["Male", "Female", "Other", "I don't know"]
+        
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.inputView = pickerKeyboard
+        textField.inputAccessoryView = pickerKeyboard.inputAccessoryView
+        textField.placeholder = settings.placeholder
+        textField.returnKeyType = settings.returnKeyType
+        return textField
+    }
+    
+    func createBirthDateField(from settings: TextFieldViewFieldSettings) -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = settings.placeholder
+        textField.returnKeyType = settings.returnKeyType
+        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+        return textField
+    }
+    
      func createSpacer() -> UIView {
         let progress = UIView()
         progress.translatesAutoresizingMaskIntoConstraints = false
         progress.backgroundColor = .appGray
         return progress
+    }
+    
+    @objc func tapDone() {
+        
     }
 }
 

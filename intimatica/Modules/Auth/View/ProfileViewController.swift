@@ -11,7 +11,6 @@ class ProfileViewController: AuthViewController {
     // MARK: - Properties
     private var presenter: ProfilePresenter!
     
-    
     // MARK: - Initializers
     init(presenter: ProfilePresenter) {
         super.init(presenter: presenter)
@@ -30,6 +29,12 @@ class ProfileViewController: AuthViewController {
         setupView()
         setupConstraints()
         setupActions()
+        
+//        genderPicker = PickerView()
+////        genderPicker.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        genderPicker.data = ["Male", "Female", "Other", "I don't know"]
+//        genderView.textField.inputView = genderPicker
+//        genderView.textField.inputAccessoryView = genderPicker.inputAccessoryView
     }
     
     // MARK: - Layout
@@ -37,6 +42,8 @@ class ProfileViewController: AuthViewController {
         titleLabel.text = L10n("PROFILE_VIEW_TITLE")
         
         stackView.addArrangedSubview(nicknameView)
+        stackView.addArrangedSubview(genderView)
+        stackView.addArrangedSubview(birthdateView)
     }
     
     private func setupConstraints() {

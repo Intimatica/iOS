@@ -68,7 +68,11 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         
         case .profile:
             let networkService = AuthNetworkService()
-            let presenter = ProfilePresenter(router: strongRouter, networkService: networkService)
+            let validatorService = AuthValidatorService()
+            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
+            let useCase = AuthUseCase(repository: repository)
+            
+            let presenter = ProfilePresenter(router: strongRouter,  useCase: useCase)
             let viewController = ProfileViewController(presenter: presenter)
             return .present(viewController)
             

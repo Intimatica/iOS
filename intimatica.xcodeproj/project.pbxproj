@@ -65,6 +65,8 @@
 		DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595226AC9B4600842771 /* AuthValidatorService.swift */; };
 		DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595526ACA2F900842771 /* AuthUseCase.swift */; };
 		DB8A595826AD553200842771 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595726AD553200842771 /* AuthError.swift */; };
+		DB8A595B26AD6CA900842771 /* PickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595A26AD6CA900842771 /* PickerKeyboard.swift */; };
+		DB8A595F26AEAAD400842771 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595E26AEAAD400842771 /* UITextField+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		DB8A595226AC9B4600842771 /* AuthValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidatorService.swift; sourceTree = "<group>"; };
 		DB8A595526ACA2F900842771 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		DB8A595726AD553200842771 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		DB8A595A26AD6CA900842771 /* PickerKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerKeyboard.swift; sourceTree = "<group>"; };
+		DB8A595E26AEAAD400842771 /* UITextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
 				DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */,
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
+				DB8A595E26AEAAD400842771 /* UITextField+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			children = (
 				DB2F8B4726A219FC007020C0 /* TextFieldView.swift */,
 				DB2F8BB826A84427007020C0 /* EyeButton.swift */,
+				DB8A595A26AD6CA900842771 /* PickerKeyboard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
+				DB8A595F26AEAAD400842771 /* UITextField+Utils.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
@@ -575,6 +582,7 @@
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
+				DB8A595B26AD6CA900842771 /* PickerKeyboard.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,

@@ -34,6 +34,16 @@ class AuthViewController: UIViewController {
                                                             .settings(placeholder: L10n("PROFILE_NICKNAME_FIELD_TITLE"),  returnKeyType: .next)
     ))
     
+    lazy var genderView = TextFieldView(field: .gender(
+                                                            .settings(placeholder: L10n("PROFILE_SEX_FIELD_TITLE"),  returnKeyType: .next)
+    ))
+    
+    lazy var birthdateView = TextFieldView(field: .birthdate(
+                                                            .settings(placeholder: L10n("PROFILE_BIRTHDATE_FIELD_TITLE"),  returnKeyType: .next)
+    ))
+    
+    
+    
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

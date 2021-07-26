@@ -23,7 +23,7 @@ enum AppRoute: Route {
 class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
-        super.init(initialRoute: .ageConfirm)
+        super.init(initialRoute: .home)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -65,6 +65,10 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             presenter.view = viewController
             return .present(viewController)
         
+        case .home:
+            let viewController = HomeTabBarController()
+            return .show(viewController)
+            
         case .dismiss:
             return .dismiss()
         

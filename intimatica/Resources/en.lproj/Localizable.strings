@@ -49,3 +49,9 @@ AUTH_ERROR_PASSWORD_PROVIDE = "Укажите свой пароль.";
 AUTH_ERROR_RATE_LIMIT = "Слишком много попыток, повторите через минуту";
 AUTH_ERROR_USER_NOT_EXIST = "Этот e-mail не существует.";
 AUTH_ERROR_USERNAME_TAKEN = "Имя пользователя уже используется";
+
+
+// HOME TABBAR
+MAIN_TABBAR_ITEM_TITLE = "ГЛАВНАЯ";
+COURCES_TABBAR_ITEM_TITLE = "КУРСЫ";
+PROFILE_TABBAR_ITEM_TITLE = "ПРОФИЛЬ";

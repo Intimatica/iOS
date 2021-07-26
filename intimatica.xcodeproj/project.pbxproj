@@ -65,6 +65,8 @@
 		DB8A595826AD553200842771 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595726AD553200842771 /* AuthError.swift */; };
 		DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596026AEB78900842771 /* UserCredentials.swift */; };
 		DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596526AEBF7400842771 /* LaunchViewController.swift */; };
+		DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */; };
+		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		DB8A595726AD553200842771 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		DB8A596026AEB78900842771 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		DB8A596526AEBF7400842771 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +324,7 @@
 		DB2F8BA226A5A40A007020C0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598126AF4AD800842771 /* Provider */,
 				DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */,
 				DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */,
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
@@ -424,8 +429,17 @@
 		DB8A596426AEBF1B00842771 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB8A598126AF4AD800842771 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A598226AF4AE900842771 /* ServiceProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -570,8 +584,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
+				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
+				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,

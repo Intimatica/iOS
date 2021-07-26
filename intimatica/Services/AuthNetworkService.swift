@@ -8,14 +8,18 @@
 import Foundation
 import Alamofire
 
-protocol NetworkServiceProtocol {
+protocol AuthNetworkServiceProtocol {
     typealias AuthHandler = (Result<AuthResponse, AuthError>)->Void
     
     func signUp(email: String, password: String, completionHandler: @escaping AuthHandler)
     func signIn(email: String, password: String, completionHandler: @escaping AuthHandler)
 }
 
-class AuthNetworkService: NetworkServiceProtocol {
+protocol HasAuthNetworkServiceProtocol {
+    var authNetworkService: AuthNetworkServiceProtocol { get }
+}
+
+class AuthNetworkService: AuthNetworkServiceProtocol {
     let headers: HTTPHeaders = [
         "Accept": "application/json"
     ]

@@ -21,15 +21,15 @@ protocol AuthRepositoryProtocol {
 final class AuthRepository: AuthRepositoryProtocol {
     
     // MARK: - Properties
-    private var networkService: NetworkServiceProtocol!
-    private var keychainService: KeychainService!
+    private var networkService: AuthNetworkServiceProtocol!
+    private var keychainService: KeychainServiceProtocol!
     private var validatorService: AuthValidatorServiceProtocol!
     
     // MARK: - Initializers
-    init(networkService: NetworkServiceProtocol, keychainService: KeychainService, validatorService: AuthValidatorServiceProtocol) {
-        self.networkService = networkService
-        self.keychainService = keychainService
-        self.validatorService = validatorService
+    init(serviceProvider: ServiceProviderProtocol) {
+        self.networkService = serviceProvider.authNetworkService
+        self.keychainService = serviceProvider.keychainService
+        self.validatorService = serviceProvider.authValidatorService
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {

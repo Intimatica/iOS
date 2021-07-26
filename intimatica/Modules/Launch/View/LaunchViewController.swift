@@ -9,10 +9,13 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     // MARK: - Properties
+    private var presenter: LaunchPresenterProtocol!
+    
     private lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "LaunchSreenBackground")
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -23,12 +26,25 @@ class LaunchViewController: UIViewController {
         return imageView
     }()
     
+    // MARK: - Initializers
+    init(presenter: LaunchPresenterProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupConstraints()
+        
+        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {

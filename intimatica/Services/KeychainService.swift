@@ -13,6 +13,10 @@ protocol KeychainServiceProtocol {
     func storeUserCredentials(_ userCredentials: UserCredentials)
 }
 
+protocol HasKeychainServiceProtocol {
+    var keychainService: KeychainServiceProtocol { get }
+}
+
 final class KeychainService: KeychainServiceProtocol {
     private let keychain = KeychainSwift()
     private let emailKey = "email"

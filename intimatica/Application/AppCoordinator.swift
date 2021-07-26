@@ -8,6 +8,8 @@
 import Foundation
 import XCoordinator
 
+typealias Router = StrongRouter<AppRoute>
+
 enum AppRoute: Route {
     case launch
     case ageConfirm
@@ -20,7 +22,9 @@ enum AppRoute: Route {
     case dismiss
 }
 
-class AppCoordinator: NavigationCoordinator<AppRoute> {
+final class AppCoordinator: NavigationCoordinator<AppRoute> {
+    
+    private let serviceProvider = ServiceProvider()
     
     init() {
         super.init(initialRoute: .launch)
@@ -30,7 +34,11 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         switch route {
         
         case .launch:
-            let viewController = LaunchViewController()
+            let repository = AuthRepository(serviceProvider: serviceProvider)
+            let useCase = AuthUseCase(repository: repository)
+            
+            let presenter = LaunchPresenter(router: strongRouter, useCase: useCase)
+            let viewController = LaunchViewController(presenter: presenter)
             return .set([viewController])
         
         case .ageConfirm:
@@ -44,10 +52,7 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .set([viewController])
             
         case .signUp:
-            let networkService = AuthNetworkService()
-            let keychainService = KeychainService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, keychainService: keychainService, validatorService: validatorService)
+            let repository = AuthRepository(serviceProvider: serviceProvider)
             let useCase = AuthUseCase(repository: repository)
             
             let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
@@ -56,10 +61,7 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .present(viewController)
             
         case .signIn:
-            let networkService = AuthNetworkService()
-            let keychainService = KeychainService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, keychainService: keychainService, validatorService: validatorService)
+            let repository = AuthRepository(serviceProvider: serviceProvider)
             let useCase = AuthUseCase(repository: repository)
             
             let presenter = SignInPresenter(router: strongRouter, useCase: useCase)

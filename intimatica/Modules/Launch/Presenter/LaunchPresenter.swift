@@ -18,9 +18,9 @@ final class LaunchPresenter {
     private var useCase: AuthUseCaseProtocol!
     
     // MARK: - Initializers
-    init(router: Router, useCase: AuthUseCaseProtocol) {
+    init(router: Router, dependencies: UseCaseProviderProtocol) {
         self.router = router
-        self.useCase = useCase
+        self.useCase = dependencies.authUseCase
     }
 }
 

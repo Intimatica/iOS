@@ -18,13 +18,17 @@ protocol AuthUseCaseProtocol {
     func isPasswordValid(_ string: String?) -> Bool
 }
 
+protocol HasAuthUseCaseProtocol {
+    var authUseCase: AuthUseCaseProtocol { get }
+}
+
 final class AuthUseCase: AuthUseCaseProtocol {
     // MARK: - Properties
     private let repository: AuthRepositoryProtocol!
     
     // MARK: - Initializers
-    init(repository: AuthRepositoryProtocol) {
-        self.repository = repository
+    init(dependencies: RepositoryProviderProtocol) {
+        self.repository = dependencies.authRepository
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {

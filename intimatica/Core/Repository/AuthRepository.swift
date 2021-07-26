@@ -18,6 +18,10 @@ protocol AuthRepositoryProtocol {
     func isPasswordValid(_ string: String?) -> Bool
 }
 
+protocol HasAuthRepositoryProtocol {
+    var authRepository: AuthRepositoryProtocol { get }
+}
+
 final class AuthRepository: AuthRepositoryProtocol {
     
     // MARK: - Properties
@@ -26,10 +30,10 @@ final class AuthRepository: AuthRepositoryProtocol {
     private var validatorService: AuthValidatorServiceProtocol!
     
     // MARK: - Initializers
-    init(serviceProvider: ServiceProviderProtocol) {
-        self.networkService = serviceProvider.authNetworkService
-        self.keychainService = serviceProvider.keychainService
-        self.validatorService = serviceProvider.authValidatorService
+    init(dependencies: ServiceProviderProtocol) {
+        self.networkService = dependencies.authNetworkService
+        self.keychainService = dependencies.keychainService
+        self.validatorService = dependencies.authValidatorService
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {

@@ -24,7 +24,7 @@ enum AppRoute: Route {
 
 final class AppCoordinator: NavigationCoordinator<AppRoute> {
     
-    private let serviceProvider = ServiceProvider()
+    private let useCaseProvider = UseCaseProvider()
     
     init() {
         super.init(initialRoute: .launch)
@@ -34,10 +34,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         switch route {
         
         case .launch:
-            let repository = AuthRepository(serviceProvider: serviceProvider)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = LaunchPresenter(router: strongRouter, useCase: useCase)
+            let presenter = LaunchPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = LaunchViewController(presenter: presenter)
             return .set([viewController])
         
@@ -52,19 +49,13 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .set([viewController])
             
         case .signUp:
-            let repository = AuthRepository(serviceProvider: serviceProvider)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignUpPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .signIn:
-            let repository = AuthRepository(serviceProvider: serviceProvider)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignInPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignInPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignInViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

@@ -67,6 +67,8 @@
 		DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596526AEBF7400842771 /* LaunchViewController.swift */; };
 		DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */; };
 		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
+		DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598726AF6CB100842771 /* RepositoryProvider.swift */; };
+		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		DB8A596526AEBF7400842771 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		DB8A598726AF6CB100842771 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,12 +336,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		DB2F8BA726A5BA7C007020C0 /* Models */ = {
+		DB2F8BA726A5BA7C007020C0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				DB8A595926AD556300842771 /* Auth */,
 			);
-			path = Models;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		DB2F8BBE26A951E4007020C0 /* Helpers */ = {
@@ -369,10 +373,7 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A595426ACA2ED00842771 /* UseCase */,
-				DB8A594F26AC997200842771 /* Repository */,
-				DB2F8BA726A5BA7C007020C0 /* Models */,
-				DB2F8BA226A5A40A007020C0 /* Services */,
+				DB8A598C26AF734900842771 /* Core */,
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
@@ -383,6 +384,7 @@
 		DB8A594F26AC997200842771 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598626AF6C9700842771 /* Provider */,
 				DB8A595026AC998A00842771 /* AuthRepository.swift */,
 			);
 			path = Repository;
@@ -391,6 +393,7 @@
 		DB8A595426ACA2ED00842771 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598926AF6FEA00842771 /* Provider */,
 				DB8A595526ACA2F900842771 /* AuthUseCase.swift */,
 			);
 			path = UseCase;
@@ -440,6 +443,33 @@
 				DB8A598226AF4AE900842771 /* ServiceProvider.swift */,
 			);
 			path = Provider;
+			sourceTree = "<group>";
+		};
+		DB8A598626AF6C9700842771 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A598726AF6CB100842771 /* RepositoryProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		DB8A598926AF6FEA00842771 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		DB8A598C26AF734900842771 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A595426ACA2ED00842771 /* UseCase */,
+				DB8A594F26AC997200842771 /* Repository */,
+				DB2F8BA226A5A40A007020C0 /* Services */,
+				DB2F8BA726A5BA7C007020C0 /* Entities */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -597,6 +627,7 @@
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
+				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
@@ -618,6 +649,7 @@
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
+				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,

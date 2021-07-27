@@ -8,6 +8,8 @@
 import Foundation
 import XCoordinator
 
+typealias Router = StrongRouter<AppRoute>
+
 enum AppRoute: Route {
     case launch
     case ageConfirm
@@ -20,18 +22,21 @@ enum AppRoute: Route {
     case dismiss
 }
 
-class AppCoordinator: NavigationCoordinator<AppRoute> {
+final class AppCoordinator: NavigationCoordinator<AppRoute> {
+    
+    private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .home)
+        super.init(initialRoute: .launch)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
         
-//        case .launch:
-//            let viewController = TestViewController()
-//            return .present(viewController)
+        case .launch:
+            let presenter = LaunchPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = LaunchViewController(presenter: presenter)
+            return .set([viewController])
         
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
@@ -44,36 +49,26 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .set([viewController])
             
         case .signUp:
-            let networkService = AuthNetworkService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignUpPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .signIn:
-            let networkService = AuthNetworkService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignInPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignInPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignInViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
         
-        case .home:
-            let viewController = HomeTabBarController()
-            return .show(viewController)
-            
         case .dismiss:
             return .dismiss()
         
         default:
             fatalError("in progress")
         }
+    }
+    
+    func configureLauch() {
+        
     }
 }

@@ -10,20 +10,30 @@ import Foundation
 protocol AuthRepositoryProtocol {
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
+
+    func getUserCredentials() -> UserCredentials?
+    func storeUserCredentials(_ userCredentials: UserCredentials)
     
     func isEmailValid(_ string: String?) -> Bool
     func isPasswordValid(_ string: String?) -> Bool
 }
 
+protocol HasAuthRepositoryProtocol {
+    var authRepository: AuthRepositoryProtocol { get }
+}
+
 final class AuthRepository: AuthRepositoryProtocol {
+    
     // MARK: - Properties
-    private var networkService: NetworkServiceProtocol!
+    private var networkService: AuthNetworkServiceProtocol!
+    private var keychainService: KeychainServiceProtocol!
     private var validatorService: AuthValidatorServiceProtocol!
     
     // MARK: - Initializers
-    init(networkService: NetworkServiceProtocol, validatorService: AuthValidatorServiceProtocol) {
-        self.networkService = networkService
-        self.validatorService = validatorService
+    init(dependencies: ServiceProviderProtocol) {
+        self.networkService = dependencies.authNetworkService
+        self.keychainService = dependencies.keychainService
+        self.validatorService = dependencies.authValidatorService
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
@@ -34,6 +44,14 @@ final class AuthRepository: AuthRepositoryProtocol {
         networkService.signIn(email: email, password: password, completionHandler: completionHandler)
     }
     
+    func getUserCredentials() -> UserCredentials? {
+        keychainService.getUserCredentials()
+    }
+    
+    func storeUserCredentials(_ userCredentials: UserCredentials) {
+        keychainService.storeUserCredentials(userCredentials)
+    }
+    
     func isEmailValid(_ string: String?) -> Bool {
         return validatorService.isEmailValid(string)
     }
@@ -41,5 +59,4 @@ final class AuthRepository: AuthRepositoryProtocol {
     func isPasswordValid(_ string: String?) -> Bool {
         return validatorService.isPasswordValid(string)
     }
-    
 }

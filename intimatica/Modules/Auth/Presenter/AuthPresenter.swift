@@ -40,9 +40,9 @@ class AuthPresenter {
     var passwordConfirmFieldIsValid = false
     
     // MARK: - Initializers
-    init(router: Router, useCase: AuthUseCaseProtocol) {
+    init(router: Router, dependencies: UseCaseProviderProtocol) {
         self.router = router
-        self.useCase = useCase
+        self.useCase = dependencies.authUseCase
     }
     
     func getLocalizedAuthErrorMessage(from authError: AuthError) -> String {

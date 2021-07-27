@@ -15,6 +15,13 @@ target 'intimatica' do
 
   # Pods for intimatica
   pod 'XCoordinator', '~> 2.0'
+  
+  # Network
   pod 'Alamofire', '~> 5.4'
-
+  
+  # Persistance
+  pod 'KeychainSwift', '~> 19.0'
+  
+  # Utils
+  pod 'SwiftLint'
 end

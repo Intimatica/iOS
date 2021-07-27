@@ -47,7 +47,7 @@
 		DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA826A5BAF9007020C0 /* SignIn.swift */; };
 		DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */; };
 		DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAE26A5E234007020C0 /* AppConstants.swift */; };
-		DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB026A5E2FD007020C0 /* StorageService.swift */; };
+		DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */; };
 		DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB226A5FDB1007020C0 /* SignUp.swift */; };
 		DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */; };
 		DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB826A84427007020C0 /* EyeButton.swift */; };
@@ -63,13 +63,12 @@
 		DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595226AC9B4600842771 /* AuthValidatorService.swift */; };
 		DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595526ACA2F900842771 /* AuthUseCase.swift */; };
 		DB8A595826AD553200842771 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595726AD553200842771 /* AuthError.swift */; };
-		DB8A596826AED56A00842771 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596726AED56A00842771 /* HomeTabBarController.swift */; };
-		DB8A596A26AED6EE00842771 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596926AED6EE00842771 /* MainViewController.swift */; };
-		DB8A596C26AED71900842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596B26AED71900842771 /* ProfileViewController.swift */; };
-		DB8A596E26AED73D00842771 /* CourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596D26AED73D00842771 /* CourcesViewController.swift */; };
-		DB8A597026AEE61600842771 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596F26AEE61600842771 /* TableViewCell.swift */; };
-		DB8A597326AEF00B00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A597226AEF00B00842771 /* Post.swift */; };
-		DB8A597526AF26F500842771 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A597426AF26F500842771 /* TagView.swift */; };
+		DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596026AEB78900842771 /* UserCredentials.swift */; };
+		DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A596526AEBF7400842771 /* LaunchViewController.swift */; };
+		DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */; };
+		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
+		DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598726AF6CB100842771 /* RepositoryProvider.swift */; };
+		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,7 +115,7 @@
 		DB2F8BA826A5BAF9007020C0 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrapiError.swift; sourceTree = "<group>"; };
 		DB2F8BAE26A5E234007020C0 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		DB2F8BB026A5E2FD007020C0 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		DB2F8BB226A5FDB1007020C0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
@@ -133,13 +132,12 @@
 		DB8A595226AC9B4600842771 /* AuthValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidatorService.swift; sourceTree = "<group>"; };
 		DB8A595526ACA2F900842771 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		DB8A595726AD553200842771 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
-		DB8A596726AED56A00842771 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		DB8A596926AED6EE00842771 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		DB8A596B26AED71900842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DB8A596D26AED73D00842771 /* CourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourcesViewController.swift; sourceTree = "<group>"; };
-		DB8A596F26AEE61600842771 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = intimatica/Modules/Main/Helpers/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		DB8A597226AEF00B00842771 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		DB8A597426AF26F500842771 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		DB8A596026AEB78900842771 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		DB8A596526AEBF7400842771 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		DB8A598726AF6CB100842771 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,10 +199,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A597926AF36D500842771 /* Cources */,
-				DB8A597826AF36CC00842771 /* Profile */,
-				DB8A597726AF36A500842771 /* Main */,
-				DB8A597626AF368600842771 /* HomeTabBar */,
+				DB8A596226AEBEBE00842771 /* Launch */,
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
 			);
@@ -333,20 +328,20 @@
 		DB2F8BA226A5A40A007020C0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598126AF4AD800842771 /* Provider */,
 				DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */,
-				DB2F8BB026A5E2FD007020C0 /* StorageService.swift */,
+				DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */,
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		DB2F8BA726A5BA7C007020C0 /* Models */ = {
+		DB2F8BA726A5BA7C007020C0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A597126AEEFFD00842771 /* Feed */,
 				DB8A595926AD556300842771 /* Auth */,
 			);
-			path = Models;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		DB2F8BBE26A951E4007020C0 /* Helpers */ = {
@@ -378,10 +373,7 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A595426ACA2ED00842771 /* UseCase */,
-				DB8A594F26AC997200842771 /* Repository */,
-				DB2F8BA726A5BA7C007020C0 /* Models */,
-				DB2F8BA226A5A40A007020C0 /* Services */,
+				DB8A598C26AF734900842771 /* Core */,
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
@@ -392,6 +384,7 @@
 		DB8A594F26AC997200842771 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598626AF6C9700842771 /* Provider */,
 				DB8A595026AC998A00842771 /* AuthRepository.swift */,
 			);
 			path = Repository;
@@ -400,6 +393,7 @@
 		DB8A595426ACA2ED00842771 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A598926AF6FEA00842771 /* Provider */,
 				DB8A595526ACA2F900842771 /* AuthUseCase.swift */,
 			);
 			path = UseCase;
@@ -413,58 +407,69 @@
 				DB2F8BB226A5FDB1007020C0 /* SignUp.swift */,
 				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
 				DB8A595726AD553200842771 /* AuthError.swift */,
+				DB8A596026AEB78900842771 /* UserCredentials.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		DB8A597126AEEFFD00842771 /* Feed */ = {
+		DB8A596226AEBEBE00842771 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A597226AEF00B00842771 /* Post.swift */,
+				DB8A596426AEBF1B00842771 /* Presenter */,
+				DB8A596326AEBF1300842771 /* View */,
 			);
-			path = Feed;
+			path = Launch;
 			sourceTree = "<group>";
 		};
-		DB8A597626AF368600842771 /* HomeTabBar */ = {
+		DB8A596326AEBF1300842771 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A596726AED56A00842771 /* HomeTabBarController.swift */,
+				DB8A596526AEBF7400842771 /* LaunchViewController.swift */,
 			);
-			path = HomeTabBar;
+			path = View;
 			sourceTree = "<group>";
 		};
-		DB8A597726AF36A500842771 /* Main */ = {
+		DB8A596426AEBF1B00842771 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A597A26AF36E500842771 /* Helpers */,
-				DB8A596926AED6EE00842771 /* MainViewController.swift */,
+				DB8A597B26AF3A7E00842771 /* LaunchPresenter.swift */,
 			);
-			path = Main;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
-		DB8A597826AF36CC00842771 /* Profile */ = {
+		DB8A598126AF4AD800842771 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A596B26AED71900842771 /* ProfileViewController.swift */,
+				DB8A598226AF4AE900842771 /* ServiceProvider.swift */,
 			);
-			path = Profile;
+			path = Provider;
 			sourceTree = "<group>";
 		};
-		DB8A597926AF36D500842771 /* Cources */ = {
+		DB8A598626AF6C9700842771 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A596D26AED73D00842771 /* CourcesViewController.swift */,
+				DB8A598726AF6CB100842771 /* RepositoryProvider.swift */,
 			);
-			path = Cources;
+			path = Provider;
 			sourceTree = "<group>";
 		};
-		DB8A597A26AF36E500842771 /* Helpers */ = {
+		DB8A598926AF6FEA00842771 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A596F26AEE61600842771 /* TableViewCell.swift */,
-				DB8A597426AF26F500842771 /* TagView.swift */,
+				DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */,
 			);
-			path = Helpers;
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		DB8A598C26AF734900842771 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A595426ACA2ED00842771 /* UseCase */,
+				DB8A594F26AC997200842771 /* Repository */,
+				DB2F8BA226A5A40A007020C0 /* Services */,
+				DB2F8BA726A5BA7C007020C0 /* Entities */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -608,29 +613,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8A597026AEE61600842771 /* TableViewCell.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
+				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
+				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
+				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
-				DB8A596826AED56A00842771 /* HomeTabBarController.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
+				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
-				DB2F8BB126A5E2FD007020C0 /* StorageService.swift in Sources */,
-				DB8A596E26AED73D00842771 /* CourcesViewController.swift in Sources */,
-				DB8A596A26AED6EE00842771 /* MainViewController.swift in Sources */,
+				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
+				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
@@ -642,13 +648,11 @@
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
-				DB8A597526AF26F500842771 /* TagView.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
+				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
-				DB8A596C26AED71900842771 /* ProfileViewController.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,
-				DB8A597326AEF00B00842771 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

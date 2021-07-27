@@ -10,9 +10,16 @@ import Foundation
 protocol AuthUseCaseProtocol {
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
+
+    func getUserCredentials() -> UserCredentials?
+    func storeUserCredentials(_ userCredentials: UserCredentials)
     
     func isEmailValid(_ string: String?) -> Bool
     func isPasswordValid(_ string: String?) -> Bool
+}
+
+protocol HasAuthUseCaseProtocol {
+    var authUseCase: AuthUseCaseProtocol { get }
 }
 
 final class AuthUseCase: AuthUseCaseProtocol {
@@ -20,8 +27,8 @@ final class AuthUseCase: AuthUseCaseProtocol {
     private let repository: AuthRepositoryProtocol!
     
     // MARK: - Initializers
-    init(repository: AuthRepositoryProtocol) {
-        self.repository = repository
+    init(dependencies: RepositoryProviderProtocol) {
+        self.repository = dependencies.authRepository
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
@@ -32,6 +39,14 @@ final class AuthUseCase: AuthUseCaseProtocol {
         repository.signIn(email: email, password: password, completionHandler: completionHandler)
     }
     
+    func getUserCredentials() -> UserCredentials? {
+        return repository.getUserCredentials()
+    }
+    
+    func storeUserCredentials(_ userCredentials: UserCredentials) {
+        return repository.storeUserCredentials(userCredentials)
+    }
+    
     func isEmailValid(_ string: String?) -> Bool {
         return repository.isEmailValid(string)
     }
@@ -39,5 +54,4 @@ final class AuthUseCase: AuthUseCaseProtocol {
     func isPasswordValid(_ string: String?) -> Bool {
         return repository.isPasswordValid(string)
     }
-    
 }

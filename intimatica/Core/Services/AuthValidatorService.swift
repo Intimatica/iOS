@@ -12,7 +12,11 @@ protocol AuthValidatorServiceProtocol {
     func isPasswordValid(_ string: String?) -> Bool
 }
 
-class AuthValidatorService: AuthValidatorServiceProtocol {
+protocol HasAuthValidatorServiceProtocol {
+    var authValidatorService: AuthValidatorServiceProtocol { get }
+}
+
+final class AuthValidatorService: AuthValidatorServiceProtocol {
     static let passwordMinLen = 8
     
     func isEmailValid(_ string: String?) -> Bool {

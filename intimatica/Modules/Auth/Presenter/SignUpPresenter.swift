@@ -31,7 +31,7 @@ extension SignUpPresenter: SignUpPresenterProtocol {
             
             switch result {
             case .success(let authResponse):
-                // STORE credentials
+                self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
                 // GOTO Profile page
                 print(authResponse.jwt)
             case .failure(let authError):

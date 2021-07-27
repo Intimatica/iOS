@@ -174,7 +174,7 @@ extension TextFieldView {
         textField.returnKeyType = settings.returnKeyType
         textField.spellCheckingType = .no
         textField.autocapitalizationType = .none
-        textField.text = "a12@key42.net"
+        textField.text = "a@key42.net"
         return textField
     }
     

@@ -60,6 +60,13 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             presenter.view = viewController
             return .present(viewController)
         
+        case .home:
+//            let presenter = PostListPresenter(router: strongRouter, dependencies: useCaseProvider)
+//            let viewController = PostListViewController(presenter: presenter)
+//            presenter.view = viewController
+            let viewController = HomeTabBarController(router: strongRouter, dependencies: useCaseProvider)
+            return .show(viewController)
+        
         case .dismiss:
             return .dismiss()
         

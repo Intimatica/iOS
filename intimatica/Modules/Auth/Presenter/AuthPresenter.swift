@@ -27,9 +27,7 @@ protocol AuthViewProtocol: AnyObject {
     func changeAuthButton(isEnabled: Bool)
 }
 
-class AuthPresenter {
-    typealias Router = StrongRouter<AppRoute>
-    
+class AuthPresenter {    
     //MARK: - Properties
     let router: Router!
     weak var view: AuthViewProtocol?

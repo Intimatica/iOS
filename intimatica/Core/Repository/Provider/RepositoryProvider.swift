@@ -8,15 +8,18 @@
 import Foundation
 
 typealias RepositoryProviderProtocol = HasAuthRepositoryProtocol
+    & HasPostRepositoryProtocol
 
 final class RepositoryProvider: RepositoryProviderProtocol {
     let authRepository: AuthRepositoryProtocol
+    let postRepository: PostRepositoryProtocol
     
     convenience init() {
         self.init(dependencies: ServiceProvider())
     }
     
     init(dependencies: ServiceProviderProtocol) {
-        self.authRepository = AuthRepository(dependencies: dependencies)
+        authRepository = AuthRepository(dependencies: dependencies)
+        postRepository = PostRepository(dependencies: dependencies)
     }
 }

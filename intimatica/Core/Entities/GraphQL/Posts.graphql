@@ -1,0 +1,13 @@
+query Posts {
+  posts {
+    id
+    title
+    image {
+      url
+    }
+    type
+    tags {
+      name
+    }
+  }
+}

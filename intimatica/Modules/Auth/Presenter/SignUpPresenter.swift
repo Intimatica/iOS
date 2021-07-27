@@ -32,7 +32,7 @@ extension SignUpPresenter: SignUpPresenterProtocol {
             switch result {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
-                // GOTO Profile page
+                self.router.trigger(.home)
                 print(authResponse.jwt)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))

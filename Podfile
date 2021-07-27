@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
+inhibit_all_warnings!
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -18,10 +19,16 @@ target 'intimatica' do
   
   # Network
   pod 'Alamofire', '~> 5.4'
+  pod "Apollo"
   
   # Persistance
   pod 'KeychainSwift', '~> 19.0'
   
   # Utils
   pod 'SwiftLint'
+  
+  # UI helpers
+  pod 'Kingfisher', '~> 6.0'
+  #pod "PlayerKit"
+  #pod "youtube-ios-player-helper", "~> 1.0.2"
 end

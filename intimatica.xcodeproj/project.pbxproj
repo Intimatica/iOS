@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
 		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
-		DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */; };
 		DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */; };
 		DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B2D269F3CB2007020C0 /* Localizable.strings */; };
 		DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */; };
 		DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */; };
 		DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */; };
-		DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */; };
 		DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */; };
 		DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4426A037D0007020C0 /* AuthViewController.swift */; };
 		DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B4726A219FC007020C0 /* TextFieldView.swift */; };
@@ -69,6 +67,22 @@
 		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
 		DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598726AF6CB100842771 /* RepositoryProvider.swift */; };
 		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
+		DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598E26B01E2400842771 /* HomeTabBarController.swift */; };
+		DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* PostListViewController.swift */; };
+		DB8A59A126B01E3100842771 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* TableViewCell.swift */; };
+		DB8A59A226B01E3100842771 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* TagView.swift */; };
+		DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599626B01E3100842771 /* ProfileViewController.swift */; };
+		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
+		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
+		DB8A59AB26B01E9A00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AA26B01E9A00842771 /* Post.swift */; };
+		DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */; };
+		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
+		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
+		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
+		DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */; };
+		DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4526B0833600E04D40 /* GraphqlService.swift */; };
+		DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4726B1439900E04D40 /* PostRepository.swift */; };
+		DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4926B1464700E04D40 /* PostUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +152,25 @@
 		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		DB8A598726AF6CB100842771 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		DB8A598E26B01E2400842771 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		DB8A599126B01E3100842771 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		DB8A599326B01E3100842771 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		DB8A599426B01E3100842771 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		DB8A599626B01E3100842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DB8A599A26B01E3100842771 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		DB8A599B26B01E3100842771 /* AgeConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmViewController.swift; sourceTree = "<group>"; };
+		DB8A599C26B01E3100842771 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
+		DB8A599F26B01E3100842771 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		DB8A59AA26B01E9A00842771 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourcesViewController.swift; sourceTree = "<group>"; };
+		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
+		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
+		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListPresenter.swift; sourceTree = "<group>"; };
+		DBF99D4526B0833600E04D40 /* GraphqlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphqlService.swift; sourceTree = "<group>"; };
+		DBF99D4726B1439900E04D40 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		DBF99D4926B1464700E04D40 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +232,11 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A59AC26B01ECB00842771 /* Cources */,
+				DB8A599026B01E3100842771 /* PostList */,
+				DB8A599526B01E3100842771 /* Profile */,
+				DB8A599726B01E3100842771 /* Welcome */,
+				DB8A598D26B01E2400842771 /* HomeTabBar */,
 				DB8A596226AEBEBE00842771 /* Launch */,
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
@@ -332,6 +370,7 @@
 				DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */,
 				DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */,
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
+				DBF99D4526B0833600E04D40 /* GraphqlService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -339,6 +378,8 @@
 		DB2F8BA726A5BA7C007020C0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				DBF99D3A26B0793B00E04D40 /* GraphQL */,
+				DB8A59A926B01E9A00842771 /* Feed */,
 				DB8A595926AD556300842771 /* Auth */,
 			);
 			path = Entities;
@@ -386,6 +427,7 @@
 			children = (
 				DB8A598626AF6C9700842771 /* Provider */,
 				DB8A595026AC998A00842771 /* AuthRepository.swift */,
+				DBF99D4726B1439900E04D40 /* PostRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -395,6 +437,7 @@
 			children = (
 				DB8A598926AF6FEA00842771 /* Provider */,
 				DB8A595526ACA2F900842771 /* AuthUseCase.swift */,
+				DBF99D4926B1464700E04D40 /* PostUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -472,6 +515,103 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		DB8A598D26B01E2400842771 /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A598E26B01E2400842771 /* HomeTabBarController.swift */,
+			);
+			path = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		DB8A599026B01E3100842771 /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599226B01E3100842771 /* Helpers */,
+				DB8A599126B01E3100842771 /* PostListViewController.swift */,
+				DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		DB8A599226B01E3100842771 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599326B01E3100842771 /* TableViewCell.swift */,
+				DB8A599426B01E3100842771 /* TagView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB8A599526B01E3100842771 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599626B01E3100842771 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DB8A599726B01E3100842771 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599826B01E3100842771 /* View */,
+				DB8A599D26B01E3100842771 /* Presenter */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DB8A599826B01E3100842771 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599926B01E3100842771 /* Helpers */,
+				DB8A599B26B01E3100842771 /* AgeConfirmViewController.swift */,
+				DB8A599C26B01E3100842771 /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB8A599926B01E3100842771 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599A26B01E3100842771 /* TermsAndConditionsView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB8A599D26B01E3100842771 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */,
+				DB8A599F26B01E3100842771 /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB8A59A926B01E9A00842771 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A59AA26B01E9A00842771 /* Post.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		DB8A59AC26B01ECB00842771 /* Cources */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */,
+			);
+			path = Cources;
+			sourceTree = "<group>";
+		};
+		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				DBF99D4126B07D9A00E04D40 /* API.swift */,
+				DBF99D3826B069A100E04D40 /* schema.json */,
+				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +628,7 @@
 			buildConfigurationList = DB6F3188269DA977005E7578 /* Build configuration list for PBXNativeTarget "intimatica" */;
 			buildPhases = (
 				ACE39E7691BC065032CDFB34 /* [CP] Check Pods Manifest.lock */,
+				DBF99D3326B0678C00E04D40 /* Apollo CLI */,
 				DB6F3170269DA973005E7578 /* Sources */,
 				DB6F3171269DA973005E7578 /* Frameworks */,
 				DB6F3172269DA973005E7578 /* Resources */,
@@ -540,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF99D3926B069A200E04D40 /* schema.json in Resources */,
 				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
 				DB2F8B8D26A371B9007020C0 /* Rubik-Regular.ttf in Resources */,
 				DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */,
@@ -552,6 +694,7 @@
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
+				DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */,
 				DB2F8B9A26A371B9007020C0 /* Rubik-MediumItalic.ttf in Resources */,
 				DB2F8B9826A371B9007020C0 /* Rubik-BlackItalic.ttf in Resources */,
 				DB2F8B9B26A371B9007020C0 /* README.txt in Resources */,
@@ -606,6 +749,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-intimatica/Pods-intimatica-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DBF99D3326B0678C00E04D40 /* Apollo CLI */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo CLI";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://intimatica.key42.net/graphql\" Core/Entities/GraphQL/schema.json\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Core/Entities/GraphQL/schema.json\" Core/Entities/GraphQL/API.swift\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -623,35 +784,47 @@
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
-				DB2F8B3F269F65C9007020C0 /* WelcomePresenter.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
+				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
+				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
+				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
+				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
+				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
+				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
+				DB8A59A126B01E3100842771 /* TableViewCell.swift in Sources */,
+				DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */,
+				DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
-				DB2F8B1B269EDB62007020C0 /* WelcomeViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */,
+				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
+				DB8A59A226B01E3100842771 /* TagView.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
+				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
+				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
+				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

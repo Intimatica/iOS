@@ -13,8 +13,6 @@ protocol AgeConfirmPresenterProtocol {
 }
 
 final class AgeConfirmPresenter {
-    typealias Router = StrongRouter<AppRoute>
-
     // MARK: - Properties
     private let router: Router!
     

@@ -28,7 +28,7 @@ final class AuthUseCase: AuthUseCaseProtocol {
     
     // MARK: - Initializers
     init(dependencies: RepositoryProviderProtocol) {
-        self.repository = dependencies.authRepository
+        repository = dependencies.authRepository
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {

@@ -7,14 +7,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class PostListViewController: UIViewController {
     // MARK: - Properties
-    private let posts = [
-        Post(id: 1, title: "Правда и мифы про предохранение.", imageName: "post_image_1", tags: ["Здоровье", "половое созревание"]),
-        Post(id: 2, title: "У меня выявили ВПЧ", imageName: "post_image_2", tags: ["Здоровье", "половое созревание"]),
-    ]
-    
-    let cellIdentifier = "cellIdentifier"
+    private var presenter: PostListPresenterProtocol!
+    private var posts: [Post] = []
+    private let cellIdentifier = "cellIdentifier"
     
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
@@ -38,12 +35,25 @@ class MainViewController: UIViewController {
         return table
     }()
     
+    // MARK: - Initializers
+    init(presenter: PostListPresenterProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupConstraints()
+        
+        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,24 +90,23 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - Helper/Constraints
-extension MainViewController {
+extension PostListViewController {
     struct Constants {
         static let topBackgroundViewHeight: CGFloat = 228
         
         static let tableViewTop: CGFloat = 174
-        static let tableViewLeadingTrailing: CGFloat = 25
+        static let tableViewLeadingTrailing: CGFloat = 0
         static let tableViewCellSpacing: CGFloat = 25
     }
 }
 
-
 // MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+extension PostListViewController: UITableViewDelegate {
 
 }
 
 // MARK: - UITableViewDataSource
-extension MainViewController: UITableViewDataSource {
+extension PostListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
     }
@@ -110,5 +119,13 @@ extension MainViewController: UITableViewDataSource {
         cell.fill(by: posts[indexPath.row])
         
         return cell
+    }
+}
+
+// MARK: - MainViewProtocol
+extension PostListViewController: PostListViewProtocol {
+    func setPosts(_ posts: [Post]) {
+        self.posts = posts
+        tableView.reloadData()
     }
 }

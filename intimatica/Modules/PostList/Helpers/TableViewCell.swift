@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TableViewCell: UITableViewCell {
     // MARK: - Properties
@@ -24,6 +25,7 @@ class TableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -56,23 +58,32 @@ class TableViewCell: UITableViewCell {
     }
     
     // MARK: - Lifecycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        postImageView.kf.cancelDownloadTask()
+        titleLabel.text = ""
     }
     
     func fill(by post: Post) {
-        let image = UIImage(named: post.imageName)
-        postImageView.image = image
+        let url = URL(string: AppConstants.serverURL + post.imageUrl)
+        postImageView.kf.indicatorType = .activity
+        postImageView.kf.setImage(with: url)
+        
         titleLabel.text = post.title
         post.tags.forEach {
             tagStackView.addArrangedSubview(TagView(with: $0))
         }
+        
+        switch post.type {
+        case .story:
+            print(1)
+        case .theory:
+            print(2)
+        case .video:
+            print(3)
+        }
     }
-    
     
     // MARK: - Layout
     private func setupView() {
@@ -116,8 +127,8 @@ extension TableViewCell {
         static let cellBorderRadius: CGFloat = 20
         
         static let postViewSpacing: CGFloat = 22
-        static let postViewLeadingTrailing: CGFloat = 0
-        static let postImageViewHeight: CGFloat = 130
+        static let postViewLeadingTrailing: CGFloat = 25
+        static let postImageViewHeight: CGFloat = 113
         
         static let tagStackViewSpacing: CGFloat = 7
         static let tagStackViewHeight: CGFloat = 17

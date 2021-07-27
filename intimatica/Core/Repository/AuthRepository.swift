@@ -31,9 +31,9 @@ final class AuthRepository: AuthRepositoryProtocol {
     
     // MARK: - Initializers
     init(dependencies: ServiceProviderProtocol) {
-        self.networkService = dependencies.authNetworkService
-        self.keychainService = dependencies.keychainService
-        self.validatorService = dependencies.authValidatorService
+        networkService = dependencies.authNetworkService
+        keychainService = dependencies.keychainService
+        validatorService = dependencies.authValidatorService
     }
     
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {

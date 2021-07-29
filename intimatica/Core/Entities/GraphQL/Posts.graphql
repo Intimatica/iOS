@@ -5,9 +5,13 @@ query Posts {
     image {
       url
     }
-    type
     tags {
       name
     }
+    post_type {
+      __typename
+    }
+    is_paid
+    published_at
   }
 }

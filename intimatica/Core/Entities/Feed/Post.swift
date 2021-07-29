@@ -8,9 +8,10 @@
 import Foundation
 
 enum PostType: String {
-    case theory
-    case video
-    case story
+    case theory = "ComponentPostTypeTheory"
+    case video = "ComponentPostTypeVideo"
+    case story = "ComponentPostTypeStory"
+    case videoCourse = "ComponentPostTypeVideoCourse"
 }
 
 struct Post {

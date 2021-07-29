@@ -36,7 +36,8 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             guard let self = self else { return }
             
             switch(result) {
-            case .success(_):
+            case .success(let user):
+                print(user.jwt)
                 self.router.trigger(.home)
             case .failure(_):
                 self.router.trigger(.ageConfirm)

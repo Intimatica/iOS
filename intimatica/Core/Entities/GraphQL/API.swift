@@ -4,51 +4,6 @@
 import Apollo
 import Foundation
 
-public enum ENUM_POST_TYPE: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
-  public typealias RawValue = String
-  case theory
-  case video
-  case story
-  /// Auto generated constant for unknown enum values
-  case __unknown(RawValue)
-
-  public init?(rawValue: RawValue) {
-    switch rawValue {
-      case "theory": self = .theory
-      case "video": self = .video
-      case "story": self = .story
-      default: self = .__unknown(rawValue)
-    }
-  }
-
-  public var rawValue: RawValue {
-    switch self {
-      case .theory: return "theory"
-      case .video: return "video"
-      case .story: return "story"
-      case .__unknown(let value): return value
-    }
-  }
-
-  public static func == (lhs: ENUM_POST_TYPE, rhs: ENUM_POST_TYPE) -> Bool {
-    switch (lhs, rhs) {
-      case (.theory, .theory): return true
-      case (.video, .video): return true
-      case (.story, .story): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
-    }
-  }
-
-  public static var allCases: [ENUM_POST_TYPE] {
-    return [
-      .theory,
-      .video,
-      .story,
-    ]
-  }
-}
-
 public final class PostsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -62,11 +17,15 @@ public final class PostsQuery: GraphQLQuery {
           __typename
           url
         }
-        type
         tags {
           __typename
           name
         }
+        post_type {
+          __typename
+        }
+        is_paid
+        published_at
       }
     }
     """
@@ -113,8 +72,10 @@ public final class PostsQuery: GraphQLQuery {
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
           GraphQLField("title", type: .nonNull(.scalar(String.self))),
           GraphQLField("image", type: .object(Image.selections)),
-          GraphQLField("type", type: .nonNull(.scalar(ENUM_POST_TYPE.self))),
           GraphQLField("tags", type: .list(.object(Tag.selections))),
+          GraphQLField("post_type", type: .nonNull(.list(.object(PostType.selections)))),
+          GraphQLField("is_paid", type: .nonNull(.scalar(Bool.self))),
+          GraphQLField("published_at", type: .scalar(String.self)),
         ]
       }
 
@@ -124,8 +85,8 @@ public final class PostsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, title: String, image: Image? = nil, type: ENUM_POST_TYPE, tags: [Tag?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Post", "id": id, "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "type": type, "tags": tags.flatMap { (value: [Tag?]) -> [ResultMap?] in value.map { (value: Tag?) -> ResultMap? in value.flatMap { (value: Tag) -> ResultMap in value.resultMap } } }])
+      public init(id: GraphQLID, title: String, image: Image? = nil, tags: [Tag?]? = nil, postType: [PostType?], isPaid: Bool, publishedAt: String? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Post", "id": id, "title": title, "image": image.flatMap { (value: Image) -> ResultMap in value.resultMap }, "tags": tags.flatMap { (value: [Tag?]) -> [ResultMap?] in value.map { (value: Tag?) -> ResultMap? in value.flatMap { (value: Tag) -> ResultMap in value.resultMap } } }, "post_type": postType.map { (value: PostType?) -> ResultMap? in value.flatMap { (value: PostType) -> ResultMap in value.resultMap } }, "is_paid": isPaid, "published_at": publishedAt])
       }
 
       public var __typename: String {
@@ -164,21 +125,39 @@ public final class PostsQuery: GraphQLQuery {
         }
       }
 
-      public var type: ENUM_POST_TYPE {
-        get {
-          return resultMap["type"]! as! ENUM_POST_TYPE
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "type")
-        }
-      }
-
       public var tags: [Tag?]? {
         get {
           return (resultMap["tags"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Tag?] in value.map { (value: ResultMap?) -> Tag? in value.flatMap { (value: ResultMap) -> Tag in Tag(unsafeResultMap: value) } } }
         }
         set {
           resultMap.updateValue(newValue.flatMap { (value: [Tag?]) -> [ResultMap?] in value.map { (value: Tag?) -> ResultMap? in value.flatMap { (value: Tag) -> ResultMap in value.resultMap } } }, forKey: "tags")
+        }
+      }
+
+      public var postType: [PostType?] {
+        get {
+          return (resultMap["post_type"] as! [ResultMap?]).map { (value: ResultMap?) -> PostType? in value.flatMap { (value: ResultMap) -> PostType in PostType(unsafeResultMap: value) } }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: PostType?) -> ResultMap? in value.flatMap { (value: PostType) -> ResultMap in value.resultMap } }, forKey: "post_type")
+        }
+      }
+
+      public var isPaid: Bool {
+        get {
+          return resultMap["is_paid"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "is_paid")
+        }
+      }
+
+      public var publishedAt: String? {
+        get {
+          return resultMap["published_at"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "published_at")
         }
       }
 
@@ -256,6 +235,47 @@ public final class PostsQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+      }
+
+      public struct PostType: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["ComponentPostTypeStory", "ComponentPostTypeTheory", "ComponentPostTypeVideo", "ComponentPostTypeVideoCourse"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public static func makeComponentPostTypeStory() -> PostType {
+          return PostType(unsafeResultMap: ["__typename": "ComponentPostTypeStory"])
+        }
+
+        public static func makeComponentPostTypeTheory() -> PostType {
+          return PostType(unsafeResultMap: ["__typename": "ComponentPostTypeTheory"])
+        }
+
+        public static func makeComponentPostTypeVideo() -> PostType {
+          return PostType(unsafeResultMap: ["__typename": "ComponentPostTypeVideo"])
+        }
+
+        public static func makeComponentPostTypeVideoCourse() -> PostType {
+          return PostType(unsafeResultMap: ["__typename": "ComponentPostTypeVideoCourse"])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
           }
         }
       }

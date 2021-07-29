@@ -70,7 +70,7 @@
 		DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598E26B01E2400842771 /* HomeTabBarController.swift */; };
 		DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* PostListViewController.swift */; };
 		DB8A59A126B01E3100842771 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* TableViewCell.swift */; };
-		DB8A59A226B01E3100842771 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* TagView.swift */; };
+		DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* LabelWithBackground.swift */; };
 		DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599626B01E3100842771 /* ProfileViewController.swift */; };
 		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
 		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
@@ -155,7 +155,7 @@
 		DB8A598E26B01E2400842771 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		DB8A599126B01E3100842771 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		DB8A599326B01E3100842771 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		DB8A599426B01E3100842771 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		DB8A599426B01E3100842771 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
 		DB8A599626B01E3100842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB8A599A26B01E3100842771 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		DB8A599B26B01E3100842771 /* AgeConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmViewController.swift; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8A599326B01E3100842771 /* TableViewCell.swift */,
-				DB8A599426B01E3100842771 /* TagView.swift */,
+				DB8A599426B01E3100842771 /* LabelWithBackground.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -814,7 +814,7 @@
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
-				DB8A59A226B01E3100842771 /* TagView.swift in Sources */,
+				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,

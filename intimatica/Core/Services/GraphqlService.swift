@@ -23,7 +23,7 @@ class GraphqlService: GraphqlServiceProtocol {
         networkTransport: RequestChainNetworkTransport(
             interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
             endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
-            additionalHeaders: ["Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3Mzc5NjE3LCJleHAiOjE2Mjk5NzE2MTd9.5NYkkJiJAr4zfsaL944SBvT_Id5qjxUDNEw7XetT9CA"],
+            additionalHeaders: ["Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3NDg4NTA1LCJleHAiOjE2MzAwODA1MDV9.47ksZXfznWRythSYY7gECtyu1ODGOXFdsSEjwdodEy4"],
             autoPersistQueries: false,
             requestBodyCreator: ApolloRequestBodyCreator(),
             useGETForQueries: false,
@@ -52,7 +52,9 @@ class GraphqlService: GraphqlServiceProtocol {
         graphQLResult.data?.posts?.forEach({ post in
             guard let post = post,
                   let postId = Int(post.id),
-                  let postType = PostType(rawValue: post.type.rawValue),
+                  let postTypeString = post.postType.first??.__typename,
+                  let postType = PostType(rawValue: postTypeString),
+            
                   let imageUrl = post.image?.url,
                   let tags = post.tags
             else {

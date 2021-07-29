@@ -21,7 +21,7 @@ class TableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var postImageView: UIImageView = {
+    private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -61,18 +61,18 @@ class TableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        postImageView.kf.cancelDownloadTask()
+        backgroundImageView.kf.cancelDownloadTask()
         titleLabel.text = ""
     }
     
     func fill(by post: Post) {
         let url = URL(string: AppConstants.serverURL + post.imageUrl)
-        postImageView.kf.indicatorType = .activity
-        postImageView.kf.setImage(with: url)
+        backgroundImageView.kf.indicatorType = .activity
+        backgroundImageView.kf.setImage(with: url)
         
         titleLabel.text = post.title
         post.tags.forEach {
-            tagStackView.addArrangedSubview(TagView(with: $0))
+            tagStackView.addArrangedSubview(addTagView(with: $0))
         }
         
         switch post.type {
@@ -82,6 +82,8 @@ class TableViewCell: UITableViewCell {
             print(2)
         case .video:
             print(3)
+        case .videoCourse:
+            print(4)
         }
     }
     
@@ -90,7 +92,7 @@ class TableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         view.addSubview(postView)
-        postView.addSubview(postImageView)
+        postView.addSubview(backgroundImageView)
         postView.addSubview(tagStackView)
         postView.addSubview(titleLabel)
     }
@@ -102,14 +104,14 @@ class TableViewCell: UITableViewCell {
             postView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.postViewLeadingTrailing),
             postView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.postViewSpacing),
             
-            postImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
-            postImageView.topAnchor.constraint(equalTo: postView.topAnchor),
-            postImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
-            postImageView.heightAnchor.constraint(equalToConstant: Constants.postImageViewHeight),
+            backgroundImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
+            backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.backgroundImageViewHeight),
             
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
-            tagStackView.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: Constants.tagStackViewTop),
+            tagStackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: Constants.tagStackViewTop),
             tagStackView.trailingAnchor.constraint(lessThanOrEqualTo: postView.trailingAnchor, constant: -Constants.tagStackViewLeadingTrailing),
             
             titleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
@@ -117,6 +119,16 @@ class TableViewCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
             titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom)
         ])
+    }
+    
+    func addTagView(with text: String) -> UIView {
+        return LabelWithBackground(with: text,
+                                   textColor: Constants.tagLabelTextColor,
+                                   backgroundColor: Constants.tagBackgroundColor,
+                                   font: Constants.tagLabelFont,
+                                   verticalSpacing: Constants.tagLabelTopBottom,
+                                   horizontalSpacing: Constants.tagLabelLeadingTrailing,
+                                   cornerRadius: Constants.tagBorderRadius)
     }
 }
 
@@ -126,9 +138,17 @@ extension TableViewCell {
         static let cellBorderColor = 0xD0B9FF
         static let cellBorderRadius: CGFloat = 20
         
+        static let tagLabelFont: UIFont = .rubik(fontSize: .verySmall, fontWeight: .regular)
+        static let tagLabelTextColor: UIColor = .appPurple
+        static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
+        static let tagBorderRadius: CGFloat = 10
+        
+        static let tagLabelTopBottom: CGFloat = 3
+        static let tagLabelLeadingTrailing: CGFloat = 5
+        
         static let postViewSpacing: CGFloat = 22
         static let postViewLeadingTrailing: CGFloat = 25
-        static let postImageViewHeight: CGFloat = 113
+        static let backgroundImageViewHeight: CGFloat = 113
         
         static let tagStackViewSpacing: CGFloat = 7
         static let tagStackViewHeight: CGFloat = 17

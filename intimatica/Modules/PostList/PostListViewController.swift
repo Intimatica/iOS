@@ -11,7 +11,10 @@ class PostListViewController: UIViewController {
     // MARK: - Properties
     private var presenter: PostListPresenterProtocol!
     private var posts: [Post] = []
-    private let cellIdentifier = "cellIdentifier"
+    private let storyCellIdentifier = "storyCellIdentifier"
+    private let theoryCellIdentifier = "theoryCellIdentifier"
+    private let videoCellIdentifier = "videoCellIdentifier"
+    private let videoCourseCellIdentifier = "videoCourseCellIdentifier"
     
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
@@ -31,7 +34,11 @@ class PostListViewController: UIViewController {
         table.showsHorizontalScrollIndicator = false
         table.dataSource = self
         table.delegate = self
-        table.register(TableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        table.register(StoryTableViewCell.self, forCellReuseIdentifier: storyCellIdentifier)
+        table.register(TheoryTableViewCell.self, forCellReuseIdentifier: theoryCellIdentifier)
+        table.register(VideoTableViewCell.self, forCellReuseIdentifier: videoCellIdentifier)
+        table.register(VideoCourseTableViewCell.self, forCellReuseIdentifier: videoCourseCellIdentifier)
+
         return table
     }()
     
@@ -112,13 +119,33 @@ extension PostListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TableViewCell else {
-            fatalError("Faild to dequeue cell with id \(cellIdentifier)")
+        let post = posts[indexPath.row]
+        switch post.type {
+        
+        case .story:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath) as? StoryTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(storyCellIdentifier) for indexPath \(indexPath)")
+            }
+            cell.fill(by: post)
+            return cell
+        
+        case .theory:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: theoryCellIdentifier, for: indexPath) as? TheoryTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(theoryCellIdentifier) for indexPath \(indexPath)")
+            }
+            cell.fill(by: post)
+            return cell
+        
+        case .video:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: videoCellIdentifier, for: indexPath) as? VideoTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(videoCellIdentifier) for indexPath \(indexPath)")
+            }
+            cell.fill(by: post)
+            return cell
+            
+        default:
+            fatalError("Failed to find a reusedable cell for \(post.type)")
         }
-        
-        cell.fill(by: posts[indexPath.row])
-        
-        return cell
     }
 }
 

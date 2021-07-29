@@ -17,7 +17,7 @@ class HomeTabBarController: UITabBarController {
         let postListTabBar = PostListViewController(presenter: presenter)
         presenter.view = postListTabBar
         
-        postListTabBar.tabBarItem = UITabBarItem(title: L10n("MAIN_TABBAR_ITEM_TITLE"),
+        postListTabBar.tabBarItem = UITabBarItem(title: L10n("POST_LIST_TABBAR_ITEM_TITLE"),
                                              image: UIImage(named: "main"), tag: 0)
 
         return postListTabBar

@@ -69,7 +69,7 @@
 		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
 		DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598E26B01E2400842771 /* HomeTabBarController.swift */; };
 		DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* PostListViewController.swift */; };
-		DB8A59A126B01E3100842771 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* TableViewCell.swift */; };
+		DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* BaseTableViewCell.swift */; };
 		DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* LabelWithBackground.swift */; };
 		DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599626B01E3100842771 /* ProfileViewController.swift */; };
 		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
@@ -83,6 +83,10 @@
 		DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4526B0833600E04D40 /* GraphqlService.swift */; };
 		DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4726B1439900E04D40 /* PostRepository.swift */; };
 		DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4926B1464700E04D40 /* PostUseCase.swift */; };
+		DBF99D5526B2A1D300E04D40 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */; };
+		DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */; };
+		DBF99D5926B2A1EA00E04D40 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */; };
+		DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,7 +158,7 @@
 		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		DB8A598E26B01E2400842771 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		DB8A599126B01E3100842771 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
-		DB8A599326B01E3100842771 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		DB8A599326B01E3100842771 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DB8A599426B01E3100842771 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
 		DB8A599626B01E3100842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB8A599A26B01E3100842771 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,10 @@
 		DBF99D4526B0833600E04D40 /* GraphqlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphqlService.swift; sourceTree = "<group>"; };
 		DBF99D4726B1439900E04D40 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		DBF99D4926B1464700E04D40 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
+		DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTableViewCell.swift; sourceTree = "<group>"; };
+		DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCourseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +534,7 @@
 		DB8A599026B01E3100842771 /* PostList */ = {
 			isa = PBXGroup;
 			children = (
+				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
 				DB8A599226B01E3100842771 /* Helpers */,
 				DB8A599126B01E3100842771 /* PostListViewController.swift */,
 				DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */,
@@ -536,7 +545,6 @@
 		DB8A599226B01E3100842771 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A599326B01E3100842771 /* TableViewCell.swift */,
 				DB8A599426B01E3100842771 /* LabelWithBackground.swift */,
 			);
 			path = Helpers;
@@ -610,6 +618,18 @@
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		DBF99D4B26B2902F00E04D40 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A599326B01E3100842771 /* BaseTableViewCell.swift */,
+				DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */,
+				DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */,
+				DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */,
+				DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -788,6 +808,7 @@
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
+				DBF99D5926B2A1EA00E04D40 /* VideoTableViewCell.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
 				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
@@ -796,10 +817,11 @@
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
+				DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
 				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
 				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
-				DB8A59A126B01E3100842771 /* TableViewCell.swift in Sources */,
+				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
 				DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */,
 				DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
@@ -818,11 +840,13 @@
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
+				DBF99D5526B2A1D300E04D40 /* StoryTableViewCell.swift in Sources */,
 				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
+				DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,

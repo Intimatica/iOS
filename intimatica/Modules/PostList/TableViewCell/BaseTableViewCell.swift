@@ -8,9 +8,9 @@
 import UIKit
 import Kingfisher
 
-class TableViewCell: UITableViewCell {
+class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
-    private lazy var postView: UIView = {
+    lazy var postView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -21,7 +21,7 @@ class TableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var backgroundImageView: UIImageView = {
+    lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -29,7 +29,13 @@ class TableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = {
+    lazy var postTypeLabel: UIView = LabelWithBackground(textColor: .white,
+                                                                 font: .rubik(fontSize: .small),
+                                                                 verticalSpacing: 3,
+                                                                 horizontalSpacing: 10,
+                                                                 cornerRadius: 10)
+    
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .rubik(fontSize: .regular, fontWeight: .regular)
@@ -37,13 +43,12 @@ class TableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var tagStackView: UIStackView = {
+    lazy var tagStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = Constants.tagStackViewSpacing
         return stackView
     }()
-
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -74,17 +79,6 @@ class TableViewCell: UITableViewCell {
         post.tags.forEach {
             tagStackView.addArrangedSubview(addTagView(with: $0))
         }
-        
-        switch post.type {
-        case .story:
-            print(1)
-        case .theory:
-            print(2)
-        case .video:
-            print(3)
-        case .videoCourse:
-            print(4)
-        }
     }
     
     // MARK: - Layout
@@ -93,6 +87,7 @@ class TableViewCell: UITableViewCell {
         
         view.addSubview(postView)
         postView.addSubview(backgroundImageView)
+        postView.addSubview(postTypeLabel)
         postView.addSubview(tagStackView)
         postView.addSubview(titleLabel)
     }
@@ -130,10 +125,27 @@ class TableViewCell: UITableViewCell {
                                    horizontalSpacing: Constants.tagLabelLeadingTrailing,
                                    cornerRadius: Constants.tagBorderRadius)
     }
+    
+    func addPostLabel(text: String, backGroundColor: UIColor) {
+        let label = LabelWithBackground(with: text,
+                                        textColor: .white,
+                                        backgroundColor: backGroundColor,
+                                        font: .rubik(fontSize: .small),
+                                        verticalSpacing: 3,
+                                        horizontalSpacing: 10,
+                                        cornerRadius: 10)
+        
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
+            label.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop)
+        ])
+    }
 }
 
 // MARK: - Helper/Constants
-extension TableViewCell {
+extension BaseTableViewCell {
     struct Constants {
         static let cellBorderColor = 0xD0B9FF
         static let cellBorderRadius: CGFloat = 20
@@ -142,13 +154,15 @@ extension TableViewCell {
         static let tagLabelTextColor: UIColor = .appPurple
         static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
         static let tagBorderRadius: CGFloat = 10
-        
         static let tagLabelTopBottom: CGFloat = 3
         static let tagLabelLeadingTrailing: CGFloat = 5
         
         static let postViewSpacing: CGFloat = 22
         static let postViewLeadingTrailing: CGFloat = 25
-        static let backgroundImageViewHeight: CGFloat = 113
+        static let backgroundImageViewHeight: CGFloat = 130
+        
+        static let postLabelLeading: CGFloat = 13
+        static let postLabelTop: CGFloat = 18
         
         static let tagStackViewSpacing: CGFloat = 7
         static let tagStackViewHeight: CGFloat = 17

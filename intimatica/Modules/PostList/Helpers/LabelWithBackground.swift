@@ -18,7 +18,8 @@ class LabelWithBackground: UIView {
     }()
     
     // MARK: - Initializers
-    init(with text: String, textColor: UIColor = .black, backgroundColor: UIColor = .lightGray, font: UIFont = .rubik(), verticalSpacing: CGFloat = 3, horizontalSpacing: CGFloat = 10, cornerRadius: CGFloat = 10) {
+    init(with text: String = "", textColor: UIColor = .black, backgroundColor: UIColor = .lightGray, font: UIFont = .rubik(), verticalSpacing: CGFloat = 3, horizontalSpacing: CGFloat = 10, cornerRadius: CGFloat = 10) {
+        
         super.init(frame: .zero)
         
         setupLabel(text: text, color: textColor, font: font)
@@ -30,8 +31,18 @@ class LabelWithBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Layout
+    // MARK: - Public
+    public func setText(_ text: String) -> LabelWithBackground {
+        label.text = text
+        return self
+    }
     
+    public func setBackgroundColor(_ color: UIColor) -> LabelWithBackground {
+        backgroundColor = color
+        return self
+    }
+    
+    // MARK: - Layout
     private func setupLabel(text: String, color: UIColor, font: UIFont) {
         label.text = text
         label.textColor = color

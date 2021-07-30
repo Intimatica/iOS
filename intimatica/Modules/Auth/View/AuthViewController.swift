@@ -12,13 +12,7 @@ class AuthViewController: UIViewController {
     // MARK: - Properties
     private var presenter: AuthPresenterProtocol!
     
-    lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(UIImage(named: "close_button_image"), for: .normal)
-        
-        return button
-    }()
+    lazy var closeButton = CloseButton()
     
     lazy var emailView = TextFieldView(field: .email(
                                                 .settings(placeholder: L10n("AUTH_EMAIL_FIELD_PLACEHOLDER"), returnKeyType: .next)))

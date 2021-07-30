@@ -93,6 +93,12 @@
 		DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6326B2D85500E04D40 /* Theory.swift */; };
 		DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */; };
 		DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */; };
+		DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */; };
+		DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */; };
+		DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6F26B4316000E04D40 /* AuthorView.swift */; };
+		DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7126B4344400E04D40 /* AvatarImageView.swift */; };
+		DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7326B495E000E04D40 /* SpacerView.swift */; };
+		DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +197,12 @@
 		DBF99D6326B2D85500E04D40 /* Theory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theory.swift; sourceTree = "<group>"; };
 		DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostViewController.swift; sourceTree = "<group>"; };
 		DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthAspectFitImageView.swift; sourceTree = "<group>"; };
+		DBF99D6F26B4316000E04D40 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
+		DBF99D7126B4344400E04D40 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		DBF99D7326B495E000E04D40 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
+		DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8B3A269F5716007020C0 /* Extensions */,
-				DB2F8B22269F3890007020C0 /* UI */,
 				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
@@ -276,14 +287,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DB2F8B22269F3890007020C0 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		DB2F8B3A269F5716007020C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +295,7 @@
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
 				DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */,
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
+				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +439,7 @@
 		DB6F3176269DA973005E7578 /* intimatica */ = {
 			isa = PBXGroup;
 			children = (
+				DBF99D6A26B3DEC500E04D40 /* UI */,
 				DB8A598C26AF734900842771 /* Core */,
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
@@ -558,7 +563,6 @@
 		DB8A599226B01E3100842771 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DB8A599426B01E3100842771 /* LabelWithBackground.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -662,8 +666,22 @@
 			isa = PBXGroup;
 			children = (
 				DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */,
+				DBF99D6F26B4316000E04D40 /* AuthorView.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		DBF99D6A26B3DEC500E04D40 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */,
+				DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */,
+				DB8A599426B01E3100842771 /* LabelWithBackground.swift */,
+				DBF99D7326B495E000E04D40 /* SpacerView.swift */,
+				DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */,
+				DBF99D7126B4344400E04D40 /* AvatarImageView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -820,7 +838,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://intimatica.key42.net/graphql\" Core/Entities/GraphQL/schema.json\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Core/Entities/GraphQL/schema.json\" Core/Entities/GraphQL/API.swift\n";
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://intimatica.key42.net/graphql\" Core/Entities/GraphQL/schema.json\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"Core/Entities/GraphQL/schema.json\" Core/Entities/GraphQL/API.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -831,8 +849,10 @@
 			files = (
 				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
+				DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */,
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
+				DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
@@ -857,6 +877,7 @@
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
+				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
 				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
 				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
@@ -865,6 +886,7 @@
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
+				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
@@ -878,12 +900,14 @@
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
+				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* StoryTableViewCell.swift in Sources */,
 				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
+				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
 				DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */,

@@ -9,6 +9,7 @@ import Foundation
 
 protocol PostListPresenterProtocol {
     func viewDidLoad()
+    func show(_ post: Post)
 }
 
 protocol PostListViewProtocol: AnyObject {
@@ -33,6 +34,15 @@ extension PostListPresenter: PostListPresenterProtocol {
     func viewDidLoad() {
         useCase.getPosts { [weak self] posts in
             self?.view?.setPosts(posts)
+        }
+    }
+    
+    func show(_ post: Post) {
+        switch post.type {
+        case .theory:
+            router.trigger(.theory(post.id))
+        default:
+            break
         }
     }
 }

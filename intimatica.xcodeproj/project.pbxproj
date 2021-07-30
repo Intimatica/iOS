@@ -87,6 +87,12 @@
 		DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */; };
 		DBF99D5926B2A1EA00E04D40 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */; };
 		DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */; };
+		DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */; };
+		DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */; };
+		DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */; };
+		DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6326B2D85500E04D40 /* Theory.swift */; };
+		DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */; };
+		DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +185,12 @@
 		DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTableViewCell.swift; sourceTree = "<group>"; };
 		DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCourseTableViewCell.swift; sourceTree = "<group>"; };
+		DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
+		DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryPresenter.swift; sourceTree = "<group>"; };
+		DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheoryPost.graphql; sourceTree = "<group>"; };
+		DBF99D6326B2D85500E04D40 /* Theory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theory.swift; sourceTree = "<group>"; };
+		DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostViewController.swift; sourceTree = "<group>"; };
+		DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +252,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DBF99D5C26B2C7F500E04D40 /* Post */,
 				DB8A59AC26B01ECB00842771 /* Cources */,
 				DB8A599026B01E3100842771 /* PostList */,
 				DB8A599526B01E3100842771 /* Profile */,
@@ -598,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8A59AA26B01E9A00842771 /* Post.swift */,
+				DBF99D6326B2D85500E04D40 /* Theory.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -616,6 +630,7 @@
 				DBF99D4126B07D9A00E04D40 /* API.swift */,
 				DBF99D3826B069A100E04D40 /* schema.json */,
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
+				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -630,6 +645,25 @@
 				DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		DBF99D5C26B2C7F500E04D40 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				DBF99D6726B3D8EF00E04D40 /* Helper */,
+				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
+				DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */,
+				DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		DBF99D6726B3D8EF00E04D40 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -704,6 +738,7 @@
 				DBF99D3926B069A200E04D40 /* schema.json in Resources */,
 				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
 				DB2F8B8D26A371B9007020C0 /* Rubik-Regular.ttf in Resources */,
+				DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */,
 				DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */,
 				DB2F8B8F26A371B9007020C0 /* Rubik-SemiBoldItalic.ttf in Resources */,
 				DB2F8B8B26A371B9007020C0 /* OFL.txt in Resources */,
@@ -794,8 +829,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
+				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
@@ -811,6 +848,7 @@
 				DBF99D5926B2A1EA00E04D40 /* VideoTableViewCell.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
+				DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */,
 				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
@@ -826,6 +864,7 @@
 				DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
+				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
@@ -837,6 +876,7 @@
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
+				DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,

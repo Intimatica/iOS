@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Apollo
 
 protocol PostUseCaseProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
 }
 
 protocol HasPostUseCaseProtocol {
@@ -27,4 +29,9 @@ final class PostUseCase: PostUseCaseProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void) {
         postRepository.getPosts(completionHandler: completionHandler)
     }
+
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+        postRepository.getTheory(id: id, completionHandler: completionHandler)
+    }
+
 }

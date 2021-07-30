@@ -27,7 +27,7 @@ class PostListViewController: UIViewController {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
-        table.allowsSelection = false
+//        table.allowsSelection = false
         table.backgroundView = nil
         table.backgroundColor = .clear
         table.showsVerticalScrollIndicator = false
@@ -109,7 +109,9 @@ extension PostListViewController {
 
 // MARK: - UITableViewDelegate
 extension PostListViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.show(posts[indexPath.row])
+    }
 }
 
 // MARK: - UITableViewDataSource

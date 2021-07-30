@@ -10,6 +10,7 @@ import Apollo
 
 protocol GraphqlServiceProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
 }
 
 protocol HasGraphqlServiceProtocol {
@@ -36,7 +37,7 @@ class GraphqlService: GraphqlServiceProtocol {
                     
               switch result {
               case .success(let graphQLResult):
-                let posts = self.parseGraphQLResult(graphQLResult)
+                let posts = self.parseGetPostsGraphQLResult(graphQLResult)
                 completionHandler(posts)
               case .failure(let error):
                 // TODO: add logger
@@ -46,30 +47,37 @@ class GraphqlService: GraphqlServiceProtocol {
           }
     }
     
-    private func parseGraphQLResult(_ graphQLResult: GraphQLResult<PostsQuery.Data>) -> [Post] {
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+        apollo.fetch(query: TheoryPostQuery(id: String(id)), resultHandler: completionHandler)
+    }
+    
+    private func parseGetPostsGraphQLResult(_ graphQLResult: GraphQLResult<PostsQuery.Data>) -> [Post] {
         var posts: [Post] = []
         
         graphQLResult.data?.posts?.forEach({ post in
-            guard let post = post,
-                  let postId = Int(post.id),
-                  let postTypeString = post.postType.first??.__typename,
-                  let postType = PostType(rawValue: postTypeString),
-            
-                  let imageUrl = post.image?.url,
-                  let tags = post.tags
-            else {
-                // TODO: add logger here
-                print("Failed to parseGraphQLResult: \(graphQLResult)")
-                return
-            }
-            
-            posts.append(Post(id: postId,
-                              title: post.title,
-                              type: postType,
-                              imageUrl: imageUrl,
-                              tags: tags.compactMap { $0?.name }))
+            posts.append(PostsQueryData2Post(post: post))
         })
  
         return posts
+    }
+    
+    private func PostsQueryData2Post(post: PostsQuery.Data.Post?) -> Post {
+        guard let post = post,
+              let postId = Int(post.id),
+              let postTypeString = post.postType.first??.__typename,
+              let postType = PostType(rawValue: postTypeString),
+        
+              let imageUrl = post.image?.url,
+              let tags = post.tags
+        else {
+            // TODO: add logger here
+            fatalError("Failed to parseGraphQLResult: \(String(describing: post))")
+        }
+        
+        return Post(id: postId,
+                    title: post.title,
+                    type: postType,
+                    imageUrl: imageUrl,
+                    tags: tags.compactMap { $0?.name })
     }
 }

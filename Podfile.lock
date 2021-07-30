@@ -5,6 +5,7 @@ PODS:
   - Apollo/Core (0.45.0)
   - KeychainSwift (19.0.0)
   - Kingfisher (6.3.0)
+  - MarkdownView (1.7.1)
   - SwiftLint (0.43.1)
   - XCoordinator (2.0.7):
     - XCoordinator/Core (= 2.0.7)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Apollo
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
+  - MarkdownView
   - SwiftLint
   - XCoordinator (~> 2.0)
 
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Apollo
     - KeychainSwift
     - Kingfisher
+    - MarkdownView
     - SwiftLint
     - XCoordinator
 
@@ -32,9 +35,10 @@ SPEC CHECKSUMS:
   Apollo: 241254e8b26f49dc180e3be848f0b3fc5699e6f4
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: 56ffd49b3b8d9a25e7cfdb49a406879e1dc7cba8
+PODFILE CHECKSUM: da42af8aeb7ec0e7599868e309bd56cb617d7170
 
 COCOAPODS: 1.10.1

@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Apollo
 
 protocol PostRepositoryProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
 }
 
 protocol HasPostRepositoryProtocol {
@@ -26,5 +28,9 @@ class PostRepository: PostRepositoryProtocol {
     
     func getPosts(completionHandler: @escaping ([Post]) -> Void) {
         graphqlService.getPosts(completionHandler: completionHandler)
+    }
+    
+    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+        graphqlService.getTheory(id: id, completionHandler: completionHandler)
     }
 }

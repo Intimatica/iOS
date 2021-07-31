@@ -10,7 +10,7 @@ import Apollo
 
 protocol PostRepositoryProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler)
 }
 
 protocol HasPostRepositoryProtocol {
@@ -30,7 +30,7 @@ class PostRepository: PostRepositoryProtocol {
         graphqlService.getPosts(completionHandler: completionHandler)
     }
     
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler) {
         graphqlService.getTheory(id: id, completionHandler: completionHandler)
     }
 }

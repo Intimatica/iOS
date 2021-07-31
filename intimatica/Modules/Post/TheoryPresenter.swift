@@ -9,10 +9,12 @@ import Foundation
 
 protocol TheoryPresenterProtocol {
     func viewDidLoad()
+    func closeButtonDidTap()
 }
 
 protocol TheoryViewProtocol: AnyObject {
     func display(_ theoryPost: TheoryPostQuery.Data.Post)
+    func display(_ error: Error)
 }
 
 final class TheoryPresenter {
@@ -31,6 +33,10 @@ final class TheoryPresenter {
 }
 
 extension TheoryPresenter: TheoryPresenterProtocol {
+    func closeButtonDidTap() {
+//        router.trigger(.home)
+    }
+    
     func viewDidLoad() {
         useCase.getTheory(id: postId) { [weak self] result in
             guard let self = self else { return }
@@ -40,8 +46,9 @@ extension TheoryPresenter: TheoryPresenterProtocol {
                 if let theoryPost = graphQLResult.data?.post {
                     self.view?.display(theoryPost)
                 }
+                // TODO: add else case
             case .failure(let error):
-                print(error.localizedDescription)
+                self.view?.display(error)
             }
         }
     }

@@ -16,6 +16,8 @@ class NavigationBarView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .rubik(fontSize: .regular, fontWeight: .bold)
+        label.textAlignment = .center
         return label
     }()
     
@@ -44,6 +46,14 @@ class NavigationBarView: UIView {
         return button
     }()
     
+    private lazy var bottomBorderLayer: CALayer = {
+        let layer = CALayer()
+        layer.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        let borderWidth: CGFloat = 1
+        layer.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: borderWidth)
+        return layer
+    }()
+    
     // MARK: - Initializers
     init(actionButtonType: ActionButtonType) {
         super.init(frame: .zero)
@@ -66,39 +76,50 @@ class NavigationBarView: UIView {
     
         translatesAutoresizingMaskIntoConstraints = false
         
-//        addSubview(actionButton)
-//        addSubview(titleLabel)
+        addSubview(actionButton)
+        addSubview(titleLabel)
         addSubview(closeButton)
         
         NSLayoutConstraint.activate([
-//            actionButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//
-//            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.actionButtonLeading),
-//            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopBottom),
-//            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.closeButtonTopBottom),
-//
-//            titleLabel.leadingAnchor.constraint(equalTo: actionButton.trailingAnchor, constant: Constants.titleLabelLeading),
-//
-            view.heightAnchor.constraint(equalToConstant: 35),
+            view.heightAnchor.constraint(equalToConstant: Constants.viewHeight),
+
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.actionButtonLeading),
+            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopBottom),
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.closeButtonTopBottom),
+            
+            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor),
+
+            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: actionButton.trailingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
+
             closeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             closeButton.widthAnchor.constraint(equalTo: closeButton.heightAnchor),
-//            closeButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: Constants.closeButtonLeadingTrailing),
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopBottom),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonLeadingTrailing),
             closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.closeButtonTopBottom),
             
         ])
     }
+    
+    func showBottomBorder() {
+        self.layer.addSublayer(bottomBorderLayer)
+    }
+    
+    func hideBottomBorder() {
+        bottomBorderLayer.removeFromSuperlayer()
+    }
 }
 
 // MARK: - Helper/Constants
 extension NavigationBarView {
     private struct Constants {
-        static let actionButtonLeading: CGFloat = 12
-        static let actionButtonWidth: CGFloat = 130
+        static let viewHeight: CGFloat = 35
         
-        static let titleLabelLeading: CGFloat = 15
+        static let actionButtonLeading: CGFloat = 15
+//        static let actionButtonWidth: CGFloat = 130
+        
+        static let titleLabelLeadingTrailing: CGFloat = 15
         
         static let closeButtonTopBottom: CGFloat = 0
         static let closeButtonLeadingTrailing: CGFloat = 15

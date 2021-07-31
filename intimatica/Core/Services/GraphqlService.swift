@@ -8,9 +8,11 @@
 import Foundation
 import Apollo
 
+typealias theoryPostQueryCompletionHandler = (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void
+
 protocol GraphqlServiceProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler)
 }
 
 protocol HasGraphqlServiceProtocol {
@@ -47,7 +49,7 @@ class GraphqlService: GraphqlServiceProtocol {
           }
     }
     
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler) {
         apollo.fetch(query: TheoryPostQuery(id: String(id)), resultHandler: completionHandler)
     }
     

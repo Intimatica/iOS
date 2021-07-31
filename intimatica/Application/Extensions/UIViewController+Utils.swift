@@ -32,7 +32,11 @@ fileprivate var spinnerView: UIView?
 extension UIViewController {
 
     func showSpinner() {
-        spinnerView = UIView(frame: self.view.bounds)
+        showSpinner(frame: self.view.bounds)
+    }
+    
+    func showSpinner(frame: CGRect) {
+        spinnerView = UIView(frame: frame)
         
         guard let spinnerView = spinnerView else { return }
         

@@ -10,7 +10,7 @@ import Apollo
 
 protocol PostUseCaseProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void)
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler)
 }
 
 protocol HasPostUseCaseProtocol {
@@ -30,8 +30,7 @@ final class PostUseCase: PostUseCaseProtocol {
         postRepository.getPosts(completionHandler: completionHandler)
     }
 
-    func getTheory(id: Int, completionHandler: @escaping (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void) {
+    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler) {
         postRepository.getTheory(id: id, completionHandler: completionHandler)
     }
-
 }

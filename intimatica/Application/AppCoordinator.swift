@@ -33,7 +33,8 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .theory(1))
+        super.init(initialRoute: .launch)
+//        super.init(initialRoute: .theory(7))
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {

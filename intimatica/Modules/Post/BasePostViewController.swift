@@ -11,7 +11,7 @@ import Kingfisher
 
 class BasePostViewController: UIViewController {
     // MARK: - Properties
-    var navigationBarView: UIView!
+    var navigationBarView: NavigationBarView!
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -84,6 +84,7 @@ class BasePostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        showSpinner()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -122,6 +123,12 @@ class BasePostViewController: UIViewController {
                                    verticalSpacing: 3,
                                    horizontalSpacing: 8,
                                    cornerRadius: 10)
+    }
+    
+    func fixContentStrapiLinks(_ text: String) -> String {
+        let regex = "(\\!\\[.*\\]\\()(\\/.+)(\\))"
+        let replaceBy = "$1" + AppConstants.serverURL + "$2$3"
+        return text.replacingOccurrences(of: regex, with: replaceBy, options: .regularExpression)
     }
 }
 

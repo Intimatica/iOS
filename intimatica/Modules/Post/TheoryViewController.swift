@@ -13,7 +13,7 @@ class TheoryViewController: BasePostViewController {
     
     // MARK: - Initializers
     init(presenter: TheoryPresenterProtocol) {
-        super.init(navigationBarType: .addCourse)
+        super.init(navigationBarType: .addFavorite)
         
         self.presenter = presenter
     }
@@ -28,8 +28,9 @@ class TheoryViewController: BasePostViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
         
-        showSpinner()
+        scrollView.delegate = self
         
         presenter.viewDidLoad()
     }
@@ -67,9 +68,17 @@ class TheoryViewController: BasePostViewController {
             markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: spacerView.bottomAnchor, constant: Constants.markdownViewTop),
             markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
+            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 20),
             markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
+    }
+    
+    private func setupActions() {
+        navigationBarView.closeButton.addAction { [weak self] in
+            // TODO: fix this
+//            self?.presenter.closeButtonDidTap()
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -102,11 +111,31 @@ extension TheoryViewController: TheoryViewProtocol {
         authorView.label.setAttributedText(withString: L10n("AUTHOR") + "\n" + authorName + "\n" + authorJobTitle,
                                            boldString: authorName,
                                            font: authorView.label.font)
-
-        markdownView.load(markdown: content, enableImage: true)
         
-        markdownView.onRendered = { [weak self] _ in
+        markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
+        
+        markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()
+            self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
+    
+
+    
+    func display(_ error: Error) {
+        showError(error.localizedDescription)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension TheoryViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0 {
+            navigationBarView.titleLabel.text = titleLabel.text
+            navigationBarView.showBottomBorder()
+        } else {
+            navigationBarView.titleLabel.text = ""
+            navigationBarView.hideBottomBorder()
         }
     }
 }

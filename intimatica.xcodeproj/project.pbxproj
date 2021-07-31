@@ -99,6 +99,7 @@
 		DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7126B4344400E04D40 /* AvatarImageView.swift */; };
 		DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7326B495E000E04D40 /* SpacerView.swift */; };
 		DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */; };
+		DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,7 @@
 		DBF99D7126B4344400E04D40 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		DBF99D7326B495E000E04D40 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
+		DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */,
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
 				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
+				DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -553,18 +556,10 @@
 			isa = PBXGroup;
 			children = (
 				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
-				DB8A599226B01E3100842771 /* Helpers */,
 				DB8A599126B01E3100842771 /* PostListViewController.swift */,
 				DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */,
 			);
 			path = PostList;
-			sourceTree = "<group>";
-		};
-		DB8A599226B01E3100842771 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DB8A599526B01E3100842771 /* Profile */ = {
@@ -900,6 +895,7 @@
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
+				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,

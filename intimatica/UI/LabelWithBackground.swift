@@ -14,12 +14,12 @@ class LabelWithBackground: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .rubik()
         label.textColor = .black
+        label.numberOfLines = 1
         return label
     }()
     
     // MARK: - Initializers
     init(with text: String = "", textColor: UIColor = .black, backgroundColor: UIColor = .lightGray, font: UIFont = .rubik(), verticalSpacing: CGFloat = 3, horizontalSpacing: CGFloat = 10, cornerRadius: CGFloat = 10) {
-        
         super.init(frame: .zero)
         
         setupLabel(text: text, color: textColor, font: font)
@@ -31,17 +31,6 @@ class LabelWithBackground: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public
-    public func setText(_ text: String) -> LabelWithBackground {
-        label.text = text
-        return self
-    }
-    
-    public func setBackgroundColor(_ color: UIColor) -> LabelWithBackground {
-        backgroundColor = color
-        return self
-    }
-    
     // MARK: - Layout
     private func setupLabel(text: String, color: UIColor, font: UIFont) {
         label.text = text
@@ -50,12 +39,12 @@ class LabelWithBackground: UIView {
     }
     
     private func setupView(backgroundColor: UIColor, cornerRadius: CGFloat) {
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = backgroundColor
-        view.layer.cornerRadius = cornerRadius
-        view.layer.masksToBounds = true
+        translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = backgroundColor
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
 
-        view.addSubview(label)
+        addSubview(label)
     }
     
     private func setupConstraints(verticalSpacing: CGFloat, horizontalSpacing: CGFloat) {

@@ -122,32 +122,38 @@ extension PostListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
+        var cell: BaseTableViewCell?
+        
         switch post.type {
         
         case .story:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath) as? StoryTableViewCell else {
+            guard let storyCell = tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath) as? StoryTableViewCell else {
                 fatalError("Faild to dequeue cell with id \(storyCellIdentifier) for indexPath \(indexPath)")
             }
-            cell.fill(by: post)
-            return cell
-        
+            cell = storyCell
+            
         case .theory:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: theoryCellIdentifier, for: indexPath) as? TheoryTableViewCell else {
+            guard let theoryCell = tableView.dequeueReusableCell(withIdentifier: theoryCellIdentifier, for: indexPath) as? TheoryTableViewCell else {
                 fatalError("Faild to dequeue cell with id \(theoryCellIdentifier) for indexPath \(indexPath)")
             }
-            cell.fill(by: post)
-            return cell
-        
+            cell = theoryCell
+            
         case .video:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: videoCellIdentifier, for: indexPath) as? VideoTableViewCell else {
+            guard let videoCell = tableView.dequeueReusableCell(withIdentifier: videoCellIdentifier, for: indexPath) as? VideoTableViewCell else {
                 fatalError("Faild to dequeue cell with id \(videoCellIdentifier) for indexPath \(indexPath)")
             }
-            cell.fill(by: post)
-            return cell
+            cell = videoCell
             
         default:
             fatalError("Failed to find a reusedable cell for \(post.type)")
         }
+        
+        guard let cell = cell else {
+            fatalError("Failed to initialize cell")
+        }
+        
+        cell.fill(by: post)
+        return cell
     }
 }
 

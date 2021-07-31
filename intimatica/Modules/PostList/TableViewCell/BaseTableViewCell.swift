@@ -29,12 +29,6 @@ class BaseTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var postTypeLabel: UIView = LabelWithBackground(textColor: .white,
-                                                                 font: .rubik(fontSize: .small),
-                                                                 verticalSpacing: 3,
-                                                                 horizontalSpacing: 10,
-                                                                 cornerRadius: 10)
-    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +61,7 @@ class BaseTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         backgroundImageView.kf.cancelDownloadTask()
+        tagStackView.removeAllArrangedSubviews()
         titleLabel.text = ""
     }
     
@@ -84,10 +79,10 @@ class BaseTableViewCell: UITableViewCell {
     // MARK: - Layout
     private func setupView() {
         backgroundColor = .clear
+        selectionStyle = .none
         
         view.addSubview(postView)
         postView.addSubview(backgroundImageView)
-        postView.addSubview(postTypeLabel)
         postView.addSubview(tagStackView)
         postView.addSubview(titleLabel)
     }
@@ -134,12 +129,11 @@ class BaseTableViewCell: UITableViewCell {
                                         verticalSpacing: 3,
                                         horizontalSpacing: 10,
                                         cornerRadius: 10)
-        
         view.addSubview(label)
-        
+
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            label.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop)
+            label.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
         ])
     }
 }

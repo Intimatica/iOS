@@ -18,9 +18,6 @@ query TheoryPost($id: ID!) {
     is_paid
     post_type {
       __typename
-      ... on ComponentPostTypeTheory {
-        content
-      }
     }
   }
 }

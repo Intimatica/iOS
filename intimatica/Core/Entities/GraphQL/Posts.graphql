@@ -1,5 +1,5 @@
 query Posts {
-  posts {
+  posts (sort:"published_at:desc", where:{tags: {id: []}}){
     id
     title
     image {
@@ -8,10 +8,10 @@ query Posts {
     tags {
       name
     }
-    post_type {
-      __typename
-    }
     is_paid
-    published_at
+      published_at
+    post_type {
+        __typename
+    }
   }
 }

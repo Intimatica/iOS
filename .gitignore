@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/swift,cocoapods,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,cocoapods,xcode
 
@@ -113,3 +112,8 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,cocoapods,xcode
 
+
+
+# Intimatica App
+intimatica/Core/Entities/GraphQL/API.swift
+intimatica/Core/Entities/GraphQL/schema.json

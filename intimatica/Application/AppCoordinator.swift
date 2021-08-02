@@ -33,8 +33,8 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .launch)
-//        super.init(initialRoute: .theory(7))
+//        super.init(initialRoute: .launch)
+        super.init(initialRoute: .video(6))
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -74,6 +74,12 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = TheoryViewController(presenter: presenter)
+            presenter.view = viewController
+            return .show(viewController)
+            
+        case .video(let id):
+            let presenter = VideoPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
+            let viewController = VideoViewController(presenter: presenter)
             presenter.view = viewController
             return .show(viewController)
             

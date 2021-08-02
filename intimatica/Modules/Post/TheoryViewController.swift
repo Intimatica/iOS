@@ -8,9 +8,6 @@
 import UIKit
 
 class TheoryViewController: BasePostViewController {
-    // MARK: - Properties
-    private var presenter: TheoryPresenterProtocol!
-    
     // MARK: - Initializers
     init(presenter: TheoryPresenterProtocol) {
         super.init(navigationBarType: .addFavorite)

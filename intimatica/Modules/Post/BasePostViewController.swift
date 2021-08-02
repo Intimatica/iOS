@@ -12,7 +12,8 @@ import Kingfisher
 class BasePostViewController: UIViewController {
     // MARK: - Properties
     var navigationBarView: NavigationBarView!
-    
+    var presenter: BasePresenterProtocol!
+
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +85,7 @@ class BasePostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showSpinner()
+//        showSpinner()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

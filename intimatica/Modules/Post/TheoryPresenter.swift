@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol TheoryPresenterProtocol {
-    func viewDidLoad()
+protocol TheoryPresenterProtocol: BasePresenterProtocol {
     func closeButtonDidTap()
 }
 
@@ -17,19 +16,9 @@ protocol TheoryViewProtocol: AnyObject {
     func display(_ error: Error)
 }
 
-final class TheoryPresenter {
+final class TheoryPresenter: BasePresenter {
     // MARK: - Properies
-    private var router: Router!
-    private var useCase: PostUseCaseProtocol!
-    private var postId: Int!
     weak var view: TheoryViewProtocol!
-    
-    // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol, postId: Int) {
-        self.router = router
-        self.useCase = dependencies.postUseCase
-        self.postId = postId
-    }
 }
 
 extension TheoryPresenter: TheoryPresenterProtocol {

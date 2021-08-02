@@ -57,6 +57,10 @@
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
+		DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB726B7EA4000948B1F /* VideoViewController.swift */; };
+		DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */; };
+		DB81AFBC26B7EB0500948B1F /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFBB26B7EB0500948B1F /* BasePresenter.swift */; };
+		DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB81AFBD26B82B8000948B1F /* VideoPost.graphql */; };
 		DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595026AC998A00842771 /* AuthRepository.swift */; };
 		DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595226AC9B4600842771 /* AuthValidatorService.swift */; };
 		DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A595526ACA2F900842771 /* AuthUseCase.swift */; };
@@ -159,6 +163,10 @@
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB81AFB726B7EA4000948B1F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresenter.swift; sourceTree = "<group>"; };
+		DB81AFBB26B7EB0500948B1F /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		DB81AFBD26B82B8000948B1F /* VideoPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoPost.graphql; sourceTree = "<group>"; };
 		DB8A595026AC998A00842771 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		DB8A595226AC9B4600842771 /* AuthValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidatorService.swift; sourceTree = "<group>"; };
 		DB8A595526ACA2F900842771 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
@@ -630,6 +638,7 @@
 				DBF99D3826B069A100E04D40 /* schema.json */,
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
 				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
+				DB81AFBD26B82B8000948B1F /* VideoPost.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -652,7 +661,10 @@
 				DBF99D6726B3D8EF00E04D40 /* Helper */,
 				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
 				DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */,
+				DB81AFB726B7EA4000948B1F /* VideoViewController.swift */,
+				DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */,
 				DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */,
+				DB81AFBB26B7EB0500948B1F /* BasePresenter.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -761,6 +773,7 @@
 				DB2F8B9026A371B9007020C0 /* Rubik-Medium.ttf in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
+				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
 				DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */,
 				DB2F8B9A26A371B9007020C0 /* Rubik-MediumItalic.ttf in Resources */,
@@ -872,6 +885,7 @@
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
+				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
 				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
 				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
@@ -883,6 +897,7 @@
 				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
+				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
@@ -903,6 +918,7 @@
 				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
+				DB81AFBC26B7EB0500948B1F /* BasePresenter.swift in Sources */,
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,

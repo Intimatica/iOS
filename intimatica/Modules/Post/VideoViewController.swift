@@ -18,6 +18,16 @@ class VideoViewController: BasePostViewController {
         return view
     }()
     
+    private lazy var playImageView: UIImageView = {
+        let image = UIImage(named: "play")
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     
     // MARK: - Initializers
     init(presenter: VideoPresenterProtocol) {
@@ -38,7 +48,6 @@ class VideoViewController: BasePostViewController {
         setupConstraints()
         
         presenter.viewDidLoad()
-        display()
     }
     
     // MARK: - Layout
@@ -52,6 +61,7 @@ class VideoViewController: BasePostViewController {
         headerStack.addArrangedSubview(playerView)
         
         playerView.addSubview(headerImageView)
+        playerView.addSubview(playImageView)
     }
     
     func setupConstraints() {
@@ -72,29 +82,46 @@ class VideoViewController: BasePostViewController {
             markdownView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.markdownViewTop),
             markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            markdownView.widthAnchor.constraint(equalTo: view.widthAnchor)
+            markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
+            playImageView.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
+            playImageView.centerYAnchor.constraint(equalTo: playerView.centerYAnchor),
+            playImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
+            playImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
         ])
     }
-
 }
 
 // MARK: - VideoViewProtocol
 extension VideoViewController: VideoViewProtocol {
-    func display() {
-        titleLabel.text = "Половое созревание у мальчиков"
-        
-        ["asdfjlkj", "asldfj dlksfjlsk"].forEach { tagName in
-            tagsStack.addArrangedSubview(createTagView(with: tagName))
+    func display(_ post: VideoPostQuery.Data.Post) {
+        guard
+            let imageUrl = post.image?.url,
+            let tags = post.tags?.compactMap({ $0?.name })
+        else {
+            return
         }
         
+        titleLabel.text = post.title
+        tags.forEach { tagName in
+            tagsStack.addArrangedSubview(createTagView(with: tagName))
+        }
         tagsStack.addArrangedSubview(UIView())
         
         headerImageView.kf.indicatorType = .activity
-        headerImageView.kf.setImage(with: URL(string: "https://intimatica.key42.net/uploads/small_alt_60340_6387968bd4.jpg?133790842"))
+        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
+        
+        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo?.youtubeLink)
+//        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo)
+        
+        markdownView.onRendered = { [weak self] height in
+            self?.hideSpinner()
+            self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
     }
 }
 
 // MARK: -Helper/Constants
 extension VideoViewController.Constants {
-    
+    static let playImageViewHeightWidth: CGFloat = 80
 }

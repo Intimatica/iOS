@@ -41,6 +41,8 @@ extension PostListPresenter: PostListPresenterProtocol {
         switch post.type {
         case .theory:
             router.trigger(.theory(post.id))
+        case .video:
+            router.trigger(.video(post.id))
         default:
             break
         }

@@ -27,7 +27,7 @@ extension TheoryPresenter: TheoryPresenterProtocol {
     }
     
     func viewDidLoad() {
-        useCase.getTheory(id: postId) { [weak self] result in
+        useCase.getPost(query: TheoryPostQuery(id: String(postId))) { [weak self] result in
             guard let self = self else { return }
             
             switch(result) {

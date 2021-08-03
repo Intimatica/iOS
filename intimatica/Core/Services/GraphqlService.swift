@@ -8,14 +8,9 @@
 import Foundation
 import Apollo
 
-typealias postQueryCompletionHandler<T: GraphQLQuery> = (Result<GraphQLResult<T.Data>, Error>) -> Void
-typealias theoryPostQueryCompletionHandler = (Result<GraphQLResult<TheoryPostQuery.Data>, Error>) -> Void
-typealias videoPostQueryCompletionHandler = (Result<GraphQLResult<VideoPostQuery.Data>, Error>) -> Void
-
 protocol GraphqlServiceProtocol {
     func getPosts(completionHandler: @escaping ([Post]) -> Void)
-    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler)
-    func getVideo(id: Int, completionHandler: @escaping videoPostQueryCompletionHandler)
+    func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
 }
 
 protocol HasGraphqlServiceProtocol {
@@ -52,26 +47,10 @@ class GraphqlService: GraphqlServiceProtocol {
           }
     }
     
-    func getTheory(id: Int, completionHandler: @escaping theoryPostQueryCompletionHandler) {
-        apollo.fetch(query: TheoryPostQuery(id: String(id)), resultHandler: completionHandler)
+    func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?) {
+        apollo.fetch(query: query, resultHandler: completionHandler)
     }
-    
-    func getVideo(id: Int, completionHandler: @escaping videoPostQueryCompletionHandler) {
-        apollo.fetch(query: VideoPostQuery(id: String(id)), resultHandler: completionHandler)
-    }
-    
-    func getPost<T: GraphQLQuery>(id: Int, query: T, completionHandler: @escaping postQueryCompletionHandler<T>) -> T? {
-        if query === TheoryPostQuery {
-            
-        } else if query === VideoPostQuery {
-            
-        } else {
-            
-        }
-//        apollo.fetch(query: VideoPostQuery(id: String(id)), resultHandler: completionHandler)
-        return nil
-    }
-    
+
     private func parseGetPostsGraphQLResult(_ graphQLResult: GraphQLResult<PostsQuery.Data>) -> [Post] {
         var posts: [Post] = []
         

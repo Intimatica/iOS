@@ -10,6 +10,7 @@ PODS:
   - XCoordinator (2.0.7):
     - XCoordinator/Core (= 2.0.7)
   - XCoordinator/Core (2.0.7)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MarkdownView
   - SwiftLint
   - XCoordinator (~> 2.0)
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - MarkdownView
     - SwiftLint
     - XCoordinator
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -38,7 +41,8 @@ SPEC CHECKSUMS:
   MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: da42af8aeb7ec0e7599868e309bd56cb617d7170
+PODFILE CHECKSUM: 7beb420962f690039823c1e40dcedc97c42d23e7
 
 COCOAPODS: 1.10.1

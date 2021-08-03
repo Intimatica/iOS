@@ -32,4 +32,5 @@ target 'intimatica' do
   pod 'MarkdownView'
   #pod "PlayerKit"
   #pod "youtube-ios-player-helper", "~> 1.0.2"
+  pod 'YouTubePlayer'
 end

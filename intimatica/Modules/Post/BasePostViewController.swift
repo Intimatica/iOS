@@ -80,12 +80,13 @@ class BasePostViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        showSpinner()
+        showSpinner()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -114,6 +115,14 @@ class BasePostViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    private func setupActions() {
+        navigationBarView.closeButton.addAction { [weak self] in
+            // TODO: fix this
+//            self?.presenter.closeButtonDidTap()
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
     func createTagView(with text: String) -> UIView {

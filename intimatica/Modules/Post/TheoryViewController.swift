@@ -25,7 +25,6 @@ class TheoryViewController: BasePostViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
         
         scrollView.delegate = self
         
@@ -69,14 +68,6 @@ class TheoryViewController: BasePostViewController {
             markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
     }
-    
-    private func setupActions() {
-        navigationBarView.closeButton.addAction { [weak self] in
-            // TODO: fix this
-//            self?.presenter.closeButtonDidTap()
-            self?.navigationController?.popViewController(animated: true)
-        }
-    }
 }
 
 // MARK: - TheoryViewProtocol
@@ -116,8 +107,6 @@ extension TheoryViewController: TheoryViewProtocol {
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
-    
-
     
     func display(_ error: Error) {
         showError(error.localizedDescription)

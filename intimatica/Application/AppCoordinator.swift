@@ -25,6 +25,8 @@ enum AppRoute: Route {
     case video(Int)
     case videoCourse(Int)
     
+    case playVideo(String)
+    
     case dismiss
 }
 
@@ -33,7 +35,8 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .launch)
+        super.init(initialRoute: .ageConfirm)
+//        super.init(initialRoute: .playVideo("dd"))
 //        super.init(initialRoute: .video(6))
     }
     
@@ -81,6 +84,10 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let presenter = VideoPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = VideoViewController(presenter: presenter)
             presenter.view = viewController
+            return .show(viewController)
+            
+        case .playVideo(let url):
+            let viewController = YoutubePlayerViewController()
             return .show(viewController)
             
         case .dismiss:

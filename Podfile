@@ -31,6 +31,6 @@ target 'intimatica' do
   pod 'Kingfisher', '~> 6.0'
   pod 'MarkdownView'
   #pod "PlayerKit"
-  #pod "youtube-ios-player-helper", "~> 1.0.2"
+  pod "youtube-ios-player-helper", "~> 1.0.2"
   pod 'YouTubePlayer'
 end

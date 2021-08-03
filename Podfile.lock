@@ -10,6 +10,7 @@ PODS:
   - XCoordinator (2.0.7):
     - XCoordinator/Core (= 2.0.7)
   - XCoordinator/Core (2.0.7)
+  - youtube-ios-player-helper (1.0.3)
   - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - MarkdownView
   - SwiftLint
   - XCoordinator (~> 2.0)
+  - youtube-ios-player-helper (~> 1.0.2)
   - YouTubePlayer
 
 SPEC REPOS:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - MarkdownView
     - SwiftLint
     - XCoordinator
+    - youtube-ios-player-helper
     - YouTubePlayer
 
 SPEC CHECKSUMS:
@@ -41,8 +44,9 @@ SPEC CHECKSUMS:
   MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 7beb420962f690039823c1e40dcedc97c42d23e7
+PODFILE CHECKSUM: a6fc2a4c2a2611cdb9f5ba73c1a27e2f30f16d99
 
 COCOAPODS: 1.10.1

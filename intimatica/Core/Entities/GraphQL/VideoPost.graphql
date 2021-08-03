@@ -19,7 +19,8 @@ query VideoPost($id: ID!) {
     post_type {
       __typename
       ... on ComponentPostTypeVideo {
-      youtube_link
+          youtube_link
+          description
       }
     }
   }

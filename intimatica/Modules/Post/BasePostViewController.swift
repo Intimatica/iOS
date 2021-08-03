@@ -110,9 +110,9 @@ class BasePostViewController: UIViewController {
             navigationBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navigationBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }

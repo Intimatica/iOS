@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class VideoViewController: BasePostViewController {
     // MARK: - Properties
@@ -26,6 +27,12 @@ class VideoViewController: BasePostViewController {
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private lazy var videoPlayer: YTPlayerView = {
+        let player = YTPlayerView()
+        player.translatesAutoresizingMaskIntoConstraints = false
+        return player
     }()
     
     
@@ -57,37 +64,43 @@ class VideoViewController: BasePostViewController {
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStack)
-        headerStack.addArrangedSubview(SpacerView(height: 20, backgroundColor: .clear))
+        headerStack.addArrangedSubview(SpacerView(height: 10, backgroundColor: .clear))
         headerStack.addArrangedSubview(playerView)
         
-        playerView.addSubview(headerImageView)
-        playerView.addSubview(playImageView)
+//        playerView.addSubview(headerImageView)
+//        playerView.addSubview(playImageView)
+        playerView.addSubview(videoPlayer)
     }
     
     func setupConstraints() {
         let contentLayoutGuide = scrollView.contentLayoutGuide
         
         NSLayoutConstraint.activate([
-            headerImageView.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
-            headerImageView.topAnchor.constraint(equalTo: playerView.topAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
-            headerImageView.bottomAnchor.constraint(equalTo: playerView.bottomAnchor),
-            
             headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor, constant: Constants.headerStackTop),
-//            headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
             headerStack.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -2 * Constants.headerStackLeadingTrailing),
+                        
+//            headerImageView.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
+//            headerImageView.topAnchor.constraint(equalTo: playerView.topAnchor),
+//            headerImageView.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
+//            headerImageView.bottomAnchor.constraint(equalTo: playerView.bottomAnchor),
+
+//            playImageView.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
+//            playImageView.centerYAnchor.constraint(equalTo: playerView.centerYAnchor),
+//            playImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
+//            playImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
+            
+            playerView.heightAnchor.constraint(equalTo: playerView.widthAnchor, multiplier: 9/16),
+            videoPlayer.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
+            videoPlayer.topAnchor.constraint(equalTo: playerView.topAnchor),
+            videoPlayer.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
+            videoPlayer.bottomAnchor.constraint(equalTo: playerView.bottomAnchor),
             
             markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            markdownView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.markdownViewTop),
+            markdownView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.markdownViewTopToPlayerView),
             markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
             markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            
-            playImageView.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
-            playImageView.centerYAnchor.constraint(equalTo: playerView.centerYAnchor),
-            playImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
-            playImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
         ])
     }
 }
@@ -96,7 +109,7 @@ class VideoViewController: BasePostViewController {
 extension VideoViewController: VideoViewProtocol {
     func display(_ post: VideoPostQuery.Data.Post) {
         guard
-            let imageUrl = post.image?.url,
+//            let imageUrl = post.image?.url,
             let tags = post.tags?.compactMap({ $0?.name })
         else {
             return
@@ -108,15 +121,24 @@ extension VideoViewController: VideoViewProtocol {
         }
         tagsStack.addArrangedSubview(UIView())
         
-        headerImageView.kf.indicatorType = .activity
-        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
+//        headerImageView.kf.indicatorType = .activity
+//        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
-        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo?.youtubeLink)
-//        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo)
+        let playvarsDic = ["controls": 0,
+                           "playsinline": 0,
+                           "autohide": 1,
+                           "showinfo": 0,
+                           "autoplay": 1,
+                           "cc_load_policy": 0, // Hide closed captions
+                           "iv_load_policy": 3, // Hide the Video Annotations
+                           "modestbranding": 0]
+        videoPlayer.load(withVideoId: "VkrDAvPRdDw", playerVars: playvarsDic)
+        videoPlayer.playVideo()
         
+        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo?.description)
+
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()
-            self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
 }
@@ -124,4 +146,5 @@ extension VideoViewController: VideoViewProtocol {
 // MARK: -Helper/Constants
 extension VideoViewController.Constants {
     static let playImageViewHeightWidth: CGFloat = 80
+    static let markdownViewTopToPlayerView: CGFloat = 30
 }

@@ -83,11 +83,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let viewController = VideoViewController(presenter: presenter)
             presenter.view = viewController
             return .show(viewController)
-            
-        case .playVideo(let url):
-            let viewController = YoutubePlayerViewController()
-            return .show(viewController)
-            
+
         case .dismiss:
             return .dismiss()
         

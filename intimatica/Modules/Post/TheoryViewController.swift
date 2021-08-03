@@ -64,7 +64,7 @@ class TheoryViewController: BasePostViewController {
             markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: spacerView.bottomAnchor, constant: Constants.markdownViewTop),
             markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 20),
+            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
             markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
     }

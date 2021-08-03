@@ -36,6 +36,7 @@ class AuthPresenter {
     var emailFieldIsValid = false
     var passwordFieldIsValid = false
     var passwordConfirmFieldIsValid = false
+    var passwordValue = ""
     
     // MARK: - Initializers
     init(router: Router, dependencies: UseCaseProviderProtocol) {
@@ -105,6 +106,8 @@ class AuthPresenter {
         passwordFieldIsValid = useCase.isPasswordValid(string)
         
         if passwordFieldIsValid {
+            // TODO: Unregent fix. Please refactor me
+            passwordValue = string ?? ""
             view?.hideValidationError(for: .password)
         } else {
             view?.showValidationError(for: .password, message: "AUTH_PASSWORD_INVALID")
@@ -112,9 +115,8 @@ class AuthPresenter {
     }
     
     private func validatePasswordConfirm(_ string: String?) {
-        passwordConfirmFieldIsValid = useCase.isPasswordValid(string)
-        
-        if passwordConfirmFieldIsValid {
+        // TODO: Unregent fix. Please refactor me
+        if string == passwordValue  {
             view?.hideValidationError(for: .passwordConfirm)
         } else {
             view?.showValidationError(for: .passwordConfirm, message: "AUTH_PASSWORD_CONFIRM_DONT_MATCH")

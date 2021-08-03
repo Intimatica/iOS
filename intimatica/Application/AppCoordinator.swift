@@ -33,7 +33,8 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .launch)
+//        super.init(initialRoute: .launch)
+        super.init(initialRoute: .welcome)
 //        super.init(initialRoute: .theory(7))
     }
     

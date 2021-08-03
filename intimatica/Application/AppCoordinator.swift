@@ -35,9 +35,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .ageConfirm)
-//        super.init(initialRoute: .playVideo("dd"))
-//        super.init(initialRoute: .video(6))
+        super.init(initialRoute: .launch)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {

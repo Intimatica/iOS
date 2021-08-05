@@ -1,5 +1,5 @@
 //
-//  VideoCourseTableViewCell.swift
+//  StoryTableViewCell.swift
 //  intimatica
 //
 //  Created by Andrey RustFox on 7/29/21.
@@ -7,7 +7,14 @@
 
 import UIKit
 
-class CourseTableViewCell: BaseTableViewCell {
+class PostTableViewCell: BaseTableViewCell {
+    // MARK: - Lifecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        removePlayButtonImage()
+    }
+    
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,11 +27,9 @@ class CourseTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Layout
+    // MARK: - Lauout
     override func setupView() {
         super.setupView()
-        
-        titleLabel.textColor = .white
     }
     
     func setupConstraints() {
@@ -37,28 +42,20 @@ class CourseTableViewCell: BaseTableViewCell {
             backgroundImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
             backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: postView.bottomAnchor),
-            backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.CourseBackgroundImageViewHeight),
-            
+            backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.backgroundImageViewHeight),
+        
             postLabelView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
             postLabelView.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
-            
+
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
-//            tagStackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: Constants.tagStackViewTop),
+            tagStackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: Constants.tagStackViewTop),
             tagStackView.trailingAnchor.constraint(lessThanOrEqualTo: postView.trailingAnchor, constant: -Constants.tagStackViewLeadingTrailing),
-            tagStackView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -Constants.tagStackView),
             
             titleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.topAnchor.constraint(equalTo: tagStackView.bottomAnchor, constant: Constants.titleLabelTop),
             titleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
             titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom)
         ])
     }
-}
-
-// MARK: - Helper/Constraints
-extension CourseTableViewCell.Constants {
-    static let CourseBackgroundImageViewHeight: CGFloat = 340
-    static let tagStackView: CGFloat = titleLabelTop
-    static let postLabelColor: UIColor = .appPurple
 }

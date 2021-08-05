@@ -11,10 +11,8 @@ class PostListViewController: UIViewController {
     // MARK: - Properties
     private var presenter: PostListPresenterProtocol!
     private var posts: [Post] = []
-    private let storyCellIdentifier = "storyCellIdentifier"
-    private let theoryCellIdentifier = "theoryCellIdentifier"
-    private let videoCellIdentifier = "videoCellIdentifier"
-    private let videoCourseCellIdentifier = "videoCourseCellIdentifier"
+    private let postCellIdentifier = "postCellIdentifier"
+    private let courseCellIdentifier = "courseCellIdentifier"
     
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
@@ -34,10 +32,8 @@ class PostListViewController: UIViewController {
         table.showsHorizontalScrollIndicator = false
         table.dataSource = self
         table.delegate = self
-        table.register(StoryTableViewCell.self, forCellReuseIdentifier: storyCellIdentifier)
-        table.register(TheoryTableViewCell.self, forCellReuseIdentifier: theoryCellIdentifier)
-        table.register(VideoTableViewCell.self, forCellReuseIdentifier: videoCellIdentifier)
-        table.register(CourseTableViewCell.self, forCellReuseIdentifier: videoCourseCellIdentifier)
+        table.register(PostTableViewCell.self, forCellReuseIdentifier: postCellIdentifier)
+        table.register(CourseTableViewCell.self, forCellReuseIdentifier: courseCellIdentifier)
 
         return table
     }()
@@ -126,29 +122,17 @@ extension PostListViewController: UITableViewDataSource {
         
         switch post.type {
         
-        case .story:
-            guard let storyCell = tableView.dequeueReusableCell(withIdentifier: storyCellIdentifier, for: indexPath) as? StoryTableViewCell else {
-                fatalError("Faild to dequeue cell with id \(storyCellIdentifier) for indexPath \(indexPath)")
+        case .story, .theory, .video:
+            guard let postCell = tableView.dequeueReusableCell(withIdentifier: postCellIdentifier, for: indexPath) as? PostTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(postCellIdentifier) for indexPath \(indexPath)")
             }
-            cell = storyCell
-            
-        case .theory:
-            guard let theoryCell = tableView.dequeueReusableCell(withIdentifier: theoryCellIdentifier, for: indexPath) as? TheoryTableViewCell else {
-                fatalError("Faild to dequeue cell with id \(theoryCellIdentifier) for indexPath \(indexPath)")
-            }
-            cell = theoryCell
-            
-        case .video:
-            guard let videoCell = tableView.dequeueReusableCell(withIdentifier: videoCellIdentifier, for: indexPath) as? VideoTableViewCell else {
-                fatalError("Faild to dequeue cell with id \(videoCellIdentifier) for indexPath \(indexPath)")
-            }
-            cell = videoCell
+            cell = postCell
             
         case .videoCourse:
-            guard let videoCourseCell = tableView.dequeueReusableCell(withIdentifier: videoCourseCellIdentifier, for: indexPath) as? CourseTableViewCell else {
-                fatalError("Faild to dequeue cell with id \(videoCourseCellIdentifier) for indexPath \(indexPath)")
+            guard let courseCell = tableView.dequeueReusableCell(withIdentifier: courseCellIdentifier, for: indexPath) as? CourseTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(courseCellIdentifier) for indexPath \(indexPath)")
             }
-            cell = videoCourseCell
+            cell = courseCell
         }
         
         guard let cell = cell else {

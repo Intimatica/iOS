@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PostLabel: UIView {
+final class PostLabelView: UIView {
     enum State {
         case story
         case theory
@@ -91,16 +91,13 @@ final class PostLabel: UIView {
         guard let labelView = labelView else { return }
         
         addSubview(labelView)
-        
-        NSLayoutConstraint.activate([
-            labelView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            labelView.topAnchor.constraint(equalTo: topAnchor),
-            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            labelView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-        
-        layoutIfNeeded()
-        updateConstraintsIfNeeded()
+
+//        NSLayoutConstraint.activate([
+//            labelView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            labelView.topAnchor.constraint(equalTo: topAnchor),
+//            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            labelView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//        ])
     }
     
     // MARK: - Public
@@ -126,13 +123,13 @@ final class PostLabel: UIView {
     func clear() {
         guard let label = activeLabel else { return }
         
-        label.removeConstraints(label.constraints)
+//        label.removeConstraints(label.constraints)
         label.removeFromSuperview()
     }
 }
 
 // MARK: - Constants/Helper
-extension PostLabel {
+extension PostLabelView {
     struct Constants {
         static let storyBackgroupndColor: UIColor = .init(hex: 0xF9477D)
         static let theoryBackgroupndColor: UIColor = .init(hex: 0xFF9900)

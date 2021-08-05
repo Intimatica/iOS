@@ -44,14 +44,21 @@ class BaseTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var postLabel = PostLabel()
+    lazy var playButtonImageView: UIImageView = {
+        let image = UIImage(named: "play")
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    lazy var postLabelView = PostLabelView()
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-//        setupView()
-//        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +68,9 @@ class BaseTableViewCell: UITableViewCell {
     // MARK: - Lifecycle
     override func prepareForReuse() {
         super.prepareForReuse()
+        
+        postLabelView.clear()
+        removePlayButtonImage()
         
         backgroundImageView.kf.cancelDownloadTask()
         tagStackView.removeAllArrangedSubviews()
@@ -76,6 +86,17 @@ class BaseTableViewCell: UITableViewCell {
         post.tags.forEach {
             tagStackView.addArrangedSubview(addTagView(with: $0))
         }
+        
+        switch post.type {
+        case .story:
+            postLabelView.setState(.story)
+        case .theory:
+            postLabelView.setState(.theory)
+        case .video:
+            addPlayButtonImage()
+        case .videoCourse:
+            postLabelView.setState(.videoCourse)
+        }
     }
     
     // MARK: - Layout
@@ -85,38 +106,9 @@ class BaseTableViewCell: UITableViewCell {
         
         view.addSubview(postView)
         postView.addSubview(backgroundImageView)
-        postView.addSubview(postLabel)
+        postView.addSubview(postLabelView)
         postView.addSubview(tagStackView)
         postView.addSubview(titleLabel)
-    }
-    
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            postView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.postViewLeadingTrailing),
-            postView.topAnchor.constraint(equalTo: view.topAnchor),
-            postView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.postViewLeadingTrailing),
-            postView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.postViewSpacing),
-            
-            backgroundImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
-            backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
-            backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.backgroundImageViewHeight),
-        
-            postLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            postLabel.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
-//            postLabel.heightAnchor.constraint(equalToConstant: 100),
-//            postLabel.widthAnchor.constraint(equalToConstant: 250),
-            
-            tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
-            tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
-            tagStackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: Constants.tagStackViewTop),
-            tagStackView.trailingAnchor.constraint(lessThanOrEqualTo: postView.trailingAnchor, constant: -Constants.tagStackViewLeadingTrailing),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.topAnchor.constraint(equalTo: tagStackView.bottomAnchor, constant: Constants.titleLabelTop),
-            titleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
-            titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom)
-        ])
     }
     
     func addTagView(with text: String) -> UIView {
@@ -127,6 +119,22 @@ class BaseTableViewCell: UITableViewCell {
                                    verticalSpacing: Constants.tagLabelTopBottom,
                                    horizontalSpacing: Constants.tagLabelLeadingTrailing,
                                    cornerRadius: Constants.tagBorderRadius)
+    }
+    
+    func addPlayButtonImage() {
+        postView.addSubview(playButtonImageView)
+        
+        NSLayoutConstraint.activate([
+            playButtonImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
+            playButtonImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
+            playButtonImageView.centerXAnchor.constraint(equalTo: backgroundImageView.centerXAnchor),
+            playButtonImageView.centerYAnchor.constraint(equalTo: backgroundImageView.centerYAnchor)
+        ])
+    }
+    
+    func removePlayButtonImage() {
+        playButtonImageView.removeConstraints(playButtonImageView.constraints)
+        playButtonImageView.removeFromSuperview()
     }
 }
 
@@ -158,5 +166,7 @@ extension BaseTableViewCell {
         static let titleLabelTop: CGFloat = 6
         static let titleLabelLeadingTrailing: CGFloat = 25
         static let titleLabelBottom: CGFloat = 20
+        
+        static let playImageViewWidthHeight: CGFloat = 66
     }
 }

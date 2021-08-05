@@ -78,6 +78,7 @@ class GraphqlService: GraphqlServiceProtocol {
                     title: post.title,
                     type: postType,
                     imageUrl: imageUrl,
-                    tags: tags.compactMap { $0?.name })
+                    tags: tags.compactMap { $0?.name },
+                    isPaid: post.isPaid)
     }
 }

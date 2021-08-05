@@ -95,6 +95,7 @@ class BaseTableViewCell: UITableViewCell {
         case .video:
             addPlayButtonImage()
         case .videoCourse:
+//            postLabelView.setState(post.isPaid ? .premiumVideoCourse : .videoCourse)
             postLabelView.setState(.videoCourse)
         }
     }

@@ -93,7 +93,6 @@
 		DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */; };
 		DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */; };
 		DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */; };
-		DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6326B2D85500E04D40 /* Theory.swift */; };
 		DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */; };
 		DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */; };
 		DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */; };
@@ -201,7 +200,6 @@
 		DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
 		DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryPresenter.swift; sourceTree = "<group>"; };
 		DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheoryPost.graphql; sourceTree = "<group>"; };
-		DBF99D6326B2D85500E04D40 /* Theory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theory.swift; sourceTree = "<group>"; };
 		DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostViewController.swift; sourceTree = "<group>"; };
 		DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -624,7 +622,6 @@
 			isa = PBXGroup;
 			children = (
 				DB8A59AA26B01E9A00842771 /* Post.swift */,
-				DBF99D6326B2D85500E04D40 /* Theory.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -912,7 +909,6 @@
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
-				DBF99D6426B2D85500E04D40 /* Theory.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,

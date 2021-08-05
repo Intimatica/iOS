@@ -92,12 +92,12 @@ final class PostLabelView: UIView {
         
         addSubview(labelView)
 
-//        NSLayoutConstraint.activate([
-//            labelView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            labelView.topAnchor.constraint(equalTo: topAnchor),
-//            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            labelView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            labelView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            labelView.topAnchor.constraint(equalTo: topAnchor),
+            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            labelView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
     
     // MARK: - Public
@@ -123,7 +123,7 @@ final class PostLabelView: UIView {
     func clear() {
         guard let label = activeLabel else { return }
         
-//        label.removeConstraints(label.constraints)
+        label.removeConstraints(label.constraints)
         label.removeFromSuperview()
     }
 }

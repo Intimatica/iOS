@@ -20,13 +20,15 @@ class Post {
     let type: PostType
     let imageUrl: String
     let tags: [String]
+    let isPaid: Bool
     
-    init(id: Int, title: String, type: PostType, imageUrl: String, tags: [String]) {
+    init(id: Int, title: String, type: PostType, imageUrl: String, tags: [String], isPaid: Bool) {
         self.id = id
         self.title = title
         self.type = type
         self.imageUrl = imageUrl
         self.tags = tags
+        self.isPaid = isPaid
     }
     
     init(by post: Post) {
@@ -35,5 +37,6 @@ class Post {
         self.type = post.type
         self.imageUrl = post.imageUrl
         self.tags = post.tags
+        self.isPaid = post.isPaid
     }
 }

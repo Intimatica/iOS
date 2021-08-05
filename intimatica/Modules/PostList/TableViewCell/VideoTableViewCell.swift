@@ -32,11 +32,15 @@ class VideoTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - Lauout
-    func setupView() {
+    override func setupView() {
+        super.setupView()
+        
         postView.addSubview(playImageView)
     }
     
-    func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
+        
         NSLayoutConstraint.activate([
             playImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
             playImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),

@@ -12,7 +12,8 @@ class StoryTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupUI()
+        setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -20,8 +21,14 @@ class StoryTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - Lauout
-    func setupUI() {
-        addPostLabel(text: L10n("TABLE_CELL_POST_LABEL_STORY"), backGroundColor: Constants.postLabelColor)
+    override func setupView() {
+        super.setupView()
+        
+        postLabel.setState(.story)
+    }
+    
+    override func setupConstraints() {
+        super.setupConstraints()
     }
 }
 

@@ -37,7 +37,7 @@ class PostListViewController: UIViewController {
         table.register(StoryTableViewCell.self, forCellReuseIdentifier: storyCellIdentifier)
         table.register(TheoryTableViewCell.self, forCellReuseIdentifier: theoryCellIdentifier)
         table.register(VideoTableViewCell.self, forCellReuseIdentifier: videoCellIdentifier)
-        table.register(VideoCourseTableViewCell.self, forCellReuseIdentifier: videoCourseCellIdentifier)
+        table.register(CourseTableViewCell.self, forCellReuseIdentifier: videoCourseCellIdentifier)
 
         return table
     }()
@@ -144,8 +144,11 @@ extension PostListViewController: UITableViewDataSource {
             }
             cell = videoCell
             
-        default:
-            fatalError("Failed to find a reusedable cell for \(post.type)")
+        case .videoCourse:
+            guard let videoCourseCell = tableView.dequeueReusableCell(withIdentifier: videoCourseCellIdentifier, for: indexPath) as? CourseTableViewCell else {
+                fatalError("Faild to dequeue cell with id \(videoCourseCellIdentifier) for indexPath \(indexPath)")
+            }
+            cell = videoCourseCell
         }
         
         guard let cell = cell else {

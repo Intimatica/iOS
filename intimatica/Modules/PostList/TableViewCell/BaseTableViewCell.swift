@@ -44,12 +44,14 @@ class BaseTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    lazy var postLabel = PostLabel()
+    
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupView()
-        setupConstraints()
+//        setupView()
+//        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -77,17 +79,18 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     // MARK: - Layout
-    private func setupView() {
+    func setupView() {
         backgroundColor = .clear
         selectionStyle = .none
         
         view.addSubview(postView)
         postView.addSubview(backgroundImageView)
+        postView.addSubview(postLabel)
         postView.addSubview(tagStackView)
         postView.addSubview(titleLabel)
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             postView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.postViewLeadingTrailing),
             postView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -98,6 +101,11 @@ class BaseTableViewCell: UITableViewCell {
             backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
             backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.backgroundImageViewHeight),
+        
+            postLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
+            postLabel.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
+//            postLabel.heightAnchor.constraint(equalToConstant: 100),
+//            postLabel.widthAnchor.constraint(equalToConstant: 250),
             
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
@@ -120,22 +128,6 @@ class BaseTableViewCell: UITableViewCell {
                                    horizontalSpacing: Constants.tagLabelLeadingTrailing,
                                    cornerRadius: Constants.tagBorderRadius)
     }
-    
-    func addPostLabel(text: String, backGroundColor: UIColor) {
-        let label = LabelWithBackground(with: text,
-                                        textColor: .white,
-                                        backgroundColor: backGroundColor,
-                                        font: .rubik(fontSize: .small),
-                                        verticalSpacing: 3,
-                                        horizontalSpacing: 10,
-                                        cornerRadius: 10)
-        view.addSubview(label)
-
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            label.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
-        ])
-    }
 }
 
 // MARK: - Helper/Constants
@@ -147,7 +139,7 @@ extension BaseTableViewCell {
         static let tagLabelFont: UIFont = .rubik(fontSize: .verySmall, fontWeight: .regular)
         static let tagLabelTextColor: UIColor = .appPurple
         static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
-        static let tagBorderRadius: CGFloat = 10
+        static let tagBorderRadius: CGFloat = 8
         static let tagLabelTopBottom: CGFloat = 3
         static let tagLabelLeadingTrailing: CGFloat = 5
         

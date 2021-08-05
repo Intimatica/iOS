@@ -43,6 +43,8 @@ extension PostListPresenter: PostListPresenterProtocol {
             router.trigger(.theory(post.id))
         case .video:
             router.trigger(.video(post.id))
+        case .videoCourse:
+            router.trigger(.videoCourse(post.id))
         default:
             break
         }

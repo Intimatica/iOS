@@ -54,6 +54,7 @@
 		DB2F8BC026A9520E007020C0 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */; };
 		DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */; };
 		DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */; };
+		DB3C565A26BBDA4F0087663E /* PostLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C565926BBDA4F0087663E /* PostLabel.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -90,7 +91,7 @@
 		DBF99D5526B2A1D300E04D40 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */; };
 		DBF99D5726B2A1E200E04D40 /* TheoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */; };
 		DBF99D5926B2A1EA00E04D40 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */; };
-		DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */; };
+		DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5A26B2A1FC00E04D40 /* CourseTableViewCell.swift */; };
 		DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */; };
 		DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */; };
 		DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */; };
@@ -159,6 +160,7 @@
 		DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
+		DB3C565926BBDA4F0087663E /* PostLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLabel.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,7 +201,7 @@
 		DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryTableViewCell.swift; sourceTree = "<group>"; };
 		DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
-		DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCourseTableViewCell.swift; sourceTree = "<group>"; };
+		DBF99D5A26B2A1FC00E04D40 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryViewController.swift; sourceTree = "<group>"; };
 		DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryPresenter.swift; sourceTree = "<group>"; };
 		DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheoryPost.graphql; sourceTree = "<group>"; };
@@ -650,7 +652,8 @@
 				DBF99D5426B2A1D300E04D40 /* StoryTableViewCell.swift */,
 				DBF99D5626B2A1E200E04D40 /* TheoryTableViewCell.swift */,
 				DBF99D5826B2A1EA00E04D40 /* VideoTableViewCell.swift */,
-				DBF99D5A26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift */,
+				DBF99D5A26B2A1FC00E04D40 /* CourseTableViewCell.swift */,
+				DB3C565926BBDA4F0087663E /* PostLabel.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
+				DB3C565A26BBDA4F0087663E /* PostLabel.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
@@ -922,7 +926,7 @@
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
-				DBF99D5B26B2A1FC00E04D40 /* VideoCourseTableViewCell.swift in Sources */,
+				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,

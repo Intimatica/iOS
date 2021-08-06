@@ -86,7 +86,7 @@ class BasePostViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showSpinner()
+//        showSpinner()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

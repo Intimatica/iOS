@@ -25,7 +25,6 @@ class PostListViewController: UIViewController {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
-//        table.allowsSelection = false
         table.backgroundView = nil
         table.backgroundColor = .clear
         table.showsVerticalScrollIndicator = false

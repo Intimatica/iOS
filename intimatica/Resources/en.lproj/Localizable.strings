@@ -66,3 +66,6 @@ TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "ПРЕМИУМ КУРС";
 ADD_TO_MY_COURSES_BUTTON_LABEL = "В мои курсы";
 ADDED_TO_MY_COURSES_BUTTON_LABEL = "Добавлен";
 AUTHOR = "Автор";
+
+COURSE_POST_TITLE = "Программа курса";
+COURSE_VIDEO_TITLE = "Видео курса";

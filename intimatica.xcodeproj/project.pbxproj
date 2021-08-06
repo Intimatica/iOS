@@ -55,6 +55,10 @@
 		DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */; };
 		DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */; };
 		DB3C565A26BBDA4F0087663E /* PostLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C565926BBDA4F0087663E /* PostLabelView.swift */; };
+		DB3C565F26BC18B40087663E /* VideoCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */; };
+		DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */; };
+		DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB3C566226BC1A160087663E /* VideoCourse.graphql */; };
+		DB3C566826BD01D20087663E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566726BD01D20087663E /* TableViewCell.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -158,6 +162,10 @@
 		DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
 		DB3C565926BBDA4F0087663E /* PostLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLabelView.swift; sourceTree = "<group>"; };
+		DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCourseViewController.swift; sourceTree = "<group>"; };
+		DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoursePresenter.swift; sourceTree = "<group>"; };
+		DB3C566226BC1A160087663E /* VideoCourse.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoCourse.graphql; sourceTree = "<group>"; };
+		DB3C566726BD01D20087663E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -433,6 +441,34 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		DB3C566426BC1EA80087663E /* Theory */ = {
+			isa = PBXGroup;
+			children = (
+				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
+				DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */,
+			);
+			path = Theory;
+			sourceTree = "<group>";
+		};
+		DB3C566526BC1EB90087663E /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DB81AFB726B7EA4000948B1F /* VideoViewController.swift */,
+				DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		DB3C566626BC1ED50087663E /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */,
+				DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */,
+				DB3C566726BD01D20087663E /* TableViewCell.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
 		DB6F316B269DA973005E7578 = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +678,7 @@
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
 				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
 				DB81AFBD26B82B8000948B1F /* VideoPost.graphql */,
+				DB3C566226BC1A160087663E /* VideoCourse.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -661,12 +698,11 @@
 			isa = PBXGroup;
 			children = (
 				DBF99D6726B3D8EF00E04D40 /* Helper */,
-				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
-				DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */,
-				DB81AFB726B7EA4000948B1F /* VideoViewController.swift */,
-				DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */,
-				DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */,
+				DB3C566426BC1EA80087663E /* Theory */,
+				DB3C566526BC1EB90087663E /* Video */,
+				DB3C566626BC1ED50087663E /* Course */,
 				DB81AFBB26B7EB0500948B1F /* BasePresenter.swift */,
+				DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -773,6 +809,7 @@
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
 				DB2F8B9326A371B9007020C0 /* Rubik-Black.ttf in Resources */,
 				DB2F8B9026A371B9007020C0 /* Rubik-Medium.ttf in Resources */,
+				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
 				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
@@ -876,12 +913,14 @@
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
+				DB3C565F26BC18B40087663E /* VideoCourseViewController.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
 				DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */,
 				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
+				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
@@ -912,6 +951,7 @@
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
+				DB3C566826BD01D20087663E /* TableViewCell.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,

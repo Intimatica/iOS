@@ -118,7 +118,7 @@ class BasePostViewController: UIViewController {
     }
     
     private func setupActions() {
-        navigationBarView.closeButton.addAction { [weak self] in
+        navigationBarView.backButton.addAction { [weak self] in
             // TODO: fix this
 //            self?.presenter.closeButtonDidTap()
             self?.navigationController?.popViewController(animated: true)

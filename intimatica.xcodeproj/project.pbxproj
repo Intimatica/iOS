@@ -60,6 +60,7 @@
 		DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB3C566226BC1A160087663E /* VideoCourse.graphql */; };
 		DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566926BD2FEE0087663E /* VideoView.swift */; };
 		DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566B26C1018C0087663E /* Array+Utils.swift */; };
+		DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -168,6 +169,7 @@
 		DB3C566226BC1A160087663E /* VideoCourse.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoCourse.graphql; sourceTree = "<group>"; };
 		DB3C566926BD2FEE0087663E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		DB3C566B26C1018C0087663E /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumCourseLabel.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 				DBF99D7326B495E000E04D40 /* SpacerView.swift */,
 				DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */,
 				DBF99D7126B4344400E04D40 /* AvatarImageView.swift */,
+				DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
+				DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,

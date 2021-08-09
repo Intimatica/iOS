@@ -22,6 +22,6 @@ final class CloseButton: UIButton {
     // MARK: - Layout
     private func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
-        setBackgroundImage(UIImage(named: "close_button_image"), for: .normal)
+        setBackgroundImage(UIImage(named: "back_button_icon"), for: .normal)
     }
 }

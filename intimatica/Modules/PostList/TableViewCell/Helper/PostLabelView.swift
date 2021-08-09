@@ -22,7 +22,7 @@ final class PostLabelView: UIView {
     private lazy var storyLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_STORY"),
                                     textColor: .white,
                                     backgroundColor: Constants.storyBackgroupndColor,
-                                    font: .rubik(fontSize: .small),
+                                    font: .rubik(fontSize: .small, fontWeight: .medium),
                                     verticalSpacing: Constants.verticalSpacing,
                                     horizontalSpacing: Constants.horizontalSpacing,
                                     cornerRadius: Constants.cornderRadius)
@@ -30,7 +30,7 @@ final class PostLabelView: UIView {
     private lazy var theoryLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_THEORY"),
                                     textColor: .white,
                                     backgroundColor: Constants.theoryBackgroupndColor,
-                                    font: .rubik(fontSize: .small),
+                                    font: .rubik(fontSize: .small, fontWeight: .medium),
                                     verticalSpacing: Constants.verticalSpacing,
                                     horizontalSpacing: Constants.horizontalSpacing,
                                     cornerRadius: Constants.cornderRadius)
@@ -38,33 +38,12 @@ final class PostLabelView: UIView {
     private lazy var videoCourseLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_COURSE"),
                                     textColor: .white,
                                     backgroundColor: Constants.videoCourseBackgroupndColor,
-                                    font: .rubik(fontSize: .small),
+                                    font: .rubik(fontSize: .small, fontWeight: .medium),
                                     verticalSpacing: Constants.verticalSpacing,
                                     horizontalSpacing: Constants.horizontalSpacing,
                                     cornerRadius: Constants.cornderRadius)
     
-    private lazy var premiumVideoCourseLabel: UIView  = {
-        let labelView = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_PRIMIUM_COURSE"),
-                                    textColor: .init(hex: 0xFFE70D),
-                                    backgroundColor: Constants.premiumVideoCourseBackgroupndColor,
-                                    font: .rubik(fontSize: .small),
-                                    verticalSpacing: Constants.verticalSpacing,
-                                    horizontalSpacing: Constants.horizontalSpacing,
-                                    cornerRadius: Constants.cornderRadius)
-        
-        labelView.addSubview(starImageView)
-        
-        NSLayoutConstraint.activate([
-            starImageView.leadingAnchor.constraint(equalTo: labelView.leadingAnchor, constant: Constants.horizontalSpacing),
-            starImageView.topAnchor.constraint(equalTo: labelView.topAnchor, constant: Constants.verticalSpacing),
-            starImageView.bottomAnchor.constraint(equalTo: labelView.bottomAnchor, constant: Constants.verticalSpacing),
-            starImageView.widthAnchor.constraint(equalTo: starImageView.heightAnchor),
-            
-            labelView.label.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 5)
-        ])
-        
-        return labelView
-    }()
+    private lazy var premiumVideoCourseLabel = PremiumCouseLabel()
     
     private lazy var starImageView: UIImageView = {
         let imageView = UIImageView()
@@ -123,7 +102,8 @@ final class PostLabelView: UIView {
     func clear() {
         guard let label = activeLabel else { return }
         
-        label.removeConstraints(label.constraints)
+        // FIX: if you uncomment this, reuse cell will hide label
+//        label.removeConstraints(label.constraints)
         label.removeFromSuperview()
     }
 }

@@ -10,8 +10,16 @@ import UIKit
 class NavigationBarView: UIView {
 
     // MARK: - Properties
-    lazy var closeButton = CloseButton()
     var actionButton: UIButton!
+
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "back_button_icon"), for: .normal)
+        return button
+    }()
+    
+//    lazy var backButton = CloseButton()
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -75,30 +83,29 @@ class NavigationBarView: UIView {
         }
     
         translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(actionButton)
+
+        addSubview(backButton)
         addSubview(titleLabel)
-        addSubview(closeButton)
-        
+        addSubview(actionButton)
+
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: Constants.viewHeight),
 
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.actionButtonLeading),
-            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopBottom),
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.closeButtonTopBottom),
-            
-            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor),
+            backButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            backButton.widthAnchor.constraint(equalTo: backButton.heightAnchor),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.backButtonTopBottom),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.backButtonLeadingTrailing),
+            backButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.backButtonTopBottom),
 
             titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: actionButton.trailingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
+            titleLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
 
-            closeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            closeButton.widthAnchor.constraint(equalTo: closeButton.heightAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopBottom),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonLeadingTrailing),
-            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.closeButtonTopBottom),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.actionButtonTrailing),
+            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.backButtonTopBottom),
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.backButtonTopBottom),
             
+            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor),
         ])
     }
     
@@ -115,13 +122,13 @@ class NavigationBarView: UIView {
 extension NavigationBarView {
     private struct Constants {
         static let viewHeight: CGFloat = 35
+
+        static let backButtonTopBottom: CGFloat = 0
+        static let backButtonLeadingTrailing: CGFloat = 15
         
-        static let actionButtonLeading: CGFloat = 15
+        static let actionButtonTrailing: CGFloat = 15
 //        static let actionButtonWidth: CGFloat = 130
         
         static let titleLabelLeadingTrailing: CGFloat = 15
-        
-        static let closeButtonTopBottom: CGFloat = 0
-        static let closeButtonLeadingTrailing: CGFloat = 15
     }
 }

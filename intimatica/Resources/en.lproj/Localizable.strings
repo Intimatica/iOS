@@ -69,3 +69,4 @@ AUTHOR = "Автор";
 
 COURSE_POST_TITLE = "Программа курса";
 COURSE_VIDEO_TITLE = "Видео курса";
+COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";

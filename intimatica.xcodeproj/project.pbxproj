@@ -58,7 +58,8 @@
 		DB3C565F26BC18B40087663E /* VideoCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */; };
 		DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */; };
 		DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB3C566226BC1A160087663E /* VideoCourse.graphql */; };
-		DB3C566826BD01D20087663E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566726BD01D20087663E /* TableViewCell.swift */; };
+		DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566926BD2FEE0087663E /* VideoView.swift */; };
+		DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566B26C1018C0087663E /* Array+Utils.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -165,7 +166,8 @@
 		DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCourseViewController.swift; sourceTree = "<group>"; };
 		DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoursePresenter.swift; sourceTree = "<group>"; };
 		DB3C566226BC1A160087663E /* VideoCourse.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoCourse.graphql; sourceTree = "<group>"; };
-		DB3C566726BD01D20087663E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		DB3C566926BD2FEE0087663E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		DB3C566B26C1018C0087663E /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
 				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
 				DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */,
+				DB3C566B26C1018C0087663E /* Array+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,7 +467,7 @@
 			children = (
 				DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */,
 				DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */,
-				DB3C566726BD01D20087663E /* TableViewCell.swift */,
+				DB3C566926BD2FEE0087663E /* VideoView.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
+				DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
@@ -951,11 +955,11 @@
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
-				DB3C566826BD01D20087663E /* TableViewCell.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
 				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
+				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB81AFBC26B7EB0500948B1F /* BasePresenter.swift in Sources */,

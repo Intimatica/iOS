@@ -31,17 +31,21 @@ class VideoCourseViewController: BasePostViewController {
         return label
     }()
     
-    private lazy var table: UITableView = {
-        let table = UITableView()
-        table.translatesAutoresizingMaskIntoConstraints = false
-        table.dataSource = self
-        table.delegate = self
-        table.separatorStyle = .none
-        table.showsVerticalScrollIndicator = false
-        table.showsHorizontalScrollIndicator = false
-        table.register(TableViewCell.self, forCellReuseIdentifier: "cellId")
-        
-        return table
+    private lazy var videoStack: UIStackView =  {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = Constants.videoStackSpacing
+        return stack
+    }()
+    
+    private lazy var finishButton: UIRoundedButton = {
+        let button = UIRoundedButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .appPurple
+        button.setTitle(L10n("COURSE_VIDEO_FINISH_BUTTON_TITLE"), for: .normal)
+        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
+        return button
     }()
     
     // MARK: - Initializers
@@ -67,19 +71,23 @@ class VideoCourseViewController: BasePostViewController {
     
     // MARK: - Layout
     private func setupView() {
+        spacerView.backgroundColor = .appLightPuple
+        
         scrollView.addSubview(headerImageView)
         scrollView.addSubview(headerStack)
+        scrollView.addSubview(courseTitle)
         scrollView.addSubview(markdownView)
         scrollView.addSubview(spacerView)
         scrollView.addSubview(videoTitle)
-        scrollView.addSubview(table)
+        scrollView.addSubview(videoStack)
+        scrollView.addSubview(finishButton)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStack)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
         headerStack.addArrangedSubview(authorView)
-        headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appPurple))
-        headerStack.addArrangedSubview(courseTitle)
+        headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
+        headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appLightPuple))
     }
     
     private func setupConstraints() {
@@ -95,26 +103,45 @@ class VideoCourseViewController: BasePostViewController {
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
             headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
                         
+            courseTitle.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
+            courseTitle.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.courseTitleTop),
+            courseTitle.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
+            
             markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            markdownView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.markdownViewTop),
+            markdownView.topAnchor.constraint(equalTo: courseTitle.bottomAnchor, constant: Constants.markdownViewTop),
             markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             
             spacerView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            spacerView.topAnchor.constraint(equalTo: markdownView.bottomAnchor, constant: Constants.spacerViewTop),
+            spacerView.topAnchor.constraint(equalTo: markdownView.bottomAnchor, constant: Constants.videoSectionSpacerTop),
             spacerView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             
             videoTitle.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
-            videoTitle.topAnchor.constraint(equalTo: spacerView.bottomAnchor),
+            videoTitle.topAnchor.constraint(equalTo: spacerView.bottomAnchor, constant: Constants.videoTitleTop),
             videoTitle.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
-//            videoTitle.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor)
             
-            table.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
-            table.topAnchor.constraint(equalTo: videoTitle.bottomAnchor, constant: 20),
-            table.widthAnchor.constraint(equalTo: headerStack.widthAnchor),
-            table.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant:  -50),
-//            table.heightAnchor.constraint(greaterThanOrEqualToConstant: 500)
+            videoStack.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
+            videoStack.topAnchor.constraint(equalTo: videoTitle.bottomAnchor, constant: Constants.videoStackTop),
+            videoStack.widthAnchor.constraint(equalTo: headerStack.widthAnchor),
+            
+            finishButton.heightAnchor.constraint(equalToConstant: Constants.finishButtonHeight),
+            finishButton.leadingAnchor.constraint(equalTo: videoStack.leadingAnchor),
+            finishButton.topAnchor.constraint(equalTo: videoStack.bottomAnchor, constant: Constants.finishButtonTop),
+            finishButton.trailingAnchor.constraint(equalTo: videoStack.trailingAnchor),
+            finishButton.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant:  -Constants.finishButtonBottom),
         ])
     }
+}
+
+// MARK: - Helper/Constants
+extension VideoCourseViewController.Constants {
+    static let courseTitleTop: CGFloat = 30
+    static let videoSectionSpacerTop: CGFloat = 30
+    static let videoTitleTop: CGFloat = 30
+    static let videoStackSpacing: CGFloat = 40
+    static let videoStackTop: CGFloat = 20
+    static let finishButtonHeight: CGFloat = 50
+    static let finishButtonTop: CGFloat = 40
+    static let finishButtonBottom: CGFloat = 20
 }
 
 // MARK: - VideoCourseViewProtocol
@@ -149,12 +176,17 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
                                            font: authorView.label.font)
         
         markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
-//        markdownView.load(markdown: "", enableImage: true)
         
         self.videoList = videoList
-        table.reloadData()
-        table.heightAnchor.constraint(equalToConstant: table.contentSize.height * 10).isActive = true
 
+        videoList.forEach {
+            videoStack.addArrangedSubview(VideoView(videoId: $0.youtubeLink, title: $0.title))
+            
+            if !videoList.isLast(element: $0) {
+                videoStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appLightPuple))
+            }
+        }
+                
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -162,29 +194,8 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
     }
 }
 
-// MARK: - UITableViewDataSource
-extension VideoCourseViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        videoList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = table.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as? TableViewCell else {
-            fatalError("Failed to dequeue table cell for indexPath \(indexPath)")
-        }
-        
-        cell.fill(by: videoList[indexPath.row])
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension VideoCourseViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = table.cellForRow(at: indexPath) as? TableViewCell else {
-            return
-        }
-
-        cell.videoPlayerView.playVideo()
+extension VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video: Equatable {
+    public static func == (lhs: VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video, rhs: VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video) -> Bool {
+        lhs.title == rhs.title && lhs.youtubeLink == rhs.youtubeLink
     }
 }

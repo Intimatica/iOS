@@ -71,7 +71,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         
         case .home:
             let viewController = HomeTabBarController(router: strongRouter, dependencies: useCaseProvider)
-            return .show(viewController)
+            return .push(viewController)
         
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)

@@ -23,8 +23,11 @@ class HomeTabBarController: UITabBarController {
         return postListTabBar
     }()
 
-    lazy var courcesTabBar: CourcesViewController = {
-        let courcesTabBar = CourcesViewController()
+    lazy var courcesTabBar: PostListViewController = {
+        let presenter = PostListPresenter(router: router, dependencies: useCaseProvider)
+        let courcesTabBar = PostListViewController(presenter: presenter)
+        presenter.view = courcesTabBar
+        
         courcesTabBar.tabBarItem = UITabBarItem(title: L10n("COURCES_TABBAR_ITEM_TITLE"),
                                                 image: UIImage(named: "cources"), tag: 0)
 
@@ -56,6 +59,16 @@ class HomeTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     // MARK: - Layout

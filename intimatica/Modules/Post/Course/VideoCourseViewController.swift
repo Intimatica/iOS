@@ -11,6 +11,7 @@ class VideoCourseViewController: BasePostViewController {
     typealias Video = VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video
     
     // MARK: - Properties
+    var localPresenter: VideoCoursePresenterProtocol!
     private var videoList: [Video] = []
     
     private lazy var courseTitle: UILabel = {
@@ -52,7 +53,7 @@ class VideoCourseViewController: BasePostViewController {
     init(presenter: VideoCoursePresenterProtocol) {
         super.init(navigationBarType: .addFavorite)
         
-        self.presenter = presenter
+        self.localPresenter = presenter
     }
     
     required init?(coder: NSCoder) {
@@ -65,8 +66,9 @@ class VideoCourseViewController: BasePostViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
         
-        presenter.viewDidLoad()
+        localPresenter.viewDidLoad()
     }
     
     // MARK: - Layout
@@ -129,6 +131,12 @@ class VideoCourseViewController: BasePostViewController {
             finishButton.trailingAnchor.constraint(equalTo: videoStack.trailingAnchor),
             finishButton.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant:  -Constants.finishButtonBottom),
         ])
+    }
+    
+    private func setupActions() {
+        finishButton.addAction { [weak self] in
+            self?.localPresenter.finishButtonDidTap()
+        }
     }
 }
 

@@ -24,6 +24,7 @@ enum AppRoute: Route {
     case theory(Int)
     case video(Int)
     case videoCourse(Int)
+    case courseFinished(String)
     
     case playVideo(String)
     
@@ -37,6 +38,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     init() {
         super.init(initialRoute: .launch)
 //        super.init(initialRoute: .videoCourse(4))
+//        super.init(initialRoute: .courseFinished("hello"))
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -91,6 +93,10 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             presenter.view = viewController
             return .show(viewController)
 
+        case .courseFinished(let subTitle):
+            let viewController = CourseFinishedViewController()
+            return .present(viewController)
+            
         case .dismiss:
             return .dismiss()
         

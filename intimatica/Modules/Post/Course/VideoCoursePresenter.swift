@@ -12,7 +12,7 @@ protocol VideoCourseViewProtocol: AnyObject {
 }
 
 protocol VideoCoursePresenterProtocol: BasePresenterProtocol {
-    
+    func finishButtonDidTap()
 }
 
 final class VideoCoursePresenter: BasePresenter {
@@ -22,6 +22,10 @@ final class VideoCoursePresenter: BasePresenter {
 
 // MARK: - VideoCoursePresenterProtocol
 extension VideoCoursePresenter: VideoCoursePresenterProtocol {
+    func finishButtonDidTap() {
+        router.trigger(.courseFinished("hello"))
+    }
+    
     func viewDidLoad() {
         useCase.getPost(query: VideoCoursePostQuery(id: String(postId))) { [weak self] result in
             guard let self = self else { return }

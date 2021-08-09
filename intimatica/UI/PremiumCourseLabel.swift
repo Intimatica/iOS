@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PremiumCouseLabel: UIView {
+final class PremiumCourseLabel: UIView {
     // MARK: - Properties
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -66,7 +66,7 @@ final class PremiumCouseLabel: UIView {
 }
 
 // MARK: Helper/Constants
-extension PremiumCouseLabel  {
+extension PremiumCourseLabel  {
     struct Constants {
         static let viewCornerRadius: CGFloat = 10
         

@@ -48,7 +48,7 @@ class NavigationBarView: UIView {
         button.setImage(UIImage(named: "add_to_course_button_icon"), for: .normal)
         button.setTitle(L10n("ADDED_TO_MY_COURSES_BUTTON_LABEL"), for: .application)
         button.setImage(UIImage(named: "added_to_course_button_icon"), for: .application)
-        button.titleLabel?.font = .rubik(fontSize: .small, fontWeight: .regular)
+        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
         button.setTitleColor(.appPurple, for: .normal)
         button.setTitleColor(.appPurple, for: .application)
         return button

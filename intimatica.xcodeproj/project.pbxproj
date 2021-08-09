@@ -61,6 +61,8 @@
 		DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566926BD2FEE0087663E /* VideoView.swift */; };
 		DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566B26C1018C0087663E /* Array+Utils.swift */; };
 		DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */; };
+		DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566F26C129CC0087663E /* CoursesActionButton.swift */; };
+		DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567126C143D50087663E /* CourseFinishedViewController.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -170,6 +172,8 @@
 		DB3C566926BD2FEE0087663E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		DB3C566B26C1018C0087663E /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumCourseLabel.swift; sourceTree = "<group>"; };
+		DB3C566F26C129CC0087663E /* CoursesActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesActionButton.swift; sourceTree = "<group>"; };
+		DB3C567126C143D50087663E /* CourseFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFinishedViewController.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 				DB3C565E26BC18B40087663E /* VideoCourseViewController.swift */,
 				DB3C566026BC18E00087663E /* VideoCoursePresenter.swift */,
 				DB3C566926BD2FEE0087663E /* VideoView.swift */,
+				DB3C567126C143D50087663E /* CourseFinishedViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -731,6 +736,7 @@
 				DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */,
 				DBF99D7126B4344400E04D40 /* AvatarImageView.swift */,
 				DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */,
+				DB3C566F26C129CC0087663E /* CoursesActionButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -932,6 +938,7 @@
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
+				DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */,
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
 				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
@@ -950,6 +957,7 @@
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */,
+				DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */,
 				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,

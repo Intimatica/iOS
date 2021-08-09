@@ -70,3 +70,8 @@ AUTHOR = "Автор";
 COURSE_POST_TITLE = "Программа курса";
 COURSE_VIDEO_TITLE = "Видео курса";
 COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";
+
+COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
+COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
+COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
+

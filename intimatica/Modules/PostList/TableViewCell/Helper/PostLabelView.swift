@@ -43,7 +43,7 @@ final class PostLabelView: UIView {
                                     horizontalSpacing: Constants.horizontalSpacing,
                                     cornerRadius: Constants.cornderRadius)
     
-    private lazy var premiumVideoCourseLabel = PremiumCouseLabel()
+    private lazy var premiumVideoCourseLabel = PremiumCourseLabel()
     
     private lazy var starImageView: UIImageView = {
         let imageView = UIImageView()

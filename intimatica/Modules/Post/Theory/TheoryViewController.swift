@@ -79,7 +79,7 @@ extension TheoryViewController: TheoryViewProtocol {
             let authorName = theoryPost.author?.name,
             let authorJobTitle = theoryPost.author?.jobTitle,
             let authorPhotoUrl = theoryPost.author?.photo?.url,
-            let content = theoryPost.postType.first??.asComponentPostTypeTheory?.content
+            let content = theoryPost.postTypeDz.first??.asComponentPostTypeTheory?.content
         else {
             return
         }

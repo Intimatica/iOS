@@ -1,5 +1,5 @@
-query Posts {
-  posts (sort:"published_at:desc", where:{tags: {id: []}}){
+query Posts($tagId: [Int!], $postTypeId: [Int!]) {
+  posts (sort:"published_at:desc",  where:{tags: {id: [$tagId]}, post_type: {id:[$postTypeId]}}){
     id
     title
     image {
@@ -11,7 +11,7 @@ query Posts {
     is_paid
       published_at
     post_type {
-        __typename
+      name
     }
   }
 }

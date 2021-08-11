@@ -32,7 +32,7 @@ class GraphqlService: GraphqlServiceProtocol {
         store: ApolloStore())
     
     func getPosts(completionHandler: @escaping ([Post]) -> Void) {
-        apollo.fetch(query: PostsQuery()) { [weak self] result in
+        apollo.fetch(query: PostsQuery(tagId: [], postTypeId: [])) { [weak self] result in
               guard let self = self else { return }
                     
               switch result {
@@ -64,7 +64,7 @@ class GraphqlService: GraphqlServiceProtocol {
     private func PostsQueryData2Post(post: PostsQuery.Data.Post?) -> Post {
         guard let post = post,
               let postId = Int(post.id),
-              let postTypeString = post.postType.first??.__typename,
+              let postTypeString = post.postType?.name,
               let postType = PostType(rawValue: postTypeString),
         
               let imageUrl = post.image?.url,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TermsAndConditionsView: UIView {
+class CheckboxWithLabelView: UIView {
 
     // MARK: - Properties
     lazy var button: UIButton = {
@@ -64,7 +64,7 @@ class TermsAndConditionsView: UIView {
     }
 }
 
-extension TermsAndConditionsView {
+extension CheckboxWithLabelView {
     private struct Constants {
         static let buttonTopButtom: CGFloat = 2
         static let labelLeading: CGFloat = 15

@@ -87,7 +87,6 @@
 		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
 		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
 		DB8A59AB26B01E9A00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AA26B01E9A00842771 /* Post.swift */; };
-		DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -112,6 +111,7 @@
 		DBFA7C3D26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */; };
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
 		DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */; };
+		DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4126C465690042D31D /* ProfilePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,7 +205,6 @@
 		DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
 		DB8A599F26B01E3100842771 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		DB8A59AA26B01E9A00842771 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourcesViewController.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -229,6 +228,7 @@
 		DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utils.swift"; sourceTree = "<group>"; };
 		DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCaterotyFilter.swift; sourceTree = "<group>"; };
+		DBFA7C4126C465690042D31D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				DBF99D5C26B2C7F500E04D40 /* Post */,
-				DB8A59AC26B01ECB00842771 /* Cources */,
 				DB8A599026B01E3100842771 /* PostList */,
 				DB8A599526B01E3100842771 /* Profile */,
 				DB8A599726B01E3100842771 /* Welcome */,
@@ -629,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8A599626B01E3100842771 /* ProfileViewController.swift */,
+				DBFA7C4126C465690042D31D /* ProfilePresenter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -676,14 +676,6 @@
 				DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */,
 			);
 			path = Feed;
-			sourceTree = "<group>";
-		};
-		DB8A59AC26B01ECB00842771 /* Cources */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A59AD26B01ECB00842771 /* CourcesViewController.swift */,
-			);
-			path = Cources;
 			sourceTree = "<group>";
 		};
 		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
@@ -920,6 +912,7 @@
 				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
 				DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
+				DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
@@ -978,7 +971,6 @@
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
-				DB8A59AE26B01ECB00842771 /* CourcesViewController.swift in Sources */,
 				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,

@@ -28,6 +28,8 @@ enum AppRoute: Route {
     
     case playVideo(String)
     
+    case profile
+    
     case dismiss
 }
 

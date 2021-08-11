@@ -21,6 +21,46 @@ class PostListViewController: UIViewController {
         return view
     }()
     
+    private let postCategory = ["Все", "Теория", "Истории", "Видео", "Избранное", "Hello #1", "Hello #2", "Hello #3", "Hello #4"]
+//    private let postCategory = ["Все", "Теория", "Истории", "Видео", "Избранное"]
+
+    private let verticalInset: CGFloat = 0
+    private let horizontalInset: CGFloat = 0
+    private let collectionCellID = "collectionCellID"
+    
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+//        flowLayout.itemSize = CGSize(width: 50, height: 20)
+
+        // QUESTION: why line spacing works as interitem spacing
+        flowLayout.minimumLineSpacing = 22
+        flowLayout.minimumInteritemSpacing = 2
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        flowLayout.sectionInset = UIEdgeInsets (top: verticalInset,
+                                                left: horizontalInset,
+                                                bottom: verticalInset,
+                                                right: horizontalInset)
+        return flowLayout
+    }()
+    
+    private lazy var typeFilterView: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        
+        collection.register(TypeFilterCollectionViewCell.self, forCellWithReuseIdentifier: collectionCellID)
+        collection.showsHorizontalScrollIndicator = false
+        collection.alwaysBounceHorizontal = true
+        collection.backgroundColor = .clear
+        collection.dataSource = self
+        collection.delegate = self
+        
+        collection.layer.borderWidth = 1
+        collection.layer.borderColor = UIColor.green.cgColor
+        
+        return collection
+    }()
+    
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +96,8 @@ class PostListViewController: UIViewController {
         setupConstraints()
         
         presenter.viewDidLoad()
+        
+//        typeFilterView.selectItem(at: NSIndexPath(item: 5, section: 0) as IndexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +115,7 @@ class PostListViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(topBackgroundView)
+        view.addSubview(typeFilterView)
         view.addSubview(tableView)
     }
     
@@ -82,6 +125,11 @@ class PostListViewController: UIViewController {
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            typeFilterView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.typeFilterViewLeading),
+            typeFilterView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.typeFilterViewTop),
+            typeFilterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            typeFilterView.heightAnchor.constraint(equalToConstant: Constants.typeFilterViewHeight),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.tableViewTop),
@@ -95,6 +143,10 @@ class PostListViewController: UIViewController {
 extension PostListViewController {
     struct Constants {
         static let topBackgroundViewHeight: CGFloat = 228
+                
+        static let typeFilterViewLeading: CGFloat = 15
+        static let typeFilterViewTop: CGFloat = 115
+        static let typeFilterViewHeight: CGFloat = 40
         
         static let tableViewTop: CGFloat = 174
         static let tableViewLeadingTrailing: CGFloat = 0
@@ -148,5 +200,50 @@ extension PostListViewController: PostListViewProtocol {
     func setPosts(_ posts: [Post]) {
         self.posts = posts
         tableView.reloadData()
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PostListViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        .zero
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        0
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        22
+//    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension PostListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! TypeFilterCollectionViewCell
+        cell.didSelect()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! TypeFilterCollectionViewCell
+        cell.didDeselect()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension PostListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        postCategory.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellID, for: indexPath) as? TypeFilterCollectionViewCell
+        else {
+            fatalError("Failed to dequeue collection cell with id \(collectionCellID) for indexPath \(indexPath)")
+        }
+        
+        cell.fill(by: postCategory[indexPath.row])
+        return cell
     }
 }

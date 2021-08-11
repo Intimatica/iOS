@@ -10,6 +10,7 @@ import Foundation
 protocol PostListPresenterProtocol {
     func viewDidLoad()
     func show(_ post: Post)
+    func filter(by category: FeedCategoryFilter, and tags: [Int])
 }
 
 protocol PostListViewProtocol: AnyObject {
@@ -21,6 +22,9 @@ final class PostListPresenter {
     private var router: Router!
     private var useCase: PostUseCaseProtocol!
     weak var view: PostListViewProtocol?
+    
+    private let tagsFilterItems: [Int] = []
+    private let postTypeFilterItems: [String] = []
 
     // MARK: - Initializers
     init(router: Router, dependencies: UseCaseProviderProtocol) {
@@ -31,8 +35,28 @@ final class PostListPresenter {
 
 // MARK: - MainPresenterProtocol
 extension PostListPresenter: PostListPresenterProtocol {
+    func filter(by category: FeedCategoryFilter, and tags: [Int]) {
+
+        var postTypeIdList: [Int] = []
+        
+        switch category {
+        case .theory:
+            postTypeIdList = [1]
+        case .story:
+            postTypeIdList = [2]
+        case .video:
+            postTypeIdList = [3, 4]
+        default:
+            break
+        }
+        
+        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: tags, idList: []) { [weak self] posts in
+            self?.view?.setPosts(posts)
+        }
+    }
+    
     func viewDidLoad() {
-        useCase.getPosts { [weak self] posts in
+        useCase.getPosts(postTypeIdList: [], tagIdList: [], idList: []) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
     }

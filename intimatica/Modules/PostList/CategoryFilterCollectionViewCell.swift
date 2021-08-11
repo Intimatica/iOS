@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TypeFilterCollectionViewCell: UICollectionViewCell {
+class CategoryFilterCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -75,13 +75,14 @@ class TypeFilterCollectionViewCell: UICollectionViewCell {
     func didDeselect() {
         nameLabel.textColor = .init(hex: 0xB38EFF)
         
-        NSLayoutConstraint.deactivate(headerView.constraints)
+        // QUESTION: why don't work with this?
+//        NSLayoutConstraint.deactivate(headerView.constraints)
         headerView.removeFromSuperview()
     }
 }
 
 // MARK: - Helper/Constants
-extension TypeFilterCollectionViewCell {
+extension CategoryFilterCollectionViewCell {
     struct Constants {
         static let headerViewHeight: CGFloat = 3
         static let nameLabelTop: CGFloat = 10

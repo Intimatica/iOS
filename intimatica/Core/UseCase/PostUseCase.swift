@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 
 protocol PostUseCaseProtocol {
-    func getPosts(completionHandler: @escaping ([Post]) -> Void)    
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
 }
 
@@ -26,8 +26,8 @@ final class PostUseCase: PostUseCaseProtocol {
         postRepository = dependencies.postRepository
     }
     
-    func getPosts(completionHandler: @escaping ([Post]) -> Void) {
-        postRepository.getPosts(completionHandler: completionHandler)
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void) {
+        postRepository.getPosts(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList, completionHandler: completionHandler)
     }
     
     func getPost<T : GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?) {

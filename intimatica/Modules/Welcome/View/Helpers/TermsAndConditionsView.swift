@@ -10,6 +10,10 @@ import UIKit
 class TermsAndConditionsView: UIView {
 
     // MARK: - Properties
+    private var text: String!
+    private var highlightedText: String!
+    private var actionHandler: (() -> Void)?
+    
     lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -24,16 +28,21 @@ class TermsAndConditionsView: UIView {
         label.textColor = .white
         label.font = .rubik(fontSize: .small, fontWeight: .regular)
         label.numberOfLines = 2
+        label.isUserInteractionEnabled = true
         return label
     }()
 
     // MARK: - Initializers
-    init(with labelText: String) {
+    init(with text: String, highlightedText: String, action: @escaping ()->Void) {
         super.init(frame: .zero)
         
-        label.text = labelText
+        self.text = text
+        self.highlightedText = highlightedText
+        self.actionHandler = action
+        
         setupView()
         setupConstraints()
+        setupAttibutedLabel(text: text, highlightedText: highlightedText)
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +70,25 @@ class TermsAndConditionsView: UIView {
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             label.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    func setupAttibutedLabel(text: String, highlightedText: String) {
+        label.text = text
+        let attributedString = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: highlightedText)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.appYellow, range: range)
+//        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+        label.attributedText = attributedString
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelDidTap(gesture:))))
+    }
+    
+    @objc func labelDidTap(gesture: UITapGestureRecognizer) {
+        let range = (text as NSString).range(of: highlightedText)
+        
+        if gesture.didTapAttributedTextInLabel(label: label, inRange: range) {
+            actionHandler?()
+        }
     }
 }
 

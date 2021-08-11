@@ -44,8 +44,17 @@ class AgeConfirmViewController: UIViewController {
         return label
     }()
     
-    private lazy var termsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_TERMS_LABEL"))
-    private lazy var conditionsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_CONDITIONS_LABEL"))
+    private lazy var termsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_TERMS_LABEL"),
+                                                        highlightedText: L10n("AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED"),
+                                                        action: { [weak self] in
+                                                            self?.presenter.showTerms()
+                                                        })
+    
+    private lazy var conditionsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_CONDITIONS_LABEL"),
+                                                             highlightedText: L10n("AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED"),
+                                                             action: { [weak self] in
+                                                                 self?.presenter.showConditions()
+                                                             })
     
     private lazy var continueButton: UIRoundedButton = {
         let button = UIRoundedButton()

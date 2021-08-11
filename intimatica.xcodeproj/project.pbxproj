@@ -63,6 +63,7 @@
 		DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */; };
 		DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566F26C129CC0087663E /* CoursesActionButton.swift */; };
 		DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567126C143D50087663E /* CourseFinishedViewController.swift */; };
+		DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -174,6 +175,7 @@
 		DB3C566D26C10E1E0087663E /* PremiumCourseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumCourseLabel.swift; sourceTree = "<group>"; };
 		DB3C566F26C129CC0087663E /* CoursesActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesActionButton.swift; sourceTree = "<group>"; };
 		DB3C567126C143D50087663E /* CourseFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFinishedViewController.swift; sourceTree = "<group>"; };
+		DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Utils.swift"; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
 				DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */,
 				DB3C566B26C1018C0087663E /* Array+Utils.swift */,
+				DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -936,6 +939,7 @@
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
+				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
 				DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */,

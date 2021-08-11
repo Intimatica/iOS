@@ -13,7 +13,9 @@ ERROR = "Ошибка";
 
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
+AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
 AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
+AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфидентиальности";
 AGE_CONFIRM_CONTINUE_BUTTON = "Продолжить";
 
 WELCOME_SIGN_IN = "Войти";

@@ -8,6 +8,11 @@
 import UIKit
 
 class CategoryFilterCollectionViewCell: UICollectionViewCell {
+    enum State {
+        case normal
+        case selected
+    }
+    
     // MARK: - Properties
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -17,7 +22,11 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var headerView = SpacerView(height: Constants.headerViewHeight, backgroundColor: .appYellow)
+    private lazy var headerView: UIView = {
+        let view = SpacerView(height: Constants.headerViewHeight, backgroundColor: .appYellow)
+        view.isHidden = true
+        return view
+    }()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -38,7 +47,9 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.borderColor = UIColor.red.cgColor
         
+        contentView.addSubview(headerView)
         contentView.addSubview(nameLabel)
+        
     }
     
     private func setupConstraints() {
@@ -47,6 +58,10 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.nameLabelTop),
@@ -60,24 +75,13 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         nameLabel.text = name
     }
     
-    func didSelect() {
-        nameLabel.textColor = .appYellow
-        
-        contentView.addSubview(headerView)
-        
-        NSLayoutConstraint.activate([
-            headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
-    }
-    
-    func didDeselect() {
-        nameLabel.textColor = .init(hex: 0xB38EFF)
-        
-        // QUESTION: why don't work with this?
-//        NSLayoutConstraint.deactivate(headerView.constraints)
-        headerView.removeFromSuperview()
+    func setState(_ state: State) {
+        switch state {
+        case .normal:
+            headerView.isHidden = true
+        case .selected:
+            headerView.isHidden = false
+        }
     }
 }
 

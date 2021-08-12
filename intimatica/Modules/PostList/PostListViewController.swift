@@ -31,16 +31,13 @@ class PostListViewController: UIViewController {
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-//        flowLayout.itemSize = CGSize(width: 50, height: 20)
-
-        // QUESTION: why line spacing works as interitem spacing
-        flowLayout.minimumLineSpacing = 22
-        flowLayout.minimumInteritemSpacing = 2
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        flowLayout.sectionInset = UIEdgeInsets (top: verticalInset,
-                                                left: horizontalInset,
-                                                bottom: verticalInset,
-                                                right: horizontalInset)
+        flowLayout.minimumInteritemSpacing = 22
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+//        flowLayout.sectionInset = UIEdgeInsets (top: verticalInset,
+//                                                left: horizontalInset,
+//                                                bottom: verticalInset,
+//                                                right: horizontalInset)
         return flowLayout
     }()
     
@@ -52,8 +49,8 @@ class PostListViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         collection.alwaysBounceHorizontal = true
         collection.backgroundColor = .clear
-        collection.dataSource = self
         collection.delegate = self
+        collection.dataSource = self
         
         collection.layer.borderWidth = 1
         collection.layer.borderColor = UIColor.green.cgColor
@@ -101,6 +98,11 @@ class PostListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -203,27 +205,22 @@ extension PostListViewController: PostListViewProtocol {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PostListViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let inset: CGFloat = 0
-//        let minimumInteritemSpacing: CGFloat = 22
-//        let cellsPerRow = categoryFilterItems.count
-//
-//        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//        return CGSize(width: itemWidth, height: itemWidth)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let referenceSize = (categoryFilterItems[indexPath.row] as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .regular, fontWeight: .medium)])
+        return .init(width: referenceSize.width + 2, height: referenceSize.height + CategoryFilterCollectionViewCell.Constants.nameLabelTop)
+    }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 //        .zero
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        0
+//        20
 //    }
-    
+//
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        22
+//        0
 //    }
 }
 
@@ -231,7 +228,7 @@ extension PostListViewController: UICollectionViewDelegateFlowLayout {
 extension PostListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryFilterCollectionViewCell
-        cell.didSelect()
+        cell.setState(.selected)
         
         let category = FeedCategoryFilter.init(rawValue: categoryFilterItems[indexPath.row]) ?? .all
         
@@ -240,7 +237,7 @@ extension PostListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryFilterCollectionViewCell
-        cell.didDeselect()
+        cell.setState(.normal)
     }
 }
 

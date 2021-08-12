@@ -9,6 +9,7 @@ import Foundation
 
 protocol PostListPresenterProtocol {
     func viewDidLoad()
+    func tagFilterButtonDidTap()
     func show(_ post: Post)
     func filter(by category: FeedCategoryFilter, and tags: [Int])
 }
@@ -35,6 +36,28 @@ final class PostListPresenter {
 
 // MARK: - MainPresenterProtocol
 extension PostListPresenter: PostListPresenterProtocol {
+    func viewDidLoad() {
+        useCase.getPosts(postTypeIdList: [], tagIdList: [], idList: []) { [weak self] posts in
+            self?.view?.setPosts(posts)
+        }
+    }
+    func tagFilterButtonDidTap() {
+        router.trigger(.tagCloud)
+    }
+    
+    func show(_ post: Post) {
+        switch post.type {
+        case .theory:
+            router.trigger(.theory(post.id))
+        case .video:
+            router.trigger(.video(post.id))
+        case .videoCourse:
+            router.trigger(.videoCourse(post.id))
+        default:
+            break
+        }
+    }
+    
     func filter(by category: FeedCategoryFilter, and tags: [Int]) {
 
         var postTypeIdList: [Int] = []
@@ -55,22 +78,4 @@ extension PostListPresenter: PostListPresenterProtocol {
         }
     }
     
-    func viewDidLoad() {
-        useCase.getPosts(postTypeIdList: [], tagIdList: [], idList: []) { [weak self] posts in
-            self?.view?.setPosts(posts)
-        }
-    }
-    
-    func show(_ post: Post) {
-        switch post.type {
-        case .theory:
-            router.trigger(.theory(post.id))
-        case .video:
-            router.trigger(.video(post.id))
-        case .videoCourse:
-            router.trigger(.videoCourse(post.id))
-        default:
-            break
-        }
-    }
 }

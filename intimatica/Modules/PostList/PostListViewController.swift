@@ -21,6 +21,8 @@ class PostListViewController: UIViewController {
         return view
     }()
     
+    private lazy var navigationBar = NavigationBar()
+    
     private let tagItems: [Int] = []
     private let categoryFilterItems: [String] = FeedCategoryFilter.toArray()
 
@@ -94,6 +96,7 @@ class PostListViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
         
         presenter.viewDidLoad()
     }
@@ -113,6 +116,7 @@ class PostListViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(topBackgroundView)
+        view.addSubview(navigationBar)
         view.addSubview(categoryFilterView)
         view.addSubview(tableView)
     }
@@ -123,6 +127,10 @@ class PostListViewController: UIViewController {
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.navigationBarLeadingTrailing),
+            navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.navigationBarTop),
+            navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.navigationBarLeadingTrailing),
             
             categoryFilterView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.categoryFilterViewLeading),
             categoryFilterView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.categoryFilterViewTop),
@@ -135,13 +143,22 @@ class PostListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    func setupActions() {
+        navigationBar.tagFilterButton.addAction { [weak self] in
+            self?.presenter.tagFilterButtonDidTap()
+        }
+    }
 }
 
 // MARK: - Helper/Constraints
 extension PostListViewController {
     struct Constants {
         static let topBackgroundViewHeight: CGFloat = 228
-                
+            
+        static let navigationBarLeadingTrailing: CGFloat = 15
+        static let navigationBarTop: CGFloat = 10
+        
         static let categoryFilterViewLeading: CGFloat = 15
         static let categoryFilterViewTop: CGFloat = 110
         static let categoryFilterViewHeight: CGFloat = 50
@@ -203,28 +220,6 @@ extension PostListViewController: PostListViewProtocol {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PostListViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let inset: CGFloat = 0
-//        let minimumInteritemSpacing: CGFloat = 22
-//        let cellsPerRow = categoryFilterItems.count
-//
-//        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-//        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-//        return CGSize(width: itemWidth, height: itemWidth)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        .zero
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        0
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        22
-//    }
 }
 
 // MARK: - UICollectionViewDelegate

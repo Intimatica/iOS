@@ -11,6 +11,7 @@ import Apollo
 protocol PostUseCaseProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
+    func getTags(completionHandler: @escaping TagsCompletionHandler)
 }
 
 protocol HasPostUseCaseProtocol {
@@ -32,5 +33,9 @@ final class PostUseCase: PostUseCaseProtocol {
     
     func getPost<T : GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?) {
         postRepository.getPost(query: query, completionHandler: completionHandler)
+    }
+    
+    func getTags(completionHandler: @escaping TagsCompletionHandler) {
+        postRepository.getTags(completionHandler: completionHandler)
     }
 }

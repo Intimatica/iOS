@@ -28,6 +28,8 @@ enum AppRoute: Route {
     
     case playVideo(String)
     
+    case tagCloud
+    
     case profile
     
     case dismiss
@@ -75,7 +77,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         
         case .home:
             let viewController = HomeTabBarController(router: strongRouter, dependencies: useCaseProvider)
-            return .push(viewController)
+            return .set([viewController])
         
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
@@ -97,6 +99,11 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
 
         case .courseFinished(let subTitle):
             let viewController = CourseFinishedViewController()
+            return .present(viewController)
+            
+        case .tagCloud:
+            let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = TagCloudViewController(presenter: presenter)
             return .present(viewController)
             
         case .dismiss:

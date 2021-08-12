@@ -11,6 +11,7 @@ import Apollo
 protocol PostRepositoryProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
+    func getTags(completionHandler: @escaping TagsCompletionHandler)
 }
 
 protocol HasPostRepositoryProtocol {
@@ -18,8 +19,6 @@ protocol HasPostRepositoryProtocol {
 }
 
 class PostRepository: PostRepositoryProtocol {
-
-    
     // MARK: - Properties
     private let graphqlService: GraphqlServiceProtocol!
     
@@ -34,5 +33,9 @@ class PostRepository: PostRepositoryProtocol {
 
     func getPost<T>(query: T, completionHandler: GraphQLResultHandler<T.Data>?) where T : GraphQLQuery {
         graphqlService.getPost(query: query, completionHandler: completionHandler)
+    }
+    
+    func getTags(completionHandler: @escaping TagsCompletionHandler) {
+        graphqlService.getTags(completionHandler: completionHandler)
     }
 }

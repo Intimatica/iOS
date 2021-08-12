@@ -112,6 +112,11 @@
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
 		DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */; };
 		DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4126C465690042D31D /* ProfilePresenter.swift */; };
+		DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4626C4F9720042D31D /* NavigationBar.swift */; };
+		DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */; };
+		DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */; };
+		DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */; };
+		DBFA7C5026C515920042D31D /* Tags.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBFA7C4F26C515920042D31D /* Tags.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +234,11 @@
 		DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCaterotyFilter.swift; sourceTree = "<group>"; };
 		DBFA7C4126C465690042D31D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		DBFA7C4626C4F9720042D31D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "../UIView+Utils.swift"; sourceTree = "<group>"; };
+		DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudViewController.swift; sourceTree = "<group>"; };
+		DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudPresenter.swift; sourceTree = "<group>"; };
+		DBFA7C4F26C515920042D31D /* Tags.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tags.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +299,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA7C4A26C504F10042D31D /* TagCloud */,
 				DBF99D5C26B2C7F500E04D40 /* Post */,
 				DB8A599026B01E3100842771 /* PostList */,
 				DB8A599526B01E3100842771 /* Profile */,
@@ -322,6 +333,7 @@
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
 				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
 				DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */,
+				DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */,
 				DB3C566B26C1018C0087663E /* Array+Utils.swift */,
 			);
 			path = Extensions;
@@ -616,6 +628,7 @@
 		DB8A599026B01E3100842771 /* PostList */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA7C4526C4F94B0042D31D /* Helper */,
 				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
 				DB8A599126B01E3100842771 /* PostListViewController.swift */,
 				DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */,
@@ -687,6 +700,7 @@
 				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
 				DB81AFBD26B82B8000948B1F /* VideoPost.graphql */,
 				DB3C566226BC1A160087663E /* VideoCourse.graphql */,
+				DBFA7C4F26C515920042D31D /* Tags.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -737,6 +751,23 @@
 				DB3C566F26C129CC0087663E /* CoursesActionButton.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		DBFA7C4526C4F94B0042D31D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DBFA7C4626C4F9720042D31D /* NavigationBar.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		DBFA7C4A26C504F10042D31D /* TagCloud */ = {
+			isa = PBXGroup;
+			children = (
+				DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */,
+				DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */,
+			);
+			path = TagCloud;
 			sourceTree = "<group>";
 		};
 		DDBD76E909E5B969F8F158EB /* Frameworks */ = {
@@ -831,6 +862,7 @@
 				DB2F8B8C26A371B9007020C0 /* Rubik-VariableFont_wght.ttf in Resources */,
 				DB2F8B9626A371B9007020C0 /* Rubik-Italic.ttf in Resources */,
 				DB2F8B9226A371B9007020C0 /* Rubik-ExtraBoldItalic.ttf in Resources */,
+				DBFA7C5026C515920042D31D /* Tags.graphql in Resources */,
 				DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */,
 				DB2F8B9426A371B9007020C0 /* Rubik-BoldItalic.ttf in Resources */,
 				DB2F8B8E26A371B9007020C0 /* Rubik-SemiBold.ttf in Resources */,
@@ -904,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */,
 				DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */,
 				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
@@ -921,6 +954,7 @@
 				DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */,
+				DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
@@ -937,6 +971,7 @@
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
+				DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
@@ -978,6 +1013,7 @@
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
+				DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */,
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,

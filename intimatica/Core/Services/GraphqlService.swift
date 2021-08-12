@@ -8,9 +8,12 @@
 import Foundation
 import Apollo
 
+typealias TagsCompletionHandler = (Result<GraphQLResult<TagsQuery.Data>, Error>) -> Void
+
 protocol GraphqlServiceProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
+    func getTags(completionHandler: @escaping TagsCompletionHandler)
 }
 
 protocol HasGraphqlServiceProtocol {
@@ -80,5 +83,9 @@ class GraphqlService: GraphqlServiceProtocol {
                     imageUrl: imageUrl,
                     tags: tags.compactMap { $0?.name },
                     isPaid: post.isPaid)
+    }
+    
+    func getTags(completionHandler: @escaping TagsCompletionHandler) {
+        apollo.fetch(query: TagsQuery(), resultHandler: completionHandler)
     }
 }

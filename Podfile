@@ -33,4 +33,6 @@ target 'intimatica' do
   #pod "PlayerKit"
   pod "youtube-ios-player-helper", "~> 1.0.2"
   pod 'YouTubePlayer'
+  
+  pod "AlignedCollectionViewFlowLayout"
 end

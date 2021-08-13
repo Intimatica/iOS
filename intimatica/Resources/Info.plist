@@ -39,6 +39,8 @@
 		<string>Rubik-ExtraBoldItalic.ttf</string>
 		<string>Rubik-BlackItalic.ttf</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

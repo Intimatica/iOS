@@ -11,7 +11,8 @@ protocol PostListPresenterProtocol {
     func viewDidLoad()
     func tagFilterButtonDidTap()
     func show(_ post: Post)
-    func filter(by category: FeedCategoryFilter, and tags: [Int])
+    func filter(by category: FeedCategoryFilter)
+    func setSelectedTags(_ tags: Set<Int>)
 }
 
 protocol PostListViewProtocol: AnyObject {
@@ -24,8 +25,8 @@ final class PostListPresenter {
     private var useCase: PostUseCaseProtocol!
     weak var view: PostListViewProtocol?
     
-    private let tagsFilterItems: [Int] = []
-    private let postTypeFilterItems: [String] = []
+    private var selectedTags: Set<Int> = []
+    private var postTypeIdList: [Int] = []
 
     // MARK: - Initializers
     init(router: Router, dependencies: UseCaseProviderProtocol) {
@@ -37,12 +38,12 @@ final class PostListPresenter {
 // MARK: - MainPresenterProtocol
 extension PostListPresenter: PostListPresenterProtocol {
     func viewDidLoad() {
-        useCase.getPosts(postTypeIdList: [], tagIdList: [], idList: []) { [weak self] posts in
+        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
     }
     func tagFilterButtonDidTap() {
-        router.trigger(.tagCloud)
+        router.trigger(.tagCloud(self, selectedTags))
     }
     
     func show(_ post: Post) {
@@ -58,10 +59,7 @@ extension PostListPresenter: PostListPresenterProtocol {
         }
     }
     
-    func filter(by category: FeedCategoryFilter, and tags: [Int]) {
-
-        var postTypeIdList: [Int] = []
-        
+    func filter(by category: FeedCategoryFilter) {
         switch category {
         case .theory:
             postTypeIdList = [1]
@@ -73,9 +71,16 @@ extension PostListPresenter: PostListPresenterProtocol {
             break
         }
         
-        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: tags, idList: []) { [weak self] posts in
+        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
     }
     
+    func setSelectedTags(_ tags: Set<Int>) {
+        selectedTags = tags
+        
+        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
+            self?.view?.setPosts(posts)
+        }
+    }
 }

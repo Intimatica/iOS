@@ -28,7 +28,7 @@ enum AppRoute: Route {
     
     case playVideo(String)
     
-    case tagCloud
+    case tagCloud(PostListPresenterProtocol, Set<Int>)
     
     case profile
     
@@ -101,9 +101,10 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let viewController = CourseFinishedViewController()
             return .present(viewController)
             
-        case .tagCloud:
-            let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider)
+        case .tagCloud(let postListPresenter, let selectedTags):
+            let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, postListPresenter: postListPresenter, selectedTags: selectedTags)
             let viewController = TagCloudViewController(presenter: presenter)
+            presenter.view = viewController
             return .present(viewController)
             
         case .dismiss:

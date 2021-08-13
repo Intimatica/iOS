@@ -23,7 +23,6 @@ class PostListViewController: UIViewController {
     
     private lazy var navigationBar = NavigationBar()
     
-    private let tagItems: [Int] = []
     private let categoryFilterItems: [String] = FeedCategoryFilter.toArray()
 
     private let verticalInset: CGFloat = 0
@@ -249,7 +248,7 @@ extension PostListViewController: UICollectionViewDelegate {
         
         let category = FeedCategoryFilter.init(rawValue: categoryFilterItems[indexPath.row]) ?? .all
         
-        presenter.filter(by: category, and: tagItems)
+        presenter.filter(by: category)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

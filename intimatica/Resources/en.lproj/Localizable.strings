@@ -77,3 +77,6 @@ COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о по�
 COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
 
 PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
+
+
+TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";

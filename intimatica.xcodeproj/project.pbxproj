@@ -117,6 +117,7 @@
 		DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */; };
 		DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */; };
 		DBFA7C5026C515920042D31D /* Tags.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBFA7C4F26C515920042D31D /* Tags.graphql */; };
+		DBFA7C5A26C5A7490042D31D /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C5926C5A7490042D31D /* TagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +240,7 @@
 		DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudViewController.swift; sourceTree = "<group>"; };
 		DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudPresenter.swift; sourceTree = "<group>"; };
 		DBFA7C4F26C515920042D31D /* Tags.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tags.graphql; sourceTree = "<group>"; };
+		DBFA7C5926C5A7490042D31D /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,6 +768,7 @@
 			children = (
 				DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */,
 				DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */,
+				DBFA7C5926C5A7490042D31D /* TagCollectionViewCell.swift */,
 			);
 			path = TagCloud;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */,
 				DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */,
+				DBFA7C5A26C5A7490042D31D /* TagCollectionViewCell.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,

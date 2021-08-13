@@ -111,11 +111,11 @@ class CourseFinishedViewController: UIViewController {
     
     private func setupActions() {
         closeButton.addAction { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.dismiss(animated: true, completion: nil)
         }
         
         button.addAction { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.dismiss(animated: true, completion: nil)
         }
     }
 }

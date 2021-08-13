@@ -28,6 +28,7 @@ class PostListViewController: UIViewController {
     private let verticalInset: CGFloat = 0
     private let horizontalInset: CGFloat = 0
     private let collectionCellID = "collectionCellID"
+    private var selectedCategoryIndexPath = IndexPath(item: 0, section: 0)
     
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -53,8 +54,8 @@ class PostListViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         
-        collection.layer.borderWidth = 1
-        collection.layer.borderColor = UIColor.green.cgColor
+//        collection.layer.borderWidth = 1
+//        collection.layer.borderColor = UIColor.green.cgColor
         
         return collection
     }()
@@ -105,6 +106,8 @@ class PostListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let cell = categoryFilterView.cellForItem(at: selectedCategoryIndexPath) as! CategoryFilterCollectionViewCell
+        cell.setState(.selected)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -243,18 +246,27 @@ extension PostListViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 extension PostListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard selectedCategoryIndexPath != indexPath else {
+            return
+        }
+        
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryFilterCollectionViewCell
         cell.setState(.selected)
         
         let category = FeedCategoryFilter.init(rawValue: categoryFilterItems[indexPath.row]) ?? .all
         
         presenter.filter(by: category)
+        
+        let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryFilterCollectionViewCell
+        selectedCell.setState(.normal)
+        
+        selectedCategoryIndexPath = indexPath
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! CategoryFilterCollectionViewCell
-        cell.setState(.normal)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        let cell = collectionView.cellForItem(at: indexPath) as! CategoryFilterCollectionViewCell
+//        cell.setState(.normal)
+//    }
 }
 
 // MARK: - UICollectionViewDataSource

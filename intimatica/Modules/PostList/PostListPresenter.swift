@@ -61,14 +61,14 @@ extension PostListPresenter: PostListPresenterProtocol {
     
     func filter(by category: FeedCategoryFilter) {
         switch category {
+        case .all, .favorite:
+            postTypeIdList = []
         case .theory:
             postTypeIdList = [1]
         case .story:
             postTypeIdList = [2]
         case .video:
             postTypeIdList = [3, 4]
-        default:
-            break
         }
         
         useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in

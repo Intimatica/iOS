@@ -44,8 +44,8 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.red.cgColor
+//        layer.borderWidth = 1
+//        layer.borderColor = UIColor.red.cgColor
         
         contentView.addSubview(headerView)
         contentView.addSubview(nameLabel)

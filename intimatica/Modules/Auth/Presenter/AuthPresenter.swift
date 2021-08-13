@@ -21,6 +21,7 @@ protocol AuthPresenterProtocol {
 }
 
 protocol AuthViewProtocol: AnyObject {
+    func dismiss()
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
     func showNotification(_ message: String)

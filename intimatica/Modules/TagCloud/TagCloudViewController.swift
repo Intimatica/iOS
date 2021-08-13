@@ -133,9 +133,12 @@ extension TagCloudViewController: TagCloudViewProtocol {
         self.selectedTags = selectedTags
         collectionView.reloadData()
         
-        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        // TODO: refactor this
+        var height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        height += 50
         collectionView.heightAnchor.constraint(equalToConstant: height).isActive = true
         view.layoutIfNeeded()
+        view.layoutSubviews()
     }
     
     func dismiss() {

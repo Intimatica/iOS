@@ -27,7 +27,7 @@ class GraphqlService: GraphqlServiceProtocol {
         networkTransport: RequestChainNetworkTransport(
             interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
             endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
-            additionalHeaders: ["Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI3NDg4NTA1LCJleHAiOjE2MzAwODA1MDV9.47ksZXfznWRythSYY7gECtyu1ODGOXFdsSEjwdodEy4"],
+            additionalHeaders: ["Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4ODQ5MjAxLCJleHAiOjE2MzE0NDEyMDF9.kLtmRJhVdQ98rK-APbc4kk70imA3ezRA8vNyGKEldPQ"],
             autoPersistQueries: false,
             requestBodyCreator: ApolloRequestBodyCreator(),
             useGETForQueries: false,

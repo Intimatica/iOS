@@ -1,17 +1,17 @@
-query Posts {
-  posts (sort:"published_at:desc", where:{tags: {id: []}}){
-    id
-    title
-    image {
-      url
-    }
-    tags {
-      name
-    }
-    is_paid
-      published_at
-    post_type {
-        __typename
-    }
+query Posts($postTypeIdList: [Int!], $tagIdList: [Int!], $idList: [Int!]) {
+    posts (sort:"published_at:desc",  where:{tags: {id: [$tagIdList]}, post_type: {id:[$postTypeIdList]}, id: [$idList]}){
+        id
+        title
+        image {
+          url
+        }
+        tags {
+          name
+        }
+        is_paid
+          published_at
+        post_type {
+          name
+        }
   }
 }

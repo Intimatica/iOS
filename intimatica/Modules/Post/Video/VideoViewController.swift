@@ -135,7 +135,7 @@ extension VideoViewController: VideoViewProtocol {
         videoPlayer.load(withVideoId: "VkrDAvPRdDw", playerVars: playvarsDic)
         videoPlayer.playVideo()
         
-        markdownView.load(markdown: post.postType.first??.asComponentPostTypeVideo?.description)
+        markdownView.load(markdown: post.postTypeDz.first??.asComponentPostTypeVideo?.description)
 
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()

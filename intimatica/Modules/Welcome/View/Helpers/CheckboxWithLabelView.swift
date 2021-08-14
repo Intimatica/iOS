@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TermsAndConditionsView: UIView {
+class CheckboxWithLabelView: UIView {
 
     // MARK: - Properties
     private var text: String!
@@ -33,16 +33,20 @@ class TermsAndConditionsView: UIView {
     }()
 
     // MARK: - Initializers
-    init(with text: String, highlightedText: String, action: @escaping ()->Void) {
+    init(with text: String, highlightedText: String? = nil, action: (@escaping ()->Void) = {}) {
         super.init(frame: .zero)
-        
-        self.text = text
-        self.highlightedText = highlightedText
-        self.actionHandler = action
-        
+         
         setupView()
         setupConstraints()
-        setupAttibutedLabel(text: text, highlightedText: highlightedText)
+        
+        if let highlightedText = highlightedText {
+            self.text = text
+            self.highlightedText = highlightedText
+            self.actionHandler = action
+            setupAttibutedLabel(text: text, highlightedText: highlightedText)
+        } else {
+            label.text = text
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -92,7 +96,7 @@ class TermsAndConditionsView: UIView {
     }
 }
 
-extension TermsAndConditionsView {
+extension CheckboxWithLabelView {
     private struct Constants {
         static let buttonTopButtom: CGFloat = 2
         static let labelLeading: CGFloat = 15

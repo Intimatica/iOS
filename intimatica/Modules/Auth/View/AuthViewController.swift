@@ -159,6 +159,10 @@ extension AuthViewController {
 
 // MARK: - AuthViewProtocol
 extension AuthViewController: AuthViewProtocol {
+    func dismiss() {
+        dismiss(animated: true)
+    }
+    
     func changeAuthButton(isEnabled: Bool) {
         authButton.isEnabled = isEnabled
     }

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - AlignedCollectionViewFlowLayout (1.1.2)
   - Apollo (0.45.0):
     - Apollo/Core (= 0.45.0)
   - Apollo/Core (0.45.0)
@@ -15,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - AlignedCollectionViewFlowLayout
   - Apollo
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
@@ -27,6 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlignedCollectionViewFlowLayout
     - Apollo
     - KeychainSwift
     - Kingfisher
@@ -38,6 +41,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   Apollo: 241254e8b26f49dc180e3be848f0b3fc5699e6f4
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: a6fc2a4c2a2611cdb9f5ba73c1a27e2f30f16d99
+PODFILE CHECKSUM: 29fb43fc6a6f43d38fbc70c4c933dcc8e4622242
 
 COCOAPODS: 1.10.1

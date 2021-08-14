@@ -10,7 +10,8 @@ import Foundation
 protocol AuthRepositoryProtocol {
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
-
+    func signOut()
+    
     func getUserCredentials() -> UserCredentials?
     func storeUserCredentials(_ userCredentials: UserCredentials)
     
@@ -42,6 +43,10 @@ final class AuthRepository: AuthRepositoryProtocol {
     
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
         networkService.signIn(email: email, password: password, completionHandler: completionHandler)
+    }
+    
+    func signOut() {
+        keychainService.deleteUserCredentials()
     }
     
     func getUserCredentials() -> UserCredentials? {

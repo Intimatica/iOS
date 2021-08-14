@@ -8,7 +8,7 @@
 import UIKit
 
 class VideoCourseViewController: BasePostViewController {
-    typealias Video = VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video
+    typealias Video = VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video
     
     // MARK: - Properties
     var localPresenter: VideoCoursePresenterProtocol!
@@ -161,8 +161,8 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             let authorName = post.author?.name,
             let authorJobTitle = post.author?.jobTitle,
             let authorPhotoUrl = post.author?.photo?.url,
-            let content = post.postType.first??.asComponentPostTypeVideoCourse?.description,
-            let videoList = post.postType.first??.asComponentPostTypeVideoCourse?.video?.compactMap({ $0 })
+            let content = post.postTypeDz.first??.asComponentPostTypeVideoCourse?.description,
+            let videoList = post.postTypeDz.first??.asComponentPostTypeVideoCourse?.video?.compactMap({ $0 })
         else {
             return
         }
@@ -202,8 +202,8 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
     }
 }
 
-extension VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video: Equatable {
-    public static func == (lhs: VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video, rhs: VideoCoursePostQuery.Data.Post.PostType.AsComponentPostTypeVideoCourse.Video) -> Bool {
+extension VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video: Equatable {
+    public static func == (lhs: VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video, rhs: VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video) -> Bool {
         lhs.title == rhs.title && lhs.youtubeLink == rhs.youtubeLink
     }
 }

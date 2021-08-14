@@ -25,17 +25,18 @@ class HomeTabBarController: UITabBarController {
 
     lazy var courcesTabBar: PostListViewController = {
         let presenter = PostListPresenter(router: router, dependencies: useCaseProvider)
-        let courcesTabBar = PostListViewController(presenter: presenter)
-        presenter.view = courcesTabBar
+        let coursesTabBar = PostListViewController(presenter: presenter)
+        presenter.view = coursesTabBar
         
-        courcesTabBar.tabBarItem = UITabBarItem(title: L10n("COURCES_TABBAR_ITEM_TITLE"),
-                                                image: UIImage(named: "cources"), tag: 0)
+        coursesTabBar.tabBarItem = UITabBarItem(title: L10n("COURSES_TABBAR_ITEM_TITLE"),
+                                                image: UIImage(named: "courses"), tag: 0)
 
-        return courcesTabBar
+        return coursesTabBar
     }()
 
-    lazy var profileTabBar: CourcesViewController = {
-        let profileTabBar = CourcesViewController()
+    lazy var profileTabBar: ProfileViewController = {
+        let presenter = ProfilePresenter(router: router, dependencies: useCaseProvider)
+        let profileTabBar = ProfileViewController(presenter: presenter)
         profileTabBar.tabBarItem = UITabBarItem(title: L10n("PROFILE_TABBAR_ITEM_TITLE"),
                                                 image: UIImage(named: "profile"), tag: 0)
 

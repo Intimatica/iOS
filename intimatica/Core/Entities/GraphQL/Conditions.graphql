@@ -1,0 +1,5 @@
+query Conditions {
+  condition {
+    content
+    }
+}

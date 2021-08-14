@@ -11,6 +11,7 @@ import KeychainSwift
 protocol KeychainServiceProtocol {
     func getUserCredentials() -> UserCredentials?
     func storeUserCredentials(_ userCredentials: UserCredentials)
+    func deleteUserCredentials()
 }
 
 protocol HasKeychainServiceProtocol {
@@ -36,5 +37,10 @@ final class KeychainService: KeychainServiceProtocol {
     func storeUserCredentials(_ userCredentials: UserCredentials) {
         keychain.set(userCredentials.email, forKey: emailKey)
         keychain.set(userCredentials.password, forKey: passwordKey)
+    }
+    
+    func deleteUserCredentials() {
+        keychain.delete(emailKey)
+        keychain.delete(passwordKey)
     }
 }

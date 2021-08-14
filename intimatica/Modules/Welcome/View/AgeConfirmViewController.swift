@@ -44,18 +44,28 @@ class AgeConfirmViewController: UIViewController {
         return label
     }()
     
-    private lazy var termsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_TERMS_LABEL"),
+
+    private lazy var ageConfirmView = CheckboxWithLabelView(with: L10n("AGE_CONFIRM_LABEL"))
+    private lazy var termsView = CheckboxWithLabelView(with: L10n("AGE_CONFIRM_TERMS_LABEL"),
                                                         highlightedText: L10n("AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED"),
                                                         action: { [weak self] in
                                                             self?.presenter.showTerms()
                                                         })
     
-    private lazy var conditionsView = TermsAndConditionsView(with: L10n("AGE_CONFIRM_CONDITIONS_LABEL"),
+    private lazy var conditionsView = CheckboxWithLabelView(with: L10n("AGE_CONFIRM_CONDITIONS_LABEL"),
                                                              highlightedText: L10n("AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED"),
                                                              action: { [weak self] in
                                                                  self?.presenter.showConditions()
                                                              })
-    
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = Constants.stackViewSpacing
+        return stackView
+    }()
+
     private lazy var continueButton: UIRoundedButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -106,9 +116,12 @@ class AgeConfirmViewController: UIViewController {
         
         containerView.addSubview(titleImage)
         containerView.addSubview(welcomeLabel)
-        containerView.addSubview(termsView)
-        containerView.addSubview(conditionsView)
+        containerView.addSubview(stackView)
         containerView.addSubview(continueButton)
+        
+        stackView.addArrangedSubview(ageConfirmView)
+        stackView.addArrangedSubview(termsView)
+        stackView.addArrangedSubview(conditionsView)
     }
     
     private func setupConstraints() {
@@ -133,18 +146,15 @@ class AgeConfirmViewController: UIViewController {
             welcomeLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             welcomeLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
-            termsView.heightAnchor.constraint(equalToConstant: Constants.termsAndConditionsHeight),
-            termsView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            termsView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            termsView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: Constants.termsTop),
-            termsView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: Constants.stackViewTop),
+            stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
-            conditionsView.heightAnchor.constraint(equalToConstant: Constants.termsAndConditionsHeight),
-            conditionsView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            conditionsView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            conditionsView.topAnchor.constraint(equalTo: termsView.bottomAnchor, constant: Constants.conditionsTop),
-            conditionsView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            
+            ageConfirmView.heightAnchor.constraint(equalToConstant: Constants.stackViewItemHeight),
+            termsView.heightAnchor.constraint(equalToConstant: Constants.stackViewItemHeight),
+            conditionsView.heightAnchor.constraint(equalToConstant: Constants.stackViewItemHeight),
+    
             continueButton.heightAnchor.constraint(equalToConstant: Constants.continueButtonHeight),
             continueButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             continueButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -155,21 +165,33 @@ class AgeConfirmViewController: UIViewController {
     }
     
     private func setupActions() {
+        ageConfirmView.button.addAction { [weak self] in
+            guard let self = self else { return }
+            self.ageConfirmView.button.isSelected = !self.ageConfirmView.button.isSelected
+            self.validateForm()
+        }
+        
         termsView.button.addAction { [weak self] in
             guard let self = self else { return }
-            self.termsView.button.isSelected = self.termsView.button.isSelected ? false : true
-            self.continueButton.isEnabled = self.termsView.button.isSelected && self.conditionsView.button.isSelected ? true : false
+            self.termsView.button.isSelected = !self.termsView.button.isSelected
+            self.validateForm()
         }
         
         conditionsView.button.addAction { [weak self] in
             guard let self = self else { return }
-            self.conditionsView.button.isSelected = self.conditionsView.button.isSelected ? false : true
-            self.continueButton.isEnabled = self.termsView.button.isSelected && self.conditionsView.button.isSelected ? true : false
+            self.conditionsView.button.isSelected = !self.conditionsView.button.isSelected
+            self.validateForm()
         }
         
         continueButton.addAction { [weak self] in
             self?.presenter.continueButtonDidTap()
         }
+    }
+    
+    private func validateForm() {
+        continueButton.isEnabled = ageConfirmView.button.isSelected
+            && termsView.button.isSelected
+            && conditionsView.button.isSelected
     }
 }
 
@@ -187,12 +209,11 @@ extension AgeConfirmViewController {
         
         static let welcomeLabelHeight: CGFloat = 120
         
-        static let termsAndConditionsHeight: CGFloat = 30
-        static let termsTop: CGFloat = 40
-        static let conditionsTop: CGFloat = 20
+        static let stackViewSpacing: CGFloat = 20
+        static let stackViewItemHeight: CGFloat = 30
+        static let stackViewTop: CGFloat = 40
         
         static let continueButtonHeight: CGFloat = 50
         static let continueButtonTop: CGFloat = 30
     }
 }
-

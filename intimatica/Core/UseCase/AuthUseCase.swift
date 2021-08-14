@@ -10,7 +10,8 @@ import Foundation
 protocol AuthUseCaseProtocol {
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
-
+    func signOut()
+    
     func getUserCredentials() -> UserCredentials?
     func storeUserCredentials(_ userCredentials: UserCredentials)
     
@@ -37,6 +38,10 @@ final class AuthUseCase: AuthUseCaseProtocol {
     
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
         repository.signIn(email: email, password: password, completionHandler: completionHandler)
+    }
+    
+    func signOut() {
+        repository.signOut()
     }
     
     func getUserCredentials() -> UserCredentials? {

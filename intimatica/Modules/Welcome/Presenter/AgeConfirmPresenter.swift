@@ -27,11 +27,11 @@ final class AgeConfirmPresenter {
 // MARK: - AgeConfirmPresenterProtocol
 extension AgeConfirmPresenter: AgeConfirmPresenterProtocol {
     func showTerms() {
-        
+        router.trigger(.terms)
     }
     
     func showConditions() {
-        
+        router.trigger(.conditions)
     }
     
     func continueButtonDidTap() {

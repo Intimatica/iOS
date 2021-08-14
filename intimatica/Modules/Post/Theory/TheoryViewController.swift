@@ -25,6 +25,7 @@ class TheoryViewController: BasePostViewController {
         
         setupView()
         setupConstraints()
+        setupAction()
         
         scrollView.delegate = self
         
@@ -68,6 +69,13 @@ class TheoryViewController: BasePostViewController {
             markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
     }
+    
+    private func setupAction() {
+        markdownView.onRendered = { [weak self] height in
+            self?.hideSpinner()
+            self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
 }
 
 // MARK: - TheoryViewProtocol
@@ -79,7 +87,7 @@ extension TheoryViewController: TheoryViewProtocol {
             let authorName = theoryPost.author?.name,
             let authorJobTitle = theoryPost.author?.jobTitle,
             let authorPhotoUrl = theoryPost.author?.photo?.url,
-            let content = theoryPost.postType.first??.asComponentPostTypeTheory?.content
+            let content = theoryPost.postTypeDz.first??.asComponentPostTypeTheory?.content
         else {
             return
         }
@@ -101,14 +109,10 @@ extension TheoryViewController: TheoryViewProtocol {
                                            font: authorView.label.font)
         
         markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
-        
-        markdownView.onRendered = { [weak self] height in
-            self?.hideSpinner()
-            self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
-        }
     }
     
     func display(_ error: Error) {
+        hideSpinner()
         showError(error.localizedDescription)
     }
 }

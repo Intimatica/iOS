@@ -8,10 +8,10 @@
 import Foundation
 
 enum PostType: String {
-    case theory = "ComponentPostTypeTheory"
-    case video = "ComponentPostTypeVideo"
-    case story = "ComponentPostTypeStory"
-    case videoCourse = "ComponentPostTypeVideoCourse"
+    case theory = "Theory"
+    case video = "Video"
+    case story = "Story"
+    case videoCourse = "Course"
 }
 
 class Post {

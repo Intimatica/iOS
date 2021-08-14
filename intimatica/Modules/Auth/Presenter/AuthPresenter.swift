@@ -21,6 +21,7 @@ protocol AuthPresenterProtocol {
 }
 
 protocol AuthViewProtocol: AnyObject {
+    func dismiss()
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
     func showNotification(_ message: String)
@@ -115,8 +116,9 @@ class AuthPresenter {
     }
     
     private func validatePasswordConfirm(_ string: String?) {
-        // TODO: Unregent fix. Please refactor me
-        if string == passwordValue  {
+        passwordConfirmFieldIsValid = string == passwordValue
+        
+        if passwordConfirmFieldIsValid  {
             view?.hideValidationError(for: .passwordConfirm)
         } else {
             view?.showValidationError(for: .passwordConfirm, message: "AUTH_PASSWORD_CONFIRM_DONT_MATCH")

@@ -12,6 +12,7 @@ OK = "Ok";
 ERROR = "Ошибка";
 
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
+AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
 AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
 AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
@@ -55,7 +56,7 @@ AUTH_ERROR_USERNAME_TAKEN = "Имя пользователя уже исполь
 
 // HOME TABBAR
 POST_LIST_TABBAR_ITEM_TITLE = "ГЛАВНАЯ";
-COURCES_TABBAR_ITEM_TITLE = "КУРСЫ";
+COURSES_TABBAR_ITEM_TITLE = "КУРСЫ";
 PROFILE_TABBAR_ITEM_TITLE = "ПРОФИЛЬ";
 
 TABLE_CELL_POST_LABEL_COURSE = "КУРС";
@@ -77,3 +78,7 @@ COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
 COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
 COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
 
+PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
+
+
+TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";

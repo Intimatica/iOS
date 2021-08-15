@@ -43,7 +43,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .profile)
+        super.init(initialRoute: .signUpProfile)
 //        super.init(initialRoute: .launch)
     }
     
@@ -124,6 +124,11 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, postListPresenter: postListPresenter, selectedTags: selectedTags)
             let viewController = TagCloudViewController(presenter: presenter)
             presenter.view = viewController
+            return .present(viewController)
+            
+        case .profile:
+            let presenter = ProfilePresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = ProfileViewController(presenter: presenter)
             return .present(viewController)
             
         case .dismiss:

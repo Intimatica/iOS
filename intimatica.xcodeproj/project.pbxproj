@@ -128,6 +128,7 @@
 		DBFA7C6926C8FC3E0042D31D /* SignUpProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6826C8FC3E0042D31D /* SignUpProfilePresenter.swift */; };
 		DBFA7C6B26C8FC4C0042D31D /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6A26C8FC4C0042D31D /* SignUpProfileViewController.swift */; };
 		DBFA7C6D26C8FD620042D31D /* PickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6C26C8FD620042D31D /* PickerKeyboard.swift */; };
+		DBFA7C6F26C901C80042D31D /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6E26C901C80042D31D /* UITextField+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +262,7 @@
 		DBFA7C6826C8FC3E0042D31D /* SignUpProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfilePresenter.swift; sourceTree = "<group>"; };
 		DBFA7C6A26C8FC4C0042D31D /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		DBFA7C6C26C8FD620042D31D /* PickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerKeyboard.swift; sourceTree = "<group>"; };
+		DBFA7C6E26C901C80042D31D /* UITextField+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 		DB2F8B3A269F5716007020C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA7C6E26C901C80042D31D /* UITextField+Utils.swift */,
 				DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */,
 				DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */,
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
@@ -1048,6 +1051,7 @@
 				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
+				DBFA7C6F26C901C80042D31D /* UITextField+Utils.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,

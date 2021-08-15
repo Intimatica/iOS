@@ -1,0 +1,30 @@
+query VideoCoursePost($id: ID!) {
+  post (id: $id) {
+    id
+    title
+    image {
+      url
+    }
+    tags {
+      name
+    }
+    author {
+      name
+      job_title
+      photo {
+        url
+      }
+    }
+    is_paid
+    post_type_dz {
+      __typename
+      ... on ComponentPostTypeVideoCourse {
+        description
+        video {
+          youtube_link
+          title
+        }
+      }
+    }
+  }
+}

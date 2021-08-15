@@ -12,8 +12,11 @@ OK = "Ok";
 ERROR = "Ошибка";
 
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
+AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
+AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
 AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
+AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфидентиальности";
 AGE_CONFIRM_CONTINUE_BUTTON = "Продолжить";
 
 WELCOME_SIGN_IN = "Войти";
@@ -56,4 +59,33 @@ PROFILE_SEX_FIELD_TITLE = "Пол";
 PROFILE_BIRTHDATE_FIELD_TITLE = "Дата рождения";
 PROFILE_SAVE_BUTTON_TITLE = "Сохранить";
 PROFILE_FILL_LATER_BUTTON_TITLE = "Заполнить позже";
+
+// HOME TABBAR
+POST_LIST_TABBAR_ITEM_TITLE = "ГЛАВНАЯ";
+COURSES_TABBAR_ITEM_TITLE = "КУРСЫ";
+PROFILE_TABBAR_ITEM_TITLE = "ПРОФИЛЬ";
+
+TABLE_CELL_POST_LABEL_COURSE = "КУРС";
+TABLE_CELL_POST_LABEL_STORY = "ИСТОРИИ";
+TABLE_CELL_POST_LABEL_THEORY = "ТЕОРИЯ";
+TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "ПРЕМИУМ КУРС";
+
+
+// POST VIEW
+ADD_TO_MY_COURSES_BUTTON_LABEL = "В мои курсы";
+ADDED_TO_MY_COURSES_BUTTON_LABEL = "Добавлен";
+AUTHOR = "Автор";
+
+COURSE_POST_TITLE = "Программа курса";
+COURSE_VIDEO_TITLE = "Видео курса";
+COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";
+
+COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
+COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
+COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
+
+PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
+
+
+TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";
 

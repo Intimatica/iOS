@@ -1,0 +1,5 @@
+query Terms {
+  term {
+    content
+    }
+}

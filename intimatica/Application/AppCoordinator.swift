@@ -8,72 +8,122 @@
 import Foundation
 import XCoordinator
 
+typealias Router = StrongRouter<AppRoute>
+
 enum AppRoute: Route {
     case launch
     case ageConfirm
+    case terms
+    case conditions
     case welcome
     case signIn
     case signUp
-    case profile
+    case signUpProfile
     case logout
     case forgotPassword
+    
     case home
+    case story(Int)
+    case theory(Int)
+    case video(Int)
+    case videoCourse(Int)
+    case courseFinished(String)
+    
+    case playVideo(String)
+    
+    case tagCloud(PostListPresenterProtocol, Set<Int>)
+    
+    case profile
+    
     case dismiss
 }
 
-class AppCoordinator: NavigationCoordinator<AppRoute> {
+final class AppCoordinator: NavigationCoordinator<AppRoute> {
+    
+    private let useCaseProvider = UseCaseProvider()
     
     init() {
         super.init(initialRoute: .profile)
+//        super.init(initialRoute: .launch)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
         
-//        case .launch:
-//            let viewController = TestViewController()
-//            return .present(viewController)
-        
+        case .launch:
+            let presenter = LaunchPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = LaunchViewController(presenter: presenter)
+            return .set([viewController])
+            
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
             let viewController = AgeConfirmViewController(presenter: presenter)
             return .set([viewController])
         
+        case .terms:
+            let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: TermsQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+
+        case .conditions:
+            let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: ConditionsQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)
             let viewController = WelcomeViewController(presenter: presenter)
             return .set([viewController])
             
         case .signUp:
-            let networkService = AuthNetworkService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignUpPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignUpPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .signIn:
-            let networkService = AuthNetworkService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
-            let useCase = AuthUseCase(repository: repository)
-            
-            let presenter = SignInPresenter(router: strongRouter, useCase: useCase)
+            let presenter = SignInPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignInViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
         
-        case .profile:
-            let networkService = AuthNetworkService()
-            let validatorService = AuthValidatorService()
-            let repository = AuthRepository(networkService: networkService, validatorService: validatorService)
-            let useCase = AuthUseCase(repository: repository)
+        case .signUpProfile:
+            let presenter = SignUpProfilePresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = SignUpProfileViewController(presenter: presenter)
+            return .present(viewController)
+
+        case .home:
+            let viewController = HomeTabBarController(router: strongRouter, dependencies: useCaseProvider)
+            return .set([viewController])
+        
+        case .theory(let id):
+            let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
+            let viewController = TheoryViewController(presenter: presenter)
+            presenter.view = viewController
+            return .show(viewController)
             
-            let presenter = ProfilePresenter(router: strongRouter,  useCase: useCase)
-            let viewController = ProfileViewController(presenter: presenter)
+        case .video(let id):
+            let presenter = VideoPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
+            let viewController = VideoViewController(presenter: presenter)
+            presenter.view = viewController
+            return .show(viewController)
+            
+        case .videoCourse(let id):
+            let presenter = VideoCoursePresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
+            let viewController = VideoCourseViewController(presenter: presenter)
+            presenter.view = viewController
+            return .show(viewController)
+
+        case .courseFinished(let subTitle):
+            let viewController = CourseFinishedViewController()
+            return .present(viewController)
+            
+        case .tagCloud(let postListPresenter, let selectedTags):
+            let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, postListPresenter: postListPresenter, selectedTags: selectedTags)
+            let viewController = TagCloudViewController(presenter: presenter)
+            presenter.view = viewController
             return .present(viewController)
             
         case .dismiss:
@@ -82,5 +132,9 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         default:
             fatalError("in progress")
         }
+    }
+    
+    func configureLauch() {
+        
     }
 }

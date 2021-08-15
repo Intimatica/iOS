@@ -31,7 +31,9 @@ extension SignInPresenter: SignInPresenterProtocol {
             
             switch result {
             case .success(let authResponse):
-                // GOTO feed
+                self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
+                self.router.trigger(.home)
+                self.view?.dismiss()
                 print(authResponse.jwt)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))

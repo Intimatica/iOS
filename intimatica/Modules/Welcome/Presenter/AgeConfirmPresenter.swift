@@ -10,11 +10,11 @@ import XCoordinator
 
 protocol AgeConfirmPresenterProtocol {
     func continueButtonDidTap()
+    func showTerms()
+    func showConditions()
 }
 
 final class AgeConfirmPresenter {
-    typealias Router = StrongRouter<AppRoute>
-
     // MARK: - Properties
     private let router: Router!
     
@@ -26,6 +26,14 @@ final class AgeConfirmPresenter {
 
 // MARK: - AgeConfirmPresenterProtocol
 extension AgeConfirmPresenter: AgeConfirmPresenterProtocol {
+    func showTerms() {
+        router.trigger(.terms)
+    }
+    
+    func showConditions() {
+        router.trigger(.conditions)
+    }
+    
     func continueButtonDidTap() {
         router.trigger(.welcome)
     }

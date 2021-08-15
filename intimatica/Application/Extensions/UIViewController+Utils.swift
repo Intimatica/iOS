@@ -25,3 +25,37 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+fileprivate var spinnerView: UIView?
+
+// MARK: Helper/Spinner
+extension UIViewController {
+
+    func showSpinner() {
+        showSpinner(frame: self.view.bounds)
+    }
+    
+    func showSpinner(frame: CGRect) {
+        spinnerView = UIView(frame: frame)
+        
+        guard let spinnerView = spinnerView else { return }
+        
+        spinnerView.backgroundColor = .white
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = spinnerView.center
+        activityIndicator.startAnimating()
+        spinnerView.addSubview(activityIndicator)
+        self.view.addSubview(spinnerView)
+        
+    }
+    
+    func hideSpinner() {
+        UIView.animate(withDuration: 0.3, animations: {
+            spinnerView?.alpha = 0
+        }, completion: { _ in
+            spinnerView?.removeFromSuperview()
+            spinnerView = nil
+        })
+    }
+}

@@ -228,7 +228,7 @@ extension TextFieldView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = settings.placeholder
         textField.returnKeyType = settings.returnKeyType
-        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+//        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         return textField
     }
     

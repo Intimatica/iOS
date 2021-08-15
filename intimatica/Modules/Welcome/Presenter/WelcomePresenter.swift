@@ -14,10 +14,10 @@ protocol WelcomePresenterProtocol {
 }
 
 class WelcomePresenter {
-    typealias Router = StrongRouter<AppRoute>
-
+    // MARK: - Properties
     let router: Router!
     
+    // MARK: - Initializers
     init(router: Router) {
         self.router = router
     }

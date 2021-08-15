@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Apollo
 
 protocol WebPageViewProtocol: AnyObject {
     func display(_ text: String)
@@ -16,7 +17,7 @@ protocol WebPagePresenterProtocol {
     func viewDidLoad()
 }
 
-final class WebPagePresenter {
+final class WebPagePresenter<T: GraphQLQuery> {
     enum Page {
         case terms, conditions
     }
@@ -24,49 +25,37 @@ final class WebPagePresenter {
     // MARK: - Properties
     private let router: Router
     private let useCase: GraphQLUseCaseProtocol
-    private let page: Page
+    private let query: T
     weak var view: WebPageViewProtocol?
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol, page: Page) {
+    init(router: Router, dependencies: UseCaseProviderProtocol, graphQLQuery: T) {
         self.router = router
         self.useCase = dependencies.graphQLUseCase
-        self.page = page
+        self.query = graphQLQuery
     }
 }
 
 // MARK: - WebPagePresenterProtocol
 extension WebPagePresenter: WebPagePresenterProtocol {
     func viewDidLoad() {
-        
-        // QUESTION: try to refactor
-        switch page {
-        case .terms:
-            useCase.fetch(query: TermsQuery()) { [weak self] result in
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let graphQLResult):
-                    if let content = graphQLResult.data?.term?.content {
-                        self.view?.display(content)
-                    } // TODO: add error processing
-                case .failure(let error):
-                    self.view?.displayError(error.localizedDescription)
-                }
-            }
+
+        useCase.fetch(query: query) { [weak self] result in
+            guard let self = self else { return }
             
-        case .conditions:
-            useCase.fetch(query: ConditionsQuery()) { [weak self] result in
-                guard let self = self else { return }
+            switch result {
+            case .success(let graphQLResult):
                 
-                switch result {
-                case .success(let graphQLResult):
-                    if let content = graphQLResult.data?.condition?.content {
-                        self.view?.display(content)
-                    } // TODO: add error processing
-                case .failure(let error):
-                    self.view?.displayError(error.localizedDescription)
+                // QUESTION: try to refactor
+                if let termsData = ((graphQLResult.data) as? TermsQuery.Data), let content = termsData.term?.content {
+                    self.view?.display(content)
+                } else if let conditionsData = ((graphQLResult.data) as? ConditionsQuery.Data), let content = conditionsData.condition?.content {
+                    self.view?.display(content)
+                } else {
+                    fatalError("Content not found")
                 }
+            case .failure(let error):
+                self.view?.displayError(error.localizedDescription)
             }
         }
     }

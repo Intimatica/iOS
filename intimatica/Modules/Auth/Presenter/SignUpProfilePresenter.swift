@@ -9,8 +9,7 @@ import Foundation
 import XCoordinator
 
 protocol SignUpProfilePresenterProtocol: AuthPresenter {
-    func saveButtonDidTap()
-    func fillLaterButtonDidTap()
+    func saveButtonDidTap(nickname: String?, gender: String?, birthDate: Date?)
 }
 
 final class SignUpProfilePresenter: AuthPresenter {
@@ -19,11 +18,7 @@ final class SignUpProfilePresenter: AuthPresenter {
 
 // MARK: - SignUpProfilePresenterProtocol
 extension SignUpProfilePresenter: SignUpProfilePresenterProtocol {
-    func saveButtonDidTap() {
-        
-    }
-    
-    func fillLaterButtonDidTap() {
+    func saveButtonDidTap(nickname: String?, gender: String?, birthDate: Date?) {
         
     }
 }

@@ -129,6 +129,7 @@
 		DBFA7C6B26C8FC4C0042D31D /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6A26C8FC4C0042D31D /* SignUpProfileViewController.swift */; };
 		DBFA7C6D26C8FD620042D31D /* PickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6C26C8FD620042D31D /* PickerKeyboard.swift */; };
 		DBFA7C6F26C901C80042D31D /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6E26C901C80042D31D /* UITextField+Utils.swift */; };
+		DBFA7C7326C94ABD0042D31D /* GenderList in Resources */ = {isa = PBXBuildFile; fileRef = DBFA7C7226C94ABD0042D31D /* GenderList */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +264,7 @@
 		DBFA7C6A26C8FC4C0042D31D /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		DBFA7C6C26C8FD620042D31D /* PickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerKeyboard.swift; sourceTree = "<group>"; };
 		DBFA7C6E26C901C80042D31D /* UITextField+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
+		DBFA7C7226C94ABD0042D31D /* GenderList */ = {isa = PBXFileReference; lastKnownFileType = text; path = GenderList; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -735,6 +737,7 @@
 				DBFA7C4F26C515920042D31D /* Tags.graphql */,
 				DBFA7C6426C854DD0042D31D /* Terms.graphql */,
 				DBFA7C6626C85D570042D31D /* Conditions.graphql */,
+				DBFA7C7226C94ABD0042D31D /* GenderList */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
+				DBFA7C7326C94ABD0042D31D /* GenderList in Resources */,
 				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
 				DBFA7C6526C854DD0042D31D /* Terms.graphql in Resources */,

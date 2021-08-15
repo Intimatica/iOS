@@ -17,7 +17,7 @@ final class PickerKeyboard: UIPickerView {
         }
     }
     
-    var textFieldBeingEditing: UITextField?
+    weak var textField: UITextField?
 
     var selectedValue: String {
         get {
@@ -60,12 +60,14 @@ final class PickerKeyboard: UIPickerView {
     }
     
     @objc func cancelButtonDidTap() {
-//        genderView.textField.resignFirstResponder()
+        textField?.resignFirstResponder()
+//        textField?.endEditing(true)
     }
     
     @objc func doneButtonDidTap() {
-//        genderView.textField.resignFirstResponder()
-//        print("selected: \(genderPicker.selectedValue)")
+//        textField?.resignFirstResponder()
+        textField?.text = selectedValue
+        textField?.endEditing(true)
     }
 }
 

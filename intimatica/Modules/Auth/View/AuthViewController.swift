@@ -35,9 +35,7 @@ class AuthViewController: UIViewController {
     lazy var birthdateView = TextFieldView(field: .birthdate(
                                                             .settings(placeholder: L10n("PROFILE_BIRTHDATE_FIELD_TITLE"),  returnKeyType: .next)
     ))
-    
-    
-    
+   
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -210,7 +208,7 @@ extension AuthViewController: AuthViewProtocol {
 
 // MARK: - TextFieldViewDelegate
 extension AuthViewController: TextFieldViewDelegate {
-    func textFieldEndEditing(_ textFieldView: TextFieldView) {
+    @objc func textFieldEndEditing(_ textFieldView: TextFieldView) {
         switch textFieldView {
         case emailView:
             presenter.validate(.email, with: emailView.textField.text)
@@ -223,7 +221,7 @@ extension AuthViewController: TextFieldViewDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textFieldView: TextFieldView) {
+    @objc func textFieldShouldReturn(_ textFieldView: TextFieldView) {
         if textFieldView == emailView {
             passwordView.textField.becomeFirstResponder()
         } else if textFieldView == passwordView && passwordView.textField.returnKeyType == .next {

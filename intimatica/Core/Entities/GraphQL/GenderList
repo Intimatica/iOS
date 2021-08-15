@@ -1,0 +1,6 @@
+query GenderList {
+  genders {
+    id
+    name
+  }
+}

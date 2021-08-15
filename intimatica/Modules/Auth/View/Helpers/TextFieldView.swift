@@ -220,6 +220,8 @@ extension TextFieldView {
         textField.inputAccessoryView = pickerKeyboard.inputAccessoryView
         textField.placeholder = settings.placeholder
         textField.returnKeyType = settings.returnKeyType
+                
+        pickerKeyboard.textField = textField
         return textField
     }
     
@@ -228,7 +230,10 @@ extension TextFieldView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = settings.placeholder
         textField.returnKeyType = settings.returnKeyType
-        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+        textField.setInputViewDatePicker(target: self,
+                                        selector: #selector(birthDateFieldTapDone),
+                                        minimumDate: Calendar.current.date(byAdding: .year, value: -128, to: Date()),
+                                        maximumDate: Calendar.current.date(byAdding: .year, value: -16, to: Date()))
         return textField
     }
     
@@ -239,8 +244,13 @@ extension TextFieldView {
         return progress
     }
     
-    @objc func tapDone() {
-        
+    @objc func birthDateFieldTapDone() {
+        if let datePicker = self.textField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = .short
+            self.textField.text = dateformatter.string(from: datePicker.date)
+        }
+        endEditing(true)
     }
 }
 
@@ -254,20 +264,21 @@ extension TextFieldView: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        spacer.backgroundColor = .appGray
-        
         fieldLabel.textColor = .appGray
+        
         if let text = textField.text, text.isEmpty {
             fieldLabel.text = " "
+            spacer.backgroundColor = .appGray
+        } else {
+            spacer.backgroundColor = .appPurple
         }
         
         delegate?.textFieldEndEditing(self)
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        spacer.backgroundColor = .appPurple
         hideError()
-        
+
         NSObject.cancelPreviousPerformRequests(
             withTarget: self,
             selector: #selector(TextFieldView.stopedEditing),
@@ -285,7 +296,6 @@ extension TextFieldView: UITextFieldDelegate {
         } else {
             eyeButton.backgroundImageState = .inactive
         }
-
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -9,13 +9,14 @@ import Foundation
 import Apollo
 
 protocol PostUseCaseProtocol {
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
     
     func getFavorites() -> Set<String>
     func addToFavorites(_ id: String)
     func removeFromFavorites(_ id: String)
+    func isFavorite(_ id: String) -> Bool
 }
 
 protocol HasPostUseCaseProtocol {
@@ -31,7 +32,7 @@ final class PostUseCase: PostUseCaseProtocol {
         postRepository = dependencies.postRepository
     }
     
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void) {
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
         postRepository.getPosts(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList, completionHandler: completionHandler)
     }
     
@@ -53,5 +54,9 @@ final class PostUseCase: PostUseCaseProtocol {
     
     func removeFromFavorites(_ id: String) {
         postRepository.removeFromFavorites(id)
+    }
+    
+    func isFavorite(_ id: String) -> Bool {
+        postRepository.getFavorites().contains(id)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 
 protocol PostRepositoryProtocol {
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
     
@@ -33,7 +33,7 @@ class PostRepository: PostRepositoryProtocol {
         favotiresService = dependencies.favoriteService
     }
     
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void) {
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
         graphqlService.getPosts(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList, completionHandler: completionHandler)
     }
 

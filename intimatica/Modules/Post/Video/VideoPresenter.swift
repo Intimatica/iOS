@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol VideoViewProtocol: AnyObject {
+protocol VideoViewProtocol: BaseViewProtocol {
     func display(_ post: VideoPostQuery.Data.Post)
 }
 
@@ -16,12 +16,20 @@ protocol VideoPresenterProtocol: BasePresenterProtocol {
 
 final class VideoPresenter: BasePresenter {
     // MARK: - Properties
-    weak var view: VideoViewProtocol?
+    private weak var view: VideoViewProtocol?
+    
+    func setView(_ view: VideoViewProtocol) {
+        super.setView(view)
+        
+        self.view = view
+    }
 }
 
 // MARK: - VideoViewProtocol
 extension VideoPresenter: VideoPresenterProtocol {
-    func viewDidLoad() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         useCase.getPost(query: VideoPostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             

@@ -96,7 +96,7 @@ class PostListViewController: UIViewController {
         setupConstraints()
         setupActions()
         
-        presenter.viewDidLoad()
+//        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +106,9 @@ class PostListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // QUESION: how to update cell in case of changing favorite state in post view
+        presenter.viewDidLoad()
         
         let cell = categoryFilterView.cellForItem(at: selectedCategoryIndexPath) as! CategoryFilterCollectionViewCell
         cell.setState(.selected)

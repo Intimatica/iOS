@@ -8,19 +8,32 @@
 import UIKit
 
 class NavigationBarView: UIView {
-
+    enum State {
+        case active, inactive
+    }
+    
     // MARK: - Properties
+    var state: State = .inactive {
+        didSet {
+            switch actionButtonType {
+            case .addFavorite:
+                setFavoriteButtonState(state)
+            case .addCourse:
+                setCourseButtonState(state)
+            }
+        }
+    }
+    
+    private let actionButtonType: ActionButtonType
     var actionButton: UIButton!
-
+    
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(named: "back_button_icon"), for: .normal)
         return button
     }()
-    
-//    lazy var backButton = CloseButton()
-    
+        
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +50,7 @@ class NavigationBarView: UIView {
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "add_to_favorite_button_icon"), for: .normal)
+        button.setImage(UIImage(named: "favorite_inactive"), for: .normal)
         return button
     }()
     
@@ -64,8 +77,10 @@ class NavigationBarView: UIView {
     
     // MARK: - Initializers
     init(actionButtonType: ActionButtonType) {
-        super.init(frame: .zero)
+        self.actionButtonType = actionButtonType
         
+        super.init(frame: .zero)
+
         setupUI(actionButtonType: actionButtonType)
     }
     
@@ -101,11 +116,10 @@ class NavigationBarView: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: Constants.titleLabelLeadingTrailing),
             titleLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
 
+            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor, multiplier: Constants.actionButtonRatio),
+            actionButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.actionButtonTopBottom),
+            actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.actionButtonTopBottom),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.actionButtonTrailing),
-            actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.backButtonTopBottom),
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.backButtonTopBottom),
-            
-            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor),
         ])
     }
     
@@ -115,6 +129,24 @@ class NavigationBarView: UIView {
     
     func hideBottomBorder() {
         bottomBorderLayer.removeFromSuperlayer()
+    }
+    
+    private func setFavoriteButtonState(_ state: State) {
+        switch state {
+        case .active:
+            actionButton.setBackgroundImage(UIImage(named: "favorite_active"), for: .normal)
+        case .inactive:
+            actionButton.setBackgroundImage(UIImage(named: "favorite_inactive"), for: .normal)
+        }
+    }
+    
+    private func setCourseButtonState(_ state: State) {
+        switch state {
+        case .active:
+            print()
+        case .inactive:
+            print()
+        }
     }
 }
 
@@ -127,7 +159,8 @@ extension NavigationBarView {
         static let backButtonLeadingTrailing: CGFloat = 15
         
         static let actionButtonTrailing: CGFloat = 15
-//        static let actionButtonWidth: CGFloat = 130
+        static let actionButtonTopBottom: CGFloat = 5
+        static let actionButtonRatio: CGFloat = 15.7 / 19.75
         
         static let titleLabelLeadingTrailing: CGFloat = 15
     }

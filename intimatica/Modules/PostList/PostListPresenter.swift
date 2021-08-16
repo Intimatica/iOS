@@ -32,6 +32,7 @@ final class PostListPresenter {
     private var favotires: Set<String> = []
     private var selectedTags: Set<Int> = []
     private var postTypeIdList: [Int] = []
+    private var idList: [String] = []
 
     // MARK: - Initializers
     init(router: Router, dependencies: UseCaseProviderProtocol) {
@@ -68,8 +69,10 @@ extension PostListPresenter: PostListPresenterProtocol {
     }
     
     func filter(by category: FeedCategoryFilter) {
+        idList = []
+        
         switch category {
-        case .all, .favorite:
+        case .all:
             postTypeIdList = []
         case .theory:
             postTypeIdList = [1]
@@ -77,17 +80,24 @@ extension PostListPresenter: PostListPresenterProtocol {
             postTypeIdList = [2]
         case .video:
             postTypeIdList = [3, 4]
+        case .favorite:
+            postTypeIdList = []
+            idList = Array(favotires)
         }
         
-        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
-            self?.view?.setPosts(posts)
+        if category == .favorite && favotires.isEmpty {
+            self.view?.setPosts([])
+        } else {
+            useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: idList) { [weak self] posts in
+                self?.view?.setPosts(posts)
+            }
         }
     }
     
     func setSelectedTags(_ tags: Set<Int>) {
         selectedTags = tags
         
-        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
+        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: idList) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
     }

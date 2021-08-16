@@ -13,7 +13,7 @@ typealias TagsCompletionHandler = (Result<GraphQLResult<TagsQuery.Data>, Error>)
 protocol GraphqlServiceProtocol {
     func fetch<T: GraphQLQuery>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
     
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
 }
@@ -38,7 +38,7 @@ class GraphqlService: GraphqlServiceProtocol {
             useGETForPersistedQueryRetry: false),
         store: ApolloStore())
     
-    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void) {
+    func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
         apollo.fetch(query: PostsQuery(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList)) { [weak self] result in
               guard let self = self else { return }
                     

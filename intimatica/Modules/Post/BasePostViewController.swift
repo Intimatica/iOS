@@ -120,8 +120,19 @@ class BasePostViewController: UIViewController {
     private func setupActions() {
         navigationBarView.backButton.addAction { [weak self] in
             // TODO: fix this
-//            self?.presenter.closeButtonDidTap()
             self?.navigationController?.popViewController(animated: true)
+        }
+        
+        navigationBarView.actionButton.addAction { [weak self] in
+            guard let self = self else { return }
+            
+            if self.navigationBarView.state == .inactive {
+                self.presenter.addToFarovites()
+                self.navigationBarView.state = .active
+            } else {
+                self.presenter.removeFromFavorites()
+                self.navigationBarView.state = .inactive
+            }
         }
     }
     
@@ -156,5 +167,12 @@ extension BasePostViewController {
         static let tagViewVerticalSpacing: CGFloat = 3
         static let tagViewHorizontalSpacing: CGFloat = 8
         static let tagViewCornerRadius: CGFloat = 10
+    }
+}
+
+// MARK: - BaseViewProtocol
+extension BasePostViewController: BaseViewProtocol {
+    func setIsFavotire(_ isFavorite: Bool) {
+        navigationBarView.state = isFavorite ? .active : .inactive
     }
 }

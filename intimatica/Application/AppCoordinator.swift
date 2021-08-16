@@ -96,19 +96,19 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = TheoryViewController(presenter: presenter)
-            presenter.view = viewController
+            presenter.setView(viewController)
             return .show(viewController)
             
         case .video(let id):
             let presenter = VideoPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = VideoViewController(presenter: presenter)
-            presenter.view = viewController
+            presenter.setView(viewController)
             return .show(viewController)
             
         case .videoCourse(let id):
             let presenter = VideoCoursePresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = VideoCourseViewController(presenter: presenter)
-            presenter.view = viewController
+            presenter.setView(viewController)
             return .show(viewController)
 
         case .courseFinished(let subTitle):

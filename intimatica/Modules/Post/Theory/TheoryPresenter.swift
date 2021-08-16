@@ -11,14 +11,20 @@ protocol TheoryPresenterProtocol: BasePresenterProtocol {
     func closeButtonDidTap()
 }
 
-protocol TheoryViewProtocol: AnyObject {
+protocol TheoryViewProtocol: BaseViewProtocol {
     func display(_ theoryPost: TheoryPostQuery.Data.Post)
     func display(_ error: Error)
 }
 
 final class TheoryPresenter: BasePresenter {
     // MARK: - Properies
-    weak var view: TheoryViewProtocol!
+    private weak var view: TheoryViewProtocol!
+    
+    func setView(_ view: TheoryViewProtocol) {
+        super.setView(view)
+        
+        self.view = view
+    }
 }
 
 extension TheoryPresenter: TheoryPresenterProtocol {
@@ -26,7 +32,9 @@ extension TheoryPresenter: TheoryPresenterProtocol {
 //        router.trigger(.home)
     }
     
-    func viewDidLoad() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         useCase.getPost(query: TheoryPostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             

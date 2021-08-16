@@ -9,18 +9,18 @@ import UIKit
 
 final class FavoriteButtonView: UIView {
     enum State {
-        case normal, selected
+        case inactive, active
     }
     
     // MARK: - Properties
-    var state: State = .normal {
+    var state: State = .inactive {
         didSet {
             switch state {
-            case .normal:
-                backgroundColor = Constants.viewBackgroundColorForNomal
+            case .inactive:
+                backgroundColor = Constants.viewBackgroundColorForInactive
                 imageView.image = UIImage(named: "favorite_button_normal")
-            case .selected:
-                backgroundColor = Constants.viewBackgroundColorForSelected
+            case .active:
+                backgroundColor = Constants.viewBackgroundColorForActive
                 imageView.image = UIImage(named: "favorite_button_selected")
             }
         }
@@ -56,7 +56,7 @@ final class FavoriteButtonView: UIView {
     // MARK: - Layout
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = Constants.viewBackgroundColorForNomal
+        backgroundColor = Constants.viewBackgroundColorForInactive
         layer.cornerRadius = Constants.viewWidthHeight / 2
         layer.masksToBounds = true
 
@@ -80,7 +80,7 @@ final class FavoriteButtonView: UIView {
     
     // MARK: - Public
     func toggleState() {
-        state = state == .normal ? .selected : .normal
+        state = state == .inactive ? .active : .inactive
     }
 }
 
@@ -88,8 +88,8 @@ final class FavoriteButtonView: UIView {
 extension FavoriteButtonView {
     struct Constants {
         static let viewWidthHeight: CGFloat = 30
-        static let viewBackgroundColorForNomal: UIColor = .appPurple.withAlphaComponent(0.5)
-        static let viewBackgroundColorForSelected: UIColor = .appPurple
+        static let viewBackgroundColorForInactive: UIColor = .appPurple.withAlphaComponent(0.5)
+        static let viewBackgroundColorForActive: UIColor = .appPurple
         
         static let imageViewWidth: CGFloat = 13
         static let imageViewHeight: CGFloat = 17

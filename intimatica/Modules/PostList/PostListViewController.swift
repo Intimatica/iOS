@@ -213,7 +213,7 @@ extension PostListViewController: UITableViewDataSource {
             fatalError("Failed to initialize cell")
         }
         
-        cell.fill(by: post, with: favorites, and: presenter)
+        cell.fill(by: post, isFavorite: favorites.contains(post.id), indexPath: indexPath, delegate: self)
         return cell
     }
 }
@@ -295,5 +295,22 @@ extension PostListViewController: UICollectionViewDataSource {
         
         cell.fill(by: categoryFilterItems[indexPath.row])
         return cell
+    }
+}
+
+// MARK: - BaseTableViewCellDelegate
+extension PostListViewController: BaseTableViewCellDelegate {
+    func addToFavorites(by indexPath: IndexPath) {
+        presenter.addToFavorites(posts[indexPath.row].id)
+    }
+    
+    func removeFromFavorites(by indexPath: IndexPath) {
+        presenter.removeFromFavotires(posts[indexPath.row].id)
+        
+        if categoryFilterItems[selectedCategoryIndexPath.row] == FeedCategoryFilter.toArray().last ?? "" {
+            posts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
     }
 }

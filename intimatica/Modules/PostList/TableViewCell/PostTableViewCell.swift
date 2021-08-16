@@ -13,7 +13,7 @@ class PostTableViewCell: BaseTableViewCell {
         super.prepareForReuse()
         
         playButtonImageView.isHidden = true
-        favoriteButtonView.state = .normal
+        favoriteButtonView.state = .inactive
     }
     
     // MARK: - Initializers
@@ -77,11 +77,12 @@ class PostTableViewCell: BaseTableViewCell {
             guard let self = self else { return }
             
             self.favoriteButtonView.toggleState()
+            
             switch self.favoriteButtonView.state {
-            case .normal:
-                self.presenter.removeFromFavotires(self.post.id)
-            case .selected:
-                self.presenter.addToFavorites(self.post.id)
+            case .inactive:
+                self.delegate?.removeFromFavorites(by: self.indexPath)
+            case .active:
+                self.delegate?.addToFavorites(by: self.indexPath)
             }
         }
     }

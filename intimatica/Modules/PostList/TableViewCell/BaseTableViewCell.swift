@@ -8,11 +8,17 @@
 import UIKit
 import Kingfisher
 
+protocol BaseTableViewCellDelegate {
+    func addToFavorites(by indexPath: IndexPath)
+    func removeFromFavorites(by indexPath: IndexPath)
+}
+
 class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var presenter: PostListPresenterProtocol!
     var post: Post!
-    var favorites: Set<String> = []
+    // TODO: weak?
+    var indexPath: IndexPath!
+    var delegate: BaseTableViewCellDelegate?
     
     lazy var postView: UIView = {
         let view = UIView()
@@ -83,12 +89,12 @@ class BaseTableViewCell: UITableViewCell {
         titleLabel.text = ""
     }
     
-    func fill(by post: Post, with favorites: Set<String>, and presenter: PostListPresenterProtocol) {
+    func fill(by post: Post, isFavorite: Bool = false, indexPath: IndexPath, delegate: BaseTableViewCellDelegate?) {
 //        print("Fill \(post.id) \(post.type) with \(favorites)")
         
-        self.presenter = presenter
         self.post = post
-        self.favorites = favorites
+        self.indexPath = indexPath
+        self.delegate = delegate
         
         let url = URL(string: AppConstants.serverURL + post.imageUrl)
         backgroundImageView.kf.indicatorType = .activity
@@ -111,8 +117,8 @@ class BaseTableViewCell: UITableViewCell {
 //            postLabelView.setState(.videoCourse)
         }
         
-        if favorites.contains(post.id) {
-            favoriteButtonView.state = .selected
+        if isFavorite {
+            favoriteButtonView.state = .active
         }
     }
     

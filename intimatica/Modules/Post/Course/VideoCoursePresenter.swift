@@ -27,7 +27,7 @@ extension VideoCoursePresenter: VideoCoursePresenterProtocol {
     }
     
     func viewDidLoad() {
-        useCase.getPost(query: VideoCoursePostQuery(id: String(postId))) { [weak self] result in
+        useCase.getPost(query: VideoCoursePostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

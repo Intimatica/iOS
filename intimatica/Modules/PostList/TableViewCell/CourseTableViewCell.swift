@@ -41,7 +41,7 @@ class CourseTableViewCell: BaseTableViewCell {
             backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.CourseBackgroundImageViewHeight),
             
             postLabelView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            postLabelView.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
+            postLabelView.topAnchor.constraint(equalTo: postView.topAnchor, constant: 18),
             
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),

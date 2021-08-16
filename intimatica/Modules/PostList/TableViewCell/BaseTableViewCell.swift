@@ -10,6 +10,10 @@ import Kingfisher
 
 class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
+    var presenter: PostListPresenterProtocol!
+    var post: Post!
+    var favorites: Set<String> = []
+    
     lazy var postView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -51,10 +55,13 @@ class BaseTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
+        
         return imageView
     }()
     
     lazy var postLabelView = PostLabelView()
+    lazy var favoriteButtonView = FavoriteButtonView()
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -70,14 +77,19 @@ class BaseTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         postLabelView.clear()
-        removePlayButtonImage()
         
         backgroundImageView.kf.cancelDownloadTask()
         tagStackView.removeAllArrangedSubviews()
         titleLabel.text = ""
     }
     
-    func fill(by post: Post) {
+    func fill(by post: Post, with favorites: Set<String>, and presenter: PostListPresenterProtocol) {
+//        print("Fill \(post.id) \(post.type) with \(favorites)")
+        
+        self.presenter = presenter
+        self.post = post
+        self.favorites = favorites
+        
         let url = URL(string: AppConstants.serverURL + post.imageUrl)
         backgroundImageView.kf.indicatorType = .activity
         backgroundImageView.kf.setImage(with: url)
@@ -93,15 +105,20 @@ class BaseTableViewCell: UITableViewCell {
         case .theory:
             postLabelView.setState(.theory)
         case .video:
-            addPlayButtonImage()
+            playButtonImageView.isHidden = false
         case .videoCourse:
             postLabelView.setState(post.isPaid ? .premiumVideoCourse : .videoCourse)
 //            postLabelView.setState(.videoCourse)
+        }
+        
+        if favorites.contains(post.id) {
+            favoriteButtonView.state = .selected
         }
     }
     
     // MARK: - Layout
     func setupView() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         selectionStyle = .none
         
@@ -120,22 +137,6 @@ class BaseTableViewCell: UITableViewCell {
                                    verticalSpacing: Constants.tagLabelTopBottom,
                                    horizontalSpacing: Constants.tagLabelLeadingTrailing,
                                    cornerRadius: Constants.tagBorderRadius)
-    }
-    
-    func addPlayButtonImage() {
-        postView.addSubview(playButtonImageView)
-        
-        NSLayoutConstraint.activate([
-            playButtonImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
-            playButtonImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
-            playButtonImageView.centerXAnchor.constraint(equalTo: backgroundImageView.centerXAnchor),
-            playButtonImageView.centerYAnchor.constraint(equalTo: backgroundImageView.centerYAnchor)
-        ])
-    }
-    
-    func removePlayButtonImage() {
-        playButtonImageView.removeConstraints(playButtonImageView.constraints)
-        playButtonImageView.removeFromSuperview()
     }
 }
 
@@ -156,8 +157,8 @@ extension BaseTableViewCell {
         static let postViewLeadingTrailing: CGFloat = 25
         static let backgroundImageViewHeight: CGFloat = 130
         
+        static let favoriteButtonViewTopTrailing: CGFloat = 13
         static let postLabelLeading: CGFloat = 13
-        static let postLabelTop: CGFloat = 18
         
         static let tagStackViewSpacing: CGFloat = 7
         static let tagStackViewHeight: CGFloat = 17

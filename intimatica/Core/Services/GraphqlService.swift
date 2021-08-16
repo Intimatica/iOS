@@ -70,7 +70,6 @@ class GraphqlService: GraphqlServiceProtocol {
     
     private func PostsQueryData2Post(post: PostsQuery.Data.Post?) -> Post {
         guard let post = post,
-              let postId = Int(post.id),
               let postTypeString = post.postType?.name,
               let postType = PostType(rawValue: postTypeString),
         
@@ -81,7 +80,7 @@ class GraphqlService: GraphqlServiceProtocol {
             fatalError("Failed to parseGraphQLResult: \(String(describing: post))")
         }
         
-        return Post(id: postId,
+        return Post(id: post.id,
                     title: post.title,
                     type: postType,
                     imageUrl: imageUrl,

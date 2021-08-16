@@ -22,10 +22,10 @@ enum AppRoute: Route {
     case forgotPassword
     
     case home
-    case story(Int)
-    case theory(Int)
-    case video(Int)
-    case videoCourse(Int)
+    case story(String)
+    case theory(String)
+    case video(String)
+    case videoCourse(String)
     case courseFinished(String)
     
     case playVideo(String)

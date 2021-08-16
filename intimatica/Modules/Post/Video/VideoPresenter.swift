@@ -22,7 +22,7 @@ final class VideoPresenter: BasePresenter {
 // MARK: - VideoViewProtocol
 extension VideoPresenter: VideoPresenterProtocol {
     func viewDidLoad() {
-        useCase.getPost(query: VideoPostQuery(id: String(postId))) { [weak self] result in
+        useCase.getPost(query: VideoPostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

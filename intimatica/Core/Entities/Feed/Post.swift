@@ -15,14 +15,14 @@ enum PostType: String {
 }
 
 class Post {
-    let id: Int
+    let id: String
     let title: String
     let type: PostType
     let imageUrl: String
     let tags: [String]
     let isPaid: Bool
     
-    init(id: Int, title: String, type: PostType, imageUrl: String, tags: [String], isPaid: Bool) {
+    init(id: String, title: String, type: PostType, imageUrl: String, tags: [String], isPaid: Bool) {
         self.id = id
         self.title = title
         self.type = type

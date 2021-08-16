@@ -10,6 +10,7 @@ import UIKit
 class PostListViewController: UIViewController {
     // MARK: - Properties
     private var presenter: PostListPresenterProtocol!
+    private var favorites: Set<String> = []
     private var posts: [Post] = []
     private let postCellIdentifier = "postCellIdentifier"
     private let courseCellIdentifier = "courseCellIdentifier"
@@ -209,13 +210,17 @@ extension PostListViewController: UITableViewDataSource {
             fatalError("Failed to initialize cell")
         }
         
-        cell.fill(by: post)
+        cell.fill(by: post, with: favorites, and: presenter)
         return cell
     }
 }
 
 // MARK: - MainViewProtocol
 extension PostListViewController: PostListViewProtocol {
+    func setFavorites(_ favorites: Set<String>) {
+        self.favorites = favorites
+    }
+    
     func setPosts(_ posts: [Post]) {
         self.posts = posts
         tableView.reloadData()

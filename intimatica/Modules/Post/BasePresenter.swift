@@ -14,9 +14,9 @@ protocol BasePresenterProtocol {
 class BasePresenter {
     var router: Router!
     var useCase: PostUseCaseProtocol!
-    var postId: Int!
+    var postId: String!
     
-    init(router: Router, dependencies: UseCaseProviderProtocol, postId: Int) {
+    init(router: Router, dependencies: UseCaseProviderProtocol, postId: String) {
         self.router = router
         self.useCase = dependencies.postUseCase
         self.postId = postId

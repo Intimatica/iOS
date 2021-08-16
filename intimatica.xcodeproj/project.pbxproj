@@ -125,6 +125,8 @@
 		DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C6226C852670042D31D /* GraphQLUseCase.swift */; };
 		DBFA7C6526C854DD0042D31D /* Terms.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBFA7C6426C854DD0042D31D /* Terms.graphql */; };
 		DBFA7C6726C85D570042D31D /* Conditions.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBFA7C6626C85D570042D31D /* Conditions.graphql */; };
+		DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C7426C9663E0042D31D /* FavoritesSevice.swift */; };
+		DBFA7C7726C972B50042D31D /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C7626C972B50042D31D /* FavoriteButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +257,8 @@
 		DBFA7C6226C852670042D31D /* GraphQLUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLUseCase.swift; sourceTree = "<group>"; };
 		DBFA7C6426C854DD0042D31D /* Terms.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Terms.graphql; sourceTree = "<group>"; };
 		DBFA7C6626C85D570042D31D /* Conditions.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Conditions.graphql; sourceTree = "<group>"; };
+		DBFA7C7426C9663E0042D31D /* FavoritesSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSevice.swift; sourceTree = "<group>"; };
+		DBFA7C7626C972B50042D31D /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,14 @@
 				674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB2E195226CA4AF2004FF77C /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		DB2F8B13269ECEF9007020C0 /* Resources */ = {
@@ -453,6 +465,7 @@
 				DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */,
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
 				DBF99D4526B0833600E04D40 /* GraphqlService.swift */,
+				DBFA7C7426C9663E0042D31D /* FavoritesSevice.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -479,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				DB3C565926BBDA4F0087663E /* PostLabelView.swift */,
+				DBFA7C7626C972B50042D31D /* FavoriteButtonView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -650,8 +664,8 @@
 			children = (
 				DBFA7C4526C4F94B0042D31D /* Helper */,
 				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
+				DB2E195226CA4AF2004FF77C /* CollectionViewCell */,
 				DB8A599126B01E3100842771 /* PostListViewController.swift */,
-				DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */,
 				DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */,
 			);
 			path = PostList;
@@ -984,6 +998,7 @@
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DBFA7C3D26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift in Sources */,
+				DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
@@ -1057,6 +1072,7 @@
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
+				DBFA7C7726C972B50042D31D /* FavoriteButtonView.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

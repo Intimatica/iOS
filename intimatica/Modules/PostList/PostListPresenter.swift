@@ -13,9 +13,13 @@ protocol PostListPresenterProtocol {
     func show(_ post: Post)
     func filter(by category: FeedCategoryFilter)
     func setSelectedTags(_ tags: Set<Int>)
+    
+    func addToFavorites(_ id: String)
+    func removeFromFavotires(_ id: String)
 }
 
 protocol PostListViewProtocol: AnyObject {
+    func setFavorites(_ favorites: Set<String>)
     func setPosts(_ posts: [Post])
 }
 
@@ -25,6 +29,7 @@ final class PostListPresenter {
     private var useCase: PostUseCaseProtocol!
     weak var view: PostListViewProtocol?
     
+    private var favotires: Set<String> = []
     private var selectedTags: Set<Int> = []
     private var postTypeIdList: [Int] = []
 
@@ -38,6 +43,9 @@ final class PostListPresenter {
 // MARK: - MainPresenterProtocol
 extension PostListPresenter: PostListPresenterProtocol {
     func viewDidLoad() {
+        favotires = useCase.getFavorites()
+        view?.setFavorites(favotires)
+        
         useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
@@ -82,5 +90,17 @@ extension PostListPresenter: PostListPresenterProtocol {
         useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
             self?.view?.setPosts(posts)
         }
+    }
+    
+    func addToFavorites(_ id: String) {
+        favotires.insert(id)
+        view?.setFavorites(favotires)
+        useCase.addToFavorites(id)
+    }
+    
+    func removeFromFavotires(_ id: String) {
+        favotires.remove(id)
+        view?.setFavorites(favotires)
+        useCase.removeFromFavorites(id)
     }
 }

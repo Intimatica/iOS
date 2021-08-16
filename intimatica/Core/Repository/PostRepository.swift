@@ -12,6 +12,10 @@ protocol PostRepositoryProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
+    
+    func getFavorites() -> Set<String>
+    func addToFavorites(_ id: String)
+    func removeFromFavorites(_ id: String)
 }
 
 protocol HasPostRepositoryProtocol {
@@ -20,11 +24,13 @@ protocol HasPostRepositoryProtocol {
 
 class PostRepository: PostRepositoryProtocol {
     // MARK: - Properties
-    private let graphqlService: GraphqlServiceProtocol!
+    private let graphqlService: GraphqlServiceProtocol
+    private let favotiresService: FavoritesSeviceProtocol
     
     // MARK: - Initializers
     init(dependencies: ServiceProviderProtocol) {
         graphqlService = dependencies.graphqlService
+        favotiresService = dependencies.favoriteService
     }
     
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void) {
@@ -37,5 +43,17 @@ class PostRepository: PostRepositoryProtocol {
     
     func getTags(completionHandler: @escaping TagsCompletionHandler) {
         graphqlService.getTags(completionHandler: completionHandler)
+    }
+    
+    func getFavorites() -> Set<String> {
+        favotiresService.get()
+    }
+    
+    func addToFavorites(_ id: String) {
+        favotiresService.add(id)
+    }
+    
+    func removeFromFavorites(_ id: String) {
+        favotiresService.remove(id)
     }
 }

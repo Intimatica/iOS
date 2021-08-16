@@ -49,7 +49,6 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(headerView)
         contentView.addSubview(nameLabel)
-        
     }
     
     private func setupConstraints() {

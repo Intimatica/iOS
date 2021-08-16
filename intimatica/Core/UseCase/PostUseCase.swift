@@ -12,6 +12,10 @@ protocol PostUseCaseProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [Int], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
+    
+    func getFavorites() -> Set<String>
+    func addToFavorites(_ id: String)
+    func removeFromFavorites(_ id: String)
 }
 
 protocol HasPostUseCaseProtocol {
@@ -37,5 +41,17 @@ final class PostUseCase: PostUseCaseProtocol {
     
     func getTags(completionHandler: @escaping TagsCompletionHandler) {
         postRepository.getTags(completionHandler: completionHandler)
+    }
+    
+    func getFavorites() -> Set<String> {
+        postRepository.getFavorites()
+    }
+    
+    func addToFavorites(_ id: String) {
+        postRepository.addToFavorites(id)
+    }
+    
+    func removeFromFavorites(_ id: String) {
+        postRepository.removeFromFavorites(id)
     }
 }

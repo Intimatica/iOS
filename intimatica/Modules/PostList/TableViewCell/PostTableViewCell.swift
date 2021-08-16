@@ -12,7 +12,8 @@ class PostTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        removePlayButtonImage()
+        playButtonImageView.isHidden = true
+        favoriteButtonView.state = .normal
     }
     
     // MARK: - Initializers
@@ -21,6 +22,7 @@ class PostTableViewCell: BaseTableViewCell {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -30,6 +32,9 @@ class PostTableViewCell: BaseTableViewCell {
     // MARK: - Lauout
     override func setupView() {
         super.setupView()
+        
+        postView.addSubview(favoriteButtonView)
+        postView.addSubview(playButtonImageView)
     }
     
     func setupConstraints() {
@@ -44,8 +49,11 @@ class PostTableViewCell: BaseTableViewCell {
             backgroundImageView.trailingAnchor.constraint(equalTo: postView.trailingAnchor),
             backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.backgroundImageViewHeight),
         
+            favoriteButtonView.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.favoriteButtonViewTopTrailing),
+            favoriteButtonView.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.favoriteButtonViewTopTrailing),
+            
             postLabelView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            postLabelView.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.postLabelTop),
+            postLabelView.centerYAnchor.constraint(equalTo: favoriteButtonView.centerYAnchor),
 
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
@@ -55,7 +63,26 @@ class PostTableViewCell: BaseTableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
             titleLabel.topAnchor.constraint(equalTo: tagStackView.bottomAnchor, constant: Constants.titleLabelTop),
             titleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
-            titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom)
+            titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom),
+            
+            playButtonImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
+            playButtonImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewWidthHeight),
+            playButtonImageView.centerXAnchor.constraint(equalTo: backgroundImageView.centerXAnchor),
+            playButtonImageView.centerYAnchor.constraint(equalTo: backgroundImageView.centerYAnchor)
         ])
+    }
+    
+    private func setupActions() {
+        favoriteButtonView.actionButton.addAction { [weak self] in
+            guard let self = self else { return }
+            
+            self.favoriteButtonView.toggleState()
+            switch self.favoriteButtonView.state {
+            case .normal:
+                self.presenter.removeFromFavotires(self.post.id)
+            case .selected:
+                self.presenter.addToFavorites(self.post.id)
+            }
+        }
     }
 }

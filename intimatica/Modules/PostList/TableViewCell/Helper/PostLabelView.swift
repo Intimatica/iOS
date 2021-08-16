@@ -17,9 +17,35 @@ final class PostLabelView: UIView {
     }
     
     // MARK: - Properties
-    private weak var activeLabel: UIView?
+    var state: State! {
+        didSet {
+            textLabel.isHidden = true
+            premiumVideoCourseLabel.isHidden = true
+
+            switch state {
+            case .story:
+                textLabel.label.text = L10n("TABLE_CELL_POST_LABEL_STORY")
+                textLabel.backgroundColor = Constants.storyBackgroupndColor
+                textLabel.isHidden = false
+            case .theory:
+                textLabel.label.text = L10n("TABLE_CELL_POST_LABEL_THEORY")
+                textLabel.backgroundColor = Constants.theoryBackgroupndColor
+                textLabel.isHidden = false
+            case .video:
+                break;
+            case .videoCourse:
+                textLabel.label.text = L10n("TABLE_CELL_POST_LABEL_COURSE")
+                textLabel.backgroundColor = Constants.videoCourseBackgroupndColor
+                textLabel.isHidden = false
+            case .premiumVideoCourse:
+                premiumVideoCourseLabel.isHidden = false
+            default:
+                fatalError("\(String(describing: state)) not implemented")
+            }
+        }
+    }
     
-    private lazy var storyLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_STORY"),
+    private lazy var textLabel = LabelWithBackground(with: "",
                                     textColor: .white,
                                     backgroundColor: Constants.storyBackgroupndColor,
                                     font: .rubik(fontSize: .small, fontWeight: .medium),
@@ -27,38 +53,14 @@ final class PostLabelView: UIView {
                                     horizontalSpacing: Constants.horizontalSpacing,
                                     cornerRadius: Constants.cornderRadius)
     
-    private lazy var theoryLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_THEORY"),
-                                    textColor: .white,
-                                    backgroundColor: Constants.theoryBackgroupndColor,
-                                    font: .rubik(fontSize: .small, fontWeight: .medium),
-                                    verticalSpacing: Constants.verticalSpacing,
-                                    horizontalSpacing: Constants.horizontalSpacing,
-                                    cornerRadius: Constants.cornderRadius)
-    
-    private lazy var videoCourseLabel = LabelWithBackground(with: L10n("TABLE_CELL_POST_LABEL_COURSE"),
-                                    textColor: .white,
-                                    backgroundColor: Constants.videoCourseBackgroupndColor,
-                                    font: .rubik(fontSize: .small, fontWeight: .medium),
-                                    verticalSpacing: Constants.verticalSpacing,
-                                    horizontalSpacing: Constants.horizontalSpacing,
-                                    cornerRadius: Constants.cornderRadius)
-    
     private lazy var premiumVideoCourseLabel = PremiumCourseLabel()
-    
-    private lazy var starImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "star")
-        return imageView
-    }()
     
     
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
         
-        translatesAutoresizingMaskIntoConstraints = false    
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -66,45 +68,14 @@ final class PostLabelView: UIView {
     }
     
     // MARK: - Layout
-    private func setupView(_ labelView: UIView?) {
-        guard let labelView = labelView else { return }
-        
-        addSubview(labelView)
+    private func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
-            labelView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            labelView.topAnchor.constraint(equalTo: topAnchor),
-            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            labelView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
-    // MARK: - Public
-    func setState(_ state: State) {
-        clear()
-        
-        switch state {
-        case .story:
-            activeLabel = storyLabel
-        case .theory:
-            activeLabel = theoryLabel
-        case .video:
-            return
-        case .videoCourse:
-            activeLabel = videoCourseLabel
-        case .premiumVideoCourse:
-            activeLabel = premiumVideoCourseLabel
-        }
-        
-        setupView(activeLabel)
-    }
-    
-    func clear() {
-        guard let label = activeLabel else { return }
-        
-        // FIX: if you uncomment this, reuse cell will hide label
-//        label.removeConstraints(label.constraints)
-        label.removeFromSuperview()
+        addSubview(textLabel)
+//        addSubview(premiumVideoCourseLabel)
+
+        textLabel.fillSuperview()
+//        premiumVideoCourseLabel.fillSuperview()
     }
 }
 

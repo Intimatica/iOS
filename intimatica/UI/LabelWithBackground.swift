@@ -49,10 +49,10 @@ class LabelWithBackground: UIView {
     
     private func setupConstraints(verticalSpacing: CGFloat, horizontalSpacing: CGFloat) {
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: verticalSpacing),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing),
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalSpacing)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalSpacing),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: verticalSpacing),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalSpacing),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -verticalSpacing)
         ])
     }
 }

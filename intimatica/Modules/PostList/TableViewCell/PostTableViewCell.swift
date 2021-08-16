@@ -54,6 +54,8 @@ class PostTableViewCell: BaseTableViewCell {
             
             postLabelView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
             postLabelView.centerYAnchor.constraint(equalTo: favoriteButtonView.centerYAnchor),
+//            postLabelView.heightAnchor.constraint(equalToConstant: 30),
+//            postLabelView.widthAnchor.constraint(equalToConstant: 100),
 
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),

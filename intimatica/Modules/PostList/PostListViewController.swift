@@ -218,6 +218,23 @@ extension PostListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - BaseTableViewCellDelegate
+extension PostListViewController: BaseTableViewCellDelegate {
+    func addToFavorites(by indexPath: IndexPath) {
+        presenter.addToFavorites(posts[indexPath.row].id)
+    }
+    
+    func removeFromFavorites(by indexPath: IndexPath) {
+        presenter.removeFromFavotires(posts[indexPath.row].id)
+        
+        if categoryFilterItems[selectedCategoryIndexPath.row] == FeedCategoryFilter.toArray().last ?? "" {
+            posts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
+    }
+}
+
 // MARK: - MainViewProtocol
 extension PostListViewController: PostListViewProtocol {
     func setFavorites(_ favorites: Set<String>) {
@@ -298,19 +315,3 @@ extension PostListViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - BaseTableViewCellDelegate
-extension PostListViewController: BaseTableViewCellDelegate {
-    func addToFavorites(by indexPath: IndexPath) {
-        presenter.addToFavorites(posts[indexPath.row].id)
-    }
-    
-    func removeFromFavorites(by indexPath: IndexPath) {
-        presenter.removeFromFavotires(posts[indexPath.row].id)
-        
-        if categoryFilterItems[selectedCategoryIndexPath.row] == FeedCategoryFilter.toArray().last ?? "" {
-            posts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-        }
-    }
-}

@@ -82,8 +82,6 @@ class BaseTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        postLabelView.clear()
-        
         backgroundImageView.kf.cancelDownloadTask()
         tagStackView.removeAllArrangedSubviews()
         titleLabel.text = ""
@@ -107,14 +105,13 @@ class BaseTableViewCell: UITableViewCell {
         
         switch post.type {
         case .story:
-            postLabelView.setState(.story)
+            postLabelView.state = .story
         case .theory:
-            postLabelView.setState(.theory)
+            postLabelView.state = .theory
         case .video:
-            playButtonImageView.isHidden = false
+            postLabelView.state = .video
         case .videoCourse:
-            postLabelView.setState(post.isPaid ? .premiumVideoCourse : .videoCourse)
-//            postLabelView.setState(.videoCourse)
+            postLabelView.state = post.isPaid ? .premiumVideoCourse : .videoCourse
         }
         
         if isFavorite {

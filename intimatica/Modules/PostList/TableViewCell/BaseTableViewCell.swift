@@ -67,8 +67,7 @@ class BaseTableViewCell: UITableViewCell {
     }()
     
     lazy var postLabelView = PostLabelView()
-    lazy var favoriteButtonView = FavoriteButtonView()
-    
+        
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -87,6 +86,30 @@ class BaseTableViewCell: UITableViewCell {
         titleLabel.text = ""
     }
     
+    // MARK: - Layout
+    func setupView() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
+        selectionStyle = .none
+        
+        view.addSubview(postView)
+        postView.addSubview(backgroundImageView)
+        postView.addSubview(postLabelView)
+        postView.addSubview(tagStackView)
+        postView.addSubview(titleLabel)
+    }
+    
+    func addTagView(with text: String) -> UIView {
+        return LabelWithBackground(with: text,
+                                   textColor: Constants.tagLabelTextColor,
+                                   backgroundColor: Constants.tagBackgroundColor,
+                                   font: Constants.tagLabelFont,
+                                   verticalSpacing: Constants.tagLabelTopBottom,
+                                   horizontalSpacing: Constants.tagLabelLeadingTrailing,
+                                   cornerRadius: Constants.tagBorderRadius)
+    }
+    
+    // MARK: - Public
     func fill(by post: Post, isFavorite: Bool = false, indexPath: IndexPath, delegate: BaseTableViewCellDelegate?) {
 //        print("Fill \(post.id) \(post.type) with \(favorites)")
         
@@ -113,33 +136,6 @@ class BaseTableViewCell: UITableViewCell {
         case .videoCourse:
             postLabelView.state = post.isPaid ? .premiumVideoCourse : .videoCourse
         }
-        
-        if isFavorite {
-            favoriteButtonView.state = .active
-        }
-    }
-    
-    // MARK: - Layout
-    func setupView() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .clear
-        selectionStyle = .none
-        
-        view.addSubview(postView)
-        postView.addSubview(backgroundImageView)
-        postView.addSubview(postLabelView)
-        postView.addSubview(tagStackView)
-        postView.addSubview(titleLabel)
-    }
-    
-    func addTagView(with text: String) -> UIView {
-        return LabelWithBackground(with: text,
-                                   textColor: Constants.tagLabelTextColor,
-                                   backgroundColor: Constants.tagBackgroundColor,
-                                   font: Constants.tagLabelFont,
-                                   verticalSpacing: Constants.tagLabelTopBottom,
-                                   horizontalSpacing: Constants.tagLabelLeadingTrailing,
-                                   cornerRadius: Constants.tagBorderRadius)
     }
 }
 

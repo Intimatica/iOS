@@ -9,7 +9,7 @@ import UIKit
 
 final class FavoriteButtonView: UIView {
     enum State {
-        case inactive, active
+        case active, inactive
     }
     
     // MARK: - Properties
@@ -18,10 +18,10 @@ final class FavoriteButtonView: UIView {
             switch state {
             case .inactive:
                 backgroundColor = Constants.viewBackgroundColorForInactive
-                imageView.image = UIImage(named: "favorite_button_normal")
+                imageView.image = UIImage(named: Constants.imageNameForInactive)
             case .active:
                 backgroundColor = Constants.viewBackgroundColorForActive
-                imageView.image = UIImage(named: "favorite_button_selected")
+                imageView.image = UIImage(named: Constants.imageNameForActive)
             }
         }
     }
@@ -30,7 +30,7 @@ final class FavoriteButtonView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "favorite_button_normal")
+        imageView.image = UIImage(named: Constants.imageNameForInactive)
         return imageView
     }()
     
@@ -87,6 +87,9 @@ final class FavoriteButtonView: UIView {
 // MARK: - Helper/Constants
 extension FavoriteButtonView {
     struct Constants {
+        static let imageNameForActive = "favorite_button_active"
+        static let imageNameForInactive = "favorite_button_inactive"
+        
         static let viewWidthHeight: CGFloat = 30
         static let viewBackgroundColorForInactive: UIColor = .appPurple.withAlphaComponent(0.5)
         static let viewBackgroundColorForActive: UIColor = .appPurple

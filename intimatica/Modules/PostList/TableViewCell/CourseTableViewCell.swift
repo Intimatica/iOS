@@ -8,21 +8,34 @@
 import UIKit
 
 class CourseTableViewCell: BaseTableViewCell {
+    // MARK: - Properties
+    lazy var courseButtonView = CourseButtonView()
+    
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        courseButtonView.state = .inactive
+    }
+    
     // MARK: - Layout
     override func setupView() {
         super.setupView()
+        
+        postView.addSubview(courseButtonView)
         
         titleLabel.textColor = .white
     }
@@ -40,8 +53,11 @@ class CourseTableViewCell: BaseTableViewCell {
             backgroundImageView.bottomAnchor.constraint(equalTo: postView.bottomAnchor),
             backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.CourseBackgroundImageViewHeight),
             
+            courseButtonView.topAnchor.constraint(equalTo: postView.topAnchor, constant: Constants.courseButtonViewTopTrailing),
+            courseButtonView.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -Constants.courseButtonViewTopTrailing),
+//
             postLabelView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.postLabelLeading),
-            postLabelView.topAnchor.constraint(equalTo: postView.topAnchor, constant: 18),
+            postLabelView.centerYAnchor.constraint(equalTo: courseButtonView.centerYAnchor),
             
             tagStackView.heightAnchor.constraint(equalToConstant: Constants.tagStackViewHeight),
             tagStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: Constants.tagStackViewLeadingTrailing),
@@ -54,6 +70,30 @@ class CourseTableViewCell: BaseTableViewCell {
             titleLabel.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: -Constants.titleLabelBottom)
         ])
     }
+    
+    private func setupActions() {
+        courseButtonView.actionButton.addAction { [weak self] in
+            guard let self = self else { return }
+            
+            self.courseButtonView.toggleState()
+            
+            switch self.courseButtonView.state {
+            case .inactive:
+                self.delegate?.removeFromFavorites(by: self.indexPath)
+            case .active:
+                self.delegate?.addToFavorites(by: self.indexPath)
+            }
+        }
+    }
+    
+    // MARK: - Public
+    override func fill(by post: Post, isFavorite: Bool = false, indexPath: IndexPath, delegate: BaseTableViewCellDelegate?) {
+        super.fill(by: post, isFavorite: isFavorite, indexPath: indexPath, delegate: delegate)
+        
+        if isFavorite {
+            courseButtonView.state = .active
+        }
+    }
 }
 
 // MARK: - Helper/Constraints
@@ -61,4 +101,6 @@ extension CourseTableViewCell.Constants {
     static let CourseBackgroundImageViewHeight: CGFloat = 340
     static let tagStackView: CGFloat = titleLabelTop
     static let postLabelColor: UIColor = .appPurple
+    
+    static let courseButtonViewTopTrailing: CGFloat = 15
 }

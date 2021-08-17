@@ -8,13 +8,8 @@
 import UIKit
 
 class PostTableViewCell: BaseTableViewCell {
-    // MARK: - Lifecycle
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        playButtonImageView.isHidden = true
-        favoriteButtonView.state = .inactive
-    }
+    // MARK: - Properties
+    lazy var favoriteButtonView = FavoriteButtonView()
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,6 +23,15 @@ class PostTableViewCell: BaseTableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Lifecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        playButtonImageView.isHidden = true
+        favoriteButtonView.state = .inactive
+    }
+    
     
     // MARK: - Lauout
     override func setupView() {
@@ -86,6 +90,15 @@ class PostTableViewCell: BaseTableViewCell {
             case .active:
                 self.delegate?.addToFavorites(by: self.indexPath)
             }
+        }
+    }
+    
+    // MARK: - Public
+    override func fill(by post: Post, isFavorite: Bool = false, indexPath: IndexPath, delegate: BaseTableViewCellDelegate?) {
+        super.fill(by: post, isFavorite: isFavorite, indexPath: indexPath, delegate: delegate)
+        
+        if isFavorite {
+            favoriteButtonView.state = .active
         }
     }
 }

@@ -8,6 +8,11 @@
 import UIKit
 
 class NavigationBarView: UIView {
+    enum ActionButtonType {
+        case addFavorite
+        case addCourse
+    }
+    
     enum State {
         case active, inactive
     }
@@ -42,11 +47,6 @@ class NavigationBarView: UIView {
         return label
     }()
     
-    enum ActionButtonType {
-        case addFavorite
-        case addCourse
-    }
-    
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -54,18 +54,7 @@ class NavigationBarView: UIView {
         return button
     }()
     
-    private lazy var courseButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(L10n("ADD_TO_MY_COURSES_BUTTON_LABEL"), for: .normal)
-        button.setImage(UIImage(named: "add_to_course_button_icon"), for: .normal)
-        button.setTitle(L10n("ADDED_TO_MY_COURSES_BUTTON_LABEL"), for: .application)
-        button.setImage(UIImage(named: "added_to_course_button_icon"), for: .application)
-        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
-        button.setTitleColor(.appPurple, for: .normal)
-        button.setTitleColor(.appPurple, for: .application)
-        return button
-    }()
+    private lazy var courseButton = CourseButtonView(design: .postView)
     
     private lazy var bottomBorderLayer: CALayer = {
         let layer = CALayer()
@@ -90,18 +79,24 @@ class NavigationBarView: UIView {
     
     // MARK: - Layout
     private func setupUI(actionButtonType: ActionButtonType) {
+        var rightButtonView: UIView!
+        
         switch(actionButtonType) {
         case .addFavorite:
             actionButton = favoriteButton
+            rightButtonView = favoriteButton
+            addFavoriteButton()
         case .addCourse:
-            actionButton = courseButton
+            addCourseButton()
+            actionButton = courseButton.actionButton
+            rightButtonView = courseButton
         }
     
         translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(backButton)
         addSubview(titleLabel)
-        addSubview(actionButton)
+        addSubview(rightButtonView)
 
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: Constants.viewHeight),
@@ -114,15 +109,32 @@ class NavigationBarView: UIView {
 
             titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
-
-            actionButton.widthAnchor.constraint(equalTo: actionButton.heightAnchor, multiplier: Constants.actionButtonRatio),
-            actionButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.actionButtonTopBottom),
-            actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.actionButtonTopBottom),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.actionButtonTrailing),
+            titleLabel.trailingAnchor.constraint(equalTo: rightButtonView.leadingAnchor, constant: -Constants.titleLabelLeadingTrailing),
         ])
     }
     
+    private func addFavoriteButton() {
+        addSubview(favoriteButton)
+        
+        NSLayoutConstraint.activate([
+            favoriteButton.widthAnchor.constraint(equalTo: favoriteButton.heightAnchor, multiplier: Constants.actionButtonRatio),
+            favoriteButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.actionButtonTopBottom),
+            favoriteButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.actionButtonTopBottom),
+            favoriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.actionButtonTrailing),
+        ])
+    }
+    
+    private func addCourseButton() {
+        addSubview(courseButton)
+        
+        NSLayoutConstraint.activate([
+            courseButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.actionButtonTopBottom),
+            courseButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.actionButtonTrailing),
+        ])
+        
+    }
+    
+    // TODO: refactor this
     func showBottomBorder() {
         self.layer.addSublayer(bottomBorderLayer)
     }
@@ -143,9 +155,9 @@ class NavigationBarView: UIView {
     private func setCourseButtonState(_ state: State) {
         switch state {
         case .active:
-            print()
+            courseButton.state = .active
         case .inactive:
-            print()
+            courseButton.state = .inactive
         }
     }
 }

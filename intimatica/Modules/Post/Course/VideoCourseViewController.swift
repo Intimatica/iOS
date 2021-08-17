@@ -11,7 +11,7 @@ class VideoCourseViewController: BasePostViewController {
     typealias Video = VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video
     
     // MARK: - Properties
-    var localPresenter: VideoCoursePresenterProtocol!
+    private let presenter: VideoCoursePresenterProtocol
     private var videoList: [Video] = []
     
     private lazy var courseTitle: UILabel = {
@@ -51,9 +51,9 @@ class VideoCourseViewController: BasePostViewController {
     
     // MARK: - Initializers
     init(presenter: VideoCoursePresenterProtocol) {
-        super.init(navigationBarType: .addFavorite)
+        self.presenter = presenter
         
-        self.localPresenter = presenter
+        super.init(presenter: presenter, navigationBarType: .addCourse)
     }
     
     required init?(coder: NSCoder) {
@@ -68,7 +68,7 @@ class VideoCourseViewController: BasePostViewController {
         setupConstraints()
         setupActions()
         
-        localPresenter.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     // MARK: - Layout
@@ -135,7 +135,7 @@ class VideoCourseViewController: BasePostViewController {
     
     private func setupActions() {
         finishButton.addAction { [weak self] in
-            self?.localPresenter.finishButtonDidTap()
+            self?.presenter.finishButtonDidTap()
         }
     }
 }
@@ -202,6 +202,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
     }
 }
 
+// MARK: - VideoCoursePostQuery/Equatable
 extension VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video: Equatable {
     public static func == (lhs: VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video, rhs: VideoCoursePostQuery.Data.Post.PostTypeDz.AsComponentPostTypeVideoCourse.Video) -> Bool {
         lhs.title == rhs.title && lhs.youtubeLink == rhs.youtubeLink

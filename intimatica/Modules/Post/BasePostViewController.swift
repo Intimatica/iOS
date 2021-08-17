@@ -11,9 +11,9 @@ import Kingfisher
 
 class BasePostViewController: UIViewController {
     // MARK: - Properties
+    private let presenter: BasePresenterProtocol
     var navigationBarView: NavigationBarView!
-    var presenter: BasePresenterProtocol!
-
+    
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,9 @@ class BasePostViewController: UIViewController {
     }()
     
     //MARK: - Initializers
-    init(navigationBarType: NavigationBarView.ActionButtonType) {
+    init(presenter: BasePresenterProtocol, navigationBarType: NavigationBarView.ActionButtonType) {
+        self.presenter = presenter
+        
         super.init(nibName: nil, bundle: nil)
         
         navigationBarView = NavigationBarView(actionButtonType: navigationBarType)

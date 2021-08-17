@@ -10,6 +10,8 @@ import youtube_ios_player_helper
 
 class VideoViewController: BasePostViewController {
     // MARK: - Properties
+    private let presenter: VideoPresenterProtocol
+    
     private lazy var playerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -38,9 +40,9 @@ class VideoViewController: BasePostViewController {
     
     // MARK: - Initializers
     init(presenter: VideoPresenterProtocol) {
-        super.init(navigationBarType: .addFavorite)
-        
         self.presenter = presenter
+        
+        super.init(presenter: presenter, navigationBarType: .addFavorite)
     }
     
     required init?(coder: NSCoder) {

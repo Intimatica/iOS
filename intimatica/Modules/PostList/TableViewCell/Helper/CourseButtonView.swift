@@ -12,6 +12,10 @@ final class CourseButtonView: UIView {
         case active, inactive
     }
     
+    enum Design {
+        case postFeed, postView
+    }
+    
     // MARK: - Properties
     var state: State = .inactive {
         didSet {
@@ -26,10 +30,12 @@ final class CourseButtonView: UIView {
         }
     }
     
+    private let design: Design
+    
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .rubik(fontSize: .regular, fontWeight: .medium)
+        label.font = .rubik(fontSize: .small, fontWeight: .medium)
         label.textColor = .appPurple
         label.text = L10n("COURSE_SELECTION_BUTTON_TITLE_INACTIVE")
         return label
@@ -50,7 +56,9 @@ final class CourseButtonView: UIView {
     }()
     
     // MARK: - Initializers
-    init() {
+    init(design: Design) {
+        self.design = design
+        
         super.init(frame: .zero)
         
         setupView()
@@ -75,18 +83,26 @@ final class CourseButtonView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
         
+        if design == .postView {
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.appPurple.cgColor
+        }
+        
         addSubview(textLabel)
         addSubview(imageView)
         addSubview(actionButton)
-        
-        actionButton.fillSuperview()
+                
+//        actionButton.fillSuperview()
     }
     
     private func setupConstraints() {
+        
+        let textLabelTopBottom = design == .postFeed ? Constants.textLabelTopBottomForPostFeed : Constants.textLabelTopBottomForPostView
+        
         NSLayoutConstraint.activate([
             textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.textLabelLeading),
-            textLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.textLabelTopBottom),
-            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.textLabelTopBottom),
+            textLabel.topAnchor.constraint(equalTo: topAnchor, constant: textLabelTopBottom),
+            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -textLabelTopBottom),
   
             // QUESTION
 //            imageView.heightAnchor.constraint(equalTo: textLabel.heightAnchor, multiplier: 0.1),
@@ -97,7 +113,14 @@ final class CourseButtonView: UIView {
             
             imageView.centerYAnchor.constraint(equalTo: textLabel.centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: Constants.imageViewLeading),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.imageViewTrailing)
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.imageViewTrailing),
+            
+            // QUESTION: button heigth is over big
+            actionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            actionButton.topAnchor.constraint(equalTo: topAnchor),
+            actionButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            actionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            actionButton.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
@@ -114,8 +137,10 @@ extension CourseButtonView {
         static let imageNameForInactive = "course_selection_button_image_inactive"
         
         static let textLabelLeading: CGFloat = 15
-        static let textLabelTopBottom: CGFloat = 7
-        static let imageViewHeightWidth: CGFloat = 20
+        static let textLabelTopBottomForPostFeed: CGFloat = 7
+        static let textLabelTopBottomForPostView: CGFloat = 3
+        
+        static let imageViewHeightWidth: CGFloat = 14
         static let imageViewLeading: CGFloat = 5
         static let imageViewTrailing: CGFloat = 15
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class CourseTableViewCell: BaseTableViewCell {
     // MARK: - Properties
-    lazy var courseButtonView = CourseButtonView()
+    lazy var courseButtonView = CourseButtonView(design: .postFeed)
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

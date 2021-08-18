@@ -11,7 +11,7 @@ import Kingfisher
 
 class BasePostViewController: UIViewController {
     // MARK: - Properties
-    private let presenter: BasePresenterProtocol
+    private let presenter: BasePostPresenterProtocol
     var navigationBarView: NavigationBarView!
     
     lazy var scrollView: UIScrollView = {
@@ -45,15 +45,8 @@ class BasePostViewController: UIViewController {
         return label
     }()
     
-    lazy var tagsStack: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = Constants.tagStackSpacing
-        return stack
-    }()
-    
+    lazy var tagsStackView = TagStackView()
     lazy var authorView = AuthorView()
-    
     lazy var spacerView = SpacerView(height: 1, backgroundColor: .init(hex: 0x9E6FFF))
     
     lazy var markdownView: MarkdownView = {
@@ -64,7 +57,7 @@ class BasePostViewController: UIViewController {
     }()
     
     //MARK: - Initializers
-    init(presenter: BasePresenterProtocol, navigationBarType: NavigationBarView.ActionButtonType) {
+    init(presenter: BasePostPresenterProtocol, navigationBarType: NavigationBarView.ActionButtonType) {
         self.presenter = presenter
         
         super.init(nibName: nil, bundle: nil)
@@ -137,17 +130,7 @@ class BasePostViewController: UIViewController {
             }
         }
     }
-    
-    func createTagView(with text: String) -> UIView {
-        return LabelWithBackground(with: text,
-                                   textColor: .appPurple,
-                                   backgroundColor: .appLightPuple,
-                                   font: .rubik(fontSize: .small, fontWeight: .regular),
-                                   verticalSpacing: 3,
-                                   horizontalSpacing: 8,
-                                   cornerRadius: 10)
-    }
-    
+
     func fixContentStrapiLinks(_ text: String) -> String {
         let regex = "(\\!\\[.*\\]\\()(\\/.+)(\\))"
         let replaceBy = "$1" + AppConstants.serverURL + "$2$3"
@@ -164,16 +147,11 @@ extension BasePostViewController {
         
         static let spacerViewTop: CGFloat = 10
         static let markdownViewTop: CGFloat = 10
-        
-        static let tagStackSpacing: CGFloat = 6
-        static let tagViewVerticalSpacing: CGFloat = 3
-        static let tagViewHorizontalSpacing: CGFloat = 8
-        static let tagViewCornerRadius: CGFloat = 10
     }
 }
 
 // MARK: - BaseViewProtocol
-extension BasePostViewController: BaseViewProtocol {
+extension BasePostViewController: BasePostViewProtocol {
     func setIsFavotire(_ isFavorite: Bool) {
         navigationBarView.state = isFavorite ? .active : .inactive
     }

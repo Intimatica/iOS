@@ -82,3 +82,7 @@ PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
 
 
 TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";
+
+STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
+STORY_TELL_TITLE_LABEL = "Хотите рассказать свою историю?";
+STORY_TELL_BUTTON_LABEL = "Рассказать";

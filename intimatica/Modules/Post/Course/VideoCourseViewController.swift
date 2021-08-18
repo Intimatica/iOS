@@ -85,7 +85,7 @@ class VideoCourseViewController: BasePostViewController {
         scrollView.addSubview(finishButton)
         
         headerStack.addArrangedSubview(titleLabel)
-        headerStack.addArrangedSubview(tagsStack)
+        headerStack.addArrangedSubview(tagsStackView)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
         headerStack.addArrangedSubview(authorView)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
@@ -171,17 +171,8 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
         titleLabel.text = post.title
-        
-        tags.forEach { tagName in
-            tagsStack.addArrangedSubview(createTagView(with: tagName))
-        }
-        tagsStack.addArrangedSubview(UIView())
-        
-        authorView.imageView.kf.indicatorType = .activity
-        authorView.imageView.kf.setImage(with: URL(string: AppConstants.serverURL + authorPhotoUrl))
-        authorView.label.setAttributedText(withString: L10n("AUTHOR") + "\n" + authorName + "\n" + authorJobTitle,
-                                           boldString: authorName,
-                                           font: authorView.label.font)
+        tagsStackView.fill(by: tags)
+        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
         markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
         

@@ -57,14 +57,14 @@ extension PostListPresenter: PostListPresenterProtocol {
     
     func show(_ post: Post) {
         switch post.type {
+        case .story:
+            router.trigger(.story(post.id))
         case .theory:
             router.trigger(.theory(post.id))
         case .video:
             router.trigger(.video(post.id))
         case .videoCourse:
             router.trigger(.videoCourse(post.id))
-        default:
-            break
         }
     }
     

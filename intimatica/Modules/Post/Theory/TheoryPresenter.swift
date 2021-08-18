@@ -7,19 +7,20 @@
 
 import Foundation
 
-protocol TheoryPresenterProtocol: BasePresenterProtocol {
+protocol TheoryPresenterProtocol: BasePostPresenterProtocol {
     func closeButtonDidTap()
 }
 
-protocol TheoryViewProtocol: BaseViewProtocol {
+protocol TheoryViewProtocol: BasePostViewProtocol {
     func display(_ theoryPost: TheoryPostQuery.Data.Post)
     func display(_ error: Error)
 }
 
-final class TheoryPresenter: BasePresenter {
+final class TheoryPresenter: BasePostPresenter {
     // MARK: - Properies
     private weak var view: TheoryViewProtocol!
     
+    // MARK: - Public
     func setView(_ view: TheoryViewProtocol) {
         super.setView(view)
         

@@ -7,22 +7,22 @@
 
 import Foundation
 
-protocol BaseViewProtocol: AnyObject {
+protocol BasePostViewProtocol: AnyObject {
     func setIsFavotire(_ isFavorite: Bool)
 }
 
-protocol BasePresenterProtocol {
+protocol BasePostPresenterProtocol {
     func viewDidLoad()
     
     func addToFarovites()
     func removeFromFavorites()
 }
 
-class BasePresenter {
+class BasePostPresenter {
     var router: Router!
     var useCase: PostUseCaseProtocol!
     var postId: String!
-    private weak var view: BaseViewProtocol?
+    private weak var view: BasePostViewProtocol?
     
     init(router: Router, dependencies: UseCaseProviderProtocol, postId: String) {
         self.router = router
@@ -30,13 +30,13 @@ class BasePresenter {
         self.postId = postId
     }
     
-    func setView(_ view: BaseViewProtocol) {
+    func setView(_ view: BasePostViewProtocol) {
         self.view = view
     }
 }
 
 // MARK: - BasePresenterProtocol
-extension BasePresenter: BasePresenterProtocol {
+extension BasePostPresenter: BasePostPresenterProtocol {
     @objc func viewDidLoad() {
         view?.setIsFavotire(useCase.isFavorite(postId))
     }

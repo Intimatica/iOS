@@ -7,18 +7,19 @@
 
 import Foundation
 
-protocol VideoCourseViewProtocol: BaseViewProtocol {
+protocol VideoCourseViewProtocol: BasePostViewProtocol {
     func display(_ post: VideoCoursePostQuery.Data.Post)
 }
 
-protocol VideoCoursePresenterProtocol: BasePresenterProtocol {
+protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
     func finishButtonDidTap()
 }
 
-final class VideoCoursePresenter: BasePresenter {
+final class VideoCoursePresenter: BasePostPresenter {
     // MARK: - Properties
     private weak var view: VideoCourseViewProtocol?
     
+    // MARK: - Public
     func setView(_ view: VideoCourseViewProtocol) {
         super.setView(view)
         

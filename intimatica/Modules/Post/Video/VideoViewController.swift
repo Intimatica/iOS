@@ -65,7 +65,7 @@ class VideoViewController: BasePostViewController {
         scrollView.addSubview(markdownView)
         
         headerStack.addArrangedSubview(titleLabel)
-        headerStack.addArrangedSubview(tagsStack)
+        headerStack.addArrangedSubview(tagsStackView)
         headerStack.addArrangedSubview(SpacerView(height: 10, backgroundColor: .clear))
         headerStack.addArrangedSubview(playerView)
         
@@ -118,10 +118,7 @@ extension VideoViewController: VideoViewProtocol {
         }
         
         titleLabel.text = post.title
-        tags.forEach { tagName in
-            tagsStack.addArrangedSubview(createTagView(with: tagName))
-        }
-        tagsStack.addArrangedSubview(UIView())
+        tagsStackView.fill(by: tags)
         
 //        headerImageView.kf.indicatorType = .activity
 //        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))

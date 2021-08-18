@@ -16,8 +16,8 @@ protocol BaseTableViewCellDelegate {
 class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
     var post: Post!
-    // TODO: weak?
     var indexPath: IndexPath!
+    // QUESTION TODO: weak?
     var delegate: BaseTableViewCellDelegate?
     
     lazy var postView: UIView = {
@@ -47,12 +47,7 @@ class BaseTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var tagStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = Constants.tagStackViewSpacing
-        return stackView
-    }()
+    lazy var tagStackView = TagStackView()
     
     lazy var playButtonImageView: UIImageView = {
         let image = UIImage(named: "play")
@@ -82,7 +77,6 @@ class BaseTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         backgroundImageView.kf.cancelDownloadTask()
-        tagStackView.removeAllArrangedSubviews()
         titleLabel.text = ""
     }
     
@@ -99,16 +93,6 @@ class BaseTableViewCell: UITableViewCell {
         postView.addSubview(titleLabel)
     }
     
-    func addTagView(with text: String) -> UIView {
-        return LabelWithBackground(with: text,
-                                   textColor: Constants.tagLabelTextColor,
-                                   backgroundColor: Constants.tagBackgroundColor,
-                                   font: Constants.tagLabelFont,
-                                   verticalSpacing: Constants.tagLabelTopBottom,
-                                   horizontalSpacing: Constants.tagLabelLeadingTrailing,
-                                   cornerRadius: Constants.tagBorderRadius)
-    }
-    
     // MARK: - Public
     func fill(by post: Post, isFavorite: Bool = false, indexPath: IndexPath, delegate: BaseTableViewCellDelegate?) {
 //        print("Fill \(post.id) \(post.type) with \(favorites)")
@@ -122,9 +106,7 @@ class BaseTableViewCell: UITableViewCell {
         backgroundImageView.kf.setImage(with: url)
         
         titleLabel.text = post.title
-        post.tags.forEach {
-            tagStackView.addArrangedSubview(addTagView(with: $0))
-        }
+        tagStackView.fill(by: post.tags)
         
         switch post.type {
         case .story:
@@ -144,14 +126,7 @@ extension BaseTableViewCell {
     struct Constants {
         static let cellBorderColor = 0xD0B9FF
         static let cellBorderRadius: CGFloat = 20
-        
-        static let tagLabelFont: UIFont = .rubik(fontSize: .verySmall, fontWeight: .regular)
-        static let tagLabelTextColor: UIColor = .appPurple
-        static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
-        static let tagBorderRadius: CGFloat = 8
-        static let tagLabelTopBottom: CGFloat = 3
-        static let tagLabelLeadingTrailing: CGFloat = 5
-        
+
         static let postViewSpacing: CGFloat = 22
         static let postViewLeadingTrailing: CGFloat = 25
         static let backgroundImageViewHeight: CGFloat = 130
@@ -159,7 +134,6 @@ extension BaseTableViewCell {
         static let favoriteButtonViewTopTrailing: CGFloat = 13
         static let postLabelLeading: CGFloat = 13
         
-        static let tagStackViewSpacing: CGFloat = 7
         static let tagStackViewHeight: CGFloat = 17
         static let tagStackViewLeadingTrailing: CGFloat = 25
         static let tagStackViewTop: CGFloat = 15

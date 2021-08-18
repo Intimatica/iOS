@@ -39,6 +39,8 @@ final class PostLabelView: UIView {
                 textLabel.isHidden = false
             case .premiumVideoCourse:
                 premiumVideoCourseLabel.isHidden = false
+                
+                // QUESTION
             default:
                 fatalError("\(String(describing: state)) not implemented")
             }
@@ -50,8 +52,7 @@ final class PostLabelView: UIView {
                                     backgroundColor: Constants.storyBackgroupndColor,
                                     font: .rubik(fontSize: .small, fontWeight: .medium),
                                     verticalSpacing: Constants.verticalSpacing,
-                                    horizontalSpacing: Constants.horizontalSpacing,
-                                    cornerRadius: Constants.cornderRadius)
+                                    horizontalSpacing: Constants.horizontalSpacing)
     
     private lazy var premiumVideoCourseLabel = PremiumCourseLabel()
     

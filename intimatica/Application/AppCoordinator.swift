@@ -22,6 +22,8 @@ enum AppRoute: Route {
     case forgotPassword
     
     case home
+    case tagCloud(PostListPresenterProtocol, Set<Int>)
+    
     case story(String)
     case theory(String)
     case video(String)
@@ -29,8 +31,7 @@ enum AppRoute: Route {
     case courseFinished(String)
     
     case playVideo(String)
-    
-    case tagCloud(PostListPresenterProtocol, Set<Int>)
+    case tellStory
     
     case profile
     
@@ -42,9 +43,8 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .launch)
-//        super.init(initialRoute: .videoCourse(4))
-//        super.init(initialRoute: .courseFinished("hello"))
+//        super.init(initialRoute: .launch)
+        super.init(initialRoute: .story("11"))
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -93,6 +93,12 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let viewController = HomeTabBarController(router: strongRouter, dependencies: useCaseProvider)
             return .set([viewController])
         
+        case .story(let id):
+            let presenter = StoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
+            let viewController = StoryViewController(presenter: presenter)
+            presenter.setView(viewController)
+            return .show(viewController)
+            
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = TheoryViewController(presenter: presenter)

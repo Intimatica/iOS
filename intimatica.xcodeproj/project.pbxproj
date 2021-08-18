@@ -114,7 +114,6 @@
 		DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6F26B4316000E04D40 /* AuthorView.swift */; };
 		DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7126B4344400E04D40 /* AvatarImageView.swift */; };
 		DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7326B495E000E04D40 /* SpacerView.swift */; };
-		DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */; };
 		DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */; };
 		DBFA7C3D26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */; };
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
@@ -254,7 +253,6 @@
 		DBF99D6F26B4316000E04D40 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		DBF99D7126B4344400E04D40 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		DBF99D7326B495E000E04D40 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
-		DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 		DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utils.swift"; sourceTree = "<group>"; };
 		DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCaterotyFilter.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
 				DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */,
 				DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */,
-				DBF99D7526B4A43700E04D40 /* UILabel+Utils.swift */,
 				DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */,
 				DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */,
 				DB3C566B26C1018C0087663E /* Array+Utils.swift */,
@@ -1029,7 +1026,6 @@
 				DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */,
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
-				DBF99D7626B4A43800E04D40 /* UILabel+Utils.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */,
 				DB2E196026CCD1E1004FF77C /* StoryView.swift in Sources */,

@@ -21,13 +21,15 @@ class TellStoryViewController: PopViewController {
     
 
     private lazy var messageTextView: UITextView = {
-        let TextView = UITextView()
-        TextView.translatesAutoresizingMaskIntoConstraints = false
-        TextView.sizeToFit()
-        TextView.isScrollEnabled = false
-        TextView.font = .rubik(fontSize: .regular, fontWeight: .regular)
-        return TextView
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.sizeToFit()
+        textView.isScrollEnabled = false
+        textView.font = .rubik(fontSize: .regular, fontWeight: .regular)
+        return textView
     }()
+    
+    private lazy var underlineView = SpacerView(height: 1, backgroundColor: .black.withAlphaComponent(0.3))
     
     private lazy var agreeTitleLabel = UILabel(font: .rubik(fontSize: .small, fontWeight: .regular),
                                               textColor: .black.withAlphaComponent(0.3),
@@ -45,6 +47,8 @@ class TellStoryViewController: PopViewController {
         setupView()
         setupConstraints()
         setupActions()
+        
+        enableHideKeyboardOnTap()
     }
     
     // MARK: - Initializers
@@ -65,6 +69,8 @@ class TellStoryViewController: PopViewController {
         view.addSubview(titleLabel)
         view.addSubview(subTitleLable)
         view.addSubview(messageTextView)
+        view.addSubview(underlineView)
+        view.addSubview(agreeTitleLabel)
         view.addSubview(sendButton)
     }
     
@@ -85,13 +91,24 @@ class TellStoryViewController: PopViewController {
             make.leading.equalTo(view).offset(Constants.leadingTrailing)
             make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
             make.top.equalTo(subTitleLable.snp.bottom).offset(Constants.messageTextViewTop)
-            make.height.equalTo(100)
+        }
+        
+        underlineView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(messageTextView)
+            make.top.equalTo(messageTextView.snp.bottom)
+        }
+        
+        agreeTitleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(view).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
+            make.top.greaterThanOrEqualTo(messageTextView.snp.bottom).offset(100)
         }
         
         sendButton.snp.makeConstraints { make in
             make.leading.equalTo(view).offset(Constants.leadingTrailing)
             make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
-            make.top.equalTo(messageTextView.snp.bottom).offset(Constants.messageTextViewTop)
+            make.top.equalTo(agreeTitleLabel.snp.bottom).offset(Constants.messageTextViewTop)
+            make.bottom.equalTo(view).offset(-Constants.sendButtonBottom)
             make.height.equalTo(Constants.sendButtonHeight)
         }
     }
@@ -113,6 +130,7 @@ extension TellStoryViewController {
         static let subTitleLabelTop: CGFloat = 20
         static let messageTextViewTop: CGFloat = 5
         static let sendButtonTop: CGFloat = 20
+        static let sendButtonBottom: CGFloat = 150
         static let sendButtonHeight: CGFloat = 50
     }
 }

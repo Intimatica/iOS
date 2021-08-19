@@ -22,6 +22,7 @@
 		DB2E196D26CE4ACD004FF77C /* UserStory.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB2E196C26CE4ACD004FF77C /* UserStory.graphql */; };
 		DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */; };
 		DB2E197126CE59E5004FF77C /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E197026CE59E5004FF77C /* UIImageView+Utils.swift */; };
+		DB2E197326CE7C9B004FF77C /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E197226CE7C9B004FF77C /* CheckboxWithLabelView.swift */; };
 		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
 		DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */; };
 		DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B2D269F3CB2007020C0 /* Localizable.strings */; };
@@ -160,6 +161,7 @@
 		DB2E196C26CE4ACD004FF77C /* UserStory.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserStory.graphql; sourceTree = "<group>"; };
 		DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellStoryThanksViewController.swift; sourceTree = "<group>"; };
 		DB2E197026CE59E5004FF77C /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		DB2E197226CE7C9B004FF77C /* CheckboxWithLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabelView.swift; sourceTree = "<group>"; };
 		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
@@ -206,7 +208,6 @@
 		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		DB2F8BBA26A8B7CF007020C0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DB2F8BBC26A9486D007020C0 /* AgeConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmViewController.swift; sourceTree = "<group>"; };
-		DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		DB2F8BC326A97421007020C0 /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BC526A97CB1007020C0 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
 		DB3C565926BBDA4F0087663E /* PostLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLabelView.swift; sourceTree = "<group>"; };
@@ -541,7 +542,7 @@
 		DB2F8BBE26A951E4007020C0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F8BBF26A9520E007020C0 /* TermsAndConditionsView.swift */,
+				DB2E197226CE7C9B004FF77C /* CheckboxWithLabelView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1089,6 +1090,7 @@
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
+				DB2E197326CE7C9B004FF77C /* CheckboxWithLabelView.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
 				DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */,

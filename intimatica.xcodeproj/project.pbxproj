@@ -15,6 +15,13 @@
 		DB2E195D26CBF20F004FF77C /* TagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195C26CBF20F004FF77C /* TagStackView.swift */; };
 		DB2E196026CCD1E1004FF77C /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195F26CCD1E1004FF77C /* StoryView.swift */; };
 		DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196126CD44A7004FF77C /* TellStoryView.swift */; };
+		DB2E196526CD6D52004FF77C /* TellStoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196426CD6D52004FF77C /* TellStoryPresenter.swift */; };
+		DB2E196726CD6E30004FF77C /* TellStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196626CD6E30004FF77C /* TellStoryViewController.swift */; };
+		DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196826CD7251004FF77C /* UILabel+Utils.swift */; };
+		DB2E196B26CD7F29004FF77C /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196A26CD7F29004FF77C /* PopViewController.swift */; };
+		DB2E196D26CE4ACD004FF77C /* UserStory.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB2E196C26CE4ACD004FF77C /* UserStory.graphql */; };
+		DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */; };
+		DB2E197126CE59E5004FF77C /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E197026CE59E5004FF77C /* UIImageView+Utils.swift */; };
 		DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */; };
 		DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */; };
 		DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B2D269F3CB2007020C0 /* Localizable.strings */; };
@@ -146,6 +153,13 @@
 		DB2E195C26CBF20F004FF77C /* TagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStackView.swift; sourceTree = "<group>"; };
 		DB2E195F26CCD1E1004FF77C /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		DB2E196126CD44A7004FF77C /* TellStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellStoryView.swift; sourceTree = "<group>"; };
+		DB2E196426CD6D52004FF77C /* TellStoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellStoryPresenter.swift; sourceTree = "<group>"; };
+		DB2E196626CD6E30004FF77C /* TellStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellStoryViewController.swift; sourceTree = "<group>"; };
+		DB2E196826CD7251004FF77C /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
+		DB2E196A26CD7F29004FF77C /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		DB2E196C26CE4ACD004FF77C /* UserStory.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserStory.graphql; sourceTree = "<group>"; };
+		DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellStoryThanksViewController.swift; sourceTree = "<group>"; };
+		DB2E197026CE59E5004FF77C /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
@@ -321,6 +335,16 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		DB2E196326CD6D3D004FF77C /* TellStory */ = {
+			isa = PBXGroup;
+			children = (
+				DB2E196426CD6D52004FF77C /* TellStoryPresenter.swift */,
+				DB2E196626CD6E30004FF77C /* TellStoryViewController.swift */,
+				DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */,
+			);
+			path = TellStory;
+			sourceTree = "<group>";
+		};
 		DB2F8B13269ECEF9007020C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +382,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB2E196326CD6D3D004FF77C /* TellStory */,
 				DBFA7C5B26C835AC0042D31D /* WebPage */,
 				DBFA7C4A26C504F10042D31D /* TagCloud */,
 				DBF99D5C26B2C7F500E04D40 /* Post */,
@@ -368,6 +393,7 @@
 				DB8A596226AEBEBE00842771 /* Launch */,
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
+				DB2E196A26CD7F29004FF77C /* PopViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -395,6 +421,8 @@
 				DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */,
 				DB3C566B26C1018C0087663E /* Array+Utils.swift */,
 				DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */,
+				DB2E196826CD7251004FF77C /* UILabel+Utils.swift */,
+				DB2E197026CE59E5004FF77C /* UIImageView+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -769,6 +797,7 @@
 				DBFA7C6426C854DD0042D31D /* Terms.graphql */,
 				DBFA7C6626C85D570042D31D /* Conditions.graphql */,
 				DB2E195A26CBE962004FF77C /* StoryPost.graphql */,
+				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -931,6 +960,7 @@
 				DB2F8B9726A371B9007020C0 /* Rubik-Bold.ttf in Resources */,
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
 				DB2F8B9326A371B9007020C0 /* Rubik-Black.ttf in Resources */,
+				DB2E196D26CE4ACD004FF77C /* UserStory.graphql in Resources */,
 				DB2F8B9026A371B9007020C0 /* Rubik-Medium.ttf in Resources */,
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
@@ -1021,6 +1051,7 @@
 			files = (
 				DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */,
 				DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */,
+				DB2E196B26CD7F29004FF77C /* PopViewController.swift in Sources */,
 				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
 				DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */,
@@ -1053,11 +1084,13 @@
 				DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */,
 				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
+				DB2E196726CD6E30004FF77C /* TellStoryViewController.swift in Sources */,
 				DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
+				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
 				DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
@@ -1080,6 +1113,7 @@
 				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
 				DB3C565A26BBDA4F0087663E /* PostLabelView.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
+				DB2E196526CD6D52004FF77C /* TellStoryPresenter.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
@@ -1091,6 +1125,7 @@
 				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
+				DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
@@ -1101,6 +1136,7 @@
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
 				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,
+				DB2E197126CE59E5004FF77C /* UIImageView+Utils.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */,

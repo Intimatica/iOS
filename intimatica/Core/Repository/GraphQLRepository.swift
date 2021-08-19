@@ -10,6 +10,7 @@ import Apollo
 
 protocol GraphQLRepositoryProtocol {
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T: GraphQLQuery
+    func perform<T: GraphQLMutation>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
 }
 
 protocol HasGrapQLRepositoryProtocol {
@@ -25,5 +26,9 @@ class GraphQLRepository: GraphQLRepositoryProtocol {
     
     func fetch<T>(query: T, completionHandler: @escaping (Result<GraphQLResult<T.Data>, Error>) -> Void) where T : GraphQLQuery {
         graphQLService.fetch(query: query, completionHandler: completionHandler)
+    }
+    
+    func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {
+        graphQLService.perform(mutaion: mutaion, completionHandler: completionHandler)
     }
 }

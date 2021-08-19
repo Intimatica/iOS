@@ -12,6 +12,7 @@ typealias TagsCompletionHandler = (Result<GraphQLResult<TagsQuery.Data>, Error>)
 
 protocol GraphqlServiceProtocol {
     func fetch<T: GraphQLQuery>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
+    func perform<T: GraphQLMutation>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
     
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
@@ -26,7 +27,11 @@ class GraphqlService: GraphqlServiceProtocol {
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLQuery {
         apollo.fetch(query: query, resultHandler: completionHandler)
     }
-        
+    
+    func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {
+        apollo.perform(mutation: mutaion, resultHandler: completionHandler)
+    }
+     
     private(set) lazy var apollo = ApolloClient(
         networkTransport: RequestChainNetworkTransport(
             interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),

@@ -1,0 +1,30 @@
+query UserStories {
+  stories {
+    id
+    story
+    comment
+  }
+}
+
+query UserStory($id: ID!) {
+  story(id: $id) {
+    id
+    story
+    comment
+    comment_author {
+      name
+      job_title,
+      photo {
+        url
+      }
+    }
+  }
+}
+
+mutation Story($story: String!, $allowPublishing: Boolean!) {
+  createStory(input: {data: {story: $story, allow_publishing: $allowPublishing}}) {
+    story {
+      id
+    }
+  }
+}

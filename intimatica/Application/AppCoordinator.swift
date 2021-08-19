@@ -32,6 +32,7 @@ enum AppRoute: Route {
     
     case playVideo(String)
     case tellStory
+    case tellStoryThanks
     
     case profile
     
@@ -44,7 +45,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
 //        super.init(initialRoute: .launch)
-        super.init(initialRoute: .story("11"))
+        super.init(initialRoute: .tellStory)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
@@ -125,6 +126,16 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, postListPresenter: postListPresenter, selectedTags: selectedTags)
             let viewController = TagCloudViewController(presenter: presenter)
             presenter.view = viewController
+            return .present(viewController)
+            
+        case .tellStory:
+            let presenter = TellStoryPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = TellStoryViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
+        case .tellStoryThanks:
+            let viewController = TellStoryThanksViewController()
             return .present(viewController)
             
         case .dismiss:

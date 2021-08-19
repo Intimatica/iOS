@@ -35,4 +35,5 @@ target 'intimatica' do
   pod 'YouTubePlayer'
   
   pod "AlignedCollectionViewFlowLayout"
+  pod 'SnapKit', '~> 5.0.0'
 end

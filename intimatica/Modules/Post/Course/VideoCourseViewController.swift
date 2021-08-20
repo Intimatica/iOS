@@ -53,7 +53,7 @@ class VideoCourseViewController: BasePostViewController {
     init(presenter: VideoCoursePresenterProtocol) {
         self.presenter = presenter
         
-        super.init(presenter: presenter, navigationBarType: .addCourse)
+        super.init(presenter: presenter,  rightBarButtonType: .course)
     }
     
     required init?(coder: NSCoder) {

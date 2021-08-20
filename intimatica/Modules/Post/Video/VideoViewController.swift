@@ -42,7 +42,7 @@ class VideoViewController: BasePostViewController {
     init(presenter: VideoPresenterProtocol) {
         self.presenter = presenter
         
-        super.init(presenter: presenter, navigationBarType: .addFavorite)
+        super.init(presenter: presenter, rightBarButtonType: .favorite)
     }
     
     required init?(coder: NSCoder) {

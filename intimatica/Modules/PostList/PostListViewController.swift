@@ -22,8 +22,6 @@ class PostListViewController: UIViewController {
         return view
     }()
     
-    private lazy var navigationBar = NavigationBar()
-    
     private let categoryFilterItems: [String] = FeedCategoryFilter.toArray()
 
     private let verticalInset: CGFloat = 0
@@ -77,6 +75,15 @@ class PostListViewController: UIViewController {
         return table
     }()
     
+    private lazy var rightBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: nil,
+                               image: UIImage(named: "tags_inactive_x2"),
+                               primaryAction: nil,
+                               menu: nil)
+        barButtonItem.tintColor = .white
+        return barButtonItem
+    }()
+    
     // MARK: - Initializers
     init(presenter: PostListPresenterProtocol) {
         super.init(nibName: nil, bundle: nil)
@@ -89,7 +96,7 @@ class PostListViewController: UIViewController {
                                   image: UIImage(named: "main"),
                                   tag: 0)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -98,54 +105,20 @@ class PostListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButtonItem
+        
         setupView()
         setupConstraints()
         setupActions()
         
 //        presenter.viewDidLoad()
-        
-        // TODO refactor
-        tabBarController?.tabBar.unselectedItemTintColor = .black
-        tabBarController?.tabBar.tintColor = .appPurple
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        // NAVIGATION
         navigationController?.navigationBar.barTintColor = .appPurple
         navigationController?.navigationBar.isTranslucent = false
-        
-        /**
-        https://stackoverflow.com/questions/27499998/how-to-set-image-for-bar-button-with-swift/31912446
-        */
-        let rightBarButtonItem: UIBarButtonItem = {
-            let button = UIButton(type: .custom)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setImage(UIImage(named: "tags_filter_button"), for: .normal)
-//            button.layer.borderWidth = 1
-//            button.layer.borderColor = UIColor.red.cgColor
-            button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-            
-            let containerView = UIView()
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            containerView.addSubview(button)
-            
-            NSLayoutConstraint.activate([
-                containerView.widthAnchor.constraint(equalToConstant: 30),
-                button.widthAnchor.constraint(equalToConstant: 30),
-                button.heightAnchor.constraint(equalToConstant: 30),
-                button.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                button.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
-            ])
-            
-            return UIBarButtonItem(customView: containerView)
-        }()
-
-//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -158,17 +131,11 @@ class PostListViewController: UIViewController {
         cell.setState(.selected)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(true)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     // MARK: - Layout
     func setupView() {
         view.backgroundColor = .white
         
         view.addSubview(topBackgroundView)
-        view.addSubview(navigationBar)
         view.addSubview(categoryFilterView)
         view.addSubview(tableView)
     }
@@ -179,10 +146,6 @@ class PostListViewController: UIViewController {
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.navigationBarLeadingTrailing),
-            navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.navigationBarTop),
-            navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.navigationBarLeadingTrailing),
             
             categoryFilterView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.categoryFilterViewLeading),
             categoryFilterView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.categoryFilterViewTop),
@@ -197,25 +160,26 @@ class PostListViewController: UIViewController {
     }
     
     func setupActions() {
-        navigationBar.tagFilterButton.addAction { [weak self] in
+        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
             self?.presenter.tagFilterButtonDidTap()
-        }
+       }
+    }
+    
+    @objc func tagFilterButtonDidTap() {
+        presenter.tagFilterButtonDidTap()
     }
 }
 
 // MARK: - Helper/Constraints
 extension PostListViewController {
     struct Constants {
-        static let topBackgroundViewHeight: CGFloat = 228
-            
-        static let navigationBarLeadingTrailing: CGFloat = 15
-        static let navigationBarTop: CGFloat = 10
+        static let topBackgroundViewHeight: CGFloat = 150
         
         static let categoryFilterViewLeading: CGFloat = 15
-        static let categoryFilterViewTop: CGFloat = 110
+        static let categoryFilterViewTop: CGFloat = 30
         static let categoryFilterViewHeight: CGFloat = 50
         
-        static let tableViewTop: CGFloat = 174
+        static let tableViewTop: CGFloat = 100
         static let tableViewLeadingTrailing: CGFloat = 0
         static let tableViewCellSpacing: CGFloat = 25
     }

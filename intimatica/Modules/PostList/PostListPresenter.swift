@@ -53,7 +53,7 @@ extension PostListPresenter: PostListPresenterProtocol {
         }
     }
     func tagFilterButtonDidTap() {
-        //router.trigger(.tagCloud(self, selectedTags))
+        router.trigger(.tagCloud(self, selectedTags))
     }
     
     func show(_ post: Post) {

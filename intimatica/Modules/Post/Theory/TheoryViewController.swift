@@ -15,7 +15,7 @@ class TheoryViewController: BasePostViewController {
     init(presenter: TheoryPresenterProtocol) {
         self.presenter = presenter
         
-        super.init(presenter: presenter, navigationBarType: .addFavorite)
+        super.init(presenter: presenter,  rightBarButtonType: .favorite)
     }
     
     required init?(coder: NSCoder) {
@@ -115,11 +115,11 @@ extension TheoryViewController: TheoryViewProtocol {
 extension TheoryViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 0 {
-            navigationBarView.titleLabel.text = titleLabel.text
-            navigationBarView.showBottomBorder()
+            title = titleLabel.text
+//            navigationBarView.showBottomBorder()
         } else {
-            navigationBarView.titleLabel.text = ""
-            navigationBarView.hideBottomBorder()
+            title = ""
+//            navigationBarView.hideBottomBorder()
         }
     }
 }

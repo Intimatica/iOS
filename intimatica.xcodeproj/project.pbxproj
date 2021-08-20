@@ -105,6 +105,7 @@
 		DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */; };
 		DBDBC76A26CEEFAD00CB839C /* PostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */; };
 		DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */; };
+		DBDBC77026CFC11100CB839C /* RightBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76F26CFC11100CB839C /* RightBarButtonItem.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -118,7 +119,6 @@
 		DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */; };
 		DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */; };
 		DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */; };
-		DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */; };
 		DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */; };
 		DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */; };
 		DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D6F26B4316000E04D40 /* AuthorView.swift */; };
@@ -129,7 +129,6 @@
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
 		DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */; };
 		DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4126C465690042D31D /* ProfilePresenter.swift */; };
-		DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4626C4F9720042D31D /* NavigationBar.swift */; };
 		DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */; };
 		DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */; };
 		DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */; };
@@ -253,6 +252,7 @@
 		DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCoordinator.swift; sourceTree = "<group>"; };
 		DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		DBDBC76F26CFC11100CB839C /* RightBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBarButtonItem.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -266,7 +266,6 @@
 		DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryPresenter.swift; sourceTree = "<group>"; };
 		DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheoryPost.graphql; sourceTree = "<group>"; };
 		DBF99D6526B3D6D000E04D40 /* BasePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostViewController.swift; sourceTree = "<group>"; };
-		DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthAspectFitImageView.swift; sourceTree = "<group>"; };
 		DBF99D6F26B4316000E04D40 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 		DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCaterotyFilter.swift; sourceTree = "<group>"; };
 		DBFA7C4126C465690042D31D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
-		DBFA7C4626C4F9720042D31D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "../UIView+Utils.swift"; sourceTree = "<group>"; };
 		DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudViewController.swift; sourceTree = "<group>"; };
 		DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloudPresenter.swift; sourceTree = "<group>"; };
@@ -717,7 +715,6 @@
 		DB8A599026B01E3100842771 /* PostList */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA7C4526C4F94B0042D31D /* Helper */,
 				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
 				DB2E195226CA4AF2004FF77C /* CollectionViewCell */,
 				DB8A599126B01E3100842771 /* PostListViewController.swift */,
@@ -837,8 +834,8 @@
 		DBF99D6726B3D8EF00E04D40 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				DBF99D6826B3D91E00E04D40 /* NavigationBarView.swift */,
 				DBF99D6F26B4316000E04D40 /* AuthorView.swift */,
+				DBDBC76F26CFC11100CB839C /* RightBarButtonItem.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -857,14 +854,6 @@
 				DB2E195C26CBF20F004FF77C /* TagStackView.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		DBFA7C4526C4F94B0042D31D /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				DBFA7C4626C4F9720042D31D /* NavigationBar.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		DBFA7C4A26C504F10042D31D /* TagCloud */ = {
@@ -1081,6 +1070,7 @@
 				DBFA7C5A26C5A7490042D31D /* TagCollectionViewCell.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
+				DBDBC77026CFC11100CB839C /* RightBarButtonItem.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
@@ -1100,7 +1090,6 @@
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
 				DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */,
-				DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
@@ -1118,7 +1107,6 @@
 				DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
-				DBF99D6926B3D91E00E04D40 /* NavigationBarView.swift in Sources */,
 				DB3C565A26BBDA4F0087663E /* PostLabelView.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
 				DB2E196526CD6D52004FF77C /* TellStoryPresenter.swift in Sources */,
@@ -1305,6 +1293,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UL5Y5QW9KR;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1327,6 +1316,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UL5Y5QW9KR;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

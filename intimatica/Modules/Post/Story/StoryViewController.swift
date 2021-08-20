@@ -35,7 +35,7 @@ class StoryViewController: BasePostViewController {
     init(presenter: StoryPresenterProtocol) {
         self.presenter = presenter
         
-        super.init(presenter: presenter, navigationBarType: .addFavorite)
+        super.init(presenter: presenter,  rightBarButtonType: .favorite)
     }
     
     required init?(coder: NSCoder) {

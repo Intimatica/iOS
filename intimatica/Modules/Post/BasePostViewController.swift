@@ -12,7 +12,9 @@ import Kingfisher
 class BasePostViewController: UIViewController {
     // MARK: - Properties
     private let presenter: BasePostPresenterProtocol
-    var navigationBarView: NavigationBarView!
+    
+    private var isFavorite = false
+    private var rightBarButtonType: RightBarButtonItem.ButtonType = .favorite
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -57,13 +59,21 @@ class BasePostViewController: UIViewController {
         return md
     }()
     
+    private lazy var backBarButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem()
+        barButton.title = "    "
+        barButton.tintColor = .appPurple
+        return barButton
+    }()
+        
+    private lazy var rightBarButtonItem = RightBarButtonItem(buttonType: rightBarButtonType)
+    
     //MARK: - Initializers
-    init(presenter: BasePostPresenterProtocol, navigationBarType: NavigationBarView.ActionButtonType) {
+    init(presenter: BasePostPresenterProtocol, rightBarButtonType: RightBarButtonItem.ButtonType) {
         self.presenter = presenter
+        self.rightBarButtonType = rightBarButtonType
         
         super.init(nibName: nil, bundle: nil)
-        
-        navigationBarView = NavigationBarView(actionButtonType: navigationBarType)
     }
     
     required init?(coder: NSCoder) {
@@ -73,61 +83,53 @@ class BasePostViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         
         setupView()
         setupConstraints()
         setupActions()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        showSpinner()
-//        navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-//
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+
+        showSpinner()
+    }
+
     
     // MARK: - Layout
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(navigationBarView)
         view.addSubview(scrollView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            navigationBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            navigationBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navigationBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollView.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
     private func setupActions() {
-        navigationBarView.backButton.addAction { [weak self] in
-            // TODO: fix this
-            self?.navigationController?.popViewController(animated: true)
-        }
-        
-        navigationBarView.actionButton.addAction { [weak self] in
+        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
             guard let self = self else { return }
-            
-            if self.navigationBarView.state == .inactive {
+
+            self.isFavorite = !self.isFavorite
+
+            if self.isFavorite {
                 self.presenter.addToFarovites()
-                self.navigationBarView.state = .active
+                self.rightBarButtonItem.state = .active
             } else {
                 self.presenter.removeFromFavorites()
-                self.navigationBarView.state = .inactive
+                self.rightBarButtonItem.state = .inactive
             }
         }
     }
@@ -142,6 +144,9 @@ class BasePostViewController: UIViewController {
 // MARK: - Helper/Constants
 extension BasePostViewController {
     struct Constants {
+        static let favoriteActiveImageName = "favorite_active"
+        static let favoriteInactiveImageName = "favorite_inactive"
+        
         static let headerStackSpacing: CGFloat = 10
         static let headerStackLeadingTrailing: CGFloat = 24
         static let headerStackTop: CGFloat = 30
@@ -154,17 +159,9 @@ extension BasePostViewController {
 // MARK: - BaseViewProtocol
 extension BasePostViewController: BasePostViewProtocol {
     func setIsFavotire(_ isFavorite: Bool) {
-        navigationBarView.state = isFavorite ? .active : .inactive
-    }
-}
-
-extension MarkdownView {
-    var htmlURL: URL? {
-        let bundle = Bundle(for: MarkdownView.self)
-        return bundle.url(forResource: "index",
-                          withExtension: "html") ??
-               bundle.url(forResource: "index",
-                          withExtension: "html",
-                          subdirectory: "MarkdownView.bundle")
+        self.isFavorite = isFavorite
+        if isFavorite {
+            rightBarButtonItem.state = .active
+        }
     }
 }

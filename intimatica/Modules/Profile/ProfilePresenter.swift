@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XCoordinator
 
 protocol ProfilePresenterProtocol {
     func logoutButtonDidTap()
@@ -13,12 +14,11 @@ protocol ProfilePresenterProtocol {
 
 final class ProfilePresenter {
     // MARK: - Properties
-    private let router: Router!
-    private let authUseCase: AuthUseCaseProtocol!
-    
+    private let router: ProfileRouter
+    private let authUseCase: AuthUseCaseProtocol
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol) {
+    init(router: ProfileRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.authUseCase = dependencies.authUseCase
     }
@@ -27,7 +27,7 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfilePresenterProtocol {
     func logoutButtonDidTap() {
         authUseCase.signOut()
-        router.trigger(.ageConfirm)
+//        router.trigger(.ageConfirm)
     }
 }
 

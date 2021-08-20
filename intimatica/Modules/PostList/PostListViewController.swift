@@ -82,6 +82,12 @@ class PostListViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
+        
+        // TODO refactor
+        // COURSES_TABBAR_ITEM_TITLE
+        tabBarItem = UITabBarItem(title: L10n("POST_LIST_TABBAR_ITEM_TITLE"),
+                                  image: UIImage(named: "main"),
+                                  tag: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -97,11 +103,49 @@ class PostListViewController: UIViewController {
         setupActions()
         
 //        presenter.viewDidLoad()
+        
+        // TODO refactor
+        tabBarController?.tabBar.unselectedItemTintColor = .black
+        tabBarController?.tabBar.tintColor = .appPurple
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        
+        // NAVIGATION
+        navigationController?.navigationBar.barTintColor = .appPurple
+        navigationController?.navigationBar.isTranslucent = false
+        
+        /**
+        https://stackoverflow.com/questions/27499998/how-to-set-image-for-bar-button-with-swift/31912446
+        */
+        let rightBarButtonItem: UIBarButtonItem = {
+            let button = UIButton(type: .custom)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setImage(UIImage(named: "tags_filter_button"), for: .normal)
+//            button.layer.borderWidth = 1
+//            button.layer.borderColor = UIColor.red.cgColor
+            button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            
+            let containerView = UIView()
+            containerView.translatesAutoresizingMaskIntoConstraints = false
+            containerView.addSubview(button)
+            
+            NSLayoutConstraint.activate([
+                containerView.widthAnchor.constraint(equalToConstant: 30),
+                button.widthAnchor.constraint(equalToConstant: 30),
+                button.heightAnchor.constraint(equalToConstant: 30),
+                button.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                button.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+            ])
+            
+            return UIBarButtonItem(customView: containerView)
+        }()
+
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -314,4 +358,3 @@ extension PostListViewController: UICollectionViewDataSource {
         return cell
     }
 }
-

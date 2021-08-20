@@ -95,7 +95,6 @@
 		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
 		DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598726AF6CB100842771 /* RepositoryProvider.swift */; };
 		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
-		DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598E26B01E2400842771 /* HomeTabBarController.swift */; };
 		DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* PostListViewController.swift */; };
 		DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* BaseTableViewCell.swift */; };
 		DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* LabelWithBackground.swift */; };
@@ -103,6 +102,9 @@
 		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
 		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
 		DB8A59AB26B01E9A00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AA26B01E9A00842771 /* Post.swift */; };
+		DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */; };
+		DBDBC76A26CEEFAD00CB839C /* PostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */; };
+		DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -238,7 +240,6 @@
 		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		DB8A598726AF6CB100842771 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
-		DB8A598E26B01E2400842771 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		DB8A599126B01E3100842771 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		DB8A599326B01E3100842771 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DB8A599426B01E3100842771 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
@@ -249,6 +250,9 @@
 		DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
 		DB8A599F26B01E3100842771 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		DB8A59AA26B01E9A00842771 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCoordinator.swift; sourceTree = "<group>"; };
+		DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -361,10 +365,10 @@
 		DB2F8B17269EDA69007020C0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DBDBC76626CEECA200CB839C /* Coordinator */,
 				DB2F8B3A269F5716007020C0 /* Extensions */,
 				DB6F3177269DA973005E7578 /* AppDelegate.swift */,
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
-				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
 				DB2F8BAE26A5E234007020C0 /* AppConstants.swift */,
 				DB2F8BBA26A8B7CF007020C0 /* Utils.swift */,
 			);
@@ -390,7 +394,6 @@
 				DB8A599026B01E3100842771 /* PostList */,
 				DB8A599526B01E3100842771 /* Profile */,
 				DB8A599726B01E3100842771 /* Welcome */,
-				DB8A598D26B01E2400842771 /* HomeTabBar */,
 				DB8A596226AEBEBE00842771 /* Launch */,
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
@@ -711,14 +714,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		DB8A598D26B01E2400842771 /* HomeTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A598E26B01E2400842771 /* HomeTabBarController.swift */,
-			);
-			path = HomeTabBar;
-			sourceTree = "<group>";
-		};
 		DB8A599026B01E3100842771 /* PostList */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +778,17 @@
 				DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		DBDBC76626CEECA200CB839C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
+				DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */,
+				DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */,
+				DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
@@ -1093,6 +1099,7 @@
 				DB2E197326CE7C9B004FF77C /* CheckboxWithLabelView.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
+				DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */,
 				DBFA7C4726C4F9720042D31D /* NavigationBar.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
@@ -1102,7 +1109,6 @@
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBFA7C5D26C835EB0042D31D /* WebPageViewController.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
-				DB8A598F26B01E2400842771 /* HomeTabBarController.swift in Sources */,
 				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
 				DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
@@ -1117,6 +1123,7 @@
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
 				DB2E196526CD6D52004FF77C /* TellStoryPresenter.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
+				DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */,
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
@@ -1135,6 +1142,7 @@
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
+				DBDBC76A26CEEFAD00CB839C /* PostsCoordinator.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
 				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,

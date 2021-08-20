@@ -19,12 +19,12 @@ protocol BasePostPresenterProtocol {
 }
 
 class BasePostPresenter {
-    var router: Router!
-    var useCase: PostUseCaseProtocol!
-    var postId: String!
+    let router: PostsRouter
+    let useCase: PostUseCaseProtocol
+    let postId: String
     private weak var view: BasePostViewProtocol?
     
-    init(router: Router, dependencies: UseCaseProviderProtocol, postId: String) {
+    init(router: PostsRouter, dependencies: UseCaseProviderProtocol, postId: String) {
         self.router = router
         self.useCase = dependencies.postUseCase
         self.postId = postId

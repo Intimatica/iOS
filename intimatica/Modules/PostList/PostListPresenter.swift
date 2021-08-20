@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XCoordinator
 
 protocol PostListPresenterProtocol {
     func viewDidLoad()
@@ -25,8 +26,8 @@ protocol PostListViewProtocol: AnyObject {
 
 final class PostListPresenter {
     // MARK: - Properties
-    private var router: Router!
-    private var useCase: PostUseCaseProtocol!
+    private let router: PostsRouter
+    private let useCase: PostUseCaseProtocol
     weak var view: PostListViewProtocol?
     
     private var favotires: Set<String> = []
@@ -35,7 +36,7 @@ final class PostListPresenter {
     private var idList: [String] = []
 
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol) {
+    init(router: PostsRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         useCase = dependencies.postUseCase
     }
@@ -52,7 +53,7 @@ extension PostListPresenter: PostListPresenterProtocol {
         }
     }
     func tagFilterButtonDidTap() {
-        router.trigger(.tagCloud(self, selectedTags))
+        //router.trigger(.tagCloud(self, selectedTags))
     }
     
     func show(_ post: Post) {

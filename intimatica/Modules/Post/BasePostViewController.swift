@@ -53,6 +53,7 @@ class BasePostViewController: UIViewController {
         let md = MarkdownView()
         md.translatesAutoresizingMaskIntoConstraints = false
         md.isScrollEnabled = false
+        
         return md
     }()
     
@@ -78,18 +79,18 @@ class BasePostViewController: UIViewController {
         setupActions()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        showSpinner()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        showSpinner()
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     // MARK: - Layout
     private func setupView() {
@@ -154,5 +155,16 @@ extension BasePostViewController {
 extension BasePostViewController: BasePostViewProtocol {
     func setIsFavotire(_ isFavorite: Bool) {
         navigationBarView.state = isFavorite ? .active : .inactive
+    }
+}
+
+extension MarkdownView {
+    var htmlURL: URL? {
+        let bundle = Bundle(for: MarkdownView.self)
+        return bundle.url(forResource: "index",
+                          withExtension: "html") ??
+               bundle.url(forResource: "index",
+                          withExtension: "html",
+                          subdirectory: "MarkdownView.bundle")
     }
 }

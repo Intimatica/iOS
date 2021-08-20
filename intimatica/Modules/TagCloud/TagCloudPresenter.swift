@@ -19,14 +19,14 @@ protocol TagCloudPresenterProtocol {
 
 final class TagCloudPresenter {
     // MARK: - Properties
-    private var router: Router!
-    private var postUseCase: PostUseCaseProtocol!
-    private var postListPresenter: PostListPresenterProtocol!
+    private let router: PostsRouter
+    private let postUseCase: PostUseCaseProtocol
+    private let postListPresenter: PostListPresenterProtocol
     private var selectedTags: Set<Int> = []
     weak var view: TagCloudViewProtocol?
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol, postListPresenter: PostListPresenterProtocol, selectedTags: Set<Int>) {
+    init(router: PostsRouter, dependencies: UseCaseProviderProtocol, postListPresenter: PostListPresenterProtocol, selectedTags: Set<Int>) {
         self.router = router
         self.postUseCase = dependencies.postUseCase
         self.postListPresenter = postListPresenter

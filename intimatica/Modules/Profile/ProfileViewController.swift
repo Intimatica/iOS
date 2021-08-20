@@ -27,6 +27,11 @@ final class ProfileViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
+        
+        // TODO refactor
+        tabBarItem = UITabBarItem(title: L10n("PROFILE_TABBAR_ITEM_TITLE"),
+                                  image: UIImage(named: "profile"),
+                                  tag: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -40,12 +45,6 @@ final class ProfileViewController: UIViewController {
         setupView()
         setupConstraints()
         setupAction()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     // MARK: - Layout

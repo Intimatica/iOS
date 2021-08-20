@@ -8,10 +8,10 @@
 import Foundation
 import XCoordinator
 
-enum PostsRoute: Route {
-    case posts
+enum FeedRoute: Route {
+    case feed
     
-    case tagCloud(PostListPresenterProtocol, Set<Int>)
+    case tagCloud(FeedPresenterDelegate, Set<Int>)
     
     case story(String)
     case theory(String)
@@ -23,25 +23,27 @@ enum PostsRoute: Route {
     case tellStoryThanks
 }
 
-final class PostsCoordinator: NavigationCoordinator<PostsRoute> {
+final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     private let useCaseProvider: UseCaseProviderProtocol
+    private let feedSettings: FeedSettings
     
-    init(useCaseProvider: UseCaseProviderProtocol) {
+    init(useCaseProvider: UseCaseProviderProtocol, feedSettings: FeedSettings) {
         self.useCaseProvider = useCaseProvider
+        self.feedSettings = feedSettings
         
-        super.init(initialRoute: .posts)
+        super.init(initialRoute: .feed)
     }
     
-    override func prepareTransition(for route: PostsRoute) -> NavigationTransition {
+    override func prepareTransition(for route: FeedRoute) -> NavigationTransition {
         switch route {
-        case .posts:
-            let presenter = PostListPresenter(router: unownedRouter, dependencies: useCaseProvider)
-            let viewController = PostListViewController(presenter: presenter)
+        case .feed:
+            let presenter = FeedPresenter(router: unownedRouter, dependencies: useCaseProvider)
+            let viewController = FeedViewController(presenter: presenter, feedSettings: feedSettings)
             presenter.view = viewController
             return .push(viewController)
             
-        case .tagCloud(let postListPresenter, let selectedTags):
-            let presenter = TagCloudPresenter(router: unownedRouter, dependencies: useCaseProvider, postListPresenter: postListPresenter, selectedTags: selectedTags)
+        case .tagCloud(let feedPresenter, let selectedTags):
+            let presenter = TagCloudPresenter(router: unownedRouter, dependencies: useCaseProvider, feedPresenter: feedPresenter, selectedTags: selectedTags)
             let viewController = TagCloudViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

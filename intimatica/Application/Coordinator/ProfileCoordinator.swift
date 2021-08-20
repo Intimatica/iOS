@@ -26,7 +26,7 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
         case .initial:
             let presenter = ProfilePresenter(router: unownedRouter, dependencies: useCaseProvider)
             let viewController = ProfileViewController(presenter: presenter)
-            return .present(viewController)
+            return .push(viewController)
         }
     }
 }

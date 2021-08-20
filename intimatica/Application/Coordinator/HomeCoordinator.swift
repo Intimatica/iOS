@@ -16,15 +16,14 @@ enum HomeRoute: Route {
 
 final class HomeCoordinator: TabBarCoordinator<HomeRoute> {
     // MARK: - Properties
-    private let postsRouter: StrongRouter<PostsRoute>
-    private let coursesRouter: StrongRouter<PostsRoute>
+    private let postsRouter: StrongRouter<FeedRoute>
+    private let coursesRouter: StrongRouter<FeedRoute>
     private let profileRouter: StrongRouter<ProfileRoute>
-    
     
     // MARK: - Initializers
     init(useCaseProvider: UseCaseProviderProtocol) {
-        postsRouter = PostsCoordinator(useCaseProvider: useCaseProvider).strongRouter
-        coursesRouter = PostsCoordinator(useCaseProvider: useCaseProvider).strongRouter
+        postsRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: PostFeedSettings()).strongRouter
+        coursesRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: CourseFeedSettings()).strongRouter
         profileRouter = ProfileCoordinator(useCaseProvider: useCaseProvider).strongRouter
         
         super.init(initialRoute: .posts)

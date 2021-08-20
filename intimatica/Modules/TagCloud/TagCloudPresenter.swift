@@ -21,15 +21,15 @@ final class TagCloudPresenter {
     // MARK: - Properties
     private let router: PostsRouter
     private let postUseCase: PostUseCaseProtocol
-    private let postListPresenter: PostListPresenterProtocol
+    weak var feedPresenter: FeedPresenterDelegate?
     private var selectedTags: Set<Int> = []
     weak var view: TagCloudViewProtocol?
     
     // MARK: - Initializers
-    init(router: PostsRouter, dependencies: UseCaseProviderProtocol, postListPresenter: PostListPresenterProtocol, selectedTags: Set<Int>) {
+    init(router: PostsRouter, dependencies: UseCaseProviderProtocol, feedPresenter: FeedPresenterDelegate, selectedTags: Set<Int>) {
         self.router = router
         self.postUseCase = dependencies.postUseCase
-        self.postListPresenter = postListPresenter
+        self.feedPresenter = feedPresenter
         self.selectedTags = selectedTags
     }
 }
@@ -52,7 +52,7 @@ extension TagCloudPresenter: TagCloudPresenterProtocol {
     }
     
     func showButtonDidTap(selectedTags: Set<Int>) {
-        postListPresenter.setSelectedTags(selectedTags)
+        feedPresenter?.setSelectedTags(selectedTags)
         view?.dismiss()
     }
 }

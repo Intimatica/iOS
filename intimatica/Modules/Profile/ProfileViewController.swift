@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     // MARK: - Properties
-    private var presenter: ProfilePresenterProtocol!
+    private let presenter: ProfilePresenterProtocol
     
     private lazy var logoutButton: UIRoundedButton = {
         let button = UIRoundedButton()
@@ -24,14 +24,13 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Initializers
     init(presenter: ProfilePresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
         
-        // TODO refactor
+        super.init(nibName: nil, bundle: nil)
+
         tabBarItem = UITabBarItem(title: L10n("PROFILE_TABBAR_ITEM_TITLE"),
                                   image: UIImage(named: "profile"),
-                                  tag: 0)
+                                  tag: 3)    
     }
     
     required init?(coder: NSCoder) {

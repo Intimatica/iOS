@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PostListViewController: UIViewController {
+class FeedViewController: UIViewController {
     // MARK: - Properties
-    private var presenter: PostListPresenterProtocol!
+    private var presenter: FeedPresenterDelegate!
     private var favorites: Set<String> = []
     private var posts: [Post] = []
     private let postCellIdentifier = "postCellIdentifier"
@@ -85,16 +85,16 @@ class PostListViewController: UIViewController {
     }()
     
     // MARK: - Initializers
-    init(presenter: PostListPresenterProtocol) {
+    init(presenter: FeedPresenterDelegate, feedSettings: FeedSettings) {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
         
-        // TODO refactor
-        // COURSES_TABBAR_ITEM_TITLE
-        tabBarItem = UITabBarItem(title: L10n("POST_LIST_TABBAR_ITEM_TITLE"),
-                                  image: UIImage(named: "main"),
+        tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
+                                  image: UIImage(named: feedSettings.tabBarImageName),
                                   tag: 0)
+        tabBarController?.tabBar.tintColor = .appPurple
+        tabBarController?.tabBar.unselectedItemTintColor = .black
     }
 
     required init?(coder: NSCoder) {
@@ -116,6 +116,8 @@ class PostListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.items
         
         navigationController?.navigationBar.barTintColor = .appPurple
         navigationController?.navigationBar.isTranslucent = false
@@ -171,7 +173,7 @@ class PostListViewController: UIViewController {
 }
 
 // MARK: - Helper/Constraints
-extension PostListViewController {
+extension FeedViewController {
     struct Constants {
         static let topBackgroundViewHeight: CGFloat = 150
         
@@ -186,14 +188,14 @@ extension PostListViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension PostListViewController: UITableViewDelegate {
+extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.show(posts[indexPath.row])
     }
 }
 
 // MARK: - UITableViewDataSource
-extension PostListViewController: UITableViewDataSource {
+extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
     }
@@ -227,7 +229,7 @@ extension PostListViewController: UITableViewDataSource {
 }
 
 // MARK: - BaseTableViewCellDelegate
-extension PostListViewController: BaseTableViewCellDelegate {
+extension FeedViewController: BaseTableViewCellDelegate {
     func addToFavorites(by indexPath: IndexPath) {
         presenter.addToFavorites(posts[indexPath.row].id)
     }
@@ -244,7 +246,7 @@ extension PostListViewController: BaseTableViewCellDelegate {
 }
 
 // MARK: - MainViewProtocol
-extension PostListViewController: PostListViewProtocol {
+extension FeedViewController: FeedViewDelegate {
     func setFavorites(_ favorites: Set<String>) {
         self.favorites = favorites
     }
@@ -256,7 +258,7 @@ extension PostListViewController: PostListViewProtocol {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension PostListViewController: UICollectionViewDelegateFlowLayout {
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let referenceSize = (categoryFilterItems[indexPath.row] as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .regular, fontWeight: .medium)])
@@ -277,7 +279,7 @@ extension PostListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDelegate
-extension PostListViewController: UICollectionViewDelegate {
+extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard selectedCategoryIndexPath != indexPath else {
             return
@@ -303,7 +305,7 @@ extension PostListViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
-extension PostListViewController: UICollectionViewDataSource {
+extension FeedViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }

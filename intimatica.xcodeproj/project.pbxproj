@@ -95,7 +95,7 @@
 		DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598226AF4AE900842771 /* ServiceProvider.swift */; };
 		DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598726AF6CB100842771 /* RepositoryProvider.swift */; };
 		DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */; };
-		DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* PostListViewController.swift */; };
+		DB8A59A026B01E3100842771 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599126B01E3100842771 /* FeedViewController.swift */; };
 		DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* BaseTableViewCell.swift */; };
 		DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* LabelWithBackground.swift */; };
 		DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599626B01E3100842771 /* ProfileViewController.swift */; };
@@ -103,13 +103,14 @@
 		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
 		DB8A59AB26B01E9A00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AA26B01E9A00842771 /* Post.swift */; };
 		DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */; };
-		DBDBC76A26CEEFAD00CB839C /* PostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */; };
+		DBDBC76A26CEEFAD00CB839C /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76926CEEFAD00CB839C /* FeedCoordinator.swift */; };
 		DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */; };
 		DBDBC77026CFC11100CB839C /* RightBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76F26CFC11100CB839C /* RightBarButtonItem.swift */; };
+		DBDBC77226CFDB4700CB839C /* FeedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77126CFDB4700CB839C /* FeedSettings.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
-		DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */; };
+		DBF99D4426B07ECB00E04D40 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4326B07ECB00E04D40 /* FeedPresenter.swift */; };
 		DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4526B0833600E04D40 /* GraphqlService.swift */; };
 		DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4726B1439900E04D40 /* PostRepository.swift */; };
 		DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4926B1464700E04D40 /* PostUseCase.swift */; };
@@ -239,7 +240,7 @@
 		DB8A598226AF4AE900842771 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		DB8A598726AF6CB100842771 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		DB8A598A26AF6FFC00842771 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
-		DB8A599126B01E3100842771 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		DB8A599126B01E3100842771 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DB8A599326B01E3100842771 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DB8A599426B01E3100842771 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
 		DB8A599626B01E3100842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -250,13 +251,14 @@
 		DB8A599F26B01E3100842771 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		DB8A59AA26B01E9A00842771 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCoordinator.swift; sourceTree = "<group>"; };
+		DBDBC76926CEEFAD00CB839C /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		DBDBC76F26CFC11100CB839C /* RightBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBarButtonItem.swift; sourceTree = "<group>"; };
+		DBDBC77126CFDB4700CB839C /* FeedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSettings.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListPresenter.swift; sourceTree = "<group>"; };
+		DBF99D4326B07ECB00E04D40 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		DBF99D4526B0833600E04D40 /* GraphqlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphqlService.swift; sourceTree = "<group>"; };
 		DBF99D4726B1439900E04D40 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		DBF99D4926B1464700E04D40 /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
@@ -389,7 +391,7 @@
 				DBFA7C5B26C835AC0042D31D /* WebPage */,
 				DBFA7C4A26C504F10042D31D /* TagCloud */,
 				DBF99D5C26B2C7F500E04D40 /* Post */,
-				DB8A599026B01E3100842771 /* PostList */,
+				DB8A599026B01E3100842771 /* Feed */,
 				DB8A599526B01E3100842771 /* Profile */,
 				DB8A599726B01E3100842771 /* Welcome */,
 				DB8A596226AEBEBE00842771 /* Launch */,
@@ -712,15 +714,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		DB8A599026B01E3100842771 /* PostList */ = {
+		DB8A599026B01E3100842771 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				DBF99D4B26B2902F00E04D40 /* TableViewCell */,
 				DB2E195226CA4AF2004FF77C /* CollectionViewCell */,
-				DB8A599126B01E3100842771 /* PostListViewController.swift */,
-				DBF99D4326B07ECB00E04D40 /* PostListPresenter.swift */,
+				DB8A599126B01E3100842771 /* FeedViewController.swift */,
+				DBF99D4326B07ECB00E04D40 /* FeedPresenter.swift */,
 			);
-			path = PostList;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		DB8A599526B01E3100842771 /* Profile */ = {
@@ -773,6 +775,7 @@
 			children = (
 				DB8A59AA26B01E9A00842771 /* Post.swift */,
 				DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */,
+				DBDBC77126CFDB4700CB839C /* FeedSettings.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -782,7 +785,7 @@
 			children = (
 				DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */,
 				DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */,
-				DBDBC76926CEEFAD00CB839C /* PostsCoordinator.swift */,
+				DBDBC76926CEEFAD00CB839C /* FeedCoordinator.swift */,
 				DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -1063,6 +1066,7 @@
 				DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */,
+				DBDBC77226CFDB4700CB839C /* FeedSettings.swift in Sources */,
 				DB3C566E26C10E1E0087663E /* PremiumCourseLabel.swift in Sources */,
 				DB2F8BC626A97CB1007020C0 /* AgeConfirmPresenter.swift in Sources */,
 				DB3C566A26BD2FEE0087663E /* VideoView.swift in Sources */,
@@ -1090,7 +1094,7 @@
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
 				DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */,
-				DBF99D4426B07ECB00E04D40 /* PostListPresenter.swift in Sources */,
+				DBF99D4426B07ECB00E04D40 /* FeedPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
@@ -1098,7 +1102,7 @@
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBFA7C5D26C835EB0042D31D /* WebPageViewController.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
-				DB8A59A026B01E3100842771 /* PostListViewController.swift in Sources */,
+				DB8A59A026B01E3100842771 /* FeedViewController.swift in Sources */,
 				DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
 				DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */,
@@ -1130,7 +1134,7 @@
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,
 				DB2F8B37269F4345007020C0 /* UIViewController+Utils.swift in Sources */,
-				DBDBC76A26CEEFAD00CB839C /* PostsCoordinator.swift in Sources */,
+				DBDBC76A26CEEFAD00CB839C /* FeedCoordinator.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
 				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,

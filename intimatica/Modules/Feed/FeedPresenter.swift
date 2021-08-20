@@ -8,7 +8,7 @@
 import Foundation
 import XCoordinator
 
-protocol PostListPresenterProtocol {
+protocol FeedPresenterDelegate: AnyObject {
     func viewDidLoad()
     func tagFilterButtonDidTap()
     func show(_ post: Post)
@@ -19,16 +19,16 @@ protocol PostListPresenterProtocol {
     func removeFromFavotires(_ id: String)
 }
 
-protocol PostListViewProtocol: AnyObject {
+protocol FeedViewDelegate: AnyObject {
     func setFavorites(_ favorites: Set<String>)
     func setPosts(_ posts: [Post])
 }
 
-final class PostListPresenter {
+final class FeedPresenter {
     // MARK: - Properties
     private let router: PostsRouter
     private let useCase: PostUseCaseProtocol
-    weak var view: PostListViewProtocol?
+    weak var view: FeedViewDelegate?
     
     private var favotires: Set<String> = []
     private var selectedTags: Set<Int> = []
@@ -43,7 +43,7 @@ final class PostListPresenter {
 }
 
 // MARK: - MainPresenterProtocol
-extension PostListPresenter: PostListPresenterProtocol {
+extension FeedPresenter: FeedPresenterDelegate {
     func viewDidLoad() {
         favotires = useCase.getFavorites()
         view?.setFavorites(favotires)

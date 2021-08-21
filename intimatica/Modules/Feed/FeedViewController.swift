@@ -116,9 +116,7 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tabBarController?.tabBar.items
-        
+                
         navigationController?.navigationBar.barTintColor = .appPurple
         navigationController?.navigationBar.isTranslucent = false
     }

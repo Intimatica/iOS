@@ -82,11 +82,10 @@ class BaseTableViewCell: UITableViewCell {
     
     // MARK: - Layout
     func setupView() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         selectionStyle = .none
         
-        view.addSubview(postView)
+        contentView.addSubview(postView)
         postView.addSubview(backgroundImageView)
         postView.addSubview(postLabelView)
         postView.addSubview(tagStackView)

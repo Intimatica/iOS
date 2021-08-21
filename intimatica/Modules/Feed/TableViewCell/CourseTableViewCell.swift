@@ -42,10 +42,10 @@ class CourseTableViewCell: BaseTableViewCell {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            postView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.postViewLeadingTrailing),
-            postView.topAnchor.constraint(equalTo: view.topAnchor),
-            postView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.postViewLeadingTrailing),
-            postView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.postViewSpacing),
+            postView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.postViewLeadingTrailing),
+            postView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            postView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.postViewLeadingTrailing),
+            postView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.postViewSpacing),
             
             backgroundImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
             backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),

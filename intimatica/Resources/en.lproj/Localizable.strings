@@ -98,3 +98,13 @@ TELL_STORY_THANKS_TITLE = "Спасибо!";
 TELL_STORY_THANKS_SUBTITLE = "Твоя история отправлена. Жди комментарий специалиста.\n\nИстория и комментарий к ней появится в твоем профиле.";
 TELL_STORY_THANKS_INFO = "";
 TELL_STORY_THANKS_BUTTON_TITLE = "Буду ждать ответ специалиста";
+
+// ProfileViewController
+PROFILE = "Профиль";
+EDIT_PROFILE_BUTTON_TITLE = "Редактировать профиль";
+APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Оформить премиум";
+PROFILE_TABLE_TITLE = "Мои истории";
+
+TAG_LABEL_PRIVATE = "ПРИВАТНАЯ";
+TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
+TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";

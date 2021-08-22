@@ -26,7 +26,7 @@ enum AppRoute: Route {
     case dismiss
 }
 
-final class AppCoordinator: NavigationCoordinator<AppRoute> {
+final class AppCoordinator: SplitCoordinator<AppRoute> {
     
     private let useCaseProvider = UseCaseProvider()
     
@@ -34,18 +34,20 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         super.init(initialRoute: .launch)
     }
     
-    override func prepareTransition(for route: AppRoute) -> NavigationTransition {
+    override func prepareTransition(for route: AppRoute) -> SplitTransition {
         switch route {
         
         case .launch:
             let presenter = LaunchPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = LaunchViewController(presenter: presenter)
-            return .set([viewController])
+            viewController.modalPresentationStyle = .fullScreen
+            return .present(viewController)
             
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
             let viewController = AgeConfirmViewController(presenter: presenter)
-            return .set([viewController])
+            viewController.modalPresentationStyle = .fullScreen
+            return .present(viewController)
         
         case .terms:
             let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: TermsQuery())
@@ -62,7 +64,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)
             let viewController = WelcomeViewController(presenter: presenter)
-            return .set([viewController])
+            return .present(viewController)
             
         case .signUp:
             let presenter = SignUpPresenter(router: strongRouter, dependencies: useCaseProvider)
@@ -80,6 +82,7 @@ final class AppCoordinator: NavigationCoordinator<AppRoute> {
             let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider)
             coordinator.rootViewController.modalPresentationStyle = .fullScreen
             return .present(coordinator)
+
 
         case .dismiss:
             return .dismiss()

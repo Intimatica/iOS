@@ -132,7 +132,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupAction() {
-        logoutButton.addAction { [weak self] in
+        profileView.premiumButton.addAction { [weak self] in
             self?.presenter.logoutButtonDidTap()
         }
     }

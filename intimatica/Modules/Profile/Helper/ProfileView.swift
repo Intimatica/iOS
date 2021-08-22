@@ -30,7 +30,7 @@ final class ProfileView: UIView {
     private lazy var emailLabel: UILabel = UILabel(font: .rubik(fontSize: .regular, fontWeight: .regular),
                                                    textColor: .white)
     
-    private lazy var editProfileButton: UIRoundedButton = {
+    lazy var editProfileButton: UIRoundedButton = {
         let button = UIRoundedButton(title: L10n("EDIT_PROFILE_BUTTON_TITLE"),
                                      titleColor: .white,
                                      font: .rubik(fontSize: .regular, fontWeight: .bold),
@@ -41,7 +41,7 @@ final class ProfileView: UIView {
         return button
     }()
     
-    private lazy var premiumButton: UIRoundedButton = {
+    lazy var premiumButton: UIRoundedButton = {
         let button = UIRoundedButton(title: L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"),
                                      titleColor: .black,
                                      font: .rubik(fontSize: .regular, fontWeight: .bold),

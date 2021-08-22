@@ -21,13 +21,14 @@ final class ProfilePresenter {
     // MARK: - Properties
     private let router: ProfileRouter
     private let useCase: GraphQLUseCaseProtocol
+    private let authUseCase: AuthUseCaseProtocol
     weak var view: ProfileViewDelegate?
-//    private let authUseCase: AuthUseCaseProtocol
-    
+
     // MARK: - Initializers
     init(router: ProfileRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.graphQLUseCase
+        self.authUseCase = dependencies.authUseCase
     }
 }
 
@@ -48,8 +49,8 @@ extension ProfilePresenter: ProfilePresenterDelegate {
     }
     
     func logoutButtonDidTap() {
-//        authUseCase.signOut()
-//        router.trigger(.ageConfirm)
+        authUseCase.signOut()
+//        router.trigger()
     }
 }
 

@@ -18,7 +18,7 @@ protocol HasGrapQLRepositoryProtocol {
 }
 
 class GraphQLRepository: GraphQLRepositoryProtocol {
-    private var graphQLService: GraphqlServiceProtocol!
+    private let graphQLService: GraphqlServiceProtocol
     
     init(dependencies: ServiceProviderProtocol) {
         graphQLService = dependencies.graphqlService

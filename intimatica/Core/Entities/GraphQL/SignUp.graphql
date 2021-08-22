@@ -1,0 +1,10 @@
+mutation SignUp($email: String!, $password: String!) {
+  register(input: {username: $email, email: $email, password: $password }) {
+    jwt
+    user {
+      id
+      username
+      email
+    }
+  }
+}

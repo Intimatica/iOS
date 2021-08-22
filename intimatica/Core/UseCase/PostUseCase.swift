@@ -25,7 +25,7 @@ protocol HasPostUseCaseProtocol {
 
 final class PostUseCase: PostUseCaseProtocol {
     // MARK: - Properties
-    private let postRepository: PostRepositoryProtocol!
+    private let postRepository: PostRepositoryProtocol
     
     // MARK: - Initializers
     init(dependencies: RepositoryProviderProtocol) {

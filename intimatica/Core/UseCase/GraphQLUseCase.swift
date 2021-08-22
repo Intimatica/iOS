@@ -18,7 +18,7 @@ protocol HasGraphQLUseCaseProtocol {
 }
 
 class GraphQLUseCase: GraphQLUseCaseProtocol {
-    private var graphQLRepository: GraphQLRepositoryProtocol!
+    private let graphQLRepository: GraphQLRepositoryProtocol
     
     init(dependencies: RepositoryProviderProtocol) {
         graphQLRepository = dependencies.graphQLRepository

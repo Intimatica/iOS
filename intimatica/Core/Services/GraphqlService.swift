@@ -11,6 +11,7 @@ import Apollo
 typealias TagsCompletionHandler = (Result<GraphQLResult<TagsQuery.Data>, Error>) -> Void
 
 protocol GraphqlServiceProtocol {
+    func setAuthToken(_ token: String)
     func fetch<T: GraphQLQuery>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
     func perform<T: GraphQLMutation>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
     
@@ -24,6 +25,32 @@ protocol HasGraphqlServiceProtocol {
 }
 
 class GraphqlService: GraphqlServiceProtocol {
+    private lazy var apollo = ApolloClient(
+        networkTransport: RequestChainNetworkTransport(
+            interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
+            endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
+            autoPersistQueries: false,
+            requestBodyCreator: ApolloRequestBodyCreator(),
+            useGETForQueries: false,
+            useGETForPersistedQueryRetry: false),
+        store: ApolloStore())
+    
+    
+    // TODO refactor this
+    // https://www.apollographql.com/docs/ios/tutorial/tutorial-authentication/#define-login-logic
+    func setAuthToken(_ token: String) {
+        apollo = ApolloClient(
+            networkTransport: RequestChainNetworkTransport(
+                interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
+                endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
+                additionalHeaders: ["Authorization": "Bearer \(token)"],
+                autoPersistQueries: false,
+                requestBodyCreator: ApolloRequestBodyCreator(),
+                useGETForQueries: false,
+                useGETForPersistedQueryRetry: false),
+            store: ApolloStore())
+    }
+    
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLQuery {
         apollo.fetch(query: query, resultHandler: completionHandler)
     }
@@ -31,18 +58,7 @@ class GraphqlService: GraphqlServiceProtocol {
     func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {
         apollo.perform(mutation: mutaion, resultHandler: completionHandler)
     }
-     
-    private(set) lazy var apollo = ApolloClient(
-        networkTransport: RequestChainNetworkTransport(
-            interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
-            endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
-            additionalHeaders: ["Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4ODQ5MjAxLCJleHAiOjE2MzE0NDEyMDF9.kLtmRJhVdQ98rK-APbc4kk70imA3ezRA8vNyGKEldPQ"],
-            autoPersistQueries: false,
-            requestBodyCreator: ApolloRequestBodyCreator(),
-            useGETForQueries: false,
-            useGETForPersistedQueryRetry: false),
-        store: ApolloStore())
-    
+
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
         apollo.fetch(query: PostsQuery(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList)) { [weak self] result in
               guard let self = self else { return }

@@ -32,17 +32,20 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             return
         }
         
-        useCase.signIn(email: userCredentials.email, password: userCredentials.password) { [weak self] result in
+        useCase.perform(mutaion: SignInMutation(email: userCredentials.email, password: userCredentials.password)) { [weak self] result in
             guard let self = self else { return }
             
             switch(result) {
-            case .success(let user):
-                print(user.jwt)
-                self.router.trigger(.home)
+            case .success(let graphQLResult):
+                if let token = graphQLResult.data?.login.jwt {
+                    self.useCase.setAuthToken(token)
+                    self.router.trigger(.home)
+                } else {
+                    self.router.trigger(.ageConfirm)
+                }
             case .failure(_):
                 self.router.trigger(.ageConfirm)
             }
         }
-        
     }
 }

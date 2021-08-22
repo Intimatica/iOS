@@ -110,6 +110,8 @@
 		DBDBC77426D13CB400CB839C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77326D13CB400CB839C /* ProfileView.swift */; };
 		DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77626D159F000CB839C /* StoryTableViewCell.swift */; };
 		DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */; };
+		DBDBC77D26D2150F00CB839C /* SignIn.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77C26D2150F00CB839C /* SignIn.graphql */; };
+		DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77E26D2162C00CB839C /* SignUp.graphql */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -261,6 +263,8 @@
 		DBDBC77326D13CB400CB839C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBDBC77626D159F000CB839C /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTagStackView.swift; sourceTree = "<group>"; };
+		DBDBC77C26D2150F00CB839C /* SignIn.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignIn.graphql; sourceTree = "<group>"; };
+		DBDBC77E26D2162C00CB839C /* SignUp.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignUp.graphql; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -838,6 +842,8 @@
 				DBFA7C6626C85D570042D31D /* Conditions.graphql */,
 				DB2E195A26CBE962004FF77C /* StoryPost.graphql */,
 				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
+				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
+				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -993,7 +999,9 @@
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
 				DB2F8B9326A371B9007020C0 /* Rubik-Black.ttf in Resources */,
 				DB2E196D26CE4ACD004FF77C /* UserStory.graphql in Resources */,
+				DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */,
 				DB2F8B9026A371B9007020C0 /* Rubik-Medium.ttf in Resources */,
+				DBDBC77D26D2150F00CB839C /* SignIn.graphql in Resources */,
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,

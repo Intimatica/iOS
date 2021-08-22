@@ -10,17 +10,17 @@ import Foundation
 protocol FeedSettings {
     var tabBarTitle: String { get }
     var tabBarImageName: String { get }
-    var categories: [FeedCategoryFilter] { get }
+    var categories: [FeedCategory] { get }
 }
 
 struct PostFeedSettings: FeedSettings {
     let tabBarTitle = L10n("POST_LIST_TABBAR_ITEM_TITLE")
     let tabBarImageName = "posts"
-    let categories: [FeedCategoryFilter] = [.all, .theory, .story, .video, .favorite]
+    let categories: [FeedCategory] = [.all, .theory, .story, .video, .favorite]
 }
 
 struct CourseFeedSettings: FeedSettings {
     let tabBarTitle = L10n("COURSES_TABBAR_ITEM_TITLE")
     let tabBarImageName = "courses"
-    let categories: [FeedCategoryFilter] = [.all, .favorite]
+    let categories: [FeedCategory] = [.allCourses, .myCourses]
 }

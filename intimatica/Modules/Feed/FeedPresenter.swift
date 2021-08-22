@@ -12,7 +12,7 @@ protocol FeedPresenterDelegate: AnyObject {
     func viewDidLoad()
     func tagFilterButtonDidTap()
     func show(_ post: Post)
-    func filter(by category: FeedCategoryFilter)
+    func filter(by category: FeedCategory)
     func setSelectedTags(_ tags: Set<Int>)
     
     func addToFavorites(_ id: String)
@@ -47,10 +47,6 @@ extension FeedPresenter: FeedPresenterDelegate {
     func viewDidLoad() {
         favotires = useCase.getFavorites()
         view?.setFavorites(favotires)
-        
-        useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: []) { [weak self] posts in
-            self?.view?.setPosts(posts)
-        }
     }
     func tagFilterButtonDidTap() {
         router.trigger(.tagCloud(self, selectedTags))
@@ -69,7 +65,7 @@ extension FeedPresenter: FeedPresenterDelegate {
         }
     }
     
-    func filter(by category: FeedCategoryFilter) {
+    func filter(by category: FeedCategory) {
         idList = []
         
         switch category {
@@ -84,9 +80,14 @@ extension FeedPresenter: FeedPresenterDelegate {
         case .favorite:
             postTypeIdList = []
             idList = Array(favotires)
+        case .allCourses:
+            postTypeIdList = [4]
+        case .myCourses:
+            postTypeIdList = [4]
+            idList = Array(favotires)
         }
         
-        if category == .favorite && favotires.isEmpty {
+        if (category == .favorite || category == .myCourses) && favotires.isEmpty {
             self.view?.setPosts([])
         } else {
             useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: idList) { [weak self] posts in

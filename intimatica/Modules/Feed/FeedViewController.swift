@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         return view
     }()
     
-    private var categoryFilterItems: [FeedCategoryFilter] = []
+    private var categoryItems: [FeedCategory] = []
     private let collectionCellID = "collectionCellID"
     private var selectedCategoryIndexPath = IndexPath(item: 0, section: 0)
     
@@ -85,7 +85,7 @@ class FeedViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
-        self.categoryFilterItems = feedSettings.categories
+        self.categoryItems = feedSettings.categories
         
         tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
                                   image: UIImage(named: feedSettings.tabBarImageName),
@@ -106,7 +106,8 @@ class FeedViewController: UIViewController {
         setupConstraints()
         setupActions()
         
-//        presenter.viewDidLoad()
+        // QUESION: how to update cell in case of changing favorite state in post view. Delegate?
+        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,12 +123,10 @@ class FeedViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // QUESION: how to update cell in case of changing favorite state in post view
-        presenter.viewDidLoad()
-        
+
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
+        presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
     }
     
     // MARK: - Layout
@@ -149,7 +148,7 @@ class FeedViewController: UIViewController {
             
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.categoryFilterViewLeading),
             categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.categoryFilterViewTop),
-            categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.categoryFilterViewLeading),
             categoryCollectionView.heightAnchor.constraint(equalToConstant: Constants.categoryFilterViewHeight),
             
             underlineView.leadingAnchor.constraint(equalTo: categoryCollectionView.leadingAnchor),
@@ -239,7 +238,8 @@ extension FeedViewController: BaseTableViewCellDelegate {
     func removeFromFavorites(by indexPath: IndexPath) {
         presenter.removeFromFavotires(posts[indexPath.row].id)
         
-        if categoryFilterItems[selectedCategoryIndexPath.row] == .favorite {
+        let category = categoryItems[selectedCategoryIndexPath.row]
+        if category == .favorite || category == .myCourses {
             posts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
@@ -263,7 +263,7 @@ extension FeedViewController: FeedViewDelegate {
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let referenceSize = (categoryFilterItems[indexPath.row].rawValue as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .regular, fontWeight: .medium)])
+        let referenceSize = (categoryItems[indexPath.row].rawValue as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .regular, fontWeight: .medium)])
         return .init(width: referenceSize.width + 2, height: referenceSize.height + CategoryCollectionViewCell.Constants.nameLabelTop)
     }
 }
@@ -278,7 +278,7 @@ extension FeedViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
         
-        let category = categoryFilterItems[indexPath.row]
+        let category = categoryItems[indexPath.row]
         
         presenter.filter(by: category)
         
@@ -298,7 +298,7 @@ extension FeedViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categoryFilterItems.count
+        categoryItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -307,7 +307,7 @@ extension FeedViewController: UICollectionViewDataSource {
             fatalError("Failed to dequeue collection cell with id \(collectionCellID) for indexPath \(indexPath)")
         }
         
-        cell.fill(by: categoryFilterItems[indexPath.row].rawValue)
+        cell.fill(by: categoryItems[indexPath.row].rawValue)
         return cell
     }
 }

@@ -26,6 +26,8 @@ class FeedViewController: UIViewController {
     private let collectionCellID = "collectionCellID"
     private var selectedCategoryIndexPath = IndexPath(item: 0, section: 0)
     
+    private lazy var underlineView = SpacerView(height: 1, backgroundColor: .init(hex: 0x9A69FF))
+    
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -52,8 +54,6 @@ class FeedViewController: UIViewController {
         
         return collection
     }()
-    
-    private lazy var underlineView = SpacerView(height: 1, backgroundColor: .init(hex: 0x9A69FF))
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -131,7 +131,9 @@ class FeedViewController: UIViewController {
 
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
+        
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
+        showSpinner(frame: tableView.frame, opacity: 0)
     }
     
     // MARK: - Layout
@@ -163,7 +165,7 @@ class FeedViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.tableViewTop),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.tableViewLeadingTrailing),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -264,6 +266,8 @@ extension FeedViewController: FeedViewDelegate {
     func setPosts(_ posts: [Post]) {
         self.posts = posts
         tableView.reloadData()
+        
+        hideSpinner()
     }
     
     func setHasSelectedTags(to has: Bool) {
@@ -299,6 +303,7 @@ extension FeedViewController: UICollectionViewDelegate {
         let category = categoryItems[indexPath.row]
         
         presenter.filter(by: category)
+        showSpinner(frame: tableView.frame, opacity: 0)
         
         let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         selectedCell.setState(.normal)

@@ -93,8 +93,6 @@ class FeedViewController: UIViewController {
         tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
                                   image: UIImage(named: feedSettings.tabBarImageName),
                                   tag: 0)
-        tabBarController?.tabBar.tintColor = .appPurple
-        tabBarController?.tabBar.unselectedItemTintColor = .black
     }
 
     required init?(coder: NSCoder) {
@@ -119,6 +117,10 @@ class FeedViewController: UIViewController {
                 
         navigationController?.navigationBar.barTintColor = .appPurple
         navigationController?.navigationBar.isTranslucent = false
+        
+        tabBarController?.tabBar.tintColor = .appPurple
+        tabBarController?.tabBar.unselectedItemTintColor = .black
+        tabBarController?.tabBar.isTranslucent = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

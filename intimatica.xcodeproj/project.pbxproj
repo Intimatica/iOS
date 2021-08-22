@@ -131,7 +131,7 @@
 		DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7126B4344400E04D40 /* AvatarImageView.swift */; };
 		DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7326B495E000E04D40 /* SpacerView.swift */; };
 		DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */; };
-		DBFA7C3D26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */; };
+		DBFA7C3D26C3E3330042D31D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3C26C3E3330042D31D /* CategoryCollectionViewCell.swift */; };
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
 		DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */; };
 		DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4126C465690042D31D /* ProfilePresenter.swift */; };
@@ -284,7 +284,7 @@
 		DBF99D7126B4344400E04D40 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		DBF99D7326B495E000E04D40 /* SpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerView.swift; sourceTree = "<group>"; };
 		DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utils.swift"; sourceTree = "<group>"; };
-		DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBFA7C3C26C3E3330042D31D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCaterotyFilter.swift; sourceTree = "<group>"; };
 		DBFA7C4126C465690042D31D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "../UIView+Utils.swift"; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		DB2E195226CA4AF2004FF77C /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA7C3C26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift */,
+				DBFA7C3C26C3E3330042D31D /* CategoryCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -1103,7 +1103,7 @@
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
-				DBFA7C3D26C3E3330042D31D /* CategoryFilterCollectionViewCell.swift in Sources */,
+				DBFA7C3D26C3E3330042D31D /* CategoryCollectionViewCell.swift in Sources */,
 				DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */,

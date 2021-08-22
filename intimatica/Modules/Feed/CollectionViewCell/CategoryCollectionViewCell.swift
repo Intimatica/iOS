@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryFilterCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     enum State {
         case normal
         case selected
@@ -40,10 +40,15 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//        let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
+//        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+//        return layoutAttributes
+//    }
+    
     // MARK: - Layout
     private func setupView() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        
 //        layer.borderWidth = 1
 //        layer.borderColor = UIColor.red.cgColor
         
@@ -53,11 +58,6 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
             headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -78,14 +78,16 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         switch state {
         case .normal:
             headerView.isHidden = true
+            nameLabel.textColor = .init(hex: 0xB38EFF)
         case .selected:
             headerView.isHidden = false
+            nameLabel.textColor = .appYellow
         }
     }
 }
 
 // MARK: - Helper/Constants
-extension CategoryFilterCollectionViewCell {
+extension CategoryCollectionViewCell {
     struct Constants {
         static let headerViewHeight: CGFloat = 3
         static let nameLabelTop: CGFloat = 10

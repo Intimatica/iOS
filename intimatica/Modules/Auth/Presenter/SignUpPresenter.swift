@@ -34,7 +34,6 @@ extension SignUpPresenter: SignUpPresenterProtocol {
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
                 self.useCase.setAuthToken(authResponse.jwt)
                 self.router.trigger(.home)
-//                self.view?.dismiss()
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))
             }

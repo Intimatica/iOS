@@ -15,13 +15,11 @@ enum FieldType {
 }
 
 protocol AuthPresenterProtocol {
-    func closeButtonDidTap()
     func doAuthButtonDidTap(email : String, password: String)
     func validate(_ field: FieldType, with value: String?)
 }
 
 protocol AuthViewProtocol: AnyObject {
-    func dismiss()
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
     func showNotification(_ message: String)
@@ -129,9 +127,5 @@ class AuthPresenter {
 // MARK: - AuthPresenterProtocol
 extension AuthPresenter: AuthPresenterProtocol {
     @objc func doAuthButtonDidTap(email: String, password: String) {
-    }
-    
-    func closeButtonDidTap() {
-        router.trigger(.dismiss)
     }
 }

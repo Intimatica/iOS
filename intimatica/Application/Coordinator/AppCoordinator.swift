@@ -26,28 +26,28 @@ enum AppRoute: Route {
     case dismiss
 }
 
-final class AppCoordinator: SplitCoordinator<AppRoute> {
+final class AppCoordinator: ViewCoordinator<AppRoute> {
     
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(initialRoute: .launch)
+        super.init(rootViewController: UIViewController(), initialRoute: .launch)
     }
     
-    override func prepareTransition(for route: AppRoute) -> SplitTransition {
+    override func prepareTransition(for route: AppRoute) -> ViewTransition {
         switch route {
         
         case .launch:
             let presenter = LaunchPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = LaunchViewController(presenter: presenter)
             viewController.modalPresentationStyle = .fullScreen
-            return .present(viewController)
+            return .show(viewController)
             
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)
             let viewController = AgeConfirmViewController(presenter: presenter)
             viewController.modalPresentationStyle = .fullScreen
-            return .present(viewController)
+            return .show(viewController)
         
         case .terms:
             let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: TermsQuery())
@@ -64,6 +64,7 @@ final class AppCoordinator: SplitCoordinator<AppRoute> {
         case .welcome:
             let presenter = WelcomePresenter(router: strongRouter)
             let viewController = WelcomeViewController(presenter: presenter)
+            viewController.modalPresentationStyle = .fullScreen
             return .present(viewController)
             
         case .signUp:
@@ -82,7 +83,6 @@ final class AppCoordinator: SplitCoordinator<AppRoute> {
             let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider)
             coordinator.rootViewController.modalPresentationStyle = .fullScreen
             return .present(coordinator)
-
 
         case .dismiss:
             return .dismiss()

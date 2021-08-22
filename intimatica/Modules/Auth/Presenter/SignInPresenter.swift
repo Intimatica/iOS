@@ -32,9 +32,9 @@ extension SignInPresenter: SignInPresenterProtocol {
             switch result {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
-                self.router.trigger(.home)
                 self.view?.dismiss()
-                print(authResponse.jwt)
+                self.useCase.setAuthToken(authResponse.jwt)
+                self.router.trigger(.home)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))
             }

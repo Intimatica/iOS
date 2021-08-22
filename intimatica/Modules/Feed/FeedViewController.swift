@@ -133,7 +133,7 @@ class FeedViewController: UIViewController {
         cell.setState(.selected)
         
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
-        showSpinner(frame: tableView.frame, opacity: 0)
+        showSpinner(frame: tableView.bounds, opacity: 0)
     }
     
     // MARK: - Layout
@@ -303,7 +303,7 @@ extension FeedViewController: UICollectionViewDelegate {
         let category = categoryItems[indexPath.row]
         
         presenter.filter(by: category)
-        showSpinner(frame: tableView.frame, opacity: 0)
+        showSpinner(frame: tableView.bounds, opacity: 0)
         
         let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         selectedCell.setState(.normal)

@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol TagCloudViewProtocol: AnyObject {
+protocol TagCloudViewDelegate: AnyObject {
     func display(_ tags: [TagsQuery.Data.Tag], with selectedTags: Set<Int>)
-    func dismiss()
+    func displayError(_ text: String)
 }
 
-protocol TagCloudPresenterProtocol {
+protocol TagCloudPresenterDelegate {
     func viewDidLoad()
     func showButtonDidTap(selectedTags: Set<Int>)
 }
@@ -23,7 +23,7 @@ final class TagCloudPresenter {
     private let postUseCase: PostUseCaseProtocol
     weak var feedPresenter: FeedPresenterDelegate?
     private var selectedTags: Set<Int> = []
-    weak var view: TagCloudViewProtocol?
+    weak var view: TagCloudViewDelegate?
     
     // MARK: - Initializers
     init(router: PostsRouter, dependencies: UseCaseProviderProtocol, feedPresenter: FeedPresenterDelegate, selectedTags: Set<Int>) {
@@ -35,7 +35,7 @@ final class TagCloudPresenter {
 }
 
 // MARK: - TagCloudPresenterProtocol
-extension TagCloudPresenter: TagCloudPresenterProtocol {
+extension TagCloudPresenter: TagCloudPresenterDelegate {
     func viewDidLoad() {
         postUseCase.getTags { [weak self] result in
             guard let self = self else { return }
@@ -44,15 +44,17 @@ extension TagCloudPresenter: TagCloudPresenterProtocol {
             case .success(let graphQLResult):
                 if let tags = graphQLResult.data?.tags?.compactMap({$0}) {
                     self.view?.display(tags, with: self.selectedTags)
+                } else {
+                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
                 }
             case .failure(let error):
-                print(error)
+                self.view?.displayError(error.localizedDescription)
             }
         }
     }
     
     func showButtonDidTap(selectedTags: Set<Int>) {
         feedPresenter?.setSelectedTags(selectedTags)
-        view?.dismiss()
+        router.trigger(.dismiss)
     }
 }

@@ -72,12 +72,14 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var rightBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: nil,
-                               image: UIImage(named: "tags_inactive_x2"),
-                               primaryAction: nil,
-                               menu: nil)
-        barButtonItem.tintColor = .white
-        return barButtonItem
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: Constants.rightBarButtonItemImageForInactive), for: .normal)
+        button.addAction { [weak self] in
+            self?.presenter.tagFilterButtonDidTap()
+        }
+        
+        return UIBarButtonItem.init(customView: button)
     }()
     
     // MARK: - Initializers
@@ -117,6 +119,7 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+
         
         tabBarController?.tabBar.tintColor = .appPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
@@ -178,6 +181,9 @@ class FeedViewController: UIViewController {
 // MARK: - Helper/Constraints
 extension FeedViewController {
     struct Constants {
+        static let rightBarButtonItemImageForActive = "tags_active_x2"
+        static let rightBarButtonItemImageForInactive = "tags_inactive_x2"
+
         static let topBackgroundViewHeight: CGFloat = 150
         
         static let categoryFilterViewLeading: CGFloat = 15
@@ -258,6 +264,16 @@ extension FeedViewController: FeedViewDelegate {
     func setPosts(_ posts: [Post]) {
         self.posts = posts
         tableView.reloadData()
+    }
+    
+    func setHasSelectedTags(to has: Bool) {
+        guard let button = rightBarButtonItem.customView as? UIButton else { return }
+        
+        if has {
+            button.setImage(UIImage(named: Constants.rightBarButtonItemImageForActive), for: .normal)
+        } else {
+            button.setImage(UIImage(named: Constants.rightBarButtonItemImageForInactive), for: .normal)
+        }
     }
 }
 

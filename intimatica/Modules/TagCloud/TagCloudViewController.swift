@@ -14,7 +14,7 @@ final class TagCloudViewController: UIViewController {
     private var selectedTags: Set<Int> = []
     
     private let tagCellId = "TagCollectionViewCellID"
-    private var presenter: TagCloudPresenterProtocol!
+    private var presenter: TagCloudPresenterDelegate!
     private lazy var closeButton = CloseButton()
     private lazy var alignedFlowLayout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .center)
     
@@ -35,20 +35,19 @@ final class TagCloudViewController: UIViewController {
         
         return collectionView
     }()
-    
-    private lazy var actionButton: UIRoundedButton = {
-        let button = UIRoundedButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(L10n("TAG_CLOULD_SHOW_BUTTON_TITLE"), for: .normal)
-        button.setBackgroundColor(.appPurple, for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
+        
+    private lazy var actionButton = UIRoundedButton(title: L10n("TAG_CLOUD_SHOW_BUTTON_TITLE"),
+                                                    titleColor: .white,
+                                                    font: .rubik(fontSize: .regular, fontWeight: .bold),
+                                                    backgroundColor: .appPurple)
 
-        return button
-    }()
+    private lazy var clearButton = UIRoundedButton(title: L10n("TAG_CLOUD_CLEAR_BUTTON_TITLE"),
+                                                    titleColor: .white,
+                                                    font: .rubik(fontSize: .regular, fontWeight: .bold),
+                                                    backgroundColor: .appPurple)
     
     // MARK: - Initializers
-    init(presenter: TagCloudPresenterProtocol) {
+    init(presenter: TagCloudPresenterDelegate) {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
@@ -69,6 +68,12 @@ final class TagCloudViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showSpinner()
+    }
+    
     // MARK: - Layout
     private func setupView() {
         view.backgroundColor = .white
@@ -76,6 +81,7 @@ final class TagCloudViewController: UIViewController {
         view.addSubview(closeButton)
         view.addSubview(collectionView)
         view.addSubview(actionButton)
+        view.addSubview(clearButton)
     }
     
     private func setupConstraints() {
@@ -92,7 +98,12 @@ final class TagCloudViewController: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
             actionButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: Constants.actionButtonTop),
             actionButton.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            actionButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight)
+            actionButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight),
+            
+            clearButton.leadingAnchor.constraint(equalTo: actionButton.leadingAnchor),
+            clearButton.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: Constants.clearButtonTop),
+            clearButton.trailingAnchor.constraint(equalTo: actionButton.trailingAnchor),
+            clearButton.heightAnchor.constraint(equalTo: actionButton.heightAnchor)
         ])
         
         let constraint = collectionView.heightAnchor.constraint(equalToConstant: Constants.collectionViewHeight)
@@ -109,6 +120,18 @@ final class TagCloudViewController: UIViewController {
             guard let self = self else { return }
             self.presenter.showButtonDidTap(selectedTags: self.selectedTags)
         }
+        
+        clearButton.addAction { [weak self] in
+            guard
+                let self = self,
+                let cells = self.collectionView.visibleCells as? [TagCollectionViewCell]
+            else { return }
+            self.selectedTags = []
+            
+            for cell in cells {
+                cell.state = .inactive
+            }
+        }
     }
 }
 
@@ -123,26 +146,29 @@ extension TagCloudViewController {
         
         static let actionButtonTop: CGFloat = 50
         static let actionButtonHeight: CGFloat = 50
+        
+        static let clearButtonTop: CGFloat = 30
     }
 }
 
 // MARK: - TagCloudViewProtocol
-extension TagCloudViewController: TagCloudViewProtocol {
+extension TagCloudViewController: TagCloudViewDelegate {
     func display(_ tags: [TagsQuery.Data.Tag], with selectedTags: Set<Int>) {
         tagList = tags
         self.selectedTags = selectedTags
         collectionView.reloadData()
         
-        // TODO: refactor this
-        var height = collectionView.collectionViewLayout.collectionViewContentSize.height
-        height += 50
+        collectionView.layoutIfNeeded()
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionView.heightAnchor.constraint(equalToConstant: height).isActive = true
         view.layoutIfNeeded()
         view.layoutSubviews()
+        
+        hideSpinner()
     }
     
-    func dismiss() {
-        dismiss(animated: true)
+    func displayError(_ text: String) {
+        showError(text)
     }
 }
 
@@ -154,7 +180,7 @@ extension TagCloudViewController: UICollectionViewDelegate {
         
         guard let id = Int(tagList[indexPath.row].id) else { return }
         
-        if cell.state == .selected {
+        if cell.state == .active {
             selectedTags.insert(id)
         } else {
             selectedTags.remove(id)
@@ -179,7 +205,7 @@ extension TagCloudViewController: UICollectionViewDataSource {
         cell.fill(by: tagName)
         
         if selectedTags.contains(tagId) {
-            cell.state = .selected
+            cell.state = .active
         }
         
         return cell

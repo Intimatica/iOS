@@ -52,7 +52,7 @@ class GraphqlService: GraphqlServiceProtocol {
     }
     
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLQuery {
-        apollo.fetch(query: query, resultHandler: completionHandler)
+        apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheCompletely, resultHandler: completionHandler)
     }
     
     func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {

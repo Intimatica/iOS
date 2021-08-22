@@ -827,6 +827,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		DBDBC78026D25A1300CB839C /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBFA7C5926C5A7490042D31D /* TagCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,9 +908,9 @@
 		DBFA7C4A26C504F10042D31D /* TagCloud */ = {
 			isa = PBXGroup;
 			children = (
+				DBDBC78026D25A1300CB839C /* CollectionViewCell */,
 				DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */,
 				DBFA7C4D26C506C00042D31D /* TagCloudPresenter.swift */,
-				DBFA7C5926C5A7490042D31D /* TagCollectionViewCell.swift */,
 			);
 			path = TagCloud;
 			sourceTree = "<group>";

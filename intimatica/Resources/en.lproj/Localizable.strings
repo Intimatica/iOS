@@ -10,6 +10,7 @@
 
 OK = "Ok";
 ERROR = "Ошибка";
+UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
 
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
 AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
@@ -88,7 +89,8 @@ COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
 PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
 
 
-TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";
+TAG_CLOUD_SHOW_BUTTON_TITLE = "Показать";
+TAG_CLOUD_CLEAR_BUTTON_TITLE = "Очистить";
 
 STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
 STORY_TELL_TITLE_LABEL = "Хотите рассказать свою историю?";

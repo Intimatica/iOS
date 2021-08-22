@@ -21,6 +21,8 @@ enum FeedRoute: Route {
 
     case tellStory
     case tellStoryThanks
+    
+    case dismiss
 }
 
 final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
@@ -85,6 +87,9 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
         case .tellStoryThanks:
             let viewController = TellStoryThanksViewController()
             return .present(viewController)
+            
+        case .dismiss:
+            return .dismiss()
         }
     }
 }

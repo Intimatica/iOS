@@ -22,6 +22,7 @@ protocol FeedPresenterDelegate: AnyObject {
 protocol FeedViewDelegate: AnyObject {
     func setFavorites(_ favorites: Set<String>)
     func setPosts(_ posts: [Post])
+    func setHasSelectedTags(to value: Bool)
 }
 
 final class FeedPresenter {
@@ -98,6 +99,8 @@ extension FeedPresenter: FeedPresenterDelegate {
     
     func setSelectedTags(_ tags: Set<Int>) {
         selectedTags = tags
+        
+        view?.setHasSelectedTags(to: !selectedTags.isEmpty)
         
         useCase.getPosts(postTypeIdList: postTypeIdList, tagIdList: Array(selectedTags), idList: idList) { [weak self] posts in
             self?.view?.setPosts(posts)

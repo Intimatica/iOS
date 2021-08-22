@@ -9,17 +9,17 @@ import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
     enum State {
-        case normal, selected
+        case inactive, active
     }
     
     // MARK: - Properties
-    var state: State = .normal {
+    var state: State = .inactive {
         didSet {
             switch state {
-            case .normal:
+            case .inactive:
                 contentView.backgroundColor = Constants.contentViewBackgroundColorForNormal
                 nameLabel.textColor = .black
-            case .selected:
+            case .active:
                 contentView.backgroundColor = Constants.contentViewBackgroundColorForSelected
                 nameLabel.textColor = .white
             }
@@ -71,7 +71,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     }
     
     func toggleState() {
-        state = state == .normal ? .selected : .normal
+        state = state == .inactive ? .active : .inactive
     }
 }
 

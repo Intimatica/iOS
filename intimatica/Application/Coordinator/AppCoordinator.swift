@@ -9,8 +9,10 @@ import Foundation
 import XCoordinator
 
 typealias Router = StrongRouter<AppRoute>
-typealias PostsRouter = UnownedErased<StrongRouter<FeedRoute>>
-typealias ProfileRouter = UnownedErased<StrongRouter<ProfileRoute>>
+typealias FeedRouter = StrongRouter<FeedRoute>
+//typealias PostsRouter = UnownedErased<StrongRouter<FeedRoute>>
+typealias ProfileRouter = StrongRouter<ProfileRoute>
+//typealias ProfileRouter = UnownedErased<StrongRouter<ProfileRoute>>
 
 enum AppRoute: Route {
     case launch

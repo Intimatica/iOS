@@ -28,7 +28,7 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
     override func prepareTransition(for route: ProfileRoute) -> NavigationTransition {
         switch route {
         case .initial:
-            let presenter = ProfilePresenter(router: unownedRouter, dependencies: useCaseProvider)
+            let presenter = ProfilePresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = ProfileViewController(presenter: presenter)
             presenter.view = viewController
             return .push(viewController)

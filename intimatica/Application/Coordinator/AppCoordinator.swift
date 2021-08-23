@@ -50,13 +50,13 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             return .show(viewController)
         
         case .terms:
-            let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: TermsQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsQuery())
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
 
         case .conditions:
-            let presenter = WebPagePresenter(router: strongRouter, dependencies: useCaseProvider, graphQLQuery: ConditionsQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: ConditionsQuery())
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

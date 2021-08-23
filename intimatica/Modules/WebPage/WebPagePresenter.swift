@@ -23,14 +23,12 @@ final class WebPagePresenter<T: GraphQLQuery> {
     }
     
     // MARK: - Properties
-    private let router: Router
     private let useCase: GraphQLUseCaseProtocol
     private let query: T
     weak var view: WebPageViewProtocol?
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol, graphQLQuery: T) {
-        self.router = router
+    init(dependencies: UseCaseProviderProtocol, graphQLQuery: T) {
         self.useCase = dependencies.graphQLUseCase
         self.query = graphQLQuery
     }
@@ -50,6 +48,8 @@ extension WebPagePresenter: WebPagePresenterProtocol {
                 if let termsData = ((graphQLResult.data) as? TermsQuery.Data), let content = termsData.term?.content {
                     self.view?.display(content)
                 } else if let conditionsData = ((graphQLResult.data) as? ConditionsQuery.Data), let content = conditionsData.condition?.content {
+                    self.view?.display(content)
+                } else if let premiumData = (graphQLResult.data as? PremiumDescriptionQuery.Data), let content = premiumData.premiumDescription?.content {
                     self.view?.display(content)
                 } else {
                     fatalError("Content not found")

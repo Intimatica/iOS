@@ -113,6 +113,7 @@
 		DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77E26D2162C00CB839C /* SignUp.graphql */; };
 		DBDBC78526D377D400CB839C /* UserStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78426D377D400CB839C /* UserStoryViewController.swift */; };
 		DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */; };
+		DBDBC78926D396BB00CB839C /* PremiumDescription.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -268,6 +269,7 @@
 		DBDBC77E26D2162C00CB839C /* SignUp.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignUp.graphql; sourceTree = "<group>"; };
 		DBDBC78426D377D400CB839C /* UserStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryViewController.swift; sourceTree = "<group>"; };
 		DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPublishingView.swift; sourceTree = "<group>"; };
+		DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = PremiumDescription.graphql; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -865,6 +867,7 @@
 				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
 				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
 				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
+				DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -1028,6 +1031,7 @@
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
 				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
+				DBDBC78926D396BB00CB839C /* PremiumDescription.graphql in Resources */,
 				DBFA7C6526C854DD0042D31D /* Terms.graphql in Resources */,
 				DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */,
 				DB2F8B9A26A371B9007020C0 /* Rubik-MediumItalic.ttf in Resources */,

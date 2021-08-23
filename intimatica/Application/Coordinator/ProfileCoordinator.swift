@@ -12,6 +12,7 @@ import Apollo
 enum ProfileRoute: Route {
     case initial
     case showStory(UserStoriesQuery.Data.Story)
+    case premium
 }
 
 final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
@@ -33,6 +34,11 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
         case .showStory(let story):
             let viewController = UserStoryViewController(story: story)
             return .push(viewController)
+        case .premium:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PremiumDescriptionQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
         }
     }
 }

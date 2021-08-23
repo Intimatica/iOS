@@ -4,6 +4,7 @@ PODS:
   - Apollo (0.45.0):
     - Apollo/Core (= 0.45.0)
   - Apollo/Core (0.45.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - KeychainSwift (19.0.0)
   - Kingfisher (6.3.0)
   - MarkdownView (1.7.1)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.4)
   - AlignedCollectionViewFlowLayout
   - Apollo
+  - IQKeyboardManagerSwift
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
   - MarkdownView
@@ -33,6 +35,7 @@ SPEC REPOS:
     - Alamofire
     - AlignedCollectionViewFlowLayout
     - Apollo
+    - IQKeyboardManagerSwift
     - KeychainSwift
     - Kingfisher
     - MarkdownView
@@ -46,6 +49,7 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   Apollo: 241254e8b26f49dc180e3be848f0b3fc5699e6f4
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 1812857310315c27e452fc380f089ce88cf619d2
+PODFILE CHECKSUM: 4c85ef9934fbaa46f6087fb2caef5ae9509d178d
 
 COCOAPODS: 1.10.1

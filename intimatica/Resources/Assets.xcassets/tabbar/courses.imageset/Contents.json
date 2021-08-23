@@ -5,11 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "courses.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "courses.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

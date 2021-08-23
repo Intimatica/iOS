@@ -109,7 +109,7 @@ class FeedViewController: UIViewController {
         setupActions()
         
         // QUESION: how to update cell in case of changing favorite state in post view. Delegate?
-        presenter.viewDidLoad()
+//        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +124,8 @@ class FeedViewController: UIViewController {
         tabBarController?.tabBar.tintColor = .appPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
+        
+        presenter.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -278,6 +280,11 @@ extension FeedViewController: FeedViewDelegate {
         } else {
             button.setImage(UIImage(named: Constants.rightBarButtonItemImageForInactive), for: .normal)
         }
+        
+        // TODO refactor this
+        posts = []
+        tableView.reloadData()
+        showSpinner(frame: tableView.bounds, opacity: 0)
     }
 }
 
@@ -303,6 +310,9 @@ extension FeedViewController: UICollectionViewDelegate {
         let category = categoryItems[indexPath.row]
         
         presenter.filter(by: category)
+        
+        posts = []
+        tableView.reloadData()
         showSpinner(frame: tableView.bounds, opacity: 0)
         
         let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell

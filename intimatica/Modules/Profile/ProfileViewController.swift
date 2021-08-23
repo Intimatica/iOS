@@ -51,6 +51,13 @@ final class ProfileViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        indicator.startAnimating()
+        return indicator
+    }()
+    
     private lazy var logoutButton: UIRoundedButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +107,7 @@ final class ProfileViewController: UIViewController {
         contentView.addSubview(profileView)
         contentView.addSubview(tableTitleLabel)
         contentView.addSubview(tableView)
+        contentView.addSubview(activityIndicatorView)
         
         profileView.fill(by: "Name", and: "email")
     }
@@ -132,6 +140,11 @@ final class ProfileViewController: UIViewController {
             make.bottom.equalTo(contentView.snp.bottom)
             tableHeightConstraint = make.height.equalTo(0).constraint
         }
+        
+        activityIndicatorView.snp.makeConstraints { make in
+            make.centerX.equalTo(contentView)
+            make.top.equalTo(tableTitleLabel).offset(80)
+        }
     }
     
     private func setupAction() {
@@ -158,6 +171,8 @@ extension ProfileViewController: ProfileViewDelegate {
         tableHeightConstraint?.layoutConstraints.first?.constant = view.frame.height * CGFloat(stories.count)
         tableView.layoutIfNeeded()
         tableHeightConstraint?.layoutConstraints.first?.constant = tableView.contentSize.height
+        
+        activityIndicatorView.isHidden = true
     }
 }
 

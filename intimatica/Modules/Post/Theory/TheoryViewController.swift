@@ -55,7 +55,7 @@ class TheoryViewController: BasePostViewController {
             headerImageView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
             headerImageView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             headerImageView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            headerImageView.heightAnchor.constraint(equalToConstant: 200),
+            headerImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
 
             headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
@@ -116,8 +116,10 @@ extension TheoryViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 0 {
             title = titleLabel.text
+//            navigationBarView.showBottomBorder()
         } else {
             title = ""
+//            navigationBarView.hideBottomBorder()
         }
     }
 }

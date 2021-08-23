@@ -19,14 +19,14 @@ protocol TagCloudPresenterDelegate {
 
 final class TagCloudPresenter {
     // MARK: - Properties
-    private let router: FeedRouter
+    private let router: PostsRouter
     private let postUseCase: PostUseCaseProtocol
     weak var feedPresenter: FeedPresenterDelegate?
     private var selectedTags: Set<Int> = []
     weak var view: TagCloudViewDelegate?
     
     // MARK: - Initializers
-    init(router: FeedRouter, dependencies: UseCaseProviderProtocol, feedPresenter: FeedPresenterDelegate, selectedTags: Set<Int>) {
+    init(router: PostsRouter, dependencies: UseCaseProviderProtocol, feedPresenter: FeedPresenterDelegate, selectedTags: Set<Int>) {
         self.router = router
         self.postUseCase = dependencies.postUseCase
         self.feedPresenter = feedPresenter

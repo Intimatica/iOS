@@ -70,15 +70,17 @@ class StoryTableViewCell: UITableViewCell {
         titleLabel.text = story.story
         
         if let comment = story.comment, !comment.isEmpty  {
+            showButton.isHidden = false
+        }
+        
+        if let allowPublishing = story.allowPublishing, !allowPublishing {
+            tagStackView.add(.nonPublic)
+        }
+        
+        if let isPublished = story.isPublished, isPublished {
             tagStackView.add(.published)
         } else {
             tagStackView.add(.underConsideration)
-        }
-        
-        tagStackView.add(.nonPublic)
-        
-        if let comment = story.comment, !comment.isEmpty {
-            showButton.isHidden = false
         }
     }
     

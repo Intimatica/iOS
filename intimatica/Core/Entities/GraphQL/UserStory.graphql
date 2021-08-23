@@ -1,8 +1,10 @@
 query UserStories {
-  stories {
+  stories(sort:"created_at:desc") {
     id
     story
+    allow_publishing
     comment
+    is_published
   }
 }
 

@@ -93,7 +93,11 @@ final class ProfileViewController: UIViewController {
         
         setupView()
         setupConstraints()
-        setupAction()
+        setupAction() 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         presenter.viewDidLoad()
     }

@@ -12,6 +12,15 @@ class TellStoryViewController: PopViewController {
     // MARK: - Properties
     private let presenter: TellStoryPresenterProtocol
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private lazy var contentView = UIView()
+    
     private lazy var titleLabel = UILabel(font: .rubik(fontSize: .title, fontWeight: .bold),
                                           text: L10n("TELL_STORY_TITLE"))
     
@@ -19,7 +28,6 @@ class TellStoryViewController: PopViewController {
                                              textColor: .black.withAlphaComponent(0.3),
                                              text: L10n("TELL_STOTY_SUBTILE"))
     
-
     private lazy var messageTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,9 +39,7 @@ class TellStoryViewController: PopViewController {
     
     private lazy var underlineView = SpacerView(height: 1, backgroundColor: .black.withAlphaComponent(0.3))
     
-    private lazy var agreeTitleLabel = UILabel(font: .rubik(fontSize: .small, fontWeight: .regular),
-                                              textColor: .black.withAlphaComponent(0.3),
-                                              text: L10n("TELL_STORY_AGREE_TITLE"))
+    private lazy var publishingAgreeView = PublishingAgreeView()
     
     private lazy var sendButton = UIRoundedButton(title: L10n("TELL_STOTY_BUTTON_TITLE"),
                                                     titleColor: .white,
@@ -66,30 +72,43 @@ class TellStoryViewController: PopViewController {
     private func setupView()  {
         view.backgroundColor = .white
         
-        view.addSubview(titleLabel)
-        view.addSubview(subTitleLable)
-        view.addSubview(messageTextView)
-        view.addSubview(underlineView)
-        view.addSubview(agreeTitleLabel)
-        view.addSubview(sendButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subTitleLable)
+        contentView.addSubview(messageTextView)
+        contentView.addSubview(underlineView)
+        contentView.addSubview(publishingAgreeView)
+        contentView.addSubview(sendButton)
     }
     
     private func setupConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(view)
+            make.top.equalTo(closeButton.snp.bottom)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.bottom.equalTo(scrollView)
+        }
+        
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(view).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
-            make.top.equalTo(view).offset(Constants.titleLabelTop)
+            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
+            make.top.equalTo(contentView).offset(Constants.titleLabelTop)
         }
         
         subTitleLable.snp.makeConstraints { make in
-            make.leading.equalTo(view).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
+            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.subTitleLabelTop)
         }
         
         messageTextView.snp.makeConstraints { make in
-            make.leading.equalTo(view).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
+            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
             make.top.equalTo(subTitleLable.snp.bottom).offset(Constants.messageTextViewTop)
         }
         
@@ -98,26 +117,33 @@ class TellStoryViewController: PopViewController {
             make.top.equalTo(messageTextView.snp.bottom)
         }
         
-        agreeTitleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(view).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
-            make.top.greaterThanOrEqualTo(messageTextView.snp.bottom).offset(100)
+        publishingAgreeView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
+            make.top.equalTo(messageTextView.snp.bottom).offset(50)
         }
         
         sendButton.snp.makeConstraints { make in
-            make.leading.equalTo(view).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.leadingTrailing)
-            make.top.equalTo(agreeTitleLabel.snp.bottom).offset(Constants.messageTextViewTop)
-            make.bottom.equalTo(view).offset(-Constants.sendButtonBottom)
+            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
+            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
+            make.top.equalTo(publishingAgreeView.snp.bottom).offset(Constants.messageTextViewTop)
+            make.bottom.equalTo(contentView).offset(-Constants.sendButtonBottom)
             make.height.equalTo(Constants.sendButtonHeight)
         }
     }
     
     private func setupActions() {
+        publishingAgreeView.actionButton.addAction { [weak self] in
+            guard let self = self else { return }
+            self.publishingAgreeView.state = self.publishingAgreeView.state == .active ? .inactive : .active
+        }
+        
         sendButton.addAction { [weak self] in
             guard let self = self else { return }
             
-            self.presenter.sendButtonDidTap(with: self.messageTextView.text ?? "")
+            self.showSpinner(frame: self.view.bounds, opacity: 0.3)
+            self.presenter.sendButtonDidTap(with: self.messageTextView.text ?? "",
+                                            allowPublishing: self.publishingAgreeView.state == .active)
         }
     }
 }
@@ -128,7 +154,7 @@ extension TellStoryViewController {
         static let leadingTrailing: CGFloat = 50
         static let titleLabelTop: CGFloat = 140
         static let subTitleLabelTop: CGFloat = 20
-        static let messageTextViewTop: CGFloat = 5
+        static let messageTextViewTop: CGFloat = 10
         static let sendButtonTop: CGFloat = 20
         static let sendButtonBottom: CGFloat = 150
         static let sendButtonHeight: CGFloat = 50

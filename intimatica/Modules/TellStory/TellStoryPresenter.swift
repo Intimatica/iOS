@@ -13,7 +13,7 @@ protocol TellStoryViewProtocol: AnyObject {
 }
 
 protocol TellStoryPresenterProtocol {
-    func sendButtonDidTap(with story: String)
+    func sendButtonDidTap(with story: String, allowPublishing: Bool)
 }
 
 final class TellStoryPresenter {
@@ -31,8 +31,8 @@ final class TellStoryPresenter {
 
 // MARK: - TellStoryPresenterProtocol
 extension TellStoryPresenter: TellStoryPresenterProtocol {
-    func sendButtonDidTap(with story: String) {
-        useCase.perform(mutaion: StoryMutation(story: story, allowPublishing: true)) { [weak self] result in
+    func sendButtonDidTap(with story: String, allowPublishing: Bool) {
+        useCase.perform(mutaion: StoryMutation(story: story, allowPublishing: allowPublishing)) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

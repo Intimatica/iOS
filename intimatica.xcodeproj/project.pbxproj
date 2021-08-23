@@ -114,6 +114,7 @@
 		DBDBC78526D377D400CB839C /* UserStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78426D377D400CB839C /* UserStoryViewController.swift */; };
 		DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */; };
 		DBDBC78926D396BB00CB839C /* PremiumDescription.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */; };
+		DBDBC78B26D3A0B100CB839C /* PublisingAgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78A26D3A0B100CB839C /* PublisingAgreeView.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -270,6 +271,7 @@
 		DBDBC78426D377D400CB839C /* UserStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryViewController.swift; sourceTree = "<group>"; };
 		DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPublishingView.swift; sourceTree = "<group>"; };
 		DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = PremiumDescription.graphql; sourceTree = "<group>"; };
+		DBDBC78A26D3A0B100CB839C /* PublisingAgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisingAgreeView.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 		DB2E196326CD6D3D004FF77C /* TellStory */ = {
 			isa = PBXGroup;
 			children = (
+				DBDBC78C26D3AACC00CB839C /* Helper */,
 				DB2E196426CD6D52004FF77C /* TellStoryPresenter.swift */,
 				DB2E196626CD6E30004FF77C /* TellStoryViewController.swift */,
 				DB2E196E26CE587D004FF77C /* TellStoryThanksViewController.swift */,
@@ -851,6 +854,14 @@
 			path = UserStory;
 			sourceTree = "<group>";
 		};
+		DBDBC78C26D3AACC00CB839C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DBDBC78A26D3A0B100CB839C /* PublisingAgreeView.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,6 +1179,7 @@
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBFA7C5D26C835EB0042D31D /* WebPageViewController.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
+				DBDBC78B26D3A0B100CB839C /* PublisingAgreeView.swift in Sources */,
 				DB8A59A026B01E3100842771 /* FeedViewController.swift in Sources */,
 				DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,

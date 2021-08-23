@@ -9,7 +9,7 @@ import UIKit
 
 class PopViewController: UIViewController {
     // MARK: - Properties
-    private lazy var closeButton = CloseButton()
+    lazy var closeButton = CloseButton()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

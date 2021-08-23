@@ -86,7 +86,7 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             
         case .tellStoryThanks:
             let viewController = TellStoryThanksViewController()
-            return .present(viewController)
+            return .multiple(.dismiss(), .present(viewController))
             
         case .dismiss:
             return .dismiss()

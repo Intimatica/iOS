@@ -24,10 +24,19 @@ class BasePostViewController: UIViewController {
         return scroll
     }()
     
-    lazy var headerImageView: FixedWidthAspectFitImageView = {
-        let imageView = FixedWidthAspectFitImageView()
+//    lazy var headerImageView: FixedWidthAspectFitImageView = {
+//        let imageView = FixedWidthAspectFitImageView()
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.contentMode = .scaleAspectFit
+//        return imageView
+//    }()
+    
+    lazy var headerImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+//        imageView.clipsToBounds = true
         return imageView
     }()
     

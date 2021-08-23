@@ -27,7 +27,7 @@ protocol FeedViewDelegate: AnyObject {
 
 final class FeedPresenter {
     // MARK: - Properties
-    private let router: PostsRouter
+    private let router: FeedRouter
     private let useCase: PostUseCaseProtocol
     weak var view: FeedViewDelegate?
     
@@ -37,7 +37,7 @@ final class FeedPresenter {
     private var idList: [String] = []
 
     // MARK: - Initializers
-    init(router: PostsRouter, dependencies: UseCaseProviderProtocol) {
+    init(router: FeedRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         useCase = dependencies.postUseCase
     }

@@ -18,12 +18,12 @@ protocol TellStoryPresenterProtocol {
 
 final class TellStoryPresenter {
     // MARK: - Properties
-    private let router: PostsRouter
+    private let router: FeedRouter
     private let useCase: GraphQLUseCaseProtocol
     weak var view: TellStoryViewProtocol?
     
     // MARK: - Initializsers
-    init(router: PostsRouter, dependencies: UseCaseProviderProtocol) {
+    init(router: FeedRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.graphQLUseCase
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PostLabelView: UIView {
+final class PostLabelView: UIStackView {
     enum State {
         case story
         case theory
@@ -40,9 +40,9 @@ final class PostLabelView: UIView {
             case .premiumVideoCourse:
                 premiumVideoCourseLabel.isHidden = false
                 
-                // QUESTION
-            default:
-                fatalError("\(String(describing: state)) not implemented")
+            // QUESTION
+            case .none:
+                break;
             }
         }
     }
@@ -64,19 +64,17 @@ final class PostLabelView: UIView {
         setupView()
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Layout
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
+        spacing = 0
 
-        addSubview(textLabel)
-//        addSubview(premiumVideoCourseLabel)
-
-        textLabel.fillSuperview()
-//        premiumVideoCourseLabel.fillSuperview()
+        addArrangedSubview(textLabel)
+        addArrangedSubview(premiumVideoCourseLabel)
     }
 }
 

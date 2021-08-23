@@ -14,6 +14,14 @@ class VideoCourseViewController: BasePostViewController {
     private let presenter: VideoCoursePresenterProtocol
     private var videoList: [Video] = []
     
+    private lazy var premiumVideoCourseLabel = PremiumCourseLabel()
+    private lazy var premiumHeaderBackgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .appPurple
+        return view
+    }()
+
     private lazy var courseTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +99,9 @@ class VideoCourseViewController: BasePostViewController {
     private func setupView() {
         spacerView.backgroundColor = .appLightPuple
         
+        
+        
+        scrollView.addSubview(premiumHeaderBackgroundView)
         scrollView.addSubview(headerImageView)
         scrollView.addSubview(headerStack)
         scrollView.addSubview(courseTitle)
@@ -100,6 +111,8 @@ class VideoCourseViewController: BasePostViewController {
         scrollView.addSubview(videoStack)
         scrollView.addSubview(finishButton)
         scrollView.addSubview(paidCourseBlockView)
+        
+        scrollView.addSubview(premiumVideoCourseLabel)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStackView)
@@ -118,6 +131,14 @@ class VideoCourseViewController: BasePostViewController {
             headerImageView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             headerImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
 
+            premiumHeaderBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            premiumHeaderBackgroundView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor),
+            premiumHeaderBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            premiumHeaderBackgroundView.bottomAnchor.constraint(equalTo: headerStack.bottomAnchor),
+            
+            premiumVideoCourseLabel.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
+            premiumVideoCourseLabel.bottomAnchor.constraint(equalTo: headerStack.topAnchor, constant: -15),
+            
             headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
             headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
@@ -214,7 +235,11 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         }
         
         if post.isPaid {
+            titleLabel.textColor = .white
             paidCourseBlockView.isHidden = false
+        } else {
+            premiumVideoCourseLabel.isHidden = true
+            premiumHeaderBackgroundView.isHidden = true
         }
     }
 }

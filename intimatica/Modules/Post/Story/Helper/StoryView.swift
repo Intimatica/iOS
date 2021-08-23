@@ -99,10 +99,25 @@ final class StoryView: UIView {
     }
     
     // MARK: - Public
-    func fill(by story: String, and comment: String, authorName: String, authorJobTitle: String, authorAvatar: String) {
+    func fill(by story: String, and comment: String?, authorName: String?, authorJobTitle: String?, authorAvatar: String?) {
         storyLabel.text = story
         commentLabel.text = comment
-        authorView.fill(by: .creator(authorName), jobTitle: authorJobTitle, avatar: authorAvatar)
+        
+        if let comment = comment, !comment.isEmpty {
+            guard
+                let authorName = authorName,
+                let authorJobTitle = authorJobTitle,
+                let authorAvatar = authorAvatar
+            else {
+                authorView.isHidden = true
+                return
+            }
+            
+            authorView.fill(by: .creator(authorName), jobTitle: authorJobTitle, avatar: authorAvatar)
+        } else {
+            authorView.isHidden = true
+            commentView.isHidden = true
+        }
     }
 }
 

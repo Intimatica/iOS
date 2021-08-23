@@ -111,6 +111,8 @@
 		DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */; };
 		DBDBC77D26D2150F00CB839C /* SignIn.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77C26D2150F00CB839C /* SignIn.graphql */; };
 		DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77E26D2162C00CB839C /* SignUp.graphql */; };
+		DBDBC78526D377D400CB839C /* UserStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78426D377D400CB839C /* UserStoryViewController.swift */; };
+		DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */; };
 		DBF99D3926B069A200E04D40 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3826B069A100E04D40 /* schema.json */; };
 		DBF99D4026B07D2D00E04D40 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBF99D3F26B07D2D00E04D40 /* Posts.graphql */; };
 		DBF99D4226B07D9A00E04D40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D4126B07D9A00E04D40 /* API.swift */; };
@@ -264,6 +266,8 @@
 		DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTagStackView.swift; sourceTree = "<group>"; };
 		DBDBC77C26D2150F00CB839C /* SignIn.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignIn.graphql; sourceTree = "<group>"; };
 		DBDBC77E26D2162C00CB839C /* SignUp.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignUp.graphql; sourceTree = "<group>"; };
+		DBDBC78426D377D400CB839C /* UserStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryViewController.swift; sourceTree = "<group>"; };
+		DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPublishingView.swift; sourceTree = "<group>"; };
 		DBF99D3826B069A100E04D40 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = intimatica/Core/Entities/GraphQL/schema.json; sourceTree = SOURCE_ROOT; };
 		DBF99D3F26B07D2D00E04D40 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		DBF99D4126B07D9A00E04D40 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 			children = (
 				DB2E195F26CCD1E1004FF77C /* StoryView.swift */,
 				DB2E196126CD44A7004FF77C /* TellStoryView.swift */,
+				DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DBDBC78326D3779100CB839C /* UserStory */,
 				DB2E196326CD6D3D004FF77C /* TellStory */,
 				DBFA7C5B26C835AC0042D31D /* WebPage */,
 				DBFA7C4A26C504F10042D31D /* TagCloud */,
@@ -835,6 +841,14 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		DBDBC78326D3779100CB839C /* UserStory */ = {
+			isa = PBXGroup;
+			children = (
+				DBDBC78426D377D400CB839C /* UserStoryViewController.swift */,
+			);
+			path = UserStory;
+			sourceTree = "<group>";
+		};
 		DBF99D3A26B0793B00E04D40 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1122,6 +1136,7 @@
 				DBFA7C5A26C5A7490042D31D /* TagCollectionViewCell.swift in Sources */,
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
+				DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */,
 				DBDBC77026CFC11100CB839C /* RightBarButtonItem.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
@@ -1157,6 +1172,7 @@
 				DBFA7C6126C84E350042D31D /* GraphQLRepository.swift in Sources */,
 				DBF99D4A26B1464700E04D40 /* PostUseCase.swift in Sources */,
 				DB8A595826AD553200842771 /* AuthError.swift in Sources */,
+				DBDBC78526D377D400CB839C /* UserStoryViewController.swift in Sources */,
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB3C565A26BBDA4F0087663E /* PostLabelView.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,

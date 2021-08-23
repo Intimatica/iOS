@@ -13,23 +13,8 @@ class StoryViewController: BasePostViewController {
     
     private lazy var storyView = StoryView()
     private lazy var tellStoryView = TellStoryView()
-    
-    private lazy var agreeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = L10n("STORY_AGREE_LABEL")
-        label.font = .rubik(fontSize: .small, fontWeight: .regular)
-        label.textColor = .init(hex: 0xB7B7B7)
-        return label
-    }()
-    
-    private lazy var agreeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "course_selection_button_image_active")
-        return imageView
-    }()
+    private lazy var allowedPublishingView = AllowedPublishingView()
+
     
     // MARK: - Initializers
     init(presenter: StoryPresenterProtocol) {
@@ -57,8 +42,7 @@ class StoryViewController: BasePostViewController {
         scrollView.addSubview(headerImageView)
         scrollView.addSubview(headerStack)
         scrollView.addSubview(storyView)
-        scrollView.addSubview(agreeLabel)
-        scrollView.addSubview(agreeImageView)
+        scrollView.addSubview(allowedPublishingView)
         scrollView.addSubview(tellStoryView)
         
         headerStack.addArrangedSubview(titleLabel)
@@ -82,19 +66,14 @@ class StoryViewController: BasePostViewController {
             storyView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.storyViewTop),
             storyView.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
             
-            agreeImageView.heightAnchor.constraint(equalToConstant: Constants.agreeImageViewHeightWidth),
-            agreeImageView.widthAnchor.constraint(equalToConstant: Constants.agreeImageViewHeightWidth),
-            agreeImageView.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
-            agreeImageView.centerYAnchor.constraint(equalTo: agreeLabel.centerYAnchor),
-            
-            agreeLabel.leadingAnchor.constraint(equalTo: agreeImageView.trailingAnchor, constant: Constants.agreeLabelLeading),
-            agreeLabel.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: Constants.agreeLabelTop),
-            agreeLabel.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
+            allowedPublishingView.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
+            allowedPublishingView.topAnchor.constraint(equalTo: storyView.bottomAnchor, constant: Constants.allowedPublishingViewTop),
+            allowedPublishingView.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
             
             tellStoryView.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
-            tellStoryView.topAnchor.constraint(equalTo: agreeLabel.bottomAnchor, constant: Constants.tellStoryViewTop),
+            tellStoryView.topAnchor.constraint(equalTo: allowedPublishingView.bottomAnchor, constant: Constants.tellStoryViewTop),
             tellStoryView.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
-            tellStoryView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor)
+            tellStoryView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: -Constants.tellStoryViewBottom)
         ])
     }
     
@@ -137,10 +116,9 @@ extension StoryViewController: StoryViewProtocol {
 
 // MARK: - Helper/Constants
 extension StoryViewController.Constants {
-    static let agreeImageViewHeightWidth: CGFloat = 14
-    static let agreeLabelLeading: CGFloat = 10
-    static let agreeLabelTop: CGFloat = 15
+    static let allowedPublishingViewTop: CGFloat = 15
     
     static let storyViewTop: CGFloat = 20
     static let tellStoryViewTop: CGFloat = 30
+    static let tellStoryViewBottom: CGFloat = 50
 }

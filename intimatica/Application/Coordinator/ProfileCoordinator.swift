@@ -7,9 +7,11 @@
 
 import Foundation
 import XCoordinator
+import Apollo
 
 enum ProfileRoute: Route {
     case initial
+    case showStory(UserStoriesQuery.Data.Story)
 }
 
 final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
@@ -27,6 +29,9 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
             let presenter = ProfilePresenter(router: unownedRouter, dependencies: useCaseProvider)
             let viewController = ProfileViewController(presenter: presenter)
             presenter.view = viewController
+            return .push(viewController)
+        case .showStory(let story):
+            let viewController = UserStoryViewController(story: story)
             return .push(viewController)
         }
     }

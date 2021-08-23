@@ -14,6 +14,7 @@ protocol ProfileViewDelegate: AnyObject {
 
 protocol ProfilePresenterDelegate: AnyObject {
     func viewDidLoad()
+    func showStoryButtonDidTap(story: UserStoriesQuery.Data.Story)
     func logoutButtonDidTap()
 }
 
@@ -46,6 +47,10 @@ extension ProfilePresenter: ProfilePresenterDelegate {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func showStoryButtonDidTap(story: UserStoriesQuery.Data.Story) {
+        router.trigger(.showStory(story))
     }
     
     func logoutButtonDidTap() {

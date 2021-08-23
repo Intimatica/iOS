@@ -25,6 +25,8 @@ final class ProfileViewController: UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -162,7 +164,7 @@ extension ProfileViewController: ProfileViewDelegate {
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("show story \(stories[indexPath.row])")
+        presenter.showStoryButtonDidTap(story: stories[indexPath.row])
     }
 }
 

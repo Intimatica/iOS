@@ -5,6 +5,13 @@ query UserStories {
     allow_publishing
     comment
     is_published
+    comment_author {
+      name
+      job_title,
+      photo {
+        url
+      }
+    }
   }
 }
 

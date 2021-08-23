@@ -90,6 +90,8 @@ class BasePostViewController: UIViewController {
         setupView()
         setupConstraints()
         setupActions()
+        
+        showSpinner()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,10 +99,7 @@ class BasePostViewController: UIViewController {
 
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.isTranslucent = false
-
-        showSpinner()
     }
-
     
     // MARK: - Layout
     private func setupView() {

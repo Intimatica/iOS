@@ -52,8 +52,16 @@ class VideoCourseViewController: BasePostViewController {
     private lazy var paidCourseBlockView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray.withAlphaComponent(0.5)
+        view.backgroundColor = .clear
         view.isHidden = true
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.8
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        
         return view
     }()
     
@@ -142,8 +150,8 @@ class VideoCourseViewController: BasePostViewController {
             
             paidCourseBlockView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             paidCourseBlockView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            paidCourseBlockView.topAnchor.constraint(equalTo: videoTitle.topAnchor),
-            paidCourseBlockView.bottomAnchor.constraint(equalTo: finishButton.bottomAnchor),
+            paidCourseBlockView.topAnchor.constraint(equalTo: spacerView.bottomAnchor),
+            paidCourseBlockView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
         ])
     }
     
@@ -203,6 +211,10 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        if post.isPaid {
+            paidCourseBlockView.isHidden = false
         }
     }
 }

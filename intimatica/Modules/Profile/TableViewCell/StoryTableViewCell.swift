@@ -10,6 +10,16 @@ import SnapKit
 
 class StoryTableViewCell: UITableViewCell {
     // MARK: - Properties
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Constants.stackViewSpacing
+        return stackView
+    }()
+    
+    private lazy var containerView = UIView()
+    
     private lazy var storyImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "cell_image")
@@ -24,6 +34,16 @@ class StoryTableViewCell: UITableViewCell {
     }()
     
     private lazy var tagStackView = StoryTagStackView()
+
+    private lazy var showButton: UIRoundedButton = {
+        let button = UIRoundedButton(title: L10n("MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE"),
+                                     titleColor: .white,
+                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
+                                     backgroundColor: .appPurple)
+        button.isUserInteractionEnabled = false
+        button.isHidden = true
+        return button
+    }()
     
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,6 +61,7 @@ class StoryTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        showButton.isHidden = true
         tagStackView.clear()
     }
 
@@ -55,35 +76,54 @@ class StoryTableViewCell: UITableViewCell {
         }
         
         tagStackView.add(.nonPublic)
+        
+        if let comment = story.comment, !comment.isEmpty {
+            showButton.isHidden = false
+        }
     }
     
     // MARK: - Private
     private func setupView() {
         selectionStyle = .none
         
-        contentView.addSubview(storyImageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(tagStackView)
+        contentView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(containerView)
+        stackView.addArrangedSubview(showButton)
+
+        containerView.addSubview(storyImageView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(tagStackView)
     }
     
     private func setupConstraints() {
+    
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(contentView).inset(Constants.stackViewLeadingTrailing)
+            make.top.bottom.equalTo(contentView).inset(Constants.stackViewTopBottom)
+        }
+        
         storyImageView.snp.makeConstraints { make in
-            make.leading.equalTo(contentView).offset(Constants.storyImageViewLeading)
-            make.top.equalTo(titleLabel.snp.top)
+            make.leading.equalTo(containerView)
+            make.top.equalTo(titleLabel)
             make.bottom.equalTo(tagStackView.snp.bottom)
             make.width.equalTo(storyImageView.snp.height)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(storyImageView.snp.trailing).offset(Constants.titleLabelLeadingTrailing)
-            make.top.equalTo(contentView).offset(Constants.titleLabelTop)
-            make.trailing.equalTo(contentView).offset(-Constants.titleLabelLeadingTrailing)
+            make.leading.equalTo(storyImageView.snp.trailing).offset(Constants.titleLabelLeading)
+            make.top.equalTo(containerView)
+            make.trailing.equalTo(containerView)
         }
         
         tagStackView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(Constants.tagStackViewTop)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-30)
+            make.bottom.equalTo(containerView.snp.bottom)
+        }
+   
+        showButton.snp.makeConstraints { make in
+            make.height.equalTo(Constants.showButtonHeight)
         }
     }
 }
@@ -91,9 +131,12 @@ class StoryTableViewCell: UITableViewCell {
 // MARK: - Helper/Constants
 extension StoryTableViewCell {
     struct Constants {
-        static let storyImageViewLeading: CGFloat = 25
-        static let titleLabelTop: CGFloat = 30
-        static let titleLabelLeadingTrailing: CGFloat = 25
+        static let stackViewSpacing: CGFloat = 30
+        static let stackViewLeadingTrailing: CGFloat = 30
+        static let stackViewTopBottom:  CGFloat = 25
+        
+        static let titleLabelLeading: CGFloat = 25
         static let tagStackViewTop: CGFloat = 18
+        static let showButtonHeight: CGFloat = 50
     }
 }

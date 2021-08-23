@@ -18,21 +18,21 @@ class StoryTagStackView: UIStackView {
     private lazy var privateLabel = LabelWithBackground(with: L10n("TAG_LABEL_PRIVATE"),
                                                              textColor: .init(hex: 0xDC275E),
                                                              backgroundColor: .init(hex: 0xFFC1D4),
-                                                             font: .rubik(fontSize: .small, fontWeight: .medium),
+                                                             font: Constants.tagFont,
                                                              verticalSpacing: Constants.tagLabelTopBottom,
                                                              horizontalSpacing: Constants.tagLabelLeadingTrailing)
     
     private lazy var underConsiderationLabel = LabelWithBackground(with: L10n("TAG_LABEL_UNDER_CONSIDERATION"),
                                                              textColor: .init(hex: 0x866000),
                                                              backgroundColor: .init(hex: 0xFFE485),
-                                                             font: .rubik(fontSize: .small, fontWeight: .medium),
+                                                             font: Constants.tagFont,
                                                              verticalSpacing: Constants.tagLabelTopBottom,
                                                              horizontalSpacing: Constants.tagLabelLeadingTrailing)
     
     private lazy var publishedLabel = LabelWithBackground(with: L10n("TAG_LABEL_PUBLISHED"),
                                                              textColor: .init(hex: 0x077B44),
                                                              backgroundColor: .init(hex: 0xA7F2CE),
-                                                             font: .rubik(fontSize: .small, fontWeight: .medium),
+                                                             font: Constants.tagFont,
                                                              verticalSpacing: Constants.tagLabelTopBottom,
                                                              horizontalSpacing: Constants.tagLabelLeadingTrailing)
     
@@ -82,6 +82,7 @@ class StoryTagStackView: UIStackView {
 // MARK: - Helper/Constants
 extension StoryTagStackView {
     struct Constants {
+        static let tagFont: UIFont = .rubik(fontSize: .verySmall, fontWeight: .medium)
         static let spacing: CGFloat = 5
         static let tagLabelTopBottom: CGFloat = 3
         static let tagLabelLeadingTrailing: CGFloat = 8

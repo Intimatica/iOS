@@ -92,6 +92,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Layout
     private func setupView() {
         view.backgroundColor = .white
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(profileView)
@@ -160,7 +161,9 @@ extension ProfileViewController: ProfileViewDelegate {
 
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("show story \(stories[indexPath.row])")
+    }
 }
 
 // MARK: - UITableViewDataSource

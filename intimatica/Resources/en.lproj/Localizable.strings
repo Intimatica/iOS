@@ -117,3 +117,5 @@ PROFILE_TABLE_TITLE = "Мои истории";
 TAG_LABEL_PRIVATE = "ПРИВАТНАЯ";
 TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
 TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";
+
+MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ психолога";

@@ -49,6 +49,14 @@ class VideoCourseViewController: BasePostViewController {
         return button
     }()
     
+    private lazy var paidCourseBlockView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .gray.withAlphaComponent(0.5)
+        view.isHidden = true
+        return view
+    }()
+    
     // MARK: - Initializers
     init(presenter: VideoCoursePresenterProtocol) {
         self.presenter = presenter
@@ -83,6 +91,7 @@ class VideoCourseViewController: BasePostViewController {
         scrollView.addSubview(videoTitle)
         scrollView.addSubview(videoStack)
         scrollView.addSubview(finishButton)
+        scrollView.addSubview(paidCourseBlockView)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStackView)
@@ -130,6 +139,11 @@ class VideoCourseViewController: BasePostViewController {
             finishButton.topAnchor.constraint(equalTo: videoStack.bottomAnchor, constant: Constants.finishButtonTop),
             finishButton.trailingAnchor.constraint(equalTo: videoStack.trailingAnchor),
             finishButton.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant:  -Constants.finishButtonBottom),
+            
+            paidCourseBlockView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            paidCourseBlockView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            paidCourseBlockView.topAnchor.constraint(equalTo: videoTitle.topAnchor),
+            paidCourseBlockView.bottomAnchor.constraint(equalTo: finishButton.bottomAnchor),
         ])
     }
     

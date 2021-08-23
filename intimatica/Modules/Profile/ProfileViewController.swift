@@ -168,6 +168,10 @@ extension ProfileViewController {
 
 // MARK: - ProfileViewDelegate
 extension ProfileViewController: ProfileViewDelegate {
+    func setProfile(email: String, nickname: String?) {
+        profileView.fill(by: nickname, and: email)
+    }
+    
     func setStories(_ stories: [UserStoriesQuery.Data.Story]) {
         self.stories = stories
         tableView.reloadData()

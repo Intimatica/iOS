@@ -103,9 +103,14 @@ final class ProfileView: UIView {
     }
     
     // MARK: - Public
-    func fill(by nickname: String, and email: String) {
-        nicknameLabel.text = nickname
+    func fill(by nickname: String?, and email: String) {
         emailLabel.text = email
+        
+        if let nickname = nickname {
+            nicknameLabel.text = nickname
+        } else {
+            nicknameLabel.isHidden = true
+        }
     }
 }
 

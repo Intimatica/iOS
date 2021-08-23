@@ -9,6 +9,7 @@ import Foundation
 import XCoordinator
 
 protocol ProfileViewDelegate: AnyObject {
+    func setProfile(email: String, nickname: String?)
     func setStories(_ stories: [UserStoriesQuery.Data.Story])
 }
 
@@ -36,6 +37,10 @@ final class ProfilePresenter {
 
 extension ProfilePresenter: ProfilePresenterDelegate {
     func viewDidLoad() {
+        if let userCredentials = authUseCase.getUserCredentials() {
+            view?.setProfile(email: userCredentials.email, nickname: nil)
+        }
+        
         useCase.fetch(query: UserStoriesQuery()) { [weak self] result in
             guard let self = self else { return }
             
@@ -60,7 +65,7 @@ extension ProfilePresenter: ProfilePresenterDelegate {
     
     func logoutButtonDidTap() {
         authUseCase.signOut()
-//        router.trigger()
+        router.trigger(.dismiss)
     }
 }
 

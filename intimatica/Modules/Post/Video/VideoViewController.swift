@@ -61,36 +61,22 @@ class VideoViewController: BasePostViewController {
     
     // MARK: - Layout
     func setupView() {
-        scrollView.addSubview(headerStack)
-        scrollView.addSubview(markdownView)
+        contentView.addSubview(headerStack)
+        contentView.addSubview(markdownView)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStackView)
         headerStack.addArrangedSubview(SpacerView(height: 10, backgroundColor: .clear))
         headerStack.addArrangedSubview(playerView)
         
-//        playerView.addSubview(headerImageView)
-//        playerView.addSubview(playImageView)
         playerView.addSubview(videoPlayer)
     }
     
     func setupConstraints() {
-        let contentLayoutGuide = scrollView.contentLayoutGuide
-        
         NSLayoutConstraint.activate([
-            headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
-            headerStack.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor, constant: Constants.headerStackTop),
-            headerStack.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -2 * Constants.headerStackLeadingTrailing),
-                        
-//            headerImageView.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
-//            headerImageView.topAnchor.constraint(equalTo: playerView.topAnchor),
-//            headerImageView.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
-//            headerImageView.bottomAnchor.constraint(equalTo: playerView.bottomAnchor),
-
-//            playImageView.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
-//            playImageView.centerYAnchor.constraint(equalTo: playerView.centerYAnchor),
-//            playImageView.widthAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
-//            playImageView.heightAnchor.constraint(equalToConstant: Constants.playImageViewHeightWidth),
+            headerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
+            headerStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.headerStackTop),
+            headerStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
             
             playerView.heightAnchor.constraint(equalTo: playerView.widthAnchor, multiplier: 9/16),
             videoPlayer.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
@@ -98,11 +84,10 @@ class VideoViewController: BasePostViewController {
             videoPlayer.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
             videoPlayer.bottomAnchor.constraint(equalTo: playerView.bottomAnchor),
             
-            markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            markdownView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.markdownViewTopToPlayerView),
-            markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            markdownView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            markdownView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 }

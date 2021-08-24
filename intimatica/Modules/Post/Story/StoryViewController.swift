@@ -39,28 +39,25 @@ class StoryViewController: BasePostViewController {
     }
     
     private func setupView() {
-        scrollView.addSubview(headerImageView)
-        scrollView.addSubview(headerStack)
-        scrollView.addSubview(storyView)
-        scrollView.addSubview(allowedPublishingView)
-        scrollView.addSubview(tellStoryView)
+        contentView.addSubview(headerImageView)
+        contentView.addSubview(headerStack)
+        contentView.addSubview(storyView)
+        contentView.addSubview(allowedPublishingView)
+        contentView.addSubview(tellStoryView)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStackView)
     }
     
     private func setupConstraints() {
-        let contentLayoutGuide = scrollView.contentLayoutGuide
-
         NSLayoutConstraint.activate([
-            headerImageView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            headerImageView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            headerImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
+            headerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
-            headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
+            headerStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
             
             storyView.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
             storyView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.storyViewTop),
@@ -73,7 +70,7 @@ class StoryViewController: BasePostViewController {
             tellStoryView.leadingAnchor.constraint(equalTo: headerStack.leadingAnchor),
             tellStoryView.topAnchor.constraint(equalTo: allowedPublishingView.bottomAnchor, constant: Constants.tellStoryViewTop),
             tellStoryView.trailingAnchor.constraint(equalTo: headerStack.trailingAnchor),
-            tellStoryView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: -Constants.tellStoryViewBottom)
+            tellStoryView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.tellStoryViewBottom)
         ])
     }
     

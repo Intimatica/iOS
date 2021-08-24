@@ -36,10 +36,10 @@ class TheoryViewController: BasePostViewController {
     }
     
     private func setupView() {
-        scrollView.addSubview(headerImageView)
-        scrollView.addSubview(headerStack)
-        scrollView.addSubview(spacerView)
-        scrollView.addSubview(markdownView)
+        contentView.addSubview(headerImageView)
+        contentView.addSubview(headerStack)
+        contentView.addSubview(spacerView)
+        contentView.addSubview(markdownView)
         
         headerStack.addArrangedSubview(titleLabel)
         headerStack.addArrangedSubview(tagsStackView)
@@ -49,27 +49,23 @@ class TheoryViewController: BasePostViewController {
     }
     
     private func setupConstraints() {
-        let contentLayoutGuide = scrollView.contentLayoutGuide
-
         NSLayoutConstraint.activate([
-            headerImageView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            headerImageView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            headerImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
+            headerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
-            headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
+            headerStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
             
-            spacerView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            spacerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             spacerView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.spacerViewTop),
-            spacerView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
+            spacerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            markdownView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: spacerView.bottomAnchor, constant: Constants.markdownViewTop),
-            markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            markdownView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            markdownView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
         ])
     }
     

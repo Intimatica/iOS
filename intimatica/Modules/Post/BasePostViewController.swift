@@ -24,6 +24,12 @@ class BasePostViewController: UIViewController {
         return scroll
     }()
     
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var headerImageView: FixedWidthAspectFitImageView = {
         let imageView = FixedWidthAspectFitImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,14 +112,20 @@ class BasePostViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
     

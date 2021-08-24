@@ -30,10 +30,18 @@ class BasePostViewController: UIViewController {
         return view
     }()
     
-    lazy var headerImageView: FixedWidthAspectFitImageView = {
-        let imageView = FixedWidthAspectFitImageView()
+//    lazy var headerImageView: FixedWidthAspectFitImageView = {
+//        let imageView = FixedWidthAspectFitImageView()
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.contentMode = .scaleAspectFit
+//        return imageView
+//    }()
+
+    lazy var headerImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     

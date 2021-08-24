@@ -125,6 +125,7 @@ class VideoCourseViewController: BasePostViewController {
             headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            headerImageView.heightAnchor.constraint(equalToConstant: 310),
 
             premiumHeaderBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             premiumHeaderBackgroundView.topAnchor.constraint(equalTo: headerImageView.bottomAnchor),

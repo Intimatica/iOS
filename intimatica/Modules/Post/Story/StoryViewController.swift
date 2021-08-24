@@ -54,6 +54,7 @@ class StoryViewController: BasePostViewController {
             headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            headerImageView.heightAnchor.constraint(equalToConstant: 200),
 
             headerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),

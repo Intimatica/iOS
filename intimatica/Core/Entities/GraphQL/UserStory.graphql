@@ -2,7 +2,7 @@ query UserStories {
   stories(sort:"created_at:desc") {
     id
     story
-    allow_publishing
+    is_allowed_to_publish
     comment
     is_published
     comment_author {
@@ -30,8 +30,8 @@ query UserStory($id: ID!) {
   }
 }
 
-mutation Story($story: String!, $allowPublishing: Boolean!) {
-  createStory(input: {data: {story: $story, allow_publishing: $allowPublishing}}) {
+mutation Story($story: String!, $isAllowedToPublish: Boolean!) {
+  createStory(input: {data: {story: $story, is_allowed_to_publish: $isAllowedToPublish}}) {
     story {
       id
     }

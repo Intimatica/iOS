@@ -11,6 +11,7 @@ import XCoordinator
 protocol ProfileViewDelegate: AnyObject {
     func setProfile(email: String, nickname: String?)
     func setStories(_ stories: [UserStoriesQuery.Data.Story])
+    func displayError(_ message: String)
 }
 
 protocol ProfilePresenterDelegate: AnyObject {
@@ -48,9 +49,11 @@ extension ProfilePresenter: ProfilePresenterDelegate {
             case .success(let graphQLResult):
                 if let stories = graphQLResult.data?.stories?.compactMap({ $0 }) {
                     self.view?.setStories(stories)
+                } else {
+                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                self.view?.displayError(error.localizedDescription)
             }
         }
     }

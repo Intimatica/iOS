@@ -73,7 +73,7 @@ class StoryTableViewCell: UITableViewCell {
             showButton.isHidden = false
         }
         
-        if let allowPublishing = story.allowPublishing, !allowPublishing {
+        if !story.isAllowedToPublish {
             tagStackView.add(.nonPublic)
         }
         

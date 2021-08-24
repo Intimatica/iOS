@@ -143,7 +143,7 @@ class TellStoryViewController: PopViewController {
             
             self.showSpinner(frame: self.view.bounds, opacity: 0.3)
             self.presenter.sendButtonDidTap(with: self.messageTextView.text ?? "",
-                                            allowPublishing: self.publishingAgreeView.state == .active)
+                                            isAllowedToPublish: self.publishingAgreeView.state == .active)
         }
     }
 }

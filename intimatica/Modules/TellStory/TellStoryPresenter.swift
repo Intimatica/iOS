@@ -13,17 +13,17 @@ protocol TellStoryViewProtocol: AnyObject {
 }
 
 protocol TellStoryPresenterProtocol {
-    func sendButtonDidTap(with story: String, allowPublishing: Bool)
+    func sendButtonDidTap(with story: String, isAllowedToPublish: Bool)
 }
 
 final class TellStoryPresenter {
     // MARK: - Properties
-    private let router: PostsRouter
+    private let router: FeedRouter
     private let useCase: GraphQLUseCaseProtocol
     weak var view: TellStoryViewProtocol?
     
     // MARK: - Initializsers
-    init(router: PostsRouter, dependencies: UseCaseProviderProtocol) {
+    init(router: FeedRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.graphQLUseCase
     }
@@ -31,8 +31,8 @@ final class TellStoryPresenter {
 
 // MARK: - TellStoryPresenterProtocol
 extension TellStoryPresenter: TellStoryPresenterProtocol {
-    func sendButtonDidTap(with story: String, allowPublishing: Bool) {
-        useCase.perform(mutaion: StoryMutation(story: story, allowPublishing: allowPublishing)) { [weak self] result in
+    func sendButtonDidTap(with story: String, isAllowedToPublish: Bool) {
+        useCase.perform(mutaion: StoryMutation(story: story, isAllowedToPublish: isAllowedToPublish)) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

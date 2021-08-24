@@ -172,6 +172,11 @@ extension ProfileViewController {
 
 // MARK: - ProfileViewDelegate
 extension ProfileViewController: ProfileViewDelegate {
+    func displayError(_ message: String) {
+        hideSpinner()
+        showError(message)
+    }
+    
     func setProfile(email: String, nickname: String?) {
         profileView.fill(by: nickname, and: email)
     }

@@ -71,6 +71,8 @@ class StoryTableViewCell: UITableViewCell {
         
         if let comment = story.comment, !comment.isEmpty  {
             showButton.isHidden = false
+        } else {
+            tagStackView.add(.underConsideration)
         }
         
         if !story.isAllowedToPublish {
@@ -79,8 +81,6 @@ class StoryTableViewCell: UITableViewCell {
         
         if let isPublished = story.isPublished, isPublished {
             tagStackView.add(.published)
-        } else {
-            tagStackView.add(.underConsideration)
         }
     }
     
@@ -134,7 +134,7 @@ class StoryTableViewCell: UITableViewCell {
 extension StoryTableViewCell {
     struct Constants {
         static let stackViewSpacing: CGFloat = 30
-        static let stackViewLeadingTrailing: CGFloat = 30
+        static let stackViewLeadingTrailing: CGFloat = 25
         static let stackViewTopBottom:  CGFloat = 25
         
         static let titleLabelLeading: CGFloat = 25

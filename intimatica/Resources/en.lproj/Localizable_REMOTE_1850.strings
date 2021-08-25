@@ -1,0 +1,121 @@
+/* 
+  Localizable.strings
+  intimatica
+
+  Created by Andrey RustFox on 7/14/21.
+  
+*/
+
+// ENGLISH
+
+OK = "Ok";
+ERROR = "Ошибка";
+UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
+
+AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
+AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
+AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
+AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
+AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
+AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфидентиальности";
+AGE_CONFIRM_CONTINUE_BUTTON = "Продолжить";
+
+WELCOME_SIGN_IN = "Войти";
+WELCOME_SIGN_UP = "Зарегистрироваться";
+WELCOME_GREETING_TEXT = "У нас интересно! Присоединяйся";
+
+AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
+AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль (8+ символов)";
+AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторить пароль";
+
+AUTH_EMAIL_INVALID = "Некорректно введен email";
+AUTH_PASSWORD_INVALID = "Пароль должен включать 8+ символов";
+AUTH_PASSWORD_CONFIRM_DONT_MATCH = "Пароли не совпадают";
+
+SIGN_UP_VIEW_TITLE = "Регистрация";
+SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";
+SIGN_UP_I_HAVE_ACCOUNT_BUTTON = "У меня уже есть аккаунт";
+
+SIGN_IN_VIEW_TITLE = "Войти";
+SIGN_IN_BUTTON_TITLE = "Войти";
+SIGN_IN_FORGOT_PASSWORD_BUTTON = "Не помню пароль";
+
+AUTH_ERROR_BLOCKED = "Ваш аккаунт был заблокирован администратором.";
+AUTH_ERROR_CONNECTION_FAILED = "Не удалось соединиться с сервером.";
+AUTH_ERROR_EMAIL_INVALID = "Неправильный e-mail.";
+AUTH_ERROR_EMAIL_NOT_CONFIRMED = "Ваш e-mail не подтвержден.";
+AUTH_ERROR_PROVIDE_EMAIL = "Укажите свой e-mail.";
+AUTH_ERROR_EMAIL_TAKEN = "Данный e-mail уже используется";
+AUTH_ERROR_INVALID = "Неверный логин или пароль.";
+AUTH_ERROR_PASSWORD_FORMAT = "Пароль не может содержать символ `$` больше трех раз.";
+AUTH_ERROR_PASSWORD_LOCAL = "Этот пользователь никогда не задавал пароль, пожалуйста, войдите в систему через провайдера, используемого при создании учетной записи.";
+AUTH_ERROR_PASSWORD_PROVIDE = "Укажите свой пароль.";
+AUTH_ERROR_RATE_LIMIT = "Слишком много попыток, повторите через минуту";
+AUTH_ERROR_USER_NOT_EXIST = "Этот e-mail не существует.";
+AUTH_ERROR_USERNAME_TAKEN = "Имя пользователя уже используется";
+
+
+// HOME TABBAR
+POST_LIST_TABBAR_ITEM_TITLE = "ГЛАВНАЯ";
+COURSES_TABBAR_ITEM_TITLE = "КУРСЫ";
+PROFILE_TABBAR_ITEM_TITLE = "ПРОФИЛЬ";
+
+TABLE_CELL_POST_LABEL_COURSE = "КУРС";
+TABLE_CELL_POST_LABEL_STORY = "ИСТОРИИ";
+TABLE_CELL_POST_LABEL_THEORY = "ТЕОРИЯ";
+TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "ПРЕМИУМ КУРС";
+
+CATEGORY_ALL = "Все";
+CATEGORY_THEORY = "Теория";
+CATEGORY_STORY = "Истории";
+CATEGORY_VIDEO = "Видео";
+CATEGORY_FAVORITE = "Избранное";
+CATEGORY_ALL_COURSES = "Все курсы";
+CATEGORY_MY_COURSES = "Мои курсы";
+
+// POST VIEW
+COURSE_SELECTION_BUTTON_TITLE_INACTIVE = "В мои курсы";
+COURSE_SELECTION_BUTTON_TITLE_ACTIVE = "Добавлен";
+AUTHOR = "Автор";
+
+COURSE_POST_TITLE = "Программа курса";
+COURSE_VIDEO_TITLE = "Видео курса";
+COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";
+
+COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
+COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
+COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
+
+PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
+
+
+TAG_CLOUD_SHOW_BUTTON_TITLE = "Показать";
+TAG_CLOUD_CLEAR_BUTTON_TITLE = "Очистить";
+
+STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
+STORY_TELL_TITLE_LABEL = "Хотите рассказать свою историю?";
+STORY_TELL_BUTTON_LABEL = "Рассказать";
+
+// TellStoryViewController
+TELL_STORY_TITLE = "Моя история";
+TELL_STOTY_SUBTILE = "Расскажи тут свою историю";
+TELL_STORY_AGREE_TITLE = "Даю согласие на анонимную публикацию истории и исправление грамматических ошибок";
+TELL_STOTY_BUTTON_TITLE = "Отправить";
+
+// TellStoryThanksViewController
+TELL_STORY_THANKS_TITLE = "Спасибо!";
+TELL_STORY_THANKS_SUBTITLE = "Твоя история отправлена. Жди комментарий специалиста.\n\nИстория и комментарий к ней появится в твоем профиле.";
+TELL_STORY_THANKS_INFO = "";
+TELL_STORY_THANKS_BUTTON_TITLE = "Буду ждать ответ специалиста";
+
+// ProfileViewController
+PROFILE = "Профиль";
+EDIT_PROFILE_BUTTON_TITLE = "Редактировать профиль";
+APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Оформить премиум";
+PROFILE_TABLE_TITLE = "Мои истории";
+
+TAG_LABEL_PRIVATE = "ПРИВАТНАЯ";
+TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
+TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";
+
+MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ психолога";

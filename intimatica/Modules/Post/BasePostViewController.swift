@@ -11,9 +11,11 @@ import Kingfisher
 
 class BasePostViewController: UIViewController {
     // MARK: - Properties
-    var navigationBarView: NavigationBarView!
-    var presenter: BasePresenterProtocol!
-
+    private let presenter: BasePostPresenterProtocol
+    
+    private var isFavorite = false
+    private var rightBarButtonType: RightBarButtonItem.ButtonType = .favorite
+    
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -22,10 +24,24 @@ class BasePostViewController: UIViewController {
         return scroll
     }()
     
-    lazy var headerImageView: FixedWidthAspectFitImageView = {
-        let imageView = FixedWidthAspectFitImageView()
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+//    lazy var headerImageView: FixedWidthAspectFitImageView = {
+//        let imageView = FixedWidthAspectFitImageView()
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.contentMode = .scaleAspectFit
+//        return imageView
+//    }()
+
+    lazy var headerImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -45,29 +61,33 @@ class BasePostViewController: UIViewController {
         return label
     }()
     
-    lazy var tagsStack: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = Constants.tagStackSpacing
-        return stack
-    }()
-    
+    lazy var tagsStackView = TagStackView()
     lazy var authorView = AuthorView()
-    
     lazy var spacerView = SpacerView(height: 1, backgroundColor: .init(hex: 0x9E6FFF))
     
     lazy var markdownView: MarkdownView = {
         let md = MarkdownView()
         md.translatesAutoresizingMaskIntoConstraints = false
         md.isScrollEnabled = false
+        
         return md
     }()
     
-    //MARK: - Initializers
-    init(navigationBarType: NavigationBarView.ActionButtonType) {
-        super.init(nibName: nil, bundle: nil)
+    private lazy var backBarButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem()
+        barButton.title = "    "
+        barButton.tintColor = .appPurple
+        return barButton
+    }()
         
-        navigationBarView = NavigationBarView(actionButtonType: navigationBarType)
+    private lazy var rightBarButtonItem = RightBarButtonItem(buttonType: rightBarButtonType)
+    
+    //MARK: - Initializers
+    init(presenter: BasePostPresenterProtocol, rightBarButtonType: RightBarButtonItem.ButtonType) {
+        self.presenter = presenter
+        self.rightBarButtonType = rightBarButtonType
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -77,64 +97,62 @@ class BasePostViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        navigationItem.rightBarButtonItem = rightBarButtonItem
         
         setupView()
         setupConstraints()
         setupActions()
+        
+        showSpinner()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        showSpinner()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - Layout
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(navigationBarView)
         view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            navigationBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            navigationBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navigationBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollView.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
     
     private func setupActions() {
-        navigationBarView.backButton.addAction { [weak self] in
-            // TODO: fix this
-//            self?.presenter.closeButtonDidTap()
-            self?.navigationController?.popViewController(animated: true)
+        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
+            guard let self = self else { return }
+
+            self.isFavorite = !self.isFavorite
+
+            if self.isFavorite {
+                self.presenter.addToFarovites()
+                self.rightBarButtonItem.state = .active
+            } else {
+                self.presenter.removeFromFavorites()
+                self.rightBarButtonItem.state = .inactive
+            }
         }
     }
-    
-    func createTagView(with text: String) -> UIView {
-        return LabelWithBackground(with: text,
-                                   textColor: .appPurple,
-                                   backgroundColor: .appLightPuple,
-                                   font: .rubik(fontSize: .small, fontWeight: .regular),
-                                   verticalSpacing: 3,
-                                   horizontalSpacing: 8,
-                                   cornerRadius: 10)
-    }
-    
+
     func fixContentStrapiLinks(_ text: String) -> String {
         let regex = "(\\!\\[.*\\]\\()(\\/.+)(\\))"
         let replaceBy = "$1" + AppConstants.serverURL + "$2$3"
@@ -145,16 +163,24 @@ class BasePostViewController: UIViewController {
 // MARK: - Helper/Constants
 extension BasePostViewController {
     struct Constants {
+        static let favoriteActiveImageName = "favorite_active"
+        static let favoriteInactiveImageName = "favorite_inactive"
+        
         static let headerStackSpacing: CGFloat = 10
         static let headerStackLeadingTrailing: CGFloat = 24
         static let headerStackTop: CGFloat = 30
         
         static let spacerViewTop: CGFloat = 10
         static let markdownViewTop: CGFloat = 10
-        
-        static let tagStackSpacing: CGFloat = 6
-        static let tagViewVerticalSpacing: CGFloat = 3
-        static let tagViewHorizontalSpacing: CGFloat = 8
-        static let tagViewCornerRadius: CGFloat = 10
+    }
+}
+
+// MARK: - BaseViewProtocol
+extension BasePostViewController: BasePostViewProtocol {
+    func setIsFavotire(_ isFavorite: Bool) {
+        self.isFavorite = isFavorite
+        if isFavorite {
+            rightBarButtonItem.state = .active
+        }
     }
 }

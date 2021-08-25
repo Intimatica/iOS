@@ -7,18 +7,25 @@
 
 import Foundation
 
-protocol TheoryPresenterProtocol: BasePresenterProtocol {
+protocol TheoryPresenterProtocol: BasePostPresenterProtocol {
     func closeButtonDidTap()
 }
 
-protocol TheoryViewProtocol: AnyObject {
+protocol TheoryViewProtocol: BasePostViewProtocol {
     func display(_ theoryPost: TheoryPostQuery.Data.Post)
     func display(_ error: Error)
 }
 
-final class TheoryPresenter: BasePresenter {
+final class TheoryPresenter: BasePostPresenter {
     // MARK: - Properies
-    weak var view: TheoryViewProtocol!
+    private weak var view: TheoryViewProtocol!
+    
+    // MARK: - Public
+    func setView(_ view: TheoryViewProtocol) {
+        super.setView(view)
+        
+        self.view = view
+    }
 }
 
 extension TheoryPresenter: TheoryPresenterProtocol {
@@ -26,8 +33,10 @@ extension TheoryPresenter: TheoryPresenterProtocol {
 //        router.trigger(.home)
     }
     
-    func viewDidLoad() {
-        useCase.getPost(query: TheoryPostQuery(id: String(postId))) { [weak self] result in
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        useCase.getPost(query: TheoryPostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             
             switch(result) {

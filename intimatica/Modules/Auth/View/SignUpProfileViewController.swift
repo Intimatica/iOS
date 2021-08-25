@@ -69,7 +69,7 @@ class SignUpProfileViewController: AuthViewController {
     
     private func setupActions() {
         fillLateButton.addAction { [weak self] in
-            self?.dismiss()
+            self?.dismiss(animated: true)
         }
         
         authButton.addAction { [weak self] in

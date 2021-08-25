@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 extension UIControl {
     func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping() -> ()) {
         if #available(iOS 14.0, *) {

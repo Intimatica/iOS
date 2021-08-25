@@ -35,12 +35,17 @@ extension UIViewController {
         showSpinner(frame: self.view.bounds)
     }
     
-    func showSpinner(frame: CGRect) {
+    func showSpinner(frame: CGRect, opacity: CGFloat = 1) {
         spinnerView = UIView(frame: frame)
         
         guard let spinnerView = spinnerView else { return }
         
-        spinnerView.backgroundColor = .white
+        if opacity != 1 {
+            spinnerView.backgroundColor = .black.withAlphaComponent(opacity)
+        } else {
+            spinnerView.backgroundColor = .white
+        }
+        
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = spinnerView.center

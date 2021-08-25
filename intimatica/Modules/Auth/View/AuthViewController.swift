@@ -126,7 +126,7 @@ class AuthViewController: UIViewController {
     
     private func setupActions() {
         closeButton.addAction { [weak self] in
-            self?.presenter.closeButtonDidTap()
+            self?.dismiss(animated: true)
         }
         
         authButton.addAction { [weak self] in
@@ -135,6 +135,7 @@ class AuthViewController: UIViewController {
                   let password = self.passwordView.textField.text
             else { return }
             
+            self.showSpinner(frame: self.view.bounds, opacity: 0.5)
             self.presenter.doAuthButtonDidTap(email: email, password: password)
         }
     }
@@ -171,19 +172,19 @@ extension AuthViewController {
 
 // MARK: - AuthViewProtocol
 extension AuthViewController: AuthViewProtocol {
-    func dismiss() {
-        dismiss(animated: true)
-    }
-    
     func changeAuthButton(isEnabled: Bool) {
         authButton.isEnabled = isEnabled
     }
     
     func showNotification(_ message: String) {
+        hideSpinner()
+        
         showError(message)
     }
     
     func showValidationError(for fieldContent: FieldType, message: String) {
+        hideSpinner()
+        
         switch fieldContent {
         case .email:
             emailView.showError(message: L10n(message))

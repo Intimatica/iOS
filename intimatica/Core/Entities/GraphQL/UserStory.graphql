@@ -1,0 +1,39 @@
+query UserStories {
+  stories(sort:"created_at:desc") {
+    id
+    story
+    is_allowed_to_publish
+    comment
+    is_published
+    comment_author {
+      name
+      job_title,
+      photo {
+        url
+      }
+    }
+  }
+}
+
+query UserStory($id: ID!) {
+  story(id: $id) {
+    id
+    story
+    comment
+    comment_author {
+      name
+      job_title,
+      photo {
+        url
+      }
+    }
+  }
+}
+
+mutation Story($story: String!, $isAllowedToPublish: Boolean!) {
+  createStory(input: {data: {story: $story, is_allowed_to_publish: $isAllowedToPublish}}) {
+    story {
+      id
+    }
+  }
+}

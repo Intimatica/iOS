@@ -7,19 +7,17 @@
 
 import Foundation
 
-enum FeedCategoryFilter: String, CaseIterable {
+enum FeedCategory: String, CaseIterable {
     case all = "Все"
     case theory = "Теория"
     case story = "Истории"
     case video = "Видео"
     case favorite = "Избранное"
-//    case hello1 = "Hello #1"
-//    case hello2 = "Hello #2"
-//    case hello3 = "Hello #3"
-//    case hello4 = "Hello #4"
+    case allCourses = "Все курсы"
+    case myCourses = "Мои курсы"
     
     static func toArray() -> [String] {
-        FeedCategoryFilter.allCases.map {
+        FeedCategory.allCases.map {
             $0.rawValue
         }
     }

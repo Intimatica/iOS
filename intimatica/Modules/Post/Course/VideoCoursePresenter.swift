@@ -7,17 +7,24 @@
 
 import Foundation
 
-protocol VideoCourseViewProtocol: AnyObject {
+protocol VideoCourseViewProtocol: BasePostViewProtocol {
     func display(_ post: VideoCoursePostQuery.Data.Post)
 }
 
-protocol VideoCoursePresenterProtocol: BasePresenterProtocol {
+protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
     func finishButtonDidTap()
 }
 
-final class VideoCoursePresenter: BasePresenter {
+final class VideoCoursePresenter: BasePostPresenter {
     // MARK: - Properties
-    weak var view: VideoCourseViewProtocol?
+    private weak var view: VideoCourseViewProtocol?
+    
+    // MARK: - Public
+    func setView(_ view: VideoCourseViewProtocol) {
+        super.setView(view)
+        
+        self.view = view
+    }
 }
 
 // MARK: - VideoCoursePresenterProtocol
@@ -26,8 +33,10 @@ extension VideoCoursePresenter: VideoCoursePresenterProtocol {
         router.trigger(.courseFinished("hello"))
     }
     
-    func viewDidLoad() {
-        useCase.getPost(query: VideoCoursePostQuery(id: String(postId))) { [weak self] result in
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        useCase.getPost(query: VideoCoursePostQuery(id: postId)) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

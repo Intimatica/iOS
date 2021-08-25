@@ -8,11 +8,14 @@
 import UIKit
 
 class TheoryViewController: BasePostViewController {
+    // MARK: - Properties
+    private let presenter: TheoryPresenterProtocol
+    
     // MARK: - Initializers
     init(presenter: TheoryPresenterProtocol) {
-        super.init(navigationBarType: .addFavorite)
-        
         self.presenter = presenter
+        
+        super.init(presenter: presenter,  rightBarButtonType: .favorite)
     }
     
     required init?(coder: NSCoder) {
@@ -33,40 +36,37 @@ class TheoryViewController: BasePostViewController {
     }
     
     private func setupView() {
-        scrollView.addSubview(headerImageView)
-        scrollView.addSubview(headerStack)
-        scrollView.addSubview(spacerView)
-        scrollView.addSubview(markdownView)
+        contentView.addSubview(headerImageView)
+        contentView.addSubview(headerStack)
+        contentView.addSubview(spacerView)
+        contentView.addSubview(markdownView)
         
         headerStack.addArrangedSubview(titleLabel)
-        headerStack.addArrangedSubview(tagsStack)
+        headerStack.addArrangedSubview(tagsStackView)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
         headerStack.addArrangedSubview(authorView)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
     }
     
     private func setupConstraints() {
-        let contentLayoutGuide = scrollView.contentLayoutGuide
-
         NSLayoutConstraint.activate([
-            headerImageView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            headerImageView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            headerImageView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            headerImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            headerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            headerImageView.heightAnchor.constraint(equalToConstant: 200),
 
-            headerStack.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
+            headerStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.headerStackLeadingTrailing),
             headerStack.topAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: Constants.headerStackTop),
-            headerStack.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
+            headerStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.headerStackLeadingTrailing),
             
-            spacerView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            spacerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             spacerView.topAnchor.constraint(equalTo: headerStack.bottomAnchor, constant: Constants.spacerViewTop),
-            spacerView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
+            spacerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            markdownView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            markdownView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: spacerView.bottomAnchor, constant: Constants.markdownViewTop),
-            markdownView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            markdownView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            markdownView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            markdownView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            markdownView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
         ])
     }
     
@@ -96,17 +96,8 @@ extension TheoryViewController: TheoryViewProtocol {
         headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
         titleLabel.text = theoryPost.title
-        
-        tags.forEach { tagName in
-            tagsStack.addArrangedSubview(createTagView(with: tagName))
-        }
-        tagsStack.addArrangedSubview(UIView())
-        
-        authorView.imageView.kf.indicatorType = .activity
-        authorView.imageView.kf.setImage(with: URL(string: AppConstants.serverURL + authorPhotoUrl))
-        authorView.label.setAttributedText(withString: L10n("AUTHOR") + "\n" + authorName + "\n" + authorJobTitle,
-                                           boldString: authorName,
-                                           font: authorView.label.font)
+        tagsStackView.fill(by: tags)
+        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
         markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
     }
@@ -121,11 +112,11 @@ extension TheoryViewController: TheoryViewProtocol {
 extension TheoryViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 0 {
-            navigationBarView.titleLabel.text = titleLabel.text
-            navigationBarView.showBottomBorder()
+            title = titleLabel.text
+//            navigationBarView.showBottomBorder()
         } else {
-            navigationBarView.titleLabel.text = ""
-            navigationBarView.hideBottomBorder()
+            title = ""
+//            navigationBarView.hideBottomBorder()
         }
     }
 }

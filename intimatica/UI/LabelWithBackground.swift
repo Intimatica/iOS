@@ -19,16 +19,25 @@ class LabelWithBackground: UIView {
     }()
     
     // MARK: - Initializers
-    init(with text: String = "", textColor: UIColor = .black, backgroundColor: UIColor = .lightGray, font: UIFont = .rubik(), verticalSpacing: CGFloat = 3, horizontalSpacing: CGFloat = 10, cornerRadius: CGFloat = 10) {
+    init(with text: String = "", textColor: UIColor = .black, backgroundColor: UIColor = .lightGray, font: UIFont = .rubik(), verticalSpacing: CGFloat = 3, horizontalSpacing: CGFloat = 10) {
         super.init(frame: .zero)
         
         setupLabel(text: text, color: textColor, font: font)
-        setupView(backgroundColor: backgroundColor, cornerRadius: cornerRadius)
+        setupView(backgroundColor: backgroundColor)
         setupConstraints(verticalSpacing: verticalSpacing, horizontalSpacing: horizontalSpacing)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if layer.cornerRadius != bounds.height / 2 {
+            layer.cornerRadius = bounds.height / 2
+        }
     }
     
     // MARK: - Layout
@@ -38,10 +47,9 @@ class LabelWithBackground: UIView {
         label.font = font
     }
     
-    private func setupView(backgroundColor: UIColor, cornerRadius: CGFloat) {
+    private func setupView(backgroundColor: UIColor) {
         translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = backgroundColor
-        layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
 
         addSubview(label)
@@ -49,10 +57,10 @@ class LabelWithBackground: UIView {
     
     private func setupConstraints(verticalSpacing: CGFloat, horizontalSpacing: CGFloat) {
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: verticalSpacing),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing),
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalSpacing)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalSpacing),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: verticalSpacing),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalSpacing),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -verticalSpacing)
         ])
     }
 }

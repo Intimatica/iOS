@@ -12,6 +12,8 @@ OK = "Ok";
 ERROR = "Ошибка";
 DONE = "Готово";
 CANCEL = "Отмена";
+UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
+
 
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
 AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
@@ -72,10 +74,17 @@ TABLE_CELL_POST_LABEL_STORY = "ИСТОРИИ";
 TABLE_CELL_POST_LABEL_THEORY = "ТЕОРИЯ";
 TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "ПРЕМИУМ КУРС";
 
+CATEGORY_ALL = "Все";
+CATEGORY_THEORY = "Теория";
+CATEGORY_STORY = "Истории";
+CATEGORY_VIDEO = "Видео";
+CATEGORY_FAVORITE = "Избранное";
+CATEGORY_ALL_COURSES = "Все курсы";
+CATEGORY_MY_COURSES = "Мои курсы";
 
 // POST VIEW
-ADD_TO_MY_COURSES_BUTTON_LABEL = "В мои курсы";
-ADDED_TO_MY_COURSES_BUTTON_LABEL = "Добавлен";
+COURSE_SELECTION_BUTTON_TITLE_INACTIVE = "В мои курсы";
+COURSE_SELECTION_BUTTON_TITLE_ACTIVE = "Добавлен";
 AUTHOR = "Автор";
 
 COURSE_POST_TITLE = "Программа курса";
@@ -89,5 +98,33 @@ COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
 PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
 
 
-TAG_CLOULD_SHOW_BUTTON_TITLE = "Показать";
+TAG_CLOUD_SHOW_BUTTON_TITLE = "Показать";
+TAG_CLOUD_CLEAR_BUTTON_TITLE = "Очистить";
 
+STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
+STORY_TELL_TITLE_LABEL = "Хотите рассказать свою историю?";
+STORY_TELL_BUTTON_LABEL = "Рассказать";
+
+// TellStoryViewController
+TELL_STORY_TITLE = "Моя история";
+TELL_STOTY_SUBTILE = "Расскажи тут свою историю";
+TELL_STORY_AGREE_TITLE = "Даю согласие на анонимную публикацию истории и исправление грамматических ошибок";
+TELL_STOTY_BUTTON_TITLE = "Отправить";
+
+// TellStoryThanksViewController
+TELL_STORY_THANKS_TITLE = "Спасибо!";
+TELL_STORY_THANKS_SUBTITLE = "Твоя история отправлена. Жди комментарий специалиста.\n\nИстория и комментарий к ней появится в твоем профиле.";
+TELL_STORY_THANKS_INFO = "";
+TELL_STORY_THANKS_BUTTON_TITLE = "Буду ждать ответ специалиста";
+
+// ProfileViewController
+PROFILE = "Профиль";
+EDIT_PROFILE_BUTTON_TITLE = "Редактировать профиль";
+APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Оформить премиум";
+PROFILE_TABLE_TITLE = "Мои истории";
+
+TAG_LABEL_PRIVATE = "ПРИВАТНАЯ";
+TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
+TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";
+
+MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ психолога";

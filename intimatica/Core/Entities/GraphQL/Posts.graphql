@@ -1,4 +1,4 @@
-query Posts($postTypeIdList: [Int!], $tagIdList: [Int!], $idList: [Int!]) {
+query Posts($postTypeIdList: [Int!], $tagIdList: [Int!], $idList: [String!]) {
     posts (sort:"published_at:desc",  where:{tags: {id: [$tagIdList]}, post_type: {id:[$postTypeIdList]}, id: [$idList]}){
         id
         title

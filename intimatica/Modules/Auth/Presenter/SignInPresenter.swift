@@ -22,7 +22,7 @@ final class SignInPresenter: AuthPresenter {
 // MARK: - SingInPresenterProtocol
 extension SignInPresenter: SignInPresenterProtocol {
     func forgotPasswordButtonDidTap() {
-        router.trigger(.forgotPassword)
+//        router.trigger(.forgotPassword)
     }
     
     override func doAuthButtonDidTap(email: String, password: String) {
@@ -32,9 +32,8 @@ extension SignInPresenter: SignInPresenterProtocol {
             switch result {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
+                self.useCase.setAuthToken(authResponse.jwt)
                 self.router.trigger(.home)
-                self.view?.dismiss()
-                print(authResponse.jwt)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))
             }

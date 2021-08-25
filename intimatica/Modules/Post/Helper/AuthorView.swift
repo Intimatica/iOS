@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class AuthorView: UIView {
+    enum Writer {
+        case creator(String)
+        case author(String)
+    }
     
-    lazy var imageView: AvatarImageView = {
+    // MARK: - Properties
+    private lazy var imageView: AvatarImageView = {
         let imageView = AvatarImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -18,9 +24,10 @@ final class AuthorView: UIView {
         return imageView
     }()
 
-    lazy var label: UILabel = {
+    private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .rubik(fontSize: .subRegular, fontWeight: .regular)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -57,11 +64,37 @@ final class AuthorView: UIView {
             label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.labelLeading),
             label.topAnchor.constraint(equalTo: topAnchor),
             label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor)
+            label.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    
+    // MARK: - Public
+    func fill(by name: Writer, jobTitle: String, avatar: String) {
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar))
+
+        let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appGray]
+        
+        let boldTextAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: label.font.pointSize)]
+        
+        switch name {
+        case .author(let name):
+            let text = NSMutableAttributedString(string: L10n("AUTHOR"), attributes: greyTextAttribute)
+            text.append(NSAttributedString(string: "\n"))
+            text.append(NSAttributedString(string: name, attributes: boldTextAttribute))
+            text.append(NSAttributedString(string: "\n"))
+            text.append(NSAttributedString(string: jobTitle))
+            label.attributedText = text
+        case .creator(let name):
+            let text = NSMutableAttributedString(string: name, attributes: boldTextAttribute)
+            text.append(NSAttributedString(string: "\n"))
+            text.append(NSAttributedString(string: jobTitle, attributes: greyTextAttribute))
+            label.attributedText = text
+        }
     }
 }
 
+// MARK: - Helper/Constants
 extension AuthorView {
     private struct Constants {
         static let imageViewWidthHeight: CGFloat = 50

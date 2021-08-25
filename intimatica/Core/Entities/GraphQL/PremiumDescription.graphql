@@ -1,0 +1,5 @@
+query PremiumDescription {
+  premiumDescription {
+    content
+  }
+}

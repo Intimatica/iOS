@@ -6,16 +6,28 @@
 //
 
 import UIKit
+import SnapKit
 import AlignedCollectionViewFlowLayout
 
-final class TagCloudViewController: UIViewController {
+// TODO: fix scroll view
+
+final class TagCloudViewController: PopViewController {
     // MARK: - Properties
     private var tagList: [TagsQuery.Data.Tag] = []
     private var selectedTags: Set<Int> = []
     
     private let tagCellId = "TagCollectionViewCellID"
-    private var presenter: TagCloudPresenterProtocol!
-    private lazy var closeButton = CloseButton()
+    private var presenter: TagCloudPresenterDelegate!
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private lazy var contentView = UIView()
+    
     private lazy var alignedFlowLayout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .center)
     
     private lazy var collectionView: UICollectionView = {
@@ -35,20 +47,24 @@ final class TagCloudViewController: UIViewController {
         
         return collectionView
     }()
-    
-    private lazy var actionButton: UIRoundedButton = {
-        let button = UIRoundedButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(L10n("TAG_CLOULD_SHOW_BUTTON_TITLE"), for: .normal)
-        button.setBackgroundColor(.appPurple, for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
+        
+    private lazy var actionButton = UIRoundedButton(title: L10n("TAG_CLOUD_SHOW_BUTTON_TITLE"),
+                                                    titleColor: .white,
+                                                    font: .rubik(fontSize: .regular, fontWeight: .bold),
+                                                    backgroundColor: .appPurple)
 
+    private lazy var clearButton: UIButton = {
+       let button = UIRoundedButton(title: L10n("TAG_CLOUD_CLEAR_BUTTON_TITLE"),
+                                    titleColor: .appPurple,
+                                    font: .rubik(fontSize: .regular, fontWeight: .bold),
+                                    backgroundColor: .clear)
+        button.layer.borderWidth = 1.5
+        button.layer.borderColor = UIColor.appPurple.cgColor
         return button
     }()
     
     // MARK: - Initializers
-    init(presenter: TagCloudPresenterProtocol) {
+    init(presenter: TagCloudPresenterDelegate) {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
@@ -69,45 +85,74 @@ final class TagCloudViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showSpinner()
+    }
+    
     // MARK: - Layout
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(closeButton)
-        view.addSubview(collectionView)
-        view.addSubview(actionButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(collectionView)
+        contentView.addSubview(actionButton)
+        contentView.addSubview(clearButton)
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
-            closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
-            
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.collectionViewLeadingTrailing),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.collectionViewTop),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.collectionViewLeadingTrailing),
-            
-            actionButton.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
-            actionButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: Constants.actionButtonTop),
-            actionButton.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            actionButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight)
-        ])
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(view)
+            make.top.equalTo(closeButton.snp.bottom)
+        }
+
+        contentView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.bottom.equalTo(scrollView)
+        }
         
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(contentView).inset(Constants.collectionViewLeadingTrailing)
+            make.top.equalTo(closeButton.snp.bottom).offset(Constants.collectionViewTop)
+        }
+        
+        actionButton.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(collectionView)
+            make.top.equalTo(collectionView.snp.bottom).offset(Constants.actionButtonTop)
+            make.height.equalTo(Constants.actionButtonHeight)
+        }
+        
+        clearButton.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(collectionView)
+            make.top.equalTo(actionButton.snp.bottom).offset(Constants.clearButtonTop)
+            make.height.equalTo(Constants.actionButtonHeight)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-Constants.collectionViewTop)
+        }
+
         let constraint = collectionView.heightAnchor.constraint(equalToConstant: Constants.collectionViewHeight)
         constraint.priority = .defaultLow
         constraint.isActive = true
     }
     
     private func setupAction() {
-        closeButton.addAction { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-        }
-        
         actionButton.addAction { [weak self] in
             guard let self = self else { return }
             self.presenter.showButtonDidTap(selectedTags: self.selectedTags)
+        }
+        
+        clearButton.addAction { [weak self] in
+            guard
+                let self = self,
+                let cells = self.collectionView.visibleCells as? [TagCollectionViewCell]
+            else { return }
+            self.selectedTags = []
+            
+            for cell in cells {
+                cell.state = .inactive
+            }
         }
     }
 }
@@ -115,34 +160,35 @@ final class TagCloudViewController: UIViewController {
 // MARK: - Helper/Constants
 extension TagCloudViewController {
     struct Constants {
-        static let closeButtonWidth: CGFloat = 40
-        static let closeButtonTopTrailing: CGFloat = 15
         static let collectionViewLeadingTrailing: CGFloat = 45
         static let collectionViewHeight: CGFloat = 400
-        static let collectionViewTop: CGFloat = 165
+        static let collectionViewTop: CGFloat = 120
         
         static let actionButtonTop: CGFloat = 50
         static let actionButtonHeight: CGFloat = 50
+        
+        static let clearButtonTop: CGFloat = 20
     }
 }
 
 // MARK: - TagCloudViewProtocol
-extension TagCloudViewController: TagCloudViewProtocol {
+extension TagCloudViewController: TagCloudViewDelegate {
     func display(_ tags: [TagsQuery.Data.Tag], with selectedTags: Set<Int>) {
         tagList = tags
         self.selectedTags = selectedTags
         collectionView.reloadData()
         
-        // TODO: refactor this
-        var height = collectionView.collectionViewLayout.collectionViewContentSize.height
-        height += 50
+        collectionView.layoutIfNeeded()
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionView.heightAnchor.constraint(equalToConstant: height).isActive = true
         view.layoutIfNeeded()
         view.layoutSubviews()
+        
+        hideSpinner()
     }
     
-    func dismiss() {
-        dismiss(animated: true)
+    func displayError(_ text: String) {
+        showError(text)
     }
 }
 
@@ -154,7 +200,7 @@ extension TagCloudViewController: UICollectionViewDelegate {
         
         guard let id = Int(tagList[indexPath.row].id) else { return }
         
-        if cell.state == .selected {
+        if cell.state == .active {
             selectedTags.insert(id)
         } else {
             selectedTags.remove(id)
@@ -179,7 +225,7 @@ extension TagCloudViewController: UICollectionViewDataSource {
         cell.fill(by: tagName)
         
         if selectedTags.contains(tagId) {
-            cell.state = .selected
+            cell.state = .active
         }
         
         return cell

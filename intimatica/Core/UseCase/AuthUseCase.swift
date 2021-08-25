@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import Apollo
 
 protocol AuthUseCaseProtocol {
     func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
     func signOut()
+    
+    func setAuthToken(_ token: String)
+    func perform<T: GraphQLMutation>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>)
     
     func getUserCredentials() -> UserCredentials?
     func storeUserCredentials(_ userCredentials: UserCredentials)
@@ -25,7 +29,7 @@ protocol HasAuthUseCaseProtocol {
 
 final class AuthUseCase: AuthUseCaseProtocol {
     // MARK: - Properties
-    private let repository: AuthRepositoryProtocol!
+    private let repository: AuthRepositoryProtocol
     
     // MARK: - Initializers
     init(dependencies: RepositoryProviderProtocol) {
@@ -42,6 +46,14 @@ final class AuthUseCase: AuthUseCaseProtocol {
     
     func signOut() {
         repository.signOut()
+    }
+    
+    func setAuthToken(_ token: String) {
+        repository.setAuthToken(token)
+    }
+    
+    func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {
+        repository.perform(mutaion: mutaion, completionHandler: completionHandler)
     }
     
     func getUserCredentials() -> UserCredentials? {

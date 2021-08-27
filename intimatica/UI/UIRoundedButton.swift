@@ -13,8 +13,8 @@ class UIRoundedButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if layer.cornerRadius != bounds.height / 3 {
-            layer.cornerRadius = bounds.height / 3
+        if layer.cornerRadius != bounds.height / 2.5 {
+            layer.cornerRadius = bounds.height / 2.5
         }
     }
     

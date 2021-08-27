@@ -77,6 +77,9 @@
 		DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566F26C129CC0087663E /* CoursesActionButton.swift */; };
 		DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567126C143D50087663E /* CourseFinishedViewController.swift */; };
 		DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */; };
+		DB57273426D78D0E002D6B46 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273326D78D0E002D6B46 /* ContainerViewController.swift */; };
+		DB57273726D78D69002D6B46 /* BurgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273626D78D69002D6B46 /* BurgerMenuViewController.swift */; };
+		DB57273926D7B93C002D6B46 /* BurgerMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273826D7B93C002D6B46 /* BurgerMenuPresenter.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
@@ -230,6 +233,9 @@
 		DB3C566F26C129CC0087663E /* CoursesActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesActionButton.swift; sourceTree = "<group>"; };
 		DB3C567126C143D50087663E /* CourseFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFinishedViewController.swift; sourceTree = "<group>"; };
 		DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Utils.swift"; sourceTree = "<group>"; };
+		DB57273326D78D0E002D6B46 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		DB57273626D78D69002D6B46 /* BurgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerMenuViewController.swift; sourceTree = "<group>"; };
+		DB57273826D7B93C002D6B46 /* BurgerMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerMenuPresenter.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -406,6 +412,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB57273526D78D3A002D6B46 /* BurgerMenu */,
 				DBDBC78326D3779100CB839C /* UserStory */,
 				DB2E196326CD6D3D004FF77C /* TellStory */,
 				DBFA7C5B26C835AC0042D31D /* WebPage */,
@@ -418,6 +425,7 @@
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
 				DB2E196A26CD7F29004FF77C /* PopViewController.swift */,
+				DB57273326D78D0E002D6B46 /* ContainerViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -607,6 +615,15 @@
 				DB3C567126C143D50087663E /* CourseFinishedViewController.swift */,
 			);
 			path = Course;
+			sourceTree = "<group>";
+		};
+		DB57273526D78D3A002D6B46 /* BurgerMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DB57273626D78D69002D6B46 /* BurgerMenuViewController.swift */,
+				DB57273826D7B93C002D6B46 /* BurgerMenuPresenter.swift */,
+			);
+			path = BurgerMenu;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -1133,6 +1150,7 @@
 				DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */,
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
+				DB57273926D7B93C002D6B46 /* BurgerMenuPresenter.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */,
 				DB2E196026CCD1E1004FF77C /* StoryView.swift in Sources */,
@@ -1171,6 +1189,7 @@
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
 				DBDBC76C26CEF64B00CB839C /* ProfileCoordinator.swift in Sources */,
+				DB57273726D78D69002D6B46 /* BurgerMenuViewController.swift in Sources */,
 				DBF99D4426B07ECB00E04D40 /* FeedPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
@@ -1227,6 +1246,7 @@
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
+				DB57273426D78D0E002D6B46 /* ContainerViewController.swift in Sources */,
 				DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */,
 				DB2E195D26CBF20F004FF77C /* TagStackView.swift in Sources */,
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,

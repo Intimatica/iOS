@@ -7,6 +7,7 @@
 
 import Foundation
 import XCoordinator
+import LGSideMenuController
 
 enum FeedRoute: Route {
     case feed
@@ -39,10 +40,26 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     override func prepareTransition(for route: FeedRoute) -> NavigationTransition {
         switch route {
         case .feed:
-            let presenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
-            let viewController = FeedViewController(presenter: presenter, feedSettings: feedSettings)
-            presenter.view = viewController
-            return .push(viewController)
+            let feedPresenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let feedViewController = FeedViewController(presenter: feedPresenter, feedSettings: feedSettings)
+            feedPresenter.view = feedViewController
+            
+//            let menuPresenter = BurgerMenuViewController()
+//            let menuViewController = BurgerMenuViewController()
+//
+//            let sideMenuController = LGSideMenuController(rootViewController: feedViewController,
+//                                                           leftViewController: menuViewController)
+//
+//            sideMenuController.leftViewPresentationStyle = .slideBelowShifted
+//            sideMenuController.leftViewWidth = 320.0
+//            sideMenuController.tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
+//                                                         image: UIImage(named: feedSettings.tabBarImageName),
+//                                                         tag: 0)
+//            
+//            sideMenuController.navigationController?.pushViewController(feedViewController, animated: true)
+//            sideMenuController.navigationController?.setNavigationBarHidden(true, animated: false)
+            
+            return .push(feedViewController)
             
         case .tagCloud(let feedPresenter, let selectedTags):
             let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, feedPresenter: feedPresenter, selectedTags: selectedTags)

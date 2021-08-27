@@ -82,6 +82,16 @@ class FeedViewController: UIViewController {
         return UIBarButtonItem.init(customView: button)
     }()
     
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(title: nil,
+                        image: UIImage(named: "burger_menu_x1.5"),
+                        primaryAction: nil,
+                        menu: nil)
+        
+        barButton.tintColor = .white
+        return barButton
+    }()
+    
     // MARK: - Initializers
     init(presenter: FeedPresenterDelegate, feedSettings: FeedSettings) {
         super.init(nibName: nil, bundle: nil)
@@ -92,8 +102,11 @@ class FeedViewController: UIViewController {
         tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
                                   image: UIImage(named: feedSettings.tabBarImageName),
                                   tag: 0)
+        
+        navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
+        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -101,9 +114,7 @@ class FeedViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButtonItem
-        
+
         setupView()
         setupConstraints()
         setupActions()
@@ -114,13 +125,12 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
+
         navigationController?.navigationBar.barTintColor = .appPurple
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
-        
         tabBarController?.tabBar.tintColor = .appPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
@@ -172,6 +182,58 @@ class FeedViewController: UIViewController {
     }
     
     func setupActions() {
+        leftBarButtonItem.primaryAction = UIAction(image: leftBarButtonItem.image) { [weak self] _ in
+            guard
+                let self = self,
+                let tabView = self.tabBarController?.view
+            else {
+                return
+            }
+            
+            let view = UIView()
+            view.backgroundColor = .red
+//            view.translatesAutoresizingMaskIntoConstraints = false
+            
+//            view.isHidden = false
+//
+//            tabView.addSubview(view)
+//            NSLayoutConstraint.activate([
+//                view.leadingAnchor.constraint(equalTo: tabView.leadingAnchor),
+//                view.topAnchor.constraint(equalTo: tabView.topAnchor),
+//                view.bottomAnchor.constraint(equalTo: tabView.bottomAnchor),
+//            ])
+//
+//            let widthConstraint = view.widthAnchor.constraint(equalToConstant: 0)
+//            widthConstraint.isActive = true
+//            widthConstraint.constant = tabView.frame.maxX * 0.8
+//
+//            UIView.animate(withDuration: 0.6, animations: {
+//
+//                tabView.layoutIfNeeded()
+//            }, completion: { _ in
+//            })
+
+            
+            view.frame = CGRect(x: tabView.frame.origin.x,
+                                y: tabView.frame.origin.y,
+                                width: tabView.frame.width * 0.8,
+                                height: tabView.frame.height)
+            view.frame.origin.x = -view.frame.origin.x
+            tabView.addSubview(view)
+
+            UIView.animate(withDuration: 0.6,
+                           delay: 0,
+                           usingSpringWithDamping: 0.8,
+                           initialSpringVelocity: 0,
+                           options: .curveEaseOut,
+                           animations: {
+//                                view.frame.origin.x = tabView.frame.origin.x * 0.8
+                            view.frame.origin.x = view.frame.origin.x / 2
+                           }, completion: { _ in
+                            print("ready")
+                           })
+        }
+        
         rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
             self?.presenter.tagFilterButtonDidTap()
        }

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-protocol BaseTableViewCellDelegate {
+protocol BaseTableViewCellDelegate: AnyObject {
     func addToFavorites(by indexPath: IndexPath)
     func removeFromFavorites(by indexPath: IndexPath)
 }
@@ -17,8 +17,7 @@ class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
     var post: Post!
     var indexPath: IndexPath!
-    // QUESTION TODO: weak?
-    var delegate: BaseTableViewCellDelegate?
+    weak var delegate: BaseTableViewCellDelegate?
     
     lazy var postView: UIView = {
         let view = UIView()

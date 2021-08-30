@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import XCoordinator
+import UserNotifications
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,6 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        registerPushNotifications()
+        
         IQKeyboardManager.shared.enable = true
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -56,6 +60,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    
+    func registerPushNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+                print("Permission granted: \(granted)")
+                
+                guard granted else { return }
+                self?.getNotificationSettings()
+            }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current()
+            .getNotificationSettings { settings in
+                print("Notification settings: \(settings)")
+                
+                guard settings.authorizationStatus == .authorized else { return }
+                
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+    }
 }
 

@@ -31,9 +31,16 @@ class TellStoryViewController: PopViewController {
     private lazy var messageTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.sizeToFit()
-        textView.isScrollEnabled = false
+//        textView.sizeToFit()
+        textView.isScrollEnabled = true
         textView.font = .rubik(fontSize: .regular, fontWeight: .regular)
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.delegate = self
+        
+        textView.text = L10n("TELL_STOTY_SUBTILE")
+        textView.textColor = UIColor.lightGray
+        
         return textView
     }()
     
@@ -53,6 +60,8 @@ class TellStoryViewController: PopViewController {
         setupView()
         setupConstraints()
         setupActions()
+        
+        subTitleLable.isHidden = true
         
         enableHideKeyboardOnTap()
     }
@@ -110,12 +119,13 @@ class TellStoryViewController: PopViewController {
             make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
             make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
             make.top.equalTo(subTitleLable.snp.bottom).offset(Constants.messageTextViewTop)
+            make.height.equalTo(300)
         }
         
-        underlineView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(messageTextView)
-            make.top.equalTo(messageTextView.snp.bottom)
-        }
+//        underlineView.snp.makeConstraints { make in
+//            make.leading.trailing.equalTo(messageTextView)
+//            make.top.equalTo(messageTextView.snp.bottom)
+//        }
         
         publishingAgreeView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
@@ -152,7 +162,7 @@ class TellStoryViewController: PopViewController {
 extension TellStoryViewController {
     struct Constants {
         static let leadingTrailing: CGFloat = 50
-        static let titleLabelTop: CGFloat = 140
+        static let titleLabelTop: CGFloat = 120
         static let subTitleLabelTop: CGFloat = 20
         static let messageTextViewTop: CGFloat = 10
         static let sendButtonTop: CGFloat = 20
@@ -169,5 +179,22 @@ extension TellStoryViewController: TellStoryViewProtocol {
     
     func dispay(_ error: Error) {
         showError(error.localizedDescription)
+    }
+}
+
+
+extension TellStoryViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = L10n("TELL_STOTY_SUBTILE")
+            textView.textColor = UIColor.lightGray
+        }
     }
 }

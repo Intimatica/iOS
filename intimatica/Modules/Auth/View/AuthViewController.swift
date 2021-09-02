@@ -10,7 +10,7 @@ import UIKit
 class AuthViewController: UIViewController {
 
     // MARK: - Properties
-    private var presenter: AuthPresenterProtocol!
+    private var presenter: AuthPresenterDelegate!
     
     lazy var closeButton = CloseButton()
     
@@ -76,7 +76,7 @@ class AuthViewController: UIViewController {
     }()
     
     // MARK: - Initializer
-    init(presenter: AuthPresenterProtocol) {
+    init(presenter: AuthPresenterDelegate) {
         super.init(nibName: nil, bundle: nil)
         
         self.presenter = presenter
@@ -171,7 +171,12 @@ extension AuthViewController {
 }
 
 // MARK: - AuthViewProtocol
-extension AuthViewController: AuthViewProtocol {
+extension AuthViewController: AuthViewDelegate {
+    func displayError(_ message: String) {
+        hideSpinner()
+        showError(message)
+    }
+    
     func changeAuthButton(isEnabled: Bool) {
         authButton.isEnabled = isEnabled
     }

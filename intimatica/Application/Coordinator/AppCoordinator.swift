@@ -34,8 +34,8 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-//        super.init(rootViewController: UIViewController(), initialRoute: .launch)
-        super.init(rootViewController: UIViewController(), initialRoute: .signUpProfile)
+        super.init(rootViewController: UIViewController(), initialRoute: .launch)
+//        super.init(rootViewController: UIViewController(), initialRoute: .signUpProfile)
     }
     
     override func prepareTransition(for route: AppRoute) -> ViewTransition {
@@ -74,19 +74,20 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
         case .signUp:
             let presenter = SignUpPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpViewController(presenter: presenter)
-            presenter.view = viewController
+            presenter.setView(viewController)
             return .present(viewController)
             
         case .signIn:
             let presenter = SignInPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignInViewController(presenter: presenter)
-            presenter.view = viewController
+            presenter.setView(viewController)
             return .present(viewController)
             
         case .signUpProfile:
             let presenter = SignUpProfilePresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpProfileViewController(presenter: presenter)
-            return .present(viewController)
+            presenter.setView(viewController)
+            return .multiple([.dismiss(), .present(viewController)])
             
         case .home:
             let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider)

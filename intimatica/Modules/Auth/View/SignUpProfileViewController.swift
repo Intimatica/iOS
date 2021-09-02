@@ -9,7 +9,7 @@ import UIKit
 
 class SignUpProfileViewController: AuthViewController {
     // MARK: - Properties
-    private var presenter: SignUpProfilePresenterProtocol!
+    private var presenter: SignUpProfilePresenterDelegate!
     
     lazy var fillLateButton: UIButton = {
         let button = UIRoundedButton()
@@ -23,7 +23,7 @@ class SignUpProfileViewController: AuthViewController {
     }()
     
     // MARK: - Initializers
-    init(presenter: SignUpProfilePresenterProtocol) {
+    init(presenter: SignUpProfilePresenterDelegate) {
         super.init(presenter: presenter)
         
         self.presenter = presenter
@@ -41,9 +41,13 @@ class SignUpProfileViewController: AuthViewController {
         genderView.delegate = self
         birthdateView.delegate = self
         
+        
         setupView()
         setupConstraints()
         setupActions()
+        
+        showSpinner()
+        presenter.viewDidLoad()
     }
     
     // MARK: - Layout
@@ -77,12 +81,15 @@ class SignUpProfileViewController: AuthViewController {
                 let self = self,
                 let nickname = self.nicknameView.textField.text,
                 let gender = self.genderView.textField.text,
-                let birthDate = (self.birthdateView.textField.inputView as? UIDatePicker)?.date
+                let pickerDate = (self.birthdateView.textField.inputView as? UIDatePicker)?.date,
+                let birthDateViewText = self.birthdateView.textField.text
             else {
                 return
             }
             
-            self.presenter.saveButtonDidTap(nickname: nickname, gender: gender, birthDate: birthDate)
+            
+            
+            self.presenter.saveButtonDidTap(nickname: nickname, gender: gender, birthDate: birthDateViewText.isEmpty ? nil : pickerDate)
         }
     }
 }
@@ -109,5 +116,14 @@ extension SignUpProfileViewController {
         } else {
             view.endEditing(true)
         }
+    }
+}
+
+
+// MARK: - SignUpProfileViewDelegate
+extension SignUpProfileViewController: SignUpProfileViewDelegate {
+    func setGenders(_ genders: [String]) {
+        hideSpinner()
+        (genderView.textField.inputView as? PickerKeyboard)?.data = genders
     }
 }

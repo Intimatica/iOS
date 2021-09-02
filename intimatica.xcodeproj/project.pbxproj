@@ -84,6 +84,8 @@
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
+		DB73014426DEAAB700AE2892 /* Profile.graphql in Sources */ = {isa = PBXBuildFile; fileRef = DB73014326DEAAB700AE2892 /* Profile.graphql */; };
+		DB73014626DEB64900AE2892 /* Gender.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB73014526DEB64900AE2892 /* Gender.graphql */; };
 		DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB726B7EA4000948B1F /* VideoViewController.swift */; };
 		DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */; };
 		DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */; };
@@ -242,6 +244,8 @@
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB73014326DEAAB700AE2892 /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
+		DB73014526DEB64900AE2892 /* Gender.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gender.graphql; sourceTree = "<group>"; };
 		DB81AFB726B7EA4000948B1F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresenter.swift; sourceTree = "<group>"; };
 		DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostPresenter.swift; sourceTree = "<group>"; };
@@ -891,6 +895,8 @@
 				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
 				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
 				DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */,
+				DB73014326DEAAB700AE2892 /* Profile.graphql */,
+				DB73014526DEB64900AE2892 /* Gender.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -1036,6 +1042,7 @@
 				DBF99D3926B069A200E04D40 /* schema.json in Resources */,
 				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
 				DB2E195B26CBE962004FF77C /* StoryPost.graphql in Resources */,
+				DB73014626DEB64900AE2892 /* Gender.graphql in Resources */,
 				DB2F8B8D26A371B9007020C0 /* Rubik-Regular.ttf in Resources */,
 				DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */,
 				DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */,
@@ -1210,6 +1217,7 @@
 				DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */,
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */,
+				DB73014426DEAAB700AE2892 /* Profile.graphql in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,

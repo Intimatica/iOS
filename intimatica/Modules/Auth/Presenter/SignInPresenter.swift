@@ -7,11 +7,19 @@
 
 import Foundation
 
-protocol  SignInPresenterProtocol: AuthPresenterProtocol {
+protocol  SignInPresenterProtocol: AuthPresenterDelegate {
     func forgotPasswordButtonDidTap()
 }
 
 final class SignInPresenter: AuthPresenter {
+    private weak var view: AuthViewDelegate?
+    
+    override func setView(_ view: AuthViewDelegate) {
+        super.setView(view)
+        
+        self.view = view
+    }
+    
     override func validate(_ field: FieldType, with value: String?) {
         super.validate(field, with: value)
         

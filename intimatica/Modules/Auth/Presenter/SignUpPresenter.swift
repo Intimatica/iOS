@@ -7,11 +7,19 @@
 
 import Foundation
 
-protocol SignUpPresenterProtocol: AuthPresenterProtocol {
+protocol SignUpPresenterProtocol: AuthPresenterDelegate {
     func accountExistButtonDidTap()
 }
 
 final class SignUpPresenter: AuthPresenter {
+    private weak var view: AuthViewDelegate?
+    
+    override func setView(_ view: AuthViewDelegate) {
+        super.setView(view)
+        
+        self.view = view
+    }
+    
     override func validate(_ field: FieldType, with value: String?) {
         super.validate(field, with: value)
         
@@ -33,7 +41,7 @@ extension SignUpPresenter: SignUpPresenterProtocol {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
                 self.useCase.setAuthToken(authResponse.jwt)
-                self.router.trigger(.home)
+                self.router.trigger(.signUpProfile)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))
             }

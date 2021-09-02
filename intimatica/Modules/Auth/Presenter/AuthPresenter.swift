@@ -14,24 +14,26 @@ enum FieldType {
     case passwordConfirm
 }
 
-protocol AuthPresenterProtocol {
+protocol AuthPresenterDelegate: AnyObject {
     func doAuthButtonDidTap(email : String, password: String)
     func validate(_ field: FieldType, with value: String?)
 }
 
-protocol AuthViewProtocol: AnyObject {
+protocol AuthViewDelegate: AnyObject {
     func showValidationError(for field: FieldType, message: String)
     func hideValidationError(for field: FieldType)
     func showNotification(_ message: String)
     func changeAuthButton(isEnabled: Bool)
+    func displayError(_ message: String)
 }
 
 class AuthPresenter {    
     //MARK: - Properties
-    let router: Router!
-    weak var view: AuthViewProtocol?
-    let useCase: AuthUseCaseProtocol!
-    
+    let router: Router
+    let useCase: AuthUseCaseProtocol
+    let graphQLUseCase: GraphQLUseCaseProtocol
+    private weak var view: AuthViewDelegate?
+
     var emailFieldIsValid = false
     var passwordFieldIsValid = false
     var passwordConfirmFieldIsValid = false
@@ -41,6 +43,11 @@ class AuthPresenter {
     init(router: Router, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.authUseCase
+        self.graphQLUseCase = dependencies.graphQLUseCase
+    }
+    
+    func setView(_ view: AuthViewDelegate) {
+        self.view = view
     }
     
     func getLocalizedAuthErrorMessage(from authError: AuthError) -> String {
@@ -125,7 +132,7 @@ class AuthPresenter {
 }
 
 // MARK: - AuthPresenterProtocol
-extension AuthPresenter: AuthPresenterProtocol {
+extension AuthPresenter: AuthPresenterDelegate {
     @objc func doAuthButtonDidTap(email: String, password: String) {
     }
 }

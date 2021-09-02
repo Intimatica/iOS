@@ -193,7 +193,7 @@ extension VideoCourseViewController.Constants {
 
 // MARK: - VideoCourseViewProtocol
 extension VideoCourseViewController: VideoCourseViewProtocol {
-    func display(_ post: VideoCoursePostQuery.Data.Post) {
+    func display(_ post: VideoCoursePostQuery.Data.Post, with webViewSettings: String?) {
         guard
             let imageUrl = post.image?.url,
             let tags = post.tags?.compactMap({ $0?.name }),
@@ -213,7 +213,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         tagsStackView.fill(by: tags)
         authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
-        markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
         
         self.videoList = videoList
 

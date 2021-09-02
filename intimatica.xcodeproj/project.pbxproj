@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
+		DB0BC66926E10CB6007D097D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66626E10CB6007D097D /* index.html */; };
+		DB0BC66A26E10CB6007D097D /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66726E10CB6007D097D /* main.css */; };
+		DB0BC66B26E10CB6007D097D /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66826E10CB6007D097D /* main.js */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -157,6 +160,9 @@
 		1B1D93AEC6467AC0D96AA317 /* Pods-intimatica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.debug.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.debug.xcconfig"; sourceTree = "<group>"; };
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0BC66626E10CB6007D097D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Pods/MarkdownView/Sources/MarkdownView/Resources/index.html; sourceTree = SOURCE_ROOT; };
+		DB0BC66726E10CB6007D097D /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.css; sourceTree = SOURCE_ROOT; };
+		DB0BC66826E10CB6007D097D /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.js; sourceTree = SOURCE_ROOT; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +336,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DB0BC66526E10C7F007D097D /* webView */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BC66626E10CB6007D097D /* index.html */,
+				DB0BC66726E10CB6007D097D /* main.css */,
+				DB0BC66826E10CB6007D097D /* main.js */,
+			);
+			path = webView;
+			sourceTree = "<group>";
+		};
 		DB2E195226CA4AF2004FF77C /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +388,7 @@
 		DB2F8B13269ECEF9007020C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DB0BC66526E10C7F007D097D /* webView */,
 				DB2F8B7626A37199007020C0 /* fonts */,
 				DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */,
 				DB6F3180269DA977005E7578 /* Assets.xcassets */,
@@ -1021,6 +1038,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0BC66B26E10CB6007D097D /* main.js in Resources */,
+				DB0BC66926E10CB6007D097D /* index.html in Resources */,
 				DBF99D3926B069A200E04D40 /* schema.json in Resources */,
 				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
 				DB2E195B26CBE962004FF77C /* StoryPost.graphql in Resources */,
@@ -1040,6 +1059,7 @@
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
+				DB0BC66A26E10CB6007D097D /* main.css in Resources */,
 				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
 				DBDBC78926D396BB00CB839C /* PremiumDescription.graphql in Resources */,

@@ -69,7 +69,6 @@ class BasePostViewController: UIViewController {
         let md = MarkdownView()
         md.translatesAutoresizingMaskIntoConstraints = false
         md.isScrollEnabled = false
-        
         return md
     }()
     

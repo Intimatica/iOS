@@ -48,10 +48,7 @@ class FeedViewController: UIViewController {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        
-//        collection.layer.borderWidth = 1
-//        collection.layer.borderColor = UIColor.green.cgColor
-        
+
         return collection
     }()
     
@@ -114,7 +111,8 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
+        setNeedsStatusBarAppearanceUpdate()
+        
         navigationController?.navigationBar.barTintColor = .appDarkPurple
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -127,10 +125,14 @@ class FeedViewController: UIViewController {
         
         presenter.viewDidLoad()
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
         

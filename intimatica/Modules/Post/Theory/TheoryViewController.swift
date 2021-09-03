@@ -35,6 +35,7 @@ class TheoryViewController: BasePostViewController {
         presenter.viewDidLoad()
     }
     
+    // MARK: - Layout
     private func setupView() {
         contentView.addSubview(headerImageView)
         contentView.addSubview(headerStack)

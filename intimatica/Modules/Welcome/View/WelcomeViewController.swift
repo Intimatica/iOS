@@ -70,6 +70,15 @@ class WelcomeViewController: UIViewController {
         setupUI()
         setupActions()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
  
     // MARK: - Layout
     private func setupUI() {

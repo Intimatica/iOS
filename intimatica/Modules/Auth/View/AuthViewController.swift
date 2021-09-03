@@ -28,7 +28,7 @@ class AuthViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
-        button.setTitleColor(.appPurple, for: .normal)
+        button.setTitleColor(.appDarkPurple, for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
         
         return button
@@ -39,7 +39,7 @@ class AuthViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("SIGN_UP_I_HAVE_ACCOUNT_BUTTON"), for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
-        button.setTitleColor(.appPurple, for: .normal)
+        button.setTitleColor(.appDarkPurple, for: .normal)
         return button
     }()
     
@@ -57,7 +57,7 @@ class AuthViewController: UIViewController {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .rubik(fontWeight: .medium)
-        button.setBackgroundColor(.appPurple, for: .normal)
+        button.setBackgroundColor(.appDarkPurple, for: .normal)
         button.setBackgroundColor(.appGray, for: .disabled)
         button.isEnabled = false
         return button

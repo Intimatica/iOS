@@ -44,7 +44,7 @@ class TellStoryViewController: PopViewController {
     private lazy var sendButton = UIRoundedButton(title: L10n("TELL_STOTY_BUTTON_TITLE"),
                                                     titleColor: .white,
                                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                                    backgroundColor: .appPurple)
+                                                    backgroundColor: .appDarkPurple)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

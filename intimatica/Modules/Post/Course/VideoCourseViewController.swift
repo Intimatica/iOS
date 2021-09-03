@@ -18,7 +18,7 @@ class VideoCourseViewController: BasePostViewController {
     private lazy var premiumHeaderBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .appPurple
+        view.backgroundColor = .appDarkPurple
         return view
     }()
 
@@ -51,7 +51,7 @@ class VideoCourseViewController: BasePostViewController {
     private lazy var finishButton: UIRoundedButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .appPurple
+        button.backgroundColor = .appDarkPurple
         button.setTitle(L10n("COURSE_VIDEO_FINISH_BUTTON_TITLE"), for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
         return button
@@ -97,7 +97,7 @@ class VideoCourseViewController: BasePostViewController {
     
     // MARK: - Layout
     private func setupView() {
-        spacerView.backgroundColor = .appLightPuple
+        spacerView.backgroundColor = .appPurple
         
         contentView.addSubview(premiumHeaderBackgroundView)
         contentView.addSubview(headerImageView)
@@ -117,7 +117,7 @@ class VideoCourseViewController: BasePostViewController {
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
         headerStack.addArrangedSubview(authorView)
         headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .clear))
-        headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appLightPuple))
+        headerStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appPurple))
     }
     
     private func setupConstraints() {
@@ -221,7 +221,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             videoStack.addArrangedSubview(VideoView(videoId: $0.youtubeLink, title: $0.title))
             
             if !videoList.isLast(element: $0) {
-                videoStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appLightPuple))
+                videoStack.addArrangedSubview(SpacerView(height: 1, backgroundColor: .appPurple))
             }
         }
                 

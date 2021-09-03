@@ -18,7 +18,7 @@ class FeedViewController: UIViewController {
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .appPurple
+        view.backgroundColor = .appDarkPurple
         return view
     }()
     
@@ -115,13 +115,13 @@ class FeedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
-        navigationController?.navigationBar.barTintColor = .appPurple
+        navigationController?.navigationBar.barTintColor = .appDarkPurple
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
         
-        tabBarController?.tabBar.tintColor = .appPurple
+        tabBarController?.tabBar.tintColor = .appDarkPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
         

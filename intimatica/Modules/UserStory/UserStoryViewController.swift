@@ -28,7 +28,7 @@ class UserStoryViewController: UIViewController {
     private lazy var backBarButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem()
         barButton.title = "    "
-        barButton.tintColor = .appPurple
+        barButton.tintColor = .appDarkPurple
         return barButton
     }()
     

@@ -100,7 +100,7 @@ class CourseTableViewCell: BaseTableViewCell {
 extension CourseTableViewCell.Constants {
     static let CourseBackgroundImageViewHeight: CGFloat = 340
     static let tagStackView: CGFloat = titleLabelTop
-    static let postLabelColor: UIColor = .appPurple
+    static let postLabelColor: UIColor = .appDarkPurple
     
     static let courseButtonViewTopTrailing: CGFloat = 15
 }

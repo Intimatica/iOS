@@ -83,7 +83,7 @@ extension PostLabelView {
     struct Constants {
         static let storyBackgroupndColor: UIColor = .init(hex: 0xF9477D)
         static let theoryBackgroupndColor: UIColor = .init(hex: 0xFF9900)
-        static let videoCourseBackgroupndColor: UIColor = .appPurple
+        static let videoCourseBackgroupndColor: UIColor = .appDarkPurple
         static let premiumVideoCourseBackgroupndColor: UIColor = .black
         
         static let verticalSpacing: CGFloat = 3

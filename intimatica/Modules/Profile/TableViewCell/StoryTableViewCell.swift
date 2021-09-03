@@ -39,7 +39,7 @@ class StoryTableViewCell: UITableViewCell {
         let button = UIRoundedButton(title: L10n("MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE"),
                                      titleColor: .white,
                                      font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                     backgroundColor: .appPurple)
+                                     backgroundColor: .appDarkPurple)
         button.isUserInteractionEnabled = false
         button.isHidden = true
         return button

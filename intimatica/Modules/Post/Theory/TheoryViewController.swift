@@ -80,7 +80,7 @@ class TheoryViewController: BasePostViewController {
 
 // MARK: - TheoryViewProtocol
 extension TheoryViewController: TheoryViewProtocol {
-    func display(_ theoryPost: TheoryPostQuery.Data.Post) {
+    func display(_ theoryPost: TheoryPostQuery.Data.Post, with webViewSettings: String?) {
         guard
             let imageUrl = theoryPost.image?.url,
             let tags = theoryPost.tags?.compactMap({ $0?.name }),
@@ -99,7 +99,7 @@ extension TheoryViewController: TheoryViewProtocol {
         tagsStackView.fill(by: tags)
         authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
-        markdownView.load(markdown: fixContentStrapiLinks(content), enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
     }
     
     func display(_ error: Error) {

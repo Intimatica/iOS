@@ -94,7 +94,7 @@ class VideoViewController: BasePostViewController {
 
 // MARK: - VideoViewProtocol
 extension VideoViewController: VideoViewProtocol {
-    func display(_ post: VideoPostQuery.Data.Post) {
+    func display(_ post: VideoPostQuery.Data.Post, with webViewSettings: String?) {
         guard
 //            let imageUrl = post.image?.url,
             let tags = post.tags?.compactMap({ $0?.name })
@@ -104,10 +104,7 @@ extension VideoViewController: VideoViewProtocol {
         
         titleLabel.text = post.title
         tagsStackView.fill(by: tags)
-        
-//        headerImageView.kf.indicatorType = .activity
-//        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
-        
+
         let playvarsDic = ["controls": 0,
                            "playsinline": 0,
                            "autohide": 1,
@@ -119,7 +116,8 @@ extension VideoViewController: VideoViewProtocol {
         videoPlayer.load(withVideoId: "VkrDAvPRdDw", playerVars: playvarsDic)
         videoPlayer.playVideo()
         
-        markdownView.load(markdown: post.postTypeDz.first??.asComponentPostTypeVideo?.description)
+        let content = post.postTypeDz.first??.asComponentPostTypeVideo?.description ?? ""
+        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
 
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()

@@ -91,8 +91,8 @@ extension FavoriteButtonView {
         static let imageNameForInactive = "favorite_button_inactive"
         
         static let viewWidthHeight: CGFloat = 30
-        static let viewBackgroundColorForInactive: UIColor = .appPurple.withAlphaComponent(0.5)
-        static let viewBackgroundColorForActive: UIColor = .appPurple
+        static let viewBackgroundColorForInactive: UIColor = .appDarkPurple.withAlphaComponent(0.5)
+        static let viewBackgroundColorForActive: UIColor = .appDarkPurple
         
         static let imageViewWidth: CGFloat = 13
         static let imageViewHeight: CGFloat = 17

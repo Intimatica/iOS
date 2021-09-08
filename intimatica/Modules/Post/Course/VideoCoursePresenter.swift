@@ -8,7 +8,7 @@
 import Foundation
 
 protocol VideoCourseViewProtocol: BasePostViewProtocol {
-    func display(_ post: VideoCoursePostQuery.Data.Post)
+    func display(_ post: VideoCoursePostQuery.Data.Post, with webViewSettings: String?)
 }
 
 protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
@@ -40,9 +40,9 @@ extension VideoCoursePresenter: VideoCoursePresenterProtocol {
             guard let self = self else { return }
             
             switch result {
-            case .success(let graphQL):
-                if let post = graphQL.data?.post {
-                    self.view?.display(post)
+            case .success(let graphQLResult):
+                if let post = graphQLResult.data?.post {
+                    self.view?.display(post, with: graphQLResult.data?.webViewSetting?.data)
                 }
             case .failure(let error):
                 print(error)

@@ -47,7 +47,7 @@ final class SignUpViewController: AuthViewController {
         titleLabel.text = L10n("SIGN_UP_VIEW_TITLE")
         authButton.setTitle(L10n("SIGN_UP_BUTTON_TITLE"), for: .normal)
         
-        view.addSubview(accountExistButton)
+        contentView.addSubview(accountExistButton)
     }
     
     private func setupConstraints() {
@@ -55,7 +55,8 @@ final class SignUpViewController: AuthViewController {
             accountExistButton.widthAnchor.constraint(equalToConstant: Constants.accountExistButtonWidth),
             accountExistButton.heightAnchor.constraint(equalToConstant: Constants.accountExistButtonHeight),
             accountExistButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: Constants.accountExistButtonTop),
-            accountExistButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            accountExistButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            accountExistButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

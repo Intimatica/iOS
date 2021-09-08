@@ -36,7 +36,7 @@ final class CourseButtonView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .rubik(fontSize: .small, fontWeight: .medium)
-        label.textColor = .appPurple
+        label.textColor = .appDarkPurple
         label.text = L10n("COURSE_SELECTION_BUTTON_TITLE_INACTIVE")
         return label
     }()
@@ -85,7 +85,7 @@ final class CourseButtonView: UIView {
         
         if design == .postView {
             layer.borderWidth = 1
-            layer.borderColor = UIColor.appPurple.cgColor
+            layer.borderColor = UIColor.appDarkPurple.cgColor
         }
         
         addSubview(textLabel)

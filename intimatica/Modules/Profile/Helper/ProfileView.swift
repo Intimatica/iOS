@@ -63,7 +63,7 @@ final class ProfileView: UIView {
     
     // MARK: - Layout
     private func setupView() {
-        backgroundColor = .appPurple
+        backgroundColor = .appDarkPurple
         
         addSubview(avatarImageView)
         addSubview(nameStackView)

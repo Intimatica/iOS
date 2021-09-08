@@ -18,24 +18,64 @@ extension UIColor {
         self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
     }
     
-    class var appPurple: UIColor {
+    class var appDarkPurple: UIColor {
         UIColor(hex: 0x7633FF)
     }
     
-    class  var appLightPuple: UIColor  {
+    class  var appPurple: UIColor  {
         UIColor(hex: 0xE4D7FF)
     }
     
+    class var appLightPurple: UIColor {
+        UIColor(hex: 0xD0B9FF)
+    }
+    
+    class var appPalePurple: UIColor {
+        UIColor(hex: 0xE6DAFF)
+    }
+    
+    class var appGrayPurple: UIColor {
+        UIColor(hex: 0xF2ECFF)
+    }
+    
+    class var appDarkGray: UIColor {
+        UIColor(hex: 0x9A9A9A)
+    }
+    
+    class var appGray: UIColor {
+        UIColor(hex: 0xCCCCCC)
+    }
+    
+    class var appLightGray: UIColor {
+        UIColor(hex: 0xEAEAEA)
+    }
+    
     class var appYellow: UIColor {
-        UIColor(hex: 0xFFDC24)
+        UIColor(hex: 0xFFE70D)
     }
     
     class var appRed: UIColor {
         UIColor(hex: 0xFF3333)
     }
     
-    class var appGray: UIColor {
-        .init(red: 0, green: 0, blue: 0, alpha: 0.5)
+    class var appBlue: UIColor {
+        UIColor(hex: 0x4BD4FF)
+    }
+    
+    class var appOrange: UIColor {
+        UIColor(hex: 0xFFA217)
+    }
+    
+    class var appGreen: UIColor {
+        UIColor(hex: 0x64FFAA)
+    }
+    
+    class var appPink: UIColor {
+        UIColor(hex: 0xFF64DD)
+    }
+    
+    class var appFuchsia: UIColor {
+        UIColor(hex: 0xF9477D)
     }
 }
 

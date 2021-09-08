@@ -24,4 +24,7 @@ query VideoPost($id: ID!) {
       }
     }
   }
+  webViewSetting {
+    data
+  }
 }

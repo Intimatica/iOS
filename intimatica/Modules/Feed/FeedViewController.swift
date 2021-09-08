@@ -18,7 +18,7 @@ class FeedViewController: UIViewController {
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .appPurple
+        view.backgroundColor = .appDarkPurple
         return view
     }()
     
@@ -48,10 +48,7 @@ class FeedViewController: UIViewController {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        
-//        collection.layer.borderWidth = 1
-//        collection.layer.borderColor = UIColor.green.cgColor
-        
+
         return collection
     }()
     
@@ -114,23 +111,28 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
-        navigationController?.navigationBar.barTintColor = .appPurple
+        setNeedsStatusBarAppearanceUpdate()
+        
+        navigationController?.navigationBar.barTintColor = .appDarkPurple
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
         
-        tabBarController?.tabBar.tintColor = .appPurple
+        tabBarController?.tabBar.tintColor = .appDarkPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
         
         presenter.viewDidLoad()
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
         
@@ -150,10 +152,10 @@ class FeedViewController: UIViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            topBackgroundView.heightAnchor.constraint(equalToConstant: Constants.topBackgroundViewHeight),
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topBackgroundView.bottomAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 10),
             
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.categoryFilterViewLeading),
             categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.categoryFilterViewTop),
@@ -165,9 +167,9 @@ class FeedViewController: UIViewController {
             underlineView.trailingAnchor.constraint(equalTo: categoryCollectionView.trailingAnchor),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.tableViewTop),
+            tableView.topAnchor.constraint(equalTo: topBackgroundView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.tableViewLeadingTrailing),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.tableViewBottom),
         ])
     }
     
@@ -187,16 +189,13 @@ extension FeedViewController {
     struct Constants {
         static let rightBarButtonItemImageForActive = "tags_active_x2"
         static let rightBarButtonItemImageForInactive = "tags_inactive_x2"
-
-        static let topBackgroundViewHeight: CGFloat = 150
         
         static let categoryFilterViewLeading: CGFloat = 15
-        static let categoryFilterViewTop: CGFloat = 30
+        static let categoryFilterViewTop: CGFloat = 15
         static let categoryFilterViewHeight: CGFloat = 32
         
-        static let tableViewTop: CGFloat = 100
+        static let tableViewBottom: CGFloat = 15
         static let tableViewLeadingTrailing: CGFloat = 0
-        static let tableViewCellSpacing: CGFloat = 25
     }
 }
 
@@ -315,8 +314,10 @@ extension FeedViewController: UICollectionViewDelegate {
         tableView.reloadData()
         showSpinner(frame: tableView.bounds, opacity: 0)
         
-        let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
-        selectedCell.setState(.normal)
+        if let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as? CategoryCollectionViewCell {
+            selectedCell.setState(.normal)
+        }
+        
         
         selectedCategoryIndexPath = indexPath
         

@@ -51,15 +51,15 @@ final class TagCloudViewController: PopViewController {
     private lazy var actionButton = UIRoundedButton(title: L10n("TAG_CLOUD_SHOW_BUTTON_TITLE"),
                                                     titleColor: .white,
                                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                                    backgroundColor: .appPurple)
+                                                    backgroundColor: .appDarkPurple)
 
     private lazy var clearButton: UIButton = {
        let button = UIRoundedButton(title: L10n("TAG_CLOUD_CLEAR_BUTTON_TITLE"),
-                                    titleColor: .appPurple,
+                                    titleColor: .appDarkPurple,
                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
                                     backgroundColor: .clear)
         button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.appPurple.cgColor
+        button.layer.borderColor = UIColor.appDarkPurple.cgColor
         return button
     }()
     

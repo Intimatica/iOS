@@ -21,7 +21,7 @@ final class StoryView: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.appPurple.withAlphaComponent(0.3).cgColor
+        view.layer.borderColor = UIColor.appDarkPurple.withAlphaComponent(0.3).cgColor
         view.layer.cornerRadius = 30
         view.layer.masksToBounds = true
         

@@ -166,7 +166,7 @@ extension BasePostViewController {
         static let favoriteInactiveImageName = "favorite_inactive"
         
         static let headerStackSpacing: CGFloat = 10
-        static let headerStackLeadingTrailing: CGFloat = 24
+        static let headerStackLeadingTrailing: CGFloat = 15
         static let headerStackTop: CGFloat = 30
         
         static let spacerViewTop: CGFloat = 10

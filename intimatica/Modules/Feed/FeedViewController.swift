@@ -167,9 +167,9 @@ class FeedViewController: UIViewController {
             underlineView.trailingAnchor.constraint(equalTo: categoryCollectionView.trailingAnchor),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
-            tableView.topAnchor.constraint(equalTo: topBackgroundView.bottomAnchor, constant: Constants.tableViewTop),
+            tableView.topAnchor.constraint(equalTo: topBackgroundView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.tableViewLeadingTrailing),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.tableViewBottom),
         ])
     }
     
@@ -194,9 +194,8 @@ extension FeedViewController {
         static let categoryFilterViewTop: CGFloat = 15
         static let categoryFilterViewHeight: CGFloat = 32
         
-        static let tableViewTop: CGFloat = 15
+        static let tableViewBottom: CGFloat = 15
         static let tableViewLeadingTrailing: CGFloat = 0
-        static let tableViewCellSpacing: CGFloat = 15
     }
 }
 

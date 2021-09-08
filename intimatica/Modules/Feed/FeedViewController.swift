@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class FeedViewController: UIViewController {
     // MARK: - Properties
@@ -14,6 +15,8 @@ class FeedViewController: UIViewController {
     private var posts: [Post] = []
     private let postCellIdentifier = "postCellIdentifier"
     private let courseCellIdentifier = "courseCellIdentifier"
+    
+    var leftSideMenu: UIViewController!
     
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
@@ -184,54 +187,15 @@ class FeedViewController: UIViewController {
     func setupActions() {
         leftBarButtonItem.primaryAction = UIAction(image: leftBarButtonItem.image) { [weak self] _ in
             guard
-                let self = self,
-                let tabView = self.tabBarController?.view
-            else {
+                let self = self
+             else {
                 return
             }
             
-            let view = UIView()
-            view.backgroundColor = .red
-//            view.translatesAutoresizingMaskIntoConstraints = false
-            
-//            view.isHidden = false
-//
-//            tabView.addSubview(view)
-//            NSLayoutConstraint.activate([
-//                view.leadingAnchor.constraint(equalTo: tabView.leadingAnchor),
-//                view.topAnchor.constraint(equalTo: tabView.topAnchor),
-//                view.bottomAnchor.constraint(equalTo: tabView.bottomAnchor),
-//            ])
-//
-//            let widthConstraint = view.widthAnchor.constraint(equalToConstant: 0)
-//            widthConstraint.isActive = true
-//            widthConstraint.constant = tabView.frame.maxX * 0.8
-//
-//            UIView.animate(withDuration: 0.6, animations: {
-//
-//                tabView.layoutIfNeeded()
-//            }, completion: { _ in
-//            })
-
-            
-            view.frame = CGRect(x: tabView.frame.origin.x,
-                                y: tabView.frame.origin.y,
-                                width: tabView.frame.width * 0.8,
-                                height: tabView.frame.height)
-            view.frame.origin.x = -view.frame.origin.x
-            tabView.addSubview(view)
-
-            UIView.animate(withDuration: 0.6,
-                           delay: 0,
-                           usingSpringWithDamping: 0.8,
-                           initialSpringVelocity: 0,
-                           options: .curveEaseOut,
-                           animations: {
-//                                view.frame.origin.x = tabView.frame.origin.x * 0.8
-                            view.frame.origin.x = view.frame.origin.x / 2
-                           }, completion: { _ in
-                            print("ready")
-                           })
+            let menu = SideMenuNavigationController(rootViewController: self.leftSideMenu)
+            menu.leftSide = true
+            menu.menuWidth = self.view.frame.width - 60
+            self.present(menu, animated: true, completion: nil)
         }
         
         rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in

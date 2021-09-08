@@ -7,8 +7,12 @@
 
 import Foundation
 
+enum MenuActionButton {
+    case help, about, termsAndConditions, applyForPremium, logout
+}
+
 protocol BurgerMenuPresenterDelegate: AnyObject {
-    
+    func buttonDidTap(_ button: MenuActionButton)
 }
 
 final class BurgerMenuPresenter {
@@ -18,5 +22,11 @@ final class BurgerMenuPresenter {
     // MARK: - Initializers
     init(router: FeedRouter) {
         self.router = router
+    }
+}
+
+extension BurgerMenuPresenter: BurgerMenuPresenterDelegate {
+    func buttonDidTap(_ button: MenuActionButton) {
+        router.trigger(.help)
     }
 }

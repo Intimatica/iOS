@@ -37,5 +37,5 @@ target 'intimatica' do
   pod "AlignedCollectionViewFlowLayout"
   pod 'SnapKit', '~> 5.0.0'
   pod 'IQKeyboardManagerSwift'
-  pod 'LGSideMenuController'
+  pod 'SideMenu', '~> 6.0'
 end

@@ -10,6 +10,8 @@ import SnapKit
 
 class BurgerMenuViewController: UIViewController {
     // MARK: - Properties
+    private let presenter: BurgerMenuPresenterDelegate
+    
     private lazy var helpButton: UIButton = {
         let button = UIButton(title: L10n("MENU_ITEM_HELP"),
                               titleColor: .black,
@@ -61,7 +63,7 @@ class BurgerMenuViewController: UIViewController {
     private lazy var applyForPremiumButton: UIRoundedButton = {
         let button = UIRoundedButton(title: L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"),
                               titleColor: .init(hex: 0xFFE70D),
-                              font: .rubik(fontSize: .subTitle, fontWeight: .bold),
+                              font: .rubik(fontSize: .regular, fontWeight: .bold),
                               backgroundColor: .appPurple)
         
         button.setImage(UIImage(named: "star"), for: .normal)
@@ -87,8 +89,10 @@ class BurgerMenuViewController: UIViewController {
     }()
     
     // MARK: - Initializers
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    init(presenter: BurgerMenuPresenterDelegate) {
+        self.presenter = presenter
+
+        super.init(nibName: nil, bundle: nil)        
     }
     
     required init?(coder: NSCoder) {
@@ -101,6 +105,19 @@ class BurgerMenuViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: - Layout
@@ -145,6 +162,13 @@ class BurgerMenuViewController: UIViewController {
             make.bottom.equalTo(view).offset(-100)
         }
     }
+    
+    private func setupActions() {
+        helpButton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.help)
+        }
+    }
+    
 }
 
 // MARK: - Helper/Constants

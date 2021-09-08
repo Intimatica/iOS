@@ -7,10 +7,10 @@
 
 import Foundation
 import XCoordinator
-import LGSideMenuController
 
 enum FeedRoute: Route {
     case feed
+    case help
     
     case tagCloud(FeedPresenterDelegate, Set<Int>)
     
@@ -40,26 +40,21 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     override func prepareTransition(for route: FeedRoute) -> NavigationTransition {
         switch route {
         case .feed:
+            let menuPresenter = BurgerMenuPresenter(router: strongRouter)
+            let menuViewController = BurgerMenuViewController(presenter: menuPresenter)
+            
             let feedPresenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
             let feedViewController = FeedViewController(presenter: feedPresenter, feedSettings: feedSettings)
+            feedViewController.leftSideMenu = menuViewController
             feedPresenter.view = feedViewController
             
-//            let menuPresenter = BurgerMenuViewController()
-//            let menuViewController = BurgerMenuViewController()
-//
-//            let sideMenuController = LGSideMenuController(rootViewController: feedViewController,
-//                                                           leftViewController: menuViewController)
-//
-//            sideMenuController.leftViewPresentationStyle = .slideBelowShifted
-//            sideMenuController.leftViewWidth = 320.0
-//            sideMenuController.tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
-//                                                         image: UIImage(named: feedSettings.tabBarImageName),
-//                                                         tag: 0)
-//            
-//            sideMenuController.navigationController?.pushViewController(feedViewController, animated: true)
-//            sideMenuController.navigationController?.setNavigationBarHidden(true, animated: false)
-            
             return .push(feedViewController)
+            
+        case .help:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
             
         case .tagCloud(let feedPresenter, let selectedTags):
             let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, feedPresenter: feedPresenter, selectedTags: selectedTags)

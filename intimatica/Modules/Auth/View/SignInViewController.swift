@@ -38,7 +38,7 @@ final class SignInViewController: AuthViewController {
         stackView.addArrangedSubview(emailView)
         stackView.addArrangedSubview(passwordView)
         
-        view.addSubview(forgotPasswordButton)
+        contentView.addSubview(forgotPasswordButton)
         
         titleLabel.text = L10n("SIGN_IN_VIEW_TITLE")
         authButton.setTitle(L10n("SIGN_IN_BUTTON_TITLE"), for: .normal)
@@ -48,8 +48,9 @@ final class SignInViewController: AuthViewController {
         NSLayoutConstraint.activate([            
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: Constants.forgotPasswordButtonWidth),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: Constants.forgotPasswrodButtonHeight),
-            forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            forgotPasswordButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: Constants.forgotPasswordButtonTop)
+            forgotPasswordButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            forgotPasswordButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: Constants.forgotPasswordButtonTop),
+            forgotPasswordButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
     

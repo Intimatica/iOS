@@ -12,6 +12,12 @@ class AuthViewController: UIViewController {
     // MARK: - Properties
     private var presenter: AuthPresenterProtocol!
     
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var closeButton = CloseButton()
     
     lazy var emailView = TextFieldView(field: .email(
@@ -86,20 +92,27 @@ class AuthViewController: UIViewController {
     // MARK: - Layout
     private func setupUI() {
         view.backgroundColor = .white
+        
         view.addSubview(closeButton)
-        view.addSubview(titleLabel)
-        view.addSubview(stackView)
-        view.addSubview(authButton)
+        view.addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(stackView)
+        contentView.addSubview(authButton)
                 
         NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
             
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.titleLabelTop),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
             
             stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.stackViewTop),
@@ -153,7 +166,7 @@ extension AuthViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = L10n(text)
-        label.font = .rubik(fontSize: .title, fontWeight: .medium)
+        label.font = .rubik(fontSize: .title, fontWeight: .bold)
         return label
     }
 }

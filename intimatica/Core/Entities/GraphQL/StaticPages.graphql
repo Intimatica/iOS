@@ -1,0 +1,35 @@
+query AboutPage {
+  aboutPage {
+    content
+  }
+}
+
+query HelpPage {
+  helpPage {
+    content
+  }
+}
+
+query TermsAndConditionsPage {
+  termsAndConditionsPage {
+    content
+  }
+}
+
+query PremiumDescription {
+  premiumDescription {
+    content
+  }
+}
+
+query Terms {
+  term {
+    content
+    }
+}
+
+query Conditions {
+  condition {
+    content
+    }
+}

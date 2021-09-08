@@ -26,7 +26,7 @@ class TellStoryThanksViewController: PopViewController {
     private lazy var actionButton = UIRoundedButton(title: L10n("TELL_STORY_THANKS_BUTTON_TITLE"),
                                                     titleColor: .white,
                                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                                    backgroundColor: .appPurple)
+                                                    backgroundColor: .appDarkPurple)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

@@ -8,88 +8,30 @@
 import UIKit
 import SnapKit
 
-class BurgerMenuViewController: UIViewController {
+class LeftSideMenuViewController: UIViewController {
     // MARK: - Properties
-    private let presenter: BurgerMenuPresenterDelegate
+    private let presenter: LeftSideMenuPresenterDelegate
     
-    private lazy var helpButton: UIButton = {
-        let button = UIButton(title: L10n("MENU_ITEM_HELP"),
-                              titleColor: .black,
-                              font: Constants.buttonFont,
-                              backgroundColor: .clear)
-        button.setImage(UIImage(named: "help_button_icon_x2"), for: .normal)
-       
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-        
-        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
-        button.contentHorizontalAlignment = .leading
-        button.contentEdgeInsets = Constants.butttonImageContentInsets
-        return button
-    }()
-    
-    private lazy var aboutButton: UIButton = {
-        let button = UIButton(title: L10n("MENU_ITEM_ABOUT"),
-                              titleColor: .black,
-                              font: Constants.buttonFont,
-                              backgroundColor: .clear)
-        button.setImage(UIImage(named: "about_icon_x2"), for: .normal)
-        
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-
-        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
-        button.contentHorizontalAlignment = .leading
-        button.contentEdgeInsets = Constants.butttonImageContentInsets
-        return button
-    }()
-    
-    private lazy var termsAndConditionsButton: UIButton = {
-        let button = UIButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS"),
-                              titleColor: .black,
-                              font: Constants.buttonFont,
-                              backgroundColor: .clear)
-        button.setImage(UIImage(named: "terms_and_condition_icon_x2"), for: .normal)
-        
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-
-        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
-        button.contentHorizontalAlignment = .leading
-        button.contentEdgeInsets = Constants.butttonImageContentInsets
-        return button
-    }()
+    private lazy var helpButton = createMenuButton(title: L10n("MENU_ITEM_HELP"), imageName: "help_button_icon_x2")
+    private lazy var aboutButton = createMenuButton(title: L10n("MENU_ITEM_ABOUT"), imageName: "about_icon_x2")
+    private lazy var termsAndConditionsButton = createMenuButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS")
+                                                             , imageName: "terms_and_condition_icon_x2")
     
     private lazy var applyForPremiumButton: UIRoundedButton = {
         let button = UIRoundedButton(title: L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"),
                               titleColor: .init(hex: 0xFFE70D),
                               font: .rubik(fontSize: .regular, fontWeight: .bold),
-                              backgroundColor: .appPurple)
+                              backgroundColor: .appDarkPurple)
         
         button.setImage(UIImage(named: "star"), for: .normal)
         button.imageEdgeInsets = Constants.buttonImageEdgeInsets
         return button
     }()
     
-    private lazy var logoutButton: UIButton = {
-        let button = UIButton(title: L10n("MENU_ITEM_LOGOUT"),
-                              titleColor: .black,
-                              font: Constants.buttonFont,
-                              backgroundColor: .clear)
-        
-        button.setImage(UIImage(named: "logout_icon_x2"), for: .normal)
-        
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-
-        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
-        button.contentHorizontalAlignment = .leading
-        button.contentEdgeInsets = Constants.butttonImageContentInsets
-        return button
-    }()
+    private lazy var logoutButton = createMenuButton(title: L10n("MENU_ITEM_LOGOUT"), imageName: "logout_icon_x2")
     
     // MARK: - Initializers
-    init(presenter: BurgerMenuPresenterDelegate) {
+    init(presenter: LeftSideMenuPresenterDelegate) {
         self.presenter = presenter
 
         super.init(nibName: nil, bundle: nil)        
@@ -167,12 +109,43 @@ class BurgerMenuViewController: UIViewController {
         helpButton.addAction { [weak self] in
             self?.presenter.buttonDidTap(.help)
         }
+        
+        aboutButton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.about)
+        }
+        
+        termsAndConditionsButton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.termsAndConditions)
+        }
+        
+        applyForPremiumButton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.applyForPremium)
+        }
+        
+        logoutButton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.logout)
+        }
+        
+    }
+    
+    private func createMenuButton(title: String, imageName: String) -> UIButton {
+        let button = UIButton(title: title,
+                              titleColor: .black,
+                              font: Constants.buttonFont,
+                              backgroundColor: .clear)
+        
+        button.setImage(UIImage(named: imageName), for: .normal)
+
+        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
+        button.contentHorizontalAlignment = .leading
+        button.contentEdgeInsets = Constants.butttonImageContentInsets
+        return button
     }
     
 }
 
 // MARK: - Helper/Constants
-extension BurgerMenuViewController {
+extension LeftSideMenuViewController {
     struct Constants {
         static let buttonFont: UIFont = .rubik(fontSize: .regular, fontWeight: .medium)
         static let buttonImageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: 0)

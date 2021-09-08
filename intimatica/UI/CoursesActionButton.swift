@@ -38,7 +38,7 @@ final class CoursesActionButton: UIButton {
         setTitle(L10n(""), for: .reserved)
         setImage(UIImage(named: ""), for: .reserved)
         
-        setTitleColor(.appPurple, for: .normal)
+        setTitleColor(.appDarkPurple, for: .normal)
         titleLabel?.font = .rubik(fontSize: .small, fontWeight: .regular)
     }
 }

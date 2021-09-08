@@ -152,7 +152,7 @@ extension LeftSideMenuViewController {
         static let butttonImageContentInsets = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
         
         static let helpButtonTop: CGFloat = 150
-        static let buttonTop: CGFloat = 20
+        static let buttonTop: CGFloat = 5
         static let buttonLeadingTrailing: CGFloat = 40
         static let buttonHeight: CGFloat = 50
 

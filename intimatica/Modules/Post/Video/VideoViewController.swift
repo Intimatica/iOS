@@ -61,6 +61,8 @@ class VideoViewController: BasePostViewController {
     
     // MARK: - Layout
     func setupView() {
+        title = L10n("CATEGORY_VIDEO")
+        
         contentView.addSubview(headerStack)
         contentView.addSubview(markdownView)
         
@@ -96,8 +98,8 @@ class VideoViewController: BasePostViewController {
 extension VideoViewController: VideoViewProtocol {
     func display(_ post: VideoPostQuery.Data.Post, with webViewSettings: String?) {
         guard
-//            let imageUrl = post.image?.url,
-            let tags = post.tags?.compactMap({ $0?.name })
+            let tags = post.tags?.compactMap({ $0?.name }),
+            let videoId = post.postTypeDz.first??.asComponentPostTypeVideo?.youtubeLink
         else {
             return
         }
@@ -113,7 +115,7 @@ extension VideoViewController: VideoViewProtocol {
                            "cc_load_policy": 0, // Hide closed captions
                            "iv_load_policy": 3, // Hide the Video Annotations
                            "modestbranding": 0]
-        videoPlayer.load(withVideoId: "VkrDAvPRdDw", playerVars: playvarsDic)
+        videoPlayer.load(withVideoId: videoId, playerVars: playvarsDic)
         videoPlayer.playVideo()
         
         let content = post.postTypeDz.first??.asComponentPostTypeVideo?.description ?? ""

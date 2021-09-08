@@ -111,7 +111,7 @@ class AuthViewController: UIViewController {
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
             
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
             
             stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
@@ -149,8 +149,6 @@ extension AuthViewController {
         static let closeButtonTopTrailing: CGFloat = 15
         
         static let titleLabelLeadingTrailing: CGFloat = 45
-        static let titleLabelTop: CGFloat = 120
-        static let titleLabel: CGFloat = 45
         
         static let stackViewSpacing: CGFloat = 30
         static let stackViewTop: CGFloat = 20

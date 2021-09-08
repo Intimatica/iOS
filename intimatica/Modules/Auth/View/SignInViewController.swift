@@ -64,8 +64,8 @@ final class SignInViewController: AuthViewController {
 // MARK: - Helper/Constraints
 extension SignInViewController {
     private struct Constants {
-        static let forgotPasswordButtonTop: CGFloat = 25
-        static let forgotPasswrodButtonHeight: CGFloat = 50
+        static let forgotPasswordButtonTop: CGFloat = 20
+        static let forgotPasswrodButtonHeight: CGFloat = 20
         static let forgotPasswordButtonWidth: CGFloat = 200
     }
 }

@@ -33,7 +33,7 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(rootViewController: UIViewController(), initialRoute: .welcome)
+        super.init(rootViewController: UIViewController(), initialRoute: .launch)
     }
     
     override func prepareTransition(for route: AppRoute) -> ViewTransition {

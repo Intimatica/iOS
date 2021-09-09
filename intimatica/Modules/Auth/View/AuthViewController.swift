@@ -10,7 +10,7 @@ import UIKit
 class AuthViewController: UIViewController {
 
     // MARK: - Properties
-    private var presenter: AuthPresenterProtocol!
+    private let presenter: AuthPresenterProtocol
     
     lazy var contentView: UIView = {
         let view = UIView()
@@ -71,9 +71,9 @@ class AuthViewController: UIViewController {
     
     // MARK: - Initializer
     init(presenter: AuthPresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {

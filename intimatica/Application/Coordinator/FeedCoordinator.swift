@@ -35,9 +35,13 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     private let useCaseProvider: UseCaseProviderProtocol
     private let feedSettings: FeedSettings
     
-    init(useCaseProvider: UseCaseProviderProtocol, feedSettings: FeedSettings) {
+    private let appRouter: StrongRouter<AppRoute>
+    
+    init(useCaseProvider: UseCaseProviderProtocol, feedSettings: FeedSettings, appRouter: StrongRouter<AppRoute>) {
         self.useCaseProvider = useCaseProvider
         self.feedSettings = feedSettings
+        
+        self.appRouter = appRouter
         
         super.init(initialRoute: .feed)
     }
@@ -45,7 +49,7 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     override func prepareTransition(for route: FeedRoute) -> NavigationTransition {
         switch route {
         case .feed:
-            let leftSideMenuPresenter = LeftSideMenuPresenter(router: strongRouter)
+            let leftSideMenuPresenter = LeftSideMenuPresenter(router: strongRouter, dependencies: useCaseProvider)
             let leftSideMenuViewController = LeftSideMenuViewController(presenter: leftSideMenuPresenter)
             
             let feedPresenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
@@ -125,9 +129,9 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             return .present(viewController)
 
         case .logout:
-            return .multiple(.dismiss(), .dismiss())
+//            return .multiple(.dismiss(), .dismiss())
+            return .trigger(.ageConfirm, on: appRouter)
 
-            
         case .dismiss:
             return .dismiss()
         }

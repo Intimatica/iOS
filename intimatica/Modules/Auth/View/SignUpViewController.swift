@@ -10,13 +10,13 @@ import UIKit
 final class SignUpViewController: AuthViewController {
     
     // MARK: - Properties
-    private var presenter: SignUpPresenterProtocol!
+    private let presenter: SignUpPresenterProtocol
     
     // MARK: - Initializers
     init(presenter: SignUpPresenterProtocol) {
-        super.init(presenter: presenter)
-        
         self.presenter = presenter
+        
+        super.init(presenter: presenter)
     }
     
     required init?(coder: NSCoder) {

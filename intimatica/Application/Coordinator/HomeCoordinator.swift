@@ -21,9 +21,9 @@ final class HomeCoordinator: TabBarCoordinator<HomeRoute> {
     private let profileRouter: StrongRouter<ProfileRoute>
     
     // MARK: - Initializers
-    init(useCaseProvider: UseCaseProviderProtocol) {
-        postsRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: PostFeedSettings()).strongRouter
-        coursesRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: CourseFeedSettings()).strongRouter
+    init(useCaseProvider: UseCaseProviderProtocol, appRouter: StrongRouter<AppRoute>) {
+        postsRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: PostFeedSettings(), appRouter: appRouter).strongRouter
+        coursesRouter = FeedCoordinator(useCaseProvider: useCaseProvider, feedSettings: CourseFeedSettings(), appRouter: appRouter).strongRouter
         profileRouter = ProfileCoordinator(useCaseProvider: useCaseProvider).strongRouter
         
         super.init(initialRoute: .posts)

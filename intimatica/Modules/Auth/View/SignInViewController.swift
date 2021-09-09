@@ -9,13 +9,13 @@ import UIKit
 
 final class SignInViewController: AuthViewController {
     // MARK: - Properties
-    private var presenter: SignInPresenterProtocol!
+    private let presenter: SignInPresenterProtocol
     
     // MARK: - Initializers
     init(presenter: SignInPresenterProtocol) {
-        super.init(presenter: presenter)
-        
         self.presenter = presenter
+        
+        super.init(presenter: presenter)
     }
     
     required init?(coder: NSCoder) {

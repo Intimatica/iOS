@@ -193,15 +193,15 @@ extension VideoCourseViewController.Constants {
 
 // MARK: - VideoCourseViewProtocol
 extension VideoCourseViewController: VideoCourseViewProtocol {
-    func display(_ post: VideoCoursePostQuery.Data.Post, with webViewSettings: String?) {
+    func display(_ response: VideoCoursePostQuery.Data) {
         guard
-            let imageUrl = post.image?.url,
-            let tags = post.tags?.compactMap({ $0?.name }),
-            let authorName = post.author?.name,
-            let authorJobTitle = post.author?.jobTitle,
-            let authorPhotoUrl = post.author?.photo?.url,
-            let content = post.postTypeDz.first??.asComponentPostTypeVideoCourse?.description,
-            let videoList = post.postTypeDz.first??.asComponentPostTypeVideoCourse?.video?.compactMap({ $0 })
+            let imageUrl = response.post?.image?.url,
+            let tags = response.post?.tags?.compactMap({ $0?.name }),
+            let authorName = response.post?.author?.name,
+            let authorJobTitle = response.post?.author?.jobTitle,
+            let authorPhotoUrl = response.post?.author?.photo?.url,
+            let content = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.description,
+            let videoList = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.video?.compactMap({ $0 })
         else {
             return
         }
@@ -209,11 +209,12 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         headerImageView.kf.indicatorType = .activity
         headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
-        titleLabel.text = post.title
+        titleLabel.text = response.post?.title
         tagsStackView.fill(by: tags)
         authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
-        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
+        let webViewSettings = response.webViewSetting?.data ?? ""
+        markdownView.load(markdown: fixContentStrapiLinks(content) + webViewSettings, enableImage: true)
         
         self.videoList = videoList
 
@@ -230,7 +231,10 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         
-        if post.isPaid {
+        let userHasPremium = response.me?.hasPremium ?? false
+        let postIsPaid = response.post?.isPaid ?? false
+        
+        if postIsPaid && !userHasPremium {
             titleLabel.textColor = .white
             paidCourseBlockView.isHidden = false
         } else {

@@ -13,7 +13,6 @@ protocol TheoryPresenterProtocol: BasePostPresenterProtocol {
 
 protocol TheoryViewProtocol: BasePostViewProtocol {
     func display(_ theoryPost: TheoryPostQuery.Data.Post, with webViewSettings: String?)
-    func display(_ error: Error)
 }
 
 final class TheoryPresenter: BasePostPresenter {

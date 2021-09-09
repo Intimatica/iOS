@@ -12,7 +12,7 @@ protocol VideoCourseViewProtocol: BasePostViewProtocol {
 }
 
 protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
-    func finishButtonDidTap()
+    func finishButtonDidTap(finishTitle: String, finishImageUrl: String)
 }
 
 final class VideoCoursePresenter: BasePostPresenter {
@@ -29,8 +29,8 @@ final class VideoCoursePresenter: BasePostPresenter {
 
 // MARK: - VideoCoursePresenterProtocol
 extension VideoCoursePresenter: VideoCoursePresenterProtocol {
-    func finishButtonDidTap() {
-        router.trigger(.courseFinished("hello"))
+    func finishButtonDidTap(finishTitle: String, finishImageUrl: String) {
+        router.trigger(.courseFinished(finishTitle, finishImageUrl))
     }
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ extension VideoCoursePresenter: VideoCoursePresenterProtocol {
                     self.view?.display(data)
                 }
             case .failure(let error):
-                print(error)
+                self.view?.display(error)
             }
         }
     }

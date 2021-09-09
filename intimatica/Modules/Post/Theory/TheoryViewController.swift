@@ -102,11 +102,6 @@ extension TheoryViewController: TheoryViewProtocol {
         
         markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
     }
-    
-    func display(_ error: Error) {
-        hideSpinner()
-        showError(error.localizedDescription)
-    }
 }
 
 // MARK: - UIScrollViewDelegate

@@ -13,6 +13,8 @@ class VideoCourseViewController: BasePostViewController {
     // MARK: - Properties
     private let presenter: VideoCoursePresenterProtocol
     private var videoList: [Video] = []
+    private var finishTitle = ""
+    private var finishImageUrl = ""
     
     private lazy var premiumVideoCourseLabel = PremiumCourseLabel()
     private lazy var premiumHeaderBackgroundView: UIView = {
@@ -174,7 +176,9 @@ class VideoCourseViewController: BasePostViewController {
     
     private func setupActions() {
         finishButton.addAction { [weak self] in
-            self?.presenter.finishButtonDidTap()
+            guard let self = self else { return }
+            
+            self.presenter.finishButtonDidTap(finishTitle: self.finishTitle, finishImageUrl: self.finishImageUrl)
         }
     }
 }
@@ -241,6 +245,9 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             premiumVideoCourseLabel.isHidden = true
             premiumHeaderBackgroundView.isHidden = true
         }
+        
+//        finishTitle = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishTitle ?? ""
+//        finishImageUrl = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishImage?.url ?? ""
     }
 }
 

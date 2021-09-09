@@ -17,7 +17,7 @@ enum FeedRoute: Route {
     case theory(String)
     case video(String)
     case videoCourse(String)
-    case courseFinished(String)
+    case courseFinished(String, String)
 
     case tellStory
     case tellStoryThanks
@@ -86,8 +86,8 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             presenter.setView(viewController)
             return .show(viewController)
 
-        case .courseFinished(let subTitle):
-            let viewController = CourseFinishedViewController()
+        case .courseFinished(let title, let imageUrl):
+            let viewController = CourseFinishedViewController(title: title, imageUrl: imageUrl)
             return .present(viewController)
             
         case .tellStory:

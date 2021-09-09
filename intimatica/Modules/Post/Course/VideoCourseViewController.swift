@@ -246,8 +246,8 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             premiumHeaderBackgroundView.isHidden = true
         }
         
-//        finishTitle = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishTitle ?? ""
-//        finishImageUrl = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishImage?.url ?? ""
+        finishTitle = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishText ?? ""
+        finishImageUrl = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishImage?.url ?? ""
     }
 }
 

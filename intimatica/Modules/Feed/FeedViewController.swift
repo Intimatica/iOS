@@ -120,6 +120,8 @@ class FeedViewController: UIViewController {
         
         navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
         navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        
+        title = feedSettings.tabBarTitle.lowercased().uppercaseFirstLetter()
     }
     
     required init?(coder: NSCoder) {
@@ -152,6 +154,8 @@ class FeedViewController: UIViewController {
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
         
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         presenter.viewDidLoad()
     }
 
@@ -167,6 +171,12 @@ class FeedViewController: UIViewController {
         
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
         showSpinner(frame: tableView.bounds, opacity: 0)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
     }
     
     // MARK: - Layout

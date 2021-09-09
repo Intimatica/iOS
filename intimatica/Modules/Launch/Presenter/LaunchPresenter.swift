@@ -39,12 +39,28 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             case .success(let graphQLResult):
                 if let token = graphQLResult.data?.login.jwt {
                     self.useCase.setAuthToken(token)
+                    
+                    if let token = PushTokenKeeper.sharedInstance.token {
+                        self.updatePushToken(with: token)
+                    }
+                    
                     self.router.trigger(.home)
                 } else {
                     self.router.trigger(.ageConfirm)
                 }
             case .failure(_):
                 self.router.trigger(.ageConfirm)
+            }
+        }
+    }
+    
+    private func updatePushToken(with token: String) {
+        useCase.perform(mutaion: UpdatePushTokenMutation(pushToken: token)) {result in
+            switch result {
+            case .success(_):
+                print("Push token successfully updated")
+            case .failure(let error):
+                print("Failed to update push token \(error)")
             }
         }
     }

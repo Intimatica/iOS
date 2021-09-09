@@ -1,0 +1,31 @@
+query Profile {
+    profile(id:0) {
+    nickname
+    gender {
+      id
+      name
+    }
+    birthDate
+  }
+}
+
+mutation UpdateProfile($nickname: String, $gender: ID, $birthDate: Date) {
+ updateProfile(input:{data:{nickname: $nickname, gender: $gender, birthDate: $birthDate}}) {
+    profile {
+      nickname
+      gender {
+        id,
+        name
+      }
+      birthDate
+    }
+  }
+}
+
+mutation UpdatePushToken($pushToken: String) {
+ updateProfile(input:{data:{pushToken: $pushToken}}) {
+    profile {
+      pushToken
+    }
+  }
+}

@@ -12,6 +12,8 @@
 		DB0BC66A26E10CB6007D097D /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66726E10CB6007D097D /* main.css */; };
 		DB0BC66B26E10CB6007D097D /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66826E10CB6007D097D /* main.js */; };
 		DB0BC67026E94018007D097D /* StaticPages.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66F26E94018007D097D /* StaticPages.graphql */; };
+		DB0BC67426EA31B2007D097D /* Profile.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67326EA31B2007D097D /* Profile.graphql */; };
+		DB0BC67626EA3B02007D097D /* PushTokenKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -165,6 +167,8 @@
 		DB0BC66726E10CB6007D097D /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.css; sourceTree = SOURCE_ROOT; };
 		DB0BC66826E10CB6007D097D /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.js; sourceTree = SOURCE_ROOT; };
 		DB0BC66F26E94018007D097D /* StaticPages.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = StaticPages.graphql; sourceTree = "<group>"; };
+		DB0BC67326EA31B2007D097D /* Profile.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
+		DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenKeeper.swift; sourceTree = "<group>"; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -419,6 +423,7 @@
 				DB6F3179269DA973005E7578 /* SceneDelegate.swift */,
 				DB2F8BAE26A5E234007020C0 /* AppConstants.swift */,
 				DB2F8BBA26A8B7CF007020C0 /* Utils.swift */,
+				DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -902,6 +907,7 @@
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
 				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
 				DB81AFBD26B82B8000948B1F /* VideoPost.graphql */,
+				DB0BC67326EA31B2007D097D /* Profile.graphql */,
 				DB3C566226BC1A160087663E /* VideoCourse.graphql */,
 				DBFA7C4F26C515920042D31D /* Tags.graphql */,
 				DB2E195A26CBE962004FF77C /* StoryPost.graphql */,
@@ -1072,6 +1078,7 @@
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
+				DB0BC67426EA31B2007D097D /* Profile.graphql in Resources */,
 				DB0BC66A26E10CB6007D097D /* main.css in Resources */,
 				DB81AFBE26B82B8000948B1F /* VideoPost.graphql in Resources */,
 				DB2F8B9526A371B9007020C0 /* Rubik-LightItalic.ttf in Resources */,
@@ -1251,6 +1258,7 @@
 				DBDBC76A26CEEFAD00CB839C /* FeedCoordinator.swift in Sources */,
 				DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */,
 				DBF99D5526B2A1D300E04D40 /* PostTableViewCell.swift in Sources */,
+				DB0BC67626EA3B02007D097D /* PushTokenKeeper.swift in Sources */,
 				DB3C566C26C1018C0087663E /* Array+Utils.swift in Sources */,
 				DB2E197126CE59E5004FF77C /* UIImageView+Utils.swift in Sources */,
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,

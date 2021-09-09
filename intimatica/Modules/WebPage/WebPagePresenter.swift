@@ -45,11 +45,23 @@ extension WebPagePresenter: WebPagePresenterProtocol {
             case .success(let graphQLResult):
                 
                 // QUESTION: try to refactor
-                if let termsData = ((graphQLResult.data) as? TermsQuery.Data), let content = termsData.term?.content {
+                if let termsData = graphQLResult.data as? TermsQuery.Data,
+                   let content = termsData.term?.content {
                     self.view?.display(content)
-                } else if let conditionsData = ((graphQLResult.data) as? ConditionsQuery.Data), let content = conditionsData.condition?.content {
+                } else if let conditionsData = graphQLResult.data as? ConditionsQuery.Data,
+                          let content = conditionsData.condition?.content {
                     self.view?.display(content)
-                } else if let premiumData = (graphQLResult.data as? PremiumDescriptionQuery.Data), let content = premiumData.premiumDescription?.content {
+                } else if let premiumData = graphQLResult.data as? PremiumDescriptionQuery.Data,
+                          let content = premiumData.premiumDescription?.content {
+                    self.view?.display(content)
+                } else if let helpData = graphQLResult.data as? HelpPageQuery.Data,
+                          let content = helpData.helpPage?.content {
+                    self.view?.display(content)
+                } else if let aboutData = graphQLResult.data as? AboutPageQuery.Data,
+                          let content = aboutData.aboutPage?.content {
+                    self.view?.display(content)
+                } else if let termsAndConditionsData = graphQLResult.data as? TermsAndConditionsPageQuery.Data,
+                          let content = termsAndConditionsData.termsAndConditionsPage?.content {
                     self.view?.display(content)
                 } else {
                     fatalError("Content not found")

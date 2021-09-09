@@ -61,6 +61,8 @@ class VideoViewController: BasePostViewController {
     
     // MARK: - Layout
     func setupView() {
+        title = L10n("CATEGORY_VIDEO")
+        
         contentView.addSubview(headerStack)
         contentView.addSubview(markdownView)
         
@@ -94,20 +96,17 @@ class VideoViewController: BasePostViewController {
 
 // MARK: - VideoViewProtocol
 extension VideoViewController: VideoViewProtocol {
-    func display(_ post: VideoPostQuery.Data.Post) {
+    func display(_ post: VideoPostQuery.Data.Post, with webViewSettings: String?) {
         guard
-//            let imageUrl = post.image?.url,
-            let tags = post.tags?.compactMap({ $0?.name })
+            let tags = post.tags?.compactMap({ $0?.name }),
+            let videoId = post.postTypeDz.first??.asComponentPostTypeVideo?.youtubeLink
         else {
             return
         }
         
         titleLabel.text = post.title
         tagsStackView.fill(by: tags)
-        
-//        headerImageView.kf.indicatorType = .activity
-//        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
-        
+
         let playvarsDic = ["controls": 0,
                            "playsinline": 0,
                            "autohide": 1,
@@ -116,10 +115,11 @@ extension VideoViewController: VideoViewProtocol {
                            "cc_load_policy": 0, // Hide closed captions
                            "iv_load_policy": 3, // Hide the Video Annotations
                            "modestbranding": 0]
-        videoPlayer.load(withVideoId: "VkrDAvPRdDw", playerVars: playvarsDic)
+        videoPlayer.load(withVideoId: videoId, playerVars: playvarsDic)
         videoPlayer.playVideo()
         
-        markdownView.load(markdown: post.postTypeDz.first??.asComponentPostTypeVideo?.description)
+        let content = post.postTypeDz.first??.asComponentPostTypeVideo?.description ?? ""
+        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
 
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()

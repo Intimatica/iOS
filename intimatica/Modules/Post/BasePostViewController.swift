@@ -69,14 +69,13 @@ class BasePostViewController: UIViewController {
         let md = MarkdownView()
         md.translatesAutoresizingMaskIntoConstraints = false
         md.isScrollEnabled = false
-        
         return md
     }()
     
     private lazy var backBarButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem()
         barButton.title = "    "
-        barButton.tintColor = .appPurple
+        barButton.tintColor = .appDarkPurple
         return barButton
     }()
         
@@ -110,7 +109,7 @@ class BasePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.isTranslucent = false
     }
@@ -167,7 +166,7 @@ extension BasePostViewController {
         static let favoriteInactiveImageName = "favorite_inactive"
         
         static let headerStackSpacing: CGFloat = 10
-        static let headerStackLeadingTrailing: CGFloat = 24
+        static let headerStackLeadingTrailing: CGFloat = 15
         static let headerStackTop: CGFloat = 30
         
         static let spacerViewTop: CGFloat = 10

@@ -119,3 +119,9 @@ TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
 TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";
 
 MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ психолога";
+
+// BurgerMenuViewController
+MENU_ITEM_HELP = "Помощь";
+MENU_ITEM_ABOUT = "О нас";
+MENU_ITEM_TERMS_AND_CONDITIONS = "Terms & Conditions";
+MENU_ITEM_LOGOUT = "Выйти из аккаунта";

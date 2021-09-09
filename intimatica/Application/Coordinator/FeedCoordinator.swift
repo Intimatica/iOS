@@ -7,10 +7,10 @@
 
 import Foundation
 import XCoordinator
+import Apollo
 
 enum FeedRoute: Route {
     case feed
-    
     case tagCloud(FeedPresenterDelegate, Set<Int>)
     
     case story(String)
@@ -21,6 +21,12 @@ enum FeedRoute: Route {
 
     case tellStory
     case tellStoryThanks
+    
+    case helpPage
+    case aboutPage
+    case termsAndConditionsPage
+    case premiumPage
+    case logout
     
     case dismiss
 }
@@ -39,10 +45,16 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
     override func prepareTransition(for route: FeedRoute) -> NavigationTransition {
         switch route {
         case .feed:
-            let presenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
-            let viewController = FeedViewController(presenter: presenter, feedSettings: feedSettings)
-            presenter.view = viewController
-            return .push(viewController)
+            let leftSideMenuPresenter = LeftSideMenuPresenter(router: strongRouter)
+            let leftSideMenuViewController = LeftSideMenuViewController(presenter: leftSideMenuPresenter)
+            
+            let feedPresenter = FeedPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let feedViewController = FeedViewController(presenter: feedPresenter,
+                                                        leftSideMenu: leftSideMenuViewController,
+                                                        feedSettings: feedSettings)
+            feedPresenter.view = feedViewController
+            
+            return .push(feedViewController)
             
         case .tagCloud(let feedPresenter, let selectedTags):
             let presenter = TagCloudPresenter(router: strongRouter, dependencies: useCaseProvider, feedPresenter: feedPresenter, selectedTags: selectedTags)
@@ -87,6 +99,34 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
         case .tellStoryThanks:
             let viewController = TellStoryThanksViewController()
             return .multiple(.dismiss(), .present(viewController))
+        
+        case .helpPage:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: HelpPageQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
+        case .aboutPage:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: AboutPageQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
+        case .termsAndConditionsPage:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsAndConditionsPageQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
+        case .premiumPage:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PremiumDescriptionQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+
+        case .logout:
+            return .multiple(.dismiss(), .dismiss())
+
             
         case .dismiss:
             return .dismiss()

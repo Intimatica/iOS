@@ -25,6 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         IQKeyboardManager.shared.enable = true
         
+        let attributes = [NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

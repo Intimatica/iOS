@@ -42,7 +42,7 @@ class CourseFinishedViewController: UIViewController {
     private lazy var button: UIRoundedButton = {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .appPurple
+        button.backgroundColor = .appDarkPurple
         button.setTitle(L10n("COURSE_FINISHED_BUTTON_TITLE"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)

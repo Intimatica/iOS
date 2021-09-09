@@ -58,7 +58,7 @@ class RightBarButtonItem: UIBarButtonItem {
 
     // MARK: - Layout
     private func setupUI() {
-        tintColor = .appPurple
+        tintColor = .appDarkPurple
         
         switch buttonType {
         case .course:

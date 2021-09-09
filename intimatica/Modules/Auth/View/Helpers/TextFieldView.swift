@@ -200,9 +200,9 @@ extension TextFieldView {
 // MARK: - UITextFieldDelegate
 extension TextFieldView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        spacer.backgroundColor = .appPurple
+        spacer.backgroundColor = .appDarkPurple
         
-        fieldLabel.textColor = .appPurple
+        fieldLabel.textColor = .appDarkPurple
         fieldLabel.text = textField.placeholder
     }
     
@@ -218,7 +218,7 @@ extension TextFieldView: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        spacer.backgroundColor = .appPurple
+        spacer.backgroundColor = .appDarkPurple
         hideError()
         
         NSObject.cancelPreviousPerformRequests(

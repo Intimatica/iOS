@@ -12,7 +12,6 @@ class VideoCourseViewController: BasePostViewController {
     
     // MARK: - Properties
     private let presenter: VideoCoursePresenterProtocol
-    private var videoList: [Video] = []
     private var finishTitle = ""
     private var finishImageUrl = ""
     
@@ -210,18 +209,21 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             return
         }
         
+        let userHasPremium = response.me?.hasPremium ?? false
+        let postIsPaid = response.post?.isPaid ?? false
+        
         headerImageView.kf.indicatorType = .activity
         headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
         titleLabel.text = response.post?.title
         tagsStackView.fill(by: tags)
-        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
+        
+        let textColor: UIColor = postIsPaid ? .white : .black
+        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl, textColor: textColor)
         
         let webViewSettings = response.webViewSetting?.data ?? ""
         markdownView.load(markdown: fixContentStrapiLinks(content) + webViewSettings, enableImage: true)
         
-        self.videoList = videoList
-
         videoList.forEach {
             videoStack.addArrangedSubview(VideoView(videoId: $0.youtubeLink, title: $0.title))
             
@@ -234,9 +236,6 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             self?.hideSpinner()
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
-        
-        let userHasPremium = response.me?.hasPremium ?? false
-        let postIsPaid = response.post?.isPaid ?? false
         
         if postIsPaid {
             titleLabel.textColor = .white

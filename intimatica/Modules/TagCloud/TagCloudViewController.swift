@@ -153,6 +153,8 @@ final class TagCloudViewController: PopViewController {
             for cell in cells {
                 cell.state = .inactive
             }
+            
+            self.presenter.clearButtonDidTap()
         }
     }
 }

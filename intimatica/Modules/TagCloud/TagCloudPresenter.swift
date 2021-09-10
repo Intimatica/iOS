@@ -15,6 +15,7 @@ protocol TagCloudViewDelegate: AnyObject {
 protocol TagCloudPresenterDelegate {
     func viewDidLoad()
     func showButtonDidTap(selectedTags: Set<Int>)
+    func clearButtonDidTap()
 }
 
 final class TagCloudPresenter {
@@ -56,5 +57,9 @@ extension TagCloudPresenter: TagCloudPresenterDelegate {
     func showButtonDidTap(selectedTags: Set<Int>) {
         feedPresenter?.setSelectedTags(selectedTags)
         router.trigger(.dismiss)
+    }
+    
+    func clearButtonDidTap() {
+        feedPresenter?.setSelectedTags(Set<Int>())
     }
 }

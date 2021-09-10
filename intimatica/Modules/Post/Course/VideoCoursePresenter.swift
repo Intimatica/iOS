@@ -13,6 +13,7 @@ protocol VideoCourseViewProtocol: BasePostViewProtocol {
 
 protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
     func finishButtonDidTap(finishTitle: String, finishImageUrl: String)
+    func applyForPremiumButtonDidTap()
 }
 
 final class VideoCoursePresenter: BasePostPresenter {
@@ -29,6 +30,10 @@ final class VideoCoursePresenter: BasePostPresenter {
 
 // MARK: - VideoCoursePresenterProtocol
 extension VideoCoursePresenter: VideoCoursePresenterProtocol {
+    func applyForPremiumButtonDidTap() {
+        router.trigger(.premiumPage)
+    }
+    
     func finishButtonDidTap(finishTitle: String, finishImageUrl: String) {
         router.trigger(.courseFinished(finishTitle, finishImageUrl))
     }

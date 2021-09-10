@@ -238,12 +238,17 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         let userHasPremium = response.me?.hasPremium ?? false
         let postIsPaid = response.post?.isPaid ?? false
         
-        if postIsPaid && !userHasPremium {
+        if postIsPaid {
             titleLabel.textColor = .white
-            paidCourseBlockView.isHidden = false
         } else {
             premiumVideoCourseLabel.isHidden = true
             premiumHeaderBackgroundView.isHidden = true
+        }
+        
+        if userHasPremium {
+            paidCourseBlockView.isHidden = true
+        } else {
+            paidCourseBlockView.isHidden = false
         }
         
         finishTitle = response.post?.postTypeDz.first??.asComponentPostTypeVideoCourse?.finishText ?? ""

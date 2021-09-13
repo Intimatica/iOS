@@ -41,7 +41,7 @@ extension VideoPresenter: VideoPresenterProtocol {
                 }
                 // TODO: add else case
             case .failure(let error):
-                print(error)
+                self.view?.display(error)
             }
         }
     }

@@ -157,6 +157,11 @@ class BasePostViewController: UIViewController {
         let replaceBy = "$1" + AppConstants.serverURL + "$2$3"
         return text.replacingOccurrences(of: regex, with: replaceBy, options: .regularExpression)
     }
+    
+    @objc func display(_ error: Error) {
+        hideSpinner()
+        showError(error.localizedDescription)
+    }
 }
 
 // MARK: - Helper/Constants

@@ -14,8 +14,8 @@ protocol LaunchPresenterProtocol {
 
 final class LaunchPresenter {    
     // MARK: - Properties
-    private var router: Router!
-    private var useCase: AuthUseCaseProtocol!
+    private let router: Router
+    private let useCase: AuthUseCaseProtocol
     
     // MARK: - Initializers
     init(router: Router, dependencies: UseCaseProviderProtocol) {
@@ -31,10 +31,10 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             router.trigger(.ageConfirm)
             return
         }
-        
+
         useCase.perform(mutaion: SignInMutation(email: userCredentials.email, password: userCredentials.password)) { [weak self] result in
             guard let self = self else { return }
-            
+
             switch(result) {
             case .success(let graphQLResult):
                 if let token = graphQLResult.data?.login.jwt {

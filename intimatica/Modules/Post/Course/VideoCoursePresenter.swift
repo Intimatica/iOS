@@ -8,11 +8,12 @@
 import Foundation
 
 protocol VideoCourseViewProtocol: BasePostViewProtocol {
-    func display(_ post: VideoCoursePostQuery.Data.Post, with webViewSettings: String?)
+    func display(_ reponse: VideoCoursePostQuery.Data)
 }
 
 protocol VideoCoursePresenterProtocol: BasePostPresenterProtocol {
-    func finishButtonDidTap()
+    func finishButtonDidTap(finishTitle: String, finishImageUrl: String)
+    func applyForPremiumButtonDidTap()
 }
 
 final class VideoCoursePresenter: BasePostPresenter {
@@ -29,8 +30,12 @@ final class VideoCoursePresenter: BasePostPresenter {
 
 // MARK: - VideoCoursePresenterProtocol
 extension VideoCoursePresenter: VideoCoursePresenterProtocol {
-    func finishButtonDidTap() {
-        router.trigger(.courseFinished("hello"))
+    func applyForPremiumButtonDidTap() {
+        router.trigger(.premiumPage)
+    }
+    
+    func finishButtonDidTap(finishTitle: String, finishImageUrl: String) {
+        router.trigger(.courseFinished(finishTitle, finishImageUrl))
     }
     
     override func viewDidLoad() {
@@ -41,11 +46,11 @@ extension VideoCoursePresenter: VideoCoursePresenterProtocol {
             
             switch result {
             case .success(let graphQLResult):
-                if let post = graphQLResult.data?.post {
-                    self.view?.display(post, with: graphQLResult.data?.webViewSetting?.data)
+                if let data = graphQLResult.data {
+                    self.view?.display(data)
                 }
             case .failure(let error):
-                print(error)
+                self.view?.display(error)
             }
         }
     }

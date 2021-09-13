@@ -52,7 +52,7 @@ class GraphqlService: GraphqlServiceProtocol {
     }
     
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLQuery {
-        apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheCompletely, resultHandler: completionHandler)
+        apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheData, resultHandler: completionHandler)
     }
     
     func perform<T>(mutaion: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLMutation {
@@ -60,7 +60,7 @@ class GraphqlService: GraphqlServiceProtocol {
     }
 
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
-        apollo.fetch(query: PostsQuery(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList)) { [weak self] result in
+        apollo.fetch(query: PostsQuery(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList), cachePolicy: .fetchIgnoringCacheData) { [weak self] result in
               guard let self = self else { return }
                     
               switch result {
@@ -76,7 +76,7 @@ class GraphqlService: GraphqlServiceProtocol {
     }
     
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?) {
-        apollo.fetch(query: query, resultHandler: completionHandler)
+        apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheData, resultHandler: completionHandler)
     }
 
     private func parseGetPostsGraphQLResult(_ graphQLResult: GraphQLResult<PostsQuery.Data>) -> [Post] {

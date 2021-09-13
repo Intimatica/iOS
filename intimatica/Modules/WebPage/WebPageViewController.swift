@@ -10,7 +10,7 @@ import MarkdownView
 
 class WebPageViewController: UIViewController {
     // MARK: - Properties
-    private var presenter: WebPagePresenterProtocol!
+    private let presenter: WebPagePresenterProtocol
     private lazy var closeButton = CloseButton()
     private lazy var markdownView: MarkdownView = {
         let markdownView = MarkdownView()
@@ -20,9 +20,9 @@ class WebPageViewController: UIViewController {
     
     // MARK: - Initializers
     init(presenter: WebPagePresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {

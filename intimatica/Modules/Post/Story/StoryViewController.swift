@@ -106,10 +106,6 @@ extension StoryViewController: StoryViewProtocol {
         
         hideSpinner()
     }
-    
-    func display(_ error: Error) {
-        
-    }
 }
 
 // MARK: - Helper/Constants

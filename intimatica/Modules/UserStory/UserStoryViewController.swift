@@ -22,6 +22,8 @@ class UserStoryViewController: UIViewController {
     
     private lazy var contentView = UIView()
     
+    private lazy var mainImageView = UIImageView(name: "main_pic_realstory",
+                                                 contentMode: .scaleAspectFill)
     private lazy var storyView = StoryView()
     private lazy var allowedPublishingView = AllowedPublishingView()
     
@@ -63,8 +65,8 @@ class UserStoryViewController: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        contentView.addSubview(mainImageView)
         contentView.addSubview(storyView)
-//        contentView.addSubview(allowedPublishingView)
         
         storyView.fill(by: story.story,
                        and: story.comment,
@@ -83,23 +85,22 @@ class UserStoryViewController: UIViewController {
             make.leading.trailing.equalTo(view)
         }
         
-        storyView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(contentView).inset(25)
-            make.top.bottom.equalTo(contentView).inset(50)
+        mainImageView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalTo(contentView)
         }
         
-//        allowedPublishingView.snp.makeConstraints { make in
-//            make.leading.trailing.equalTo(storyView)
-//            make.top.equalTo(storyView.snp.bottom).offset(30)
-//            make.bottom.equalTo(contentView).offset(-30)
-//        }
+        storyView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(contentView).inset(Constants.storyViewLeadingTrailing)
+            make.top.equalTo(mainImageView.snp.bottom).offset(Constants.storyViewTopBottom)
+            make.bottom.equalTo(contentView.snp.bottom).inset(Constants.storyViewTopBottom)
+        }
     }
 }
 
 // MARK: - Helper/Constants
 extension UserStoryViewController {
     struct Constants {
-        static let storyViewLeadingTrailing: CGFloat = 25
-        static let storyViewTopBottom: CGFloat = 50
+        static let storyViewLeadingTrailing: CGFloat = 15
+        static let storyViewTopBottom: CGFloat = 30
     }
 }

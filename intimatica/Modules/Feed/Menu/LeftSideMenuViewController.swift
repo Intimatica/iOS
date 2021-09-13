@@ -17,16 +17,7 @@ class LeftSideMenuViewController: UIViewController {
     private lazy var termsAndConditionsButton = createMenuButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS")
                                                              , imageName: "terms_and_condition_icon_x2")
     
-    private lazy var applyForPremiumButton: UIRoundedButton = {
-        let button = UIRoundedButton(title: L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"),
-                              titleColor: .init(hex: 0xFFE70D),
-                              font: .rubik(fontSize: .regular, fontWeight: .bold),
-                              backgroundColor: .appDarkPurple)
-        
-        button.setImage(UIImage(named: "star"), for: .normal)
-        button.imageEdgeInsets = Constants.buttonImageEdgeInsets
-        return button
-    }()
+    private lazy var applyForPremiumButton = ApplyForPremiumButton()
     
     private lazy var logoutButton = createMenuButton(title: L10n("MENU_ITEM_LOGOUT"), imageName: "logout_icon_x2")
     

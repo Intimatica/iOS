@@ -14,6 +14,8 @@
 		DB0BC67026E94018007D097D /* StaticPages.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66F26E94018007D097D /* StaticPages.graphql */; };
 		DB0BC67426EA31B2007D097D /* Profile.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67326EA31B2007D097D /* Profile.graphql */; };
 		DB0BC67626EA3B02007D097D /* PushTokenKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */; };
+		DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */; };
+		DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -169,6 +171,8 @@
 		DB0BC66F26E94018007D097D /* StaticPages.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = StaticPages.graphql; sourceTree = "<group>"; };
 		DB0BC67326EA31B2007D097D /* Profile.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
 		DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenKeeper.swift; sourceTree = "<group>"; };
+		DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
+		DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 		DB2F8B3A269F5716007020C0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */,
 				DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */,
 				DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */,
 				DB2F8B40269F6D0D007020C0 /* UIControl+Utils.swift */,
@@ -956,6 +961,7 @@
 		DBF99D6A26B3DEC500E04D40 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */,
 				DBF99D6B26B3DF5C00E04D40 /* CloseButton.swift */,
 				DBF99D6D26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift */,
 				DB8A599426B01E3100842771 /* LabelWithBackground.swift */,
@@ -1246,6 +1252,7 @@
 				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
+				DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */,
 				DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
@@ -1269,6 +1276,7 @@
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
 				DB57273426D78D0E002D6B46 /* ContainerViewController.swift in Sources */,
+				DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */,
 				DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */,
 				DB2E195D26CBF20F004FF77C /* TagStackView.swift in Sources */,
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,

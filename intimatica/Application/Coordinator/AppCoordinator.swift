@@ -49,7 +49,7 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             let presenter = AgeConfirmPresenter(router: strongRouter)
             let viewController = AgeConfirmViewController(presenter: presenter)
             viewController.modalPresentationStyle = .fullScreen
-            return .show(viewController)
+            return .present(viewController)
         
         case .terms:
             let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsQuery())
@@ -82,7 +82,7 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             return .present(viewController)
         
         case .home:
-            let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider)
+            let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider, appRouter: strongRouter)
             coordinator.rootViewController.modalPresentationStyle = .fullScreen
             return .present(coordinator)
 

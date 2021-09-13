@@ -9,6 +9,7 @@ import Foundation
 
 protocol BasePostViewProtocol: AnyObject {
     func setIsFavotire(_ isFavorite: Bool)
+    func display(_ error: Error)
 }
 
 protocol BasePostPresenterProtocol {

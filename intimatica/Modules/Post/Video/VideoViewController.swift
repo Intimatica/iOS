@@ -62,7 +62,7 @@ class VideoViewController: BasePostViewController {
     // MARK: - Layout
     func setupView() {
         title = L10n("CATEGORY_VIDEO")
-        
+
         contentView.addSubview(headerStack)
         contentView.addSubview(markdownView)
         

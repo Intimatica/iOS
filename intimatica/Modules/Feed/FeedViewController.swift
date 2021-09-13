@@ -92,17 +92,17 @@ class FeedViewController: UIViewController {
         return barButton
     }()
     
-    private lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.alpha = 0.8
-        
+    private lazy var blurEffectView: UIView = {
         let viewBounds = tabBarController?.view.bounds ?? UIScreen.main.bounds
-        blurEffectView.frame = viewBounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tabBarController?.view.addSubview(blurEffectView)
         
-        return blurEffectView
+        let view = UIView(frame: viewBounds)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .appDarkPurple
+        view.isHidden = true
+        
+        tabBarController?.view.addSubview(view)
+        
+        return view
     }()
     
     // MARK: - Initializers
@@ -120,6 +120,8 @@ class FeedViewController: UIViewController {
         
         navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
         navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        
+        title = feedSettings.tabBarTitle.lowercased().uppercaseFirstLetter()
     }
     
     required init?(coder: NSCoder) {
@@ -152,6 +154,8 @@ class FeedViewController: UIViewController {
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
         
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         presenter.viewDidLoad()
     }
 
@@ -167,6 +171,12 @@ class FeedViewController: UIViewController {
         
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
         showSpinner(frame: tableView.bounds, opacity: 0)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
     }
     
     // MARK: - Layout
@@ -394,8 +404,10 @@ extension FeedViewController: UICollectionViewDataSource {
 extension FeedViewController: SideMenuNavigationControllerDelegate, UINavigationControllerDelegate {
 
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
+        blurEffectView.isHidden = false
+        
         UIView.animate(withDuration: 0.35, animations: { [weak self] in
-            self?.blurEffectView.alpha = 0.8
+            self?.blurEffectView.alpha = 0.7
         }, completion: { _ in
         })
     }
@@ -403,7 +415,8 @@ extension FeedViewController: SideMenuNavigationControllerDelegate, UINavigation
     func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
         UIView.animate(withDuration: 0.35, animations: { [weak self] in
             self?.blurEffectView.alpha = 0
-        }, completion: { _ in
+        }, completion: { [weak self] _ in
+            self?.blurEffectView.isHidden = true
         })
     }
 }

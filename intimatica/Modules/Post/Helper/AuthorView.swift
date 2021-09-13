@@ -69,24 +69,27 @@ final class AuthorView: UIView {
     }
     
     // MARK: - Public
-    func fill(by name: Writer, jobTitle: String, avatar: String) {
+    func fill(by name: Writer, jobTitle: String, avatar: String, textColor: UIColor = .black) {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar))
 
         let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appGray]
         
-        let boldTextAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: label.font.pointSize)]
+        let nameTextAttribute: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: label.font.pointSize),
+                                                                .foregroundColor: textColor]
+        
+        let jobTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: textColor]
         
         switch name {
         case .author(let name):
             let text = NSMutableAttributedString(string: L10n("AUTHOR"), attributes: greyTextAttribute)
             text.append(NSAttributedString(string: "\n"))
-            text.append(NSAttributedString(string: name, attributes: boldTextAttribute))
+            text.append(NSAttributedString(string: name, attributes: nameTextAttribute))
             text.append(NSAttributedString(string: "\n"))
-            text.append(NSAttributedString(string: jobTitle))
+            text.append(NSAttributedString(string: jobTitle, attributes: jobTextAttribute))
             label.attributedText = text
         case .creator(let name):
-            let text = NSMutableAttributedString(string: name, attributes: boldTextAttribute)
+            let text = NSMutableAttributedString(string: name, attributes: nameTextAttribute)
             text.append(NSAttributedString(string: "\n"))
             text.append(NSAttributedString(string: jobTitle, attributes: greyTextAttribute))
             label.attributedText = text

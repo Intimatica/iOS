@@ -17,7 +17,7 @@ final class TagCloudViewController: PopViewController {
     private var selectedTags: Set<Int> = []
     
     private let tagCellId = "TagCollectionViewCellID"
-    private var presenter: TagCloudPresenterDelegate!
+    private let presenter: TagCloudPresenterDelegate
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -65,9 +65,9 @@ final class TagCloudViewController: PopViewController {
     
     // MARK: - Initializers
     init(presenter: TagCloudPresenterDelegate) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -153,6 +153,8 @@ final class TagCloudViewController: PopViewController {
             for cell in cells {
                 cell.state = .inactive
             }
+            
+            self.presenter.clearButtonDidTap()
         }
     }
 }

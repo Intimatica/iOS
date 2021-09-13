@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CourseFinishedViewController: UIViewController {
+class CourseFinishedViewController: PopViewController {
     // MARK: - Properties
-    lazy var closeButton = CloseButton()
+    private let subTitle: String
+    private let imageUrl: String
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -51,11 +53,11 @@ class CourseFinishedViewController: UIViewController {
     
     
     // MARK: - Initializers
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    init(title: String, imageUrl: String) {
+        self.subTitle = title
+        self.imageUrl = imageUrl
         
-        setupView()
-        setupConstraints()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -73,9 +75,10 @@ class CourseFinishedViewController: UIViewController {
     
     // MARK: - Layout
     func setupView() {
-        view.backgroundColor = .white
+        subTitleLabel.text = subTitle
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
         
-        view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
         view.addSubview(imageView)
@@ -84,11 +87,6 @@ class CourseFinishedViewController: UIViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
-            closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
-            
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.titleLabelTop),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
@@ -124,9 +122,6 @@ class CourseFinishedViewController: UIViewController {
 // MARK: - Helper/Constants
 extension CourseFinishedViewController {
     struct Constants {
-        static let closeButtonWidth: CGFloat = 40
-        static let closeButtonTopTrailing: CGFloat = 15
-        
         static let titleLabelTop: CGFloat = 72
         static let titleLabelLeadingTrailing: CGFloat = 45
         

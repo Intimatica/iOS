@@ -16,6 +16,7 @@
 		DB0BC67626EA3B02007D097D /* PushTokenKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */; };
 		DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */; };
 		DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */; };
+		DB0BC68026F0C490007D097D /* aler1.apns in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67F26F0C490007D097D /* aler1.apns */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -173,6 +174,7 @@
 		DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenKeeper.swift; sourceTree = "<group>"; };
 		DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
 		DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
+		DB0BC67F26F0C490007D097D /* aler1.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = aler1.apns; sourceTree = "<group>"; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
+				DB0BC67F26F0C490007D097D /* aler1.apns */,
 			);
 			path = intimatica;
 			sourceTree = "<group>";
@@ -1094,6 +1097,7 @@
 				DB2F8B9B26A371B9007020C0 /* README.txt in Resources */,
 				DB2F8B8C26A371B9007020C0 /* Rubik-VariableFont_wght.ttf in Resources */,
 				DB2F8B9626A371B9007020C0 /* Rubik-Italic.ttf in Resources */,
+				DB0BC68026F0C490007D097D /* aler1.apns in Resources */,
 				DB2F8B9226A371B9007020C0 /* Rubik-ExtraBoldItalic.ttf in Resources */,
 				DBFA7C5026C515920042D31D /* Tags.graphql in Resources */,
 				DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */,

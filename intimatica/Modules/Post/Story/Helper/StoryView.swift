@@ -13,7 +13,7 @@ final class StoryView: UIView {
     private lazy var storyView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .appLightPurple
+        view.backgroundColor = .appGrayPurple
         return view
     }()
     

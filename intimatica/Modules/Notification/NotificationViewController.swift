@@ -62,6 +62,16 @@ class NotificationViewController: UIViewController {
         
         presenter.viewWillAppear()
         showSpinner()
+        
+        NotificationCenter.default.addObserver(
+              self,
+              selector: #selector(applicationWillEnterForeground(_:)),
+              name: UIApplication.willEnterForegroundNotification,
+              object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Layout
@@ -74,6 +84,10 @@ class NotificationViewController: UIViewController {
             make.leading.trailing.bottom.equalTo(view)
             make.top.equalTo(view)
         }
+    }
+    
+    @objc private func applicationWillEnterForeground(_ notification: NSNotification) {
+        presenter.viewWillAppear()
     }
 }
 

@@ -84,15 +84,15 @@ class LeftSideMenuViewController: UIViewController {
         }
         
         applyForPremiumButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.buttonHeight * 1.2)
+            make.height.equalTo(Constants.buttonHeight)
             make.leading.trailing.equalTo(view).inset(Constants.buttonLeadingTrailing)
-            make.top.equalTo(termsAndConditionsButton.snp.bottom).offset(40)
+            make.top.equalTo(termsAndConditionsButton.snp.bottom).offset(Constants.applyForPremiumButtonTop)
         }
         
         logoutButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.buttonHeight)
             make.leading.trailing.equalTo(view).inset(Constants.buttonLeadingTrailing)
-            make.bottom.equalTo(view).offset(-100)
+            make.bottom.equalTo(view).offset(-Constants.logoutButtonBottom)
         }
     }
     
@@ -146,6 +146,8 @@ extension LeftSideMenuViewController {
         static let buttonTop: CGFloat = 5
         static let buttonLeadingTrailing: CGFloat = 40
         static let buttonHeight: CGFloat = 50
+        
+        static let applyForPremiumButtonTop: CGFloat = 40
 
         static let logoutButtonBottom: CGFloat = 100
     }

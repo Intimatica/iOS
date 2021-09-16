@@ -11,6 +11,7 @@ import XCoordinator
 protocol FeedPresenterDelegate: AnyObject {
     func viewDidLoad()
     func tagFilterButtonDidTap()
+    func notificationsButtonDidTap()
     func show(_ post: Post)
     func filter(by category: FeedCategory)
     func setSelectedTags(_ tags: Set<Int>)
@@ -21,6 +22,9 @@ protocol FeedPresenterDelegate: AnyObject {
 
 protocol FeedViewDelegate: AnyObject {
     func setFavorites(_ favorites: Set<String>)
+    func setNotifications(_ notifications: [NotificationsQuery.Data.PostNotification])
+    func getNotifications() -> [NotificationsQuery.Data.PostNotification]
+    func setViewedNotifications(_ viewedNotifications: Set<String>)
     func setPosts(_ posts: [Post])
     func setHasSelectedTags(to value: Bool)
 }
@@ -48,9 +52,31 @@ extension FeedPresenter: FeedPresenterDelegate {
     func viewDidLoad() {
         favotires = useCase.getFavorites()
         view?.setFavorites(favotires)
+        
+        let viewedNotifications = useCase.getVieweNotifications()
+        view?.setViewedNotifications(viewedNotifications)
+        
+        useCase.getNotifications { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let graphQLResult):
+                if let posts = graphQLResult.data?.postNotifications.compactMap({ $0 }) {
+                    self.view?.setNotifications(posts)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
+    
     func tagFilterButtonDidTap() {
         router.trigger(.tagCloud(self, selectedTags))
+    }
+
+    func notificationsButtonDidTap() {
+        guard let posts = view?.getNotifications() else { return }
+        router.trigger(.notifications(posts, useCase.getVieweNotifications()))
     }
     
     func show(_ post: Post) {

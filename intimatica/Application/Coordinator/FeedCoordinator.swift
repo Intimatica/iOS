@@ -12,6 +12,7 @@ import Apollo
 enum FeedRoute: Route {
     case feed
     case tagCloud(FeedPresenterDelegate, Set<Int>)
+    case notifications([NotificationsQuery.Data.PostNotification], Set<String>)
     
     case story(String)
     case theory(String)
@@ -66,29 +67,34 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             presenter.view = viewController
             return .present(viewController)
             
+        case .notifications(let posts, let viewedPosts):
+            let presenter = NotificationPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = NotificationViewController(presenter: presenter, posts: posts, viewedPosts: viewedPosts)
+            return .push(viewController)
+            
         case .story(let id):
             let presenter = StoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = StoryViewController(presenter: presenter)
             presenter.setView(viewController)
-            return .show(viewController)
+            return .push(viewController)
             
         case .theory(let id):
             let presenter = TheoryPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = TheoryViewController(presenter: presenter)
             presenter.setView(viewController)
-            return .show(viewController)
+            return .push(viewController)
             
         case .video(let id):
             let presenter = VideoPresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = VideoViewController(presenter: presenter)
             presenter.setView(viewController)
-            return .show(viewController)
+            return .push(viewController)
             
         case .videoCourse(let id):
             let presenter = VideoCoursePresenter(router: strongRouter, dependencies: useCaseProvider, postId: id)
             let viewController = VideoCourseViewController(presenter: presenter)
             presenter.setView(viewController)
-            return .show(viewController)
+            return .push(viewController)
 
         case .courseFinished(let title, let imageUrl):
             let viewController = CourseFinishedViewController(title: title, imageUrl: imageUrl)

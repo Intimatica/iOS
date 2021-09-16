@@ -17,6 +17,15 @@
 		DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */; };
 		DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */; };
 		DB0BC68026F0C490007D097D /* aler1.apns in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67F26F0C490007D097D /* aler1.apns */; };
+		DB0BC67826EA84E0007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67726EA84E0007D097D /* StringProtocol+Utils.swift */; };
+		DB0BC67A26EB5A18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67926EB5A18007D097D /* ApplyForPremiumButton.swift */; };
+		DB0BC68326F0E91C007D097D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68226F0E91C007D097D /* NotificationViewController.swift */; };
+		DB0BC68526F0E92B007D097D /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */; };
+		DB0BC68726F0F089007D097D /* Notifications.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC68626F0F089007D097D /* Notifications.graphql */; };
+		DB0BC68926F1386B007D097D /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68826F1386A007D097D /* NotificationTableViewCell.swift */; };
+		DB0BC68B26F1C461007D097D /* NotificationLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68A26F1C461007D097D /* NotificationLabelView.swift */; };
+		DB0BC68F26F1FAD5007D097D /* VideoPostLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68E26F1FAD5007D097D /* VideoPostLabel.swift */; };
+		DB0BC69326F278A3007D097D /* ViewedNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC69226F278A3007D097D /* ViewedNotificationService.swift */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -175,6 +184,15 @@
 		DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
 		DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
 		DB0BC67F26F0C490007D097D /* aler1.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = aler1.apns; sourceTree = "<group>"; };
+		DB0BC67726EA84E0007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
+		DB0BC67926EB5A18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
+		DB0BC68226F0E91C007D097D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
+		DB0BC68626F0F089007D097D /* Notifications.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notifications.graphql; sourceTree = "<group>"; };
+		DB0BC68826F1386A007D097D /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		DB0BC68A26F1C461007D097D /* NotificationLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLabelView.swift; sourceTree = "<group>"; };
+		DB0BC68E26F1FAD5007D097D /* VideoPostLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostLabel.swift; sourceTree = "<group>"; };
+		DB0BC69226F278A3007D097D /* ViewedNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedNotificationService.swift; sourceTree = "<group>"; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +386,34 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		DB0BC68126F0E8FF007D097D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BC68D26F1F9C1007D097D /* TableViewCell */,
+				DB0BC68C26F1F9B4007D097D /* Helper */,
+				DB0BC68226F0E91C007D097D /* NotificationViewController.swift */,
+				DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		DB0BC68C26F1F9B4007D097D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BC68A26F1C461007D097D /* NotificationLabelView.swift */,
+				DB0BC68E26F1FAD5007D097D /* VideoPostLabel.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		DB0BC68D26F1F9C1007D097D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BC68826F1386A007D097D /* NotificationTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		DB2E195226CA4AF2004FF77C /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +492,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB0BC68126F0E8FF007D097D /* Notification */,
 				DBDBC78326D3779100CB839C /* UserStory */,
 				DB2E196326CD6D3D004FF77C /* TellStory */,
 				DBFA7C5B26C835AC0042D31D /* WebPage */,
@@ -590,6 +637,7 @@
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
 				DBF99D4526B0833600E04D40 /* GraphqlService.swift */,
 				DBFA7C7426C9663E0042D31D /* FavoritesSevice.swift */,
+				DB0BC69226F278A3007D097D /* ViewedNotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -923,6 +971,7 @@
 				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
 				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
 				DB0BC66F26E94018007D097D /* StaticPages.graphql */,
+				DB0BC68626F0F089007D097D /* Notifications.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -1073,6 +1122,7 @@
 				DB2E195B26CBE962004FF77C /* StoryPost.graphql in Resources */,
 				DB2F8B8D26A371B9007020C0 /* Rubik-Regular.ttf in Resources */,
 				DBF99D6226B2D39300E04D40 /* TheoryPost.graphql in Resources */,
+				DB0BC68726F0F089007D097D /* Notifications.graphql in Resources */,
 				DB2F8B2B269F3CB2007020C0 /* Localizable.strings in Resources */,
 				DB0BC67026E94018007D097D /* StaticPages.graphql in Resources */,
 				DB2F8B8F26A371B9007020C0 /* Rubik-SemiBoldItalic.ttf in Resources */,
@@ -1190,6 +1240,7 @@
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DBFA7C3D26C3E3330042D31D /* CategoryCollectionViewCell.swift in Sources */,
 				DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */,
+				DB0BC68526F0E92B007D097D /* NotificationPresenter.swift in Sources */,
 				DB2F8B6E26A35644007020C0 /* SignInPresenter.swift in Sources */,
 				DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */,
 				DBDBC77226CFDB4700CB839C /* FeedSettings.swift in Sources */,
@@ -1226,6 +1277,7 @@
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
 				DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */,
+				DB0BC68926F1386B007D097D /* NotificationTableViewCell.swift in Sources */,
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBFA7C5D26C835EB0042D31D /* WebPageViewController.swift in Sources */,
 				DBF99D6C26B3DF5C00E04D40 /* CloseButton.swift in Sources */,
@@ -1233,6 +1285,7 @@
 				DB8A59A026B01E3100842771 /* FeedViewController.swift in Sources */,
 				DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
+				DB0BC69326F278A3007D097D /* ViewedNotificationService.swift in Sources */,
 				DBF99D4626B0833600E04D40 /* GraphqlService.swift in Sources */,
 				DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */,
 				DBFA7C6126C84E350042D31D /* GraphQLRepository.swift in Sources */,
@@ -1248,12 +1301,14 @@
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
+				DB0BC68326F0E91C007D097D /* NotificationViewController.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,
 				DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */,
 				DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */,
 				DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */,
 				DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */,
 				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
+				DB0BC68B26F1C461007D097D /* NotificationLabelView.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
 				DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */,
@@ -1262,6 +1317,7 @@
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DBDBC77426D13CB400CB839C /* ProfileView.swift in Sources */,
+				DB0BC68F26F1FAD5007D097D /* VideoPostLabel.swift in Sources */,
 				DBFA7C5F26C836300042D31D /* WebPagePresenter.swift in Sources */,
 				DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */,
 				DBF99D7226B4344400E04D40 /* AvatarImageView.swift in Sources */,

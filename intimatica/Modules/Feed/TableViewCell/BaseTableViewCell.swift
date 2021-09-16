@@ -113,6 +113,7 @@ class BaseTableViewCell: UITableViewCell {
             postLabelView.state = .theory
         case .video:
             postLabelView.state = .video
+            playButtonImageView.isHidden = false
         case .videoCourse:
             postLabelView.state = post.isPaid ? .premiumVideoCourse : .videoCourse
         }

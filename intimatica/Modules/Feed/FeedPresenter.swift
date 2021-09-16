@@ -75,8 +75,7 @@ extension FeedPresenter: FeedPresenterDelegate {
     }
 
     func notificationsButtonDidTap() {
-        guard let posts = view?.getNotifications() else { return }
-        router.trigger(.notifications(posts, useCase.getVieweNotifications()))
+        router.trigger(.notifications)
     }
     
     func show(_ post: Post) {

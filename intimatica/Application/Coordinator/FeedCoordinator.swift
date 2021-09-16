@@ -12,7 +12,7 @@ import Apollo
 enum FeedRoute: Route {
     case feed
     case tagCloud(FeedPresenterDelegate, Set<Int>)
-    case notifications([NotificationsQuery.Data.PostNotification], Set<String>)
+    case notifications
     
     case story(String)
     case theory(String)
@@ -67,9 +67,10 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             presenter.view = viewController
             return .present(viewController)
             
-        case .notifications(let posts, let viewedPosts):
+        case .notifications:
             let presenter = NotificationPresenter(router: strongRouter, dependencies: useCaseProvider)
-            let viewController = NotificationViewController(presenter: presenter, posts: posts, viewedPosts: viewedPosts)
+            let viewController = NotificationViewController(presenter: presenter)
+            presenter.view = viewController
             return .push(viewController)
             
         case .story(let id):

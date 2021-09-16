@@ -9,9 +9,12 @@ import Foundation
 
 protocol NotificationViewControllerDelegate: AnyObject {
     func setNotificatons(_ notifications: [NotificationsQuery.Data.PostNotification])
+    func setViewedNotifications(_ viewNotifications: Set<String>)
+    func displayError(_ message: String)
 }
 
 protocol NotificationPresenterDelegate: AnyObject {
+    func viewWillAppear()
     func show(_ post: NotificationsQuery.Data.PostNotification)
     func markAsViewed(_ id: String)
 }
@@ -29,6 +32,26 @@ class NotificationPresenter {
 
 // MARK: - NotificationPresenterDelegate
 extension NotificationPresenter: NotificationPresenterDelegate {
+    func viewWillAppear() {
+        let viewedNotifications = useCase.getVieweNotifications()
+        view?.setViewedNotifications(viewedNotifications)
+        
+        useCase.getNotifications { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let graphQLResult):
+                if let notifications = graphQLResult.data?.postNotifications.compactMap({ $0 }) {
+                    self.view?.setNotificatons(notifications)
+                } else {
+                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
+                }
+            case .failure(let error):
+                self.view?.displayError(error.localizedDescription)
+            }
+        }
+    }
+    
     func markAsViewed(_ id: String) {
         useCase.addToViewedNotifications(id)
     }

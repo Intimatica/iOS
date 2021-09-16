@@ -11,8 +11,8 @@ import SnapKit
 class NotificationViewController: UIViewController {
     // MARK: - Properties
     private let presenter: NotificationPresenterDelegate
-    private let posts: [NotificationsQuery.Data.PostNotification]
-    var viewedPosts: Set<String>
+    private var posts: [NotificationsQuery.Data.PostNotification] = []
+    private var viewedPosts: Set<String> = []
     private let cellID = "NotificationCellID"
     
     private lazy var tableView: UITableView = {
@@ -35,10 +35,8 @@ class NotificationViewController: UIViewController {
     }()
     
     // MARK: - Initializers
-    init(presenter: NotificationPresenterDelegate, posts: [NotificationsQuery.Data.PostNotification], viewedPosts: Set<String>) {
+    init(presenter: NotificationPresenterDelegate) {
         self.presenter = presenter
-        self.posts = posts
-        self.viewedPosts = viewedPosts
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,9 +52,6 @@ class NotificationViewController: UIViewController {
         
         setupView()
         setupConstraints()
-        
-        tableView.reloadData()
-//        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +59,9 @@ class NotificationViewController: UIViewController {
         
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.isTranslucent = false
+        
+        presenter.viewWillAppear()
+        showSpinner()
     }
     
     // MARK: - Layout
@@ -105,4 +103,23 @@ extension NotificationViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+// MARK: - NotificationViewControllerDelegate
+extension NotificationViewController: NotificationViewControllerDelegate {
+    func setNotificatons(_ notifications: [NotificationsQuery.Data.PostNotification]) {
+        posts = notifications
+        tableView.reloadData()
+        hideSpinner()
+    }
+    
+    func setViewedNotifications(_ viewNotifications: Set<String>) {
+        viewedPosts = viewNotifications
+    }
+    
+    func displayError(_ message: String) {
+        showError(message)
+    }
+    
+    
 }

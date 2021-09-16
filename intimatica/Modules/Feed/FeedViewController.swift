@@ -15,6 +15,8 @@ class FeedViewController: UIViewController {
 
     private var favorites: Set<String> = []
     private var posts: [Post] = []
+    private(set) var notifications: [NotificationsQuery.Data.PostNotification] = []
+    private var viewedNotifications: Set<String> = []
     private let postCellIdentifier = "postCellIdentifier"
     private let courseCellIdentifier = "courseCellIdentifier"
 
@@ -82,6 +84,17 @@ class FeedViewController: UIViewController {
         return UIBarButtonItem.init(customView: button)
     }()
     
+    private lazy var notificationsBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: Constants.bellBarButtonForInactive), for: .normal)
+        button.addAction { [weak self] in
+            self?.presenter.notificationsButtonDidTap()
+        }
+        
+        return UIBarButtonItem.init(customView: button)
+    }()
+    
     private lazy var leftBarButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: nil,
                         image: UIImage(named: "burger_menu_x1.5"),
@@ -119,7 +132,8 @@ class FeedViewController: UIViewController {
                                   tag: 0)
         
         navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
-        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+//        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        navigationItem.setRightBarButtonItems([rightBarButtonItem, notificationsBarButtonItem], animated: false)
         
         title = feedSettings.tabBarTitle.lowercased().uppercaseFirstLetter()
     }
@@ -228,9 +242,13 @@ class FeedViewController: UIViewController {
             self.present(menu, animated: true, completion: nil)
         }
         
-        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
-            self?.presenter.tagFilterButtonDidTap()
-       }
+//        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
+//            self?.presenter.tagFilterButtonDidTap()
+//       }
+//
+//        notificationsBarButtonItem.primaryAction = UIAction(image: notificationsBarButtonItem.image) { [weak self] _ in
+//            self?.presenter.notificationsButtonDidTap()
+//        }
     }
     
     @objc func tagFilterButtonDidTap() {
@@ -243,6 +261,9 @@ extension FeedViewController {
     struct Constants {
         static let rightBarButtonItemImageForActive = "tags_active_x2"
         static let rightBarButtonItemImageForInactive = "tags_inactive_x2"
+        
+        static let bellBarButtonForActive = "bell_active_x2"
+        static let bellBarButtonForInactive = "bell_inactive_x2"
         
         static let categoryFilterViewLeading: CGFloat = 15
         static let categoryFilterViewTop: CGFloat = 15
@@ -314,6 +335,31 @@ extension FeedViewController: BaseTableViewCellDelegate {
 
 // MARK: - MainViewProtocol
 extension FeedViewController: FeedViewDelegate {
+    func setViewedNotifications(_ viewedNotifications: Set<String>) {
+        self.viewedNotifications = viewedNotifications
+        
+        guard let button = notificationsBarButtonItem.customView as? UIButton else { return }
+        button.setImage(UIImage(named: Constants.bellBarButtonForInactive), for: .normal)
+    }
+    
+    func getNotifications() -> [NotificationsQuery.Data.PostNotification] {
+        notifications
+    }
+    
+    func setNotifications(_ notifications: [NotificationsQuery.Data.PostNotification]) {
+        self.notifications = notifications
+        
+        // set active bell if we have not viewed posts
+        for post in notifications {
+            if !viewedNotifications.contains(post.id) {
+                guard let button = notificationsBarButtonItem.customView as? UIButton else { return }
+                button.setImage(UIImage(named: Constants.bellBarButtonForActive), for: .normal)
+                
+                break;
+            }
+        }
+    }
+    
     func setFavorites(_ favorites: Set<String>) {
         self.favorites = favorites
     }

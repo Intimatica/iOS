@@ -38,4 +38,5 @@ target 'intimatica' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'IQKeyboardManagerSwift'
   pod 'SideMenu', '~> 6.0'
+  pod 'LocalizedTimeAgo', '~> 1.3.0'
 end

@@ -103,7 +103,7 @@ extension FeedPresenter: FeedPresenterDelegate {
         case .story:
             postTypeIdList = [2]
         case .video:
-            postTypeIdList = [3, 4]
+            postTypeIdList = [3]
         case .favorite:
             postTypeIdList = []
             idList = Array(favotires)

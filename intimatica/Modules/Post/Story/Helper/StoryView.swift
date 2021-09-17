@@ -6,43 +6,30 @@
 //
 
 import UIKit
+import SnapKit
 
 final class StoryView: UIView {
     // MARK: - Properties
-    private lazy var storyLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = Constants.labelFont
-        return label
+    private lazy var storyView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .appGrayPurple
+        return view
     }()
+    
+    private lazy var storyLabel = UILabel(font: Constants.labelFont)
     
     private lazy var commentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.appPurple.withAlphaComponent(0.3).cgColor
-        view.layer.cornerRadius = 30
-        view.layer.masksToBounds = true
-        
+        view.layer.borderColor = UIColor.appDarkPurple.withAlphaComponent(0.3).cgColor
+        view.layer.cornerRadius = 20
+        view.layer.masksToBounds = false
         return view
     }()
     
-    private lazy var commentImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "story_comment_image")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var commentLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = Constants.labelFont
-        return label
-    }()
+    private lazy var commentLabel = UILabel(font: Constants.labelFont)
     
     private lazy var authorView = AuthorView()
     
@@ -59,43 +46,49 @@ final class StoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        storyView.roundCorners(corners: [.topLeft, .topRight, .bottomRight], radius: Constants.viewCornerRadius)
+//        commentView.roundCorners(corners: [.topLeft, .topRight, .bottomLeft], radius: Constants.viewCornerRadius)
+    }
+    
     // MARK: - Layout
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(storyLabel)
+        addSubview(storyView)
         addSubview(commentView)
         
-        commentView.addSubview(commentImageView)
-        commentView.addSubview(commentLabel)
+        storyView.addSubview(storyLabel)
+
         commentView.addSubview(authorView)
+        commentView.addSubview(commentLabel)
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            storyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            storyLabel.topAnchor.constraint(equalTo: topAnchor),
-            storyLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            commentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            commentView.topAnchor.constraint(equalTo: storyLabel.bottomAnchor, constant: Constants.commentViewTop),
-            commentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            commentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            commentImageView.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: Constants.commentImageViewLeading),
-            commentImageView.topAnchor.constraint(equalTo: commentView.topAnchor, constant: Constants.commentImageViewLeading),
-            commentImageView.widthAnchor.constraint(equalToConstant: Constants.commentImageViewWidth),
-            commentImageView.heightAnchor.constraint(equalToConstant: Constants.commentImageViewHeight),
+        storyView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalTo(self)
+        }
 
-            commentLabel.leadingAnchor.constraint(equalTo: commentView.leadingAnchor, constant: Constants.commentLabelLeadingTrailing),
-            commentLabel.topAnchor.constraint(equalTo: commentImageView.bottomAnchor, constant: Constants.commentLabelTop),
-            commentLabel.trailingAnchor.constraint(equalTo: commentView.trailingAnchor, constant: -Constants.commentLabelLeadingTrailing),
+        storyLabel.snp.makeConstraints { make in
+            make.edges.equalTo(storyView).inset(20)
+        }
 
-            authorView.leadingAnchor.constraint(equalTo: commentLabel.leadingAnchor),
-            authorView.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: Constants.authorViewTop),
-            authorView.trailingAnchor.constraint(equalTo: commentLabel.trailingAnchor),
-            authorView.bottomAnchor.constraint(equalTo: commentView.bottomAnchor, constant: -Constants.authorViewBottom),
-        ])
+        commentView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(self)
+            make.top.equalTo(storyView.snp.bottom).offset(Constants.commentViewTop)
+        }
+
+        authorView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalTo(commentView).inset(20)
+        }
+
+        commentLabel.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(commentView).inset(20)
+            make.top.equalTo(authorView.snp.bottom).offset(10)
+        }
     }
     
     // MARK: - Public
@@ -125,15 +118,9 @@ final class StoryView: UIView {
 extension StoryView {
     struct Constants {
         static let labelFont: UIFont = .rubik(fontSize: .regular, fontWeight: .regular)
+        static let viewCornerRadius: CGFloat = 20
         
         static let commentViewTop: CGFloat = 30
-        static let commentImageViewTop: CGFloat = 35
-        static let commentImageViewLeading: CGFloat = 30
-        static let commentImageViewHeight: CGFloat = 17
-        static let commentImageViewWidth: CGFloat = 25
-        static let commentLabelTop: CGFloat = 15
-        static let commentLabelLeadingTrailing: CGFloat = 30
-        static let authorViewTop: CGFloat = 15
-        static let authorViewBottom: CGFloat = 30
+        
     }
 }

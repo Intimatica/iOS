@@ -56,7 +56,7 @@ extension TagStackView {
         static let spacing: CGFloat = 7
         
         static let tagLabelFont: UIFont = .rubik(fontSize: .small, fontWeight: .regular)
-        static let tagLabelTextColor: UIColor = .appPurple
+        static let tagLabelTextColor: UIColor = .appDarkPurple
         static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
         static let tagLabelTopBottom: CGFloat = 3
         static let tagLabelLeadingTrailing: CGFloat = 8

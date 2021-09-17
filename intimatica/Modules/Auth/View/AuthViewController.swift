@@ -10,7 +10,13 @@ import UIKit
 class AuthViewController: UIViewController {
 
     // MARK: - Properties
-    private var presenter: AuthPresenterDelegate!
+    private let presenter: AuthPresenterDelegate
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     lazy var closeButton = CloseButton()
     
@@ -40,7 +46,7 @@ class AuthViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("SIGN_IN_FORGOT_PASSWORD_BUTTON"), for: .normal)
-        button.setTitleColor(.appPurple, for: .normal)
+        button.setTitleColor(.appDarkPurple, for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
         
         return button
@@ -51,7 +57,7 @@ class AuthViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("SIGN_UP_I_HAVE_ACCOUNT_BUTTON"), for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .regular)
-        button.setTitleColor(.appPurple, for: .normal)
+        button.setTitleColor(.appDarkPurple, for: .normal)
         return button
     }()
     
@@ -69,7 +75,7 @@ class AuthViewController: UIViewController {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .rubik(fontWeight: .medium)
-        button.setBackgroundColor(.appPurple, for: .normal)
+        button.setBackgroundColor(.appDarkPurple, for: .normal)
         button.setBackgroundColor(.appGray, for: .disabled)
         button.isEnabled = false
         return button
@@ -77,9 +83,9 @@ class AuthViewController: UIViewController {
     
     // MARK: - Initializer
     init(presenter: AuthPresenterDelegate) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -98,20 +104,27 @@ class AuthViewController: UIViewController {
     // MARK: - Layout
     private func setupUI() {
         view.backgroundColor = .white
+        
         view.addSubview(closeButton)
-        view.addSubview(titleLabel)
-        view.addSubview(stackView)
-        view.addSubview(authButton)
+        view.addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(stackView)
+        contentView.addSubview(authButton)
                 
         NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
             
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.titleLabelTop),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
             
             stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.stackViewTop),
@@ -148,8 +161,6 @@ extension AuthViewController {
         static let closeButtonTopTrailing: CGFloat = 15
         
         static let titleLabelLeadingTrailing: CGFloat = 45
-        static let titleLabelTop: CGFloat = 120
-        static let titleLabel: CGFloat = 45
         
         static let stackViewSpacing: CGFloat = 30
         static let stackViewTop: CGFloat = 20
@@ -165,7 +176,7 @@ extension AuthViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = L10n(text)
-        label.font = .rubik(fontSize: .title, fontWeight: .medium)
+        label.font = .rubik(fontSize: .title, fontWeight: .bold)
         return label
     }
 }

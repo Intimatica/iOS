@@ -113,6 +113,7 @@ class BaseTableViewCell: UITableViewCell {
             postLabelView.state = .theory
         case .video:
             postLabelView.state = .video
+            playButtonImageView.isHidden = false
         case .videoCourse:
             postLabelView.state = post.isPaid ? .premiumVideoCourse : .videoCourse
         }
@@ -125,8 +126,8 @@ extension BaseTableViewCell {
         static let cellBorderColor = 0xD0B9FF
         static let cellBorderRadius: CGFloat = 20
 
-        static let postViewSpacing: CGFloat = 22
-        static let postViewLeadingTrailing: CGFloat = 25
+        static let postViewSpacing: CGFloat = 15
+        static let postViewLeadingTrailing: CGFloat = 15
         static let backgroundImageViewHeight: CGFloat = 130
         
         static let favoriteButtonViewTopTrailing: CGFloat = 13

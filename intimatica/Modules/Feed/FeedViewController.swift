@@ -6,19 +6,24 @@
 //
 
 import UIKit
+import SideMenu
 
 class FeedViewController: UIViewController {
     // MARK: - Properties
-    private var presenter: FeedPresenterDelegate!
+    private let presenter: FeedPresenterDelegate
+    private let leftSideMenu: UIViewController
+
     private var favorites: Set<String> = []
     private var posts: [Post] = []
+    private(set) var notifications: [NotificationsQuery.Data.PostNotification] = []
+    private var viewedNotifications: Set<String> = []
     private let postCellIdentifier = "postCellIdentifier"
     private let courseCellIdentifier = "courseCellIdentifier"
-    
+
     private lazy var topBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .appPurple
+        view.backgroundColor = .appDarkPurple
         return view
     }()
     
@@ -48,10 +53,7 @@ class FeedViewController: UIViewController {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        
-//        collection.layer.borderWidth = 1
-//        collection.layer.borderColor = UIColor.green.cgColor
-        
+
         return collection
     }()
     
@@ -82,18 +84,60 @@ class FeedViewController: UIViewController {
         return UIBarButtonItem.init(customView: button)
     }()
     
+    private lazy var notificationsBarButtonItem: UIBarButtonItem = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: Constants.bellBarButtonForInactive), for: .normal)
+        button.addAction { [weak self] in
+            self?.presenter.notificationsButtonDidTap()
+        }
+        
+        return UIBarButtonItem.init(customView: button)
+    }()
+    
+    private lazy var leftBarButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(title: nil,
+                        image: UIImage(named: "burger_menu_x1.5"),
+                        primaryAction: nil,
+                        menu: nil)
+        
+        barButton.tintColor = .white
+        return barButton
+    }()
+    
+    private lazy var blurEffectView: UIView = {
+        let viewBounds = tabBarController?.view.bounds ?? UIScreen.main.bounds
+        
+        let view = UIView(frame: viewBounds)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .appDarkPurple
+        view.isHidden = true
+        
+        tabBarController?.view.addSubview(view)
+        
+        return view
+    }()
+    
     // MARK: - Initializers
-    init(presenter: FeedPresenterDelegate, feedSettings: FeedSettings) {
+    init(presenter: FeedPresenterDelegate, leftSideMenu: UIViewController, feedSettings: FeedSettings) {
+        self.presenter = presenter
+        self.leftSideMenu = leftSideMenu
+        
         super.init(nibName: nil, bundle: nil)
         
-        self.presenter = presenter
         self.categoryItems = feedSettings.categories
         
         tabBarItem = UITabBarItem(title: feedSettings.tabBarTitle,
                                   image: UIImage(named: feedSettings.tabBarImageName),
                                   tag: 0)
+        
+        navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
+//        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        navigationItem.setRightBarButtonItems([rightBarButtonItem, notificationsBarButtonItem], animated: false)
+        
+        title = feedSettings.tabBarTitle.lowercased().uppercaseFirstLetter()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -101,9 +145,7 @@ class FeedViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButtonItem
-        
+
         setupView()
         setupConstraints()
         setupActions()
@@ -114,28 +156,49 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
-        navigationController?.navigationBar.barTintColor = .appPurple
+
+        setNeedsStatusBarAppearanceUpdate()
+        navigationController?.navigationBar.barTintColor = .appDarkPurple
+
         navigationController?.navigationBar.isTranslucent = false
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
-        
-        tabBarController?.tabBar.tintColor = .appPurple
+        tabBarController?.tabBar.tintColor = .appDarkPurple
         tabBarController?.tabBar.unselectedItemTintColor = .black
         tabBarController?.tabBar.isTranslucent = false
         
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         presenter.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+              self,
+              selector: #selector(applicationWillEnterForeground(_:)),
+              name: UIApplication.willEnterForegroundNotification,
+              object: nil)
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
         
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
         showSpinner(frame: tableView.bounds, opacity: 0)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Layout
@@ -150,10 +213,10 @@ class FeedViewController: UIViewController {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            topBackgroundView.heightAnchor.constraint(equalToConstant: Constants.topBackgroundViewHeight),
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topBackgroundView.bottomAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 10),
             
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.categoryFilterViewLeading),
             categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.categoryFilterViewTop),
@@ -165,20 +228,44 @@ class FeedViewController: UIViewController {
             underlineView.trailingAnchor.constraint(equalTo: categoryCollectionView.trailingAnchor),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.tableViewTop),
+            tableView.topAnchor.constraint(equalTo: topBackgroundView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.tableViewLeadingTrailing),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.tableViewBottom),
         ])
     }
     
     func setupActions() {
-        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
-            self?.presenter.tagFilterButtonDidTap()
-       }
+        leftBarButtonItem.primaryAction = UIAction(image: leftBarButtonItem.image) { [weak self] _ in
+            guard
+                let self = self
+             else {
+                return
+            }
+            
+            let menu = SideMenuNavigationController(rootViewController: self.leftSideMenu)
+            menu.leftSide = true
+            menu.menuWidth = self.view.frame.width - 60
+            menu.presentationStyle = .viewSlideOutMenuPartialIn
+            menu.delegate = self
+            self.present(menu, animated: true, completion: nil)
+        }
+        
+//        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
+//            self?.presenter.tagFilterButtonDidTap()
+//       }
+//
+//        notificationsBarButtonItem.primaryAction = UIAction(image: notificationsBarButtonItem.image) { [weak self] _ in
+//            self?.presenter.notificationsButtonDidTap()
+//        }
     }
     
     @objc func tagFilterButtonDidTap() {
         presenter.tagFilterButtonDidTap()
+    }
+    
+    @objc private func applicationWillEnterForeground(_ notification: NSNotification) {
+        presenter.viewDidLoad()
+        presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
     }
 }
 
@@ -187,16 +274,16 @@ extension FeedViewController {
     struct Constants {
         static let rightBarButtonItemImageForActive = "tags_active_x2"
         static let rightBarButtonItemImageForInactive = "tags_inactive_x2"
-
-        static let topBackgroundViewHeight: CGFloat = 150
+        
+        static let bellBarButtonForActive = "bell_active_x2"
+        static let bellBarButtonForInactive = "bell_inactive_x2"
         
         static let categoryFilterViewLeading: CGFloat = 15
-        static let categoryFilterViewTop: CGFloat = 30
+        static let categoryFilterViewTop: CGFloat = 15
         static let categoryFilterViewHeight: CGFloat = 32
         
-        static let tableViewTop: CGFloat = 100
+        static let tableViewBottom: CGFloat = 15
         static let tableViewLeadingTrailing: CGFloat = 0
-        static let tableViewCellSpacing: CGFloat = 25
     }
 }
 
@@ -261,6 +348,31 @@ extension FeedViewController: BaseTableViewCellDelegate {
 
 // MARK: - MainViewProtocol
 extension FeedViewController: FeedViewDelegate {
+    func setViewedNotifications(_ viewedNotifications: Set<String>) {
+        self.viewedNotifications = viewedNotifications
+        
+        guard let button = notificationsBarButtonItem.customView as? UIButton else { return }
+        button.setImage(UIImage(named: Constants.bellBarButtonForInactive), for: .normal)
+    }
+    
+    func getNotifications() -> [NotificationsQuery.Data.PostNotification] {
+        notifications
+    }
+    
+    func setNotifications(_ notifications: [NotificationsQuery.Data.PostNotification]) {
+        self.notifications = notifications
+        
+        // set active bell if we have not viewed posts
+        for post in notifications {
+            if !viewedNotifications.contains(post.id) {
+                guard let button = notificationsBarButtonItem.customView as? UIButton else { return }
+                button.setImage(UIImage(named: Constants.bellBarButtonForActive), for: .normal)
+                
+                break;
+            }
+        }
+    }
+    
     func setFavorites(_ favorites: Set<String>) {
         self.favorites = favorites
     }
@@ -315,8 +427,10 @@ extension FeedViewController: UICollectionViewDelegate {
         tableView.reloadData()
         showSpinner(frame: tableView.bounds, opacity: 0)
         
-        let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
-        selectedCell.setState(.normal)
+        if let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as? CategoryCollectionViewCell {
+            selectedCell.setState(.normal)
+        }
+        
         
         selectedCategoryIndexPath = indexPath
         
@@ -342,5 +456,26 @@ extension FeedViewController: UICollectionViewDataSource {
         
         cell.fill(by: categoryItems[indexPath.row].rawValue)
         return cell
+    }
+}
+
+// MARK: - SideMenuNavigationControllerDelegate
+extension FeedViewController: SideMenuNavigationControllerDelegate, UINavigationControllerDelegate {
+
+    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
+        blurEffectView.isHidden = false
+        
+        UIView.animate(withDuration: 0.35, animations: { [weak self] in
+            self?.blurEffectView.alpha = 0.7
+        }, completion: { _ in
+        })
+    }
+
+    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
+        UIView.animate(withDuration: 0.35, animations: { [weak self] in
+            self?.blurEffectView.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.blurEffectView.isHidden = true
+        })
     }
 }

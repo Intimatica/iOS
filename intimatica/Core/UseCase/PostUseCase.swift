@@ -12,11 +12,15 @@ protocol PostUseCaseProtocol {
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void)
     func getPost<T: GraphQLQuery>(query: T, completionHandler: GraphQLResultHandler<T.Data>?)
     func getTags(completionHandler: @escaping TagsCompletionHandler)
+    func getNotifications(completionHandler: @escaping GraphQLResultHandler<NotificationsQuery.Data>)
     
     func getFavorites() -> Set<String>
     func addToFavorites(_ id: String)
     func removeFromFavorites(_ id: String)
     func isFavorite(_ id: String) -> Bool
+    
+    func getVieweNotifications() -> Set<String>
+    func addToViewedNotifications(_ id: String)
 }
 
 protocol HasPostUseCaseProtocol {
@@ -44,6 +48,10 @@ final class PostUseCase: PostUseCaseProtocol {
         postRepository.getTags(completionHandler: completionHandler)
     }
     
+    func getNotifications(completionHandler: @escaping GraphQLResultHandler<NotificationsQuery.Data>) {
+        postRepository.getNotifications(completionHandler: completionHandler)
+    }
+    
     func getFavorites() -> Set<String> {
         postRepository.getFavorites()
     }
@@ -58,5 +66,13 @@ final class PostUseCase: PostUseCaseProtocol {
     
     func isFavorite(_ id: String) -> Bool {
         postRepository.getFavorites().contains(id)
+    }
+    
+    func getVieweNotifications() -> Set<String> {
+        postRepository.getVieweNotifications()
+    }
+ 
+    func addToViewedNotifications(_ id: String) {
+        postRepository.addToViewedNotifications(id)
     }
 }

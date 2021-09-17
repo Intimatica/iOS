@@ -1,0 +1,14 @@
+query Notifications {
+  postNotifications {
+    id
+    title
+    published_at
+    image {
+      url
+    }
+    post_type {
+      name
+    }
+    is_paid
+  }
+}

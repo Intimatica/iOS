@@ -12,8 +12,7 @@ protocol TheoryPresenterProtocol: BasePostPresenterProtocol {
 }
 
 protocol TheoryViewProtocol: BasePostViewProtocol {
-    func display(_ theoryPost: TheoryPostQuery.Data.Post)
-    func display(_ error: Error)
+    func display(_ theoryPost: TheoryPostQuery.Data.Post, with webViewSettings: String?)
 }
 
 final class TheoryPresenter: BasePostPresenter {
@@ -42,7 +41,7 @@ extension TheoryPresenter: TheoryPresenterProtocol {
             switch(result) {
             case .success(let graphQLResult):
                 if let theoryPost = graphQLResult.data?.post {
-                    self.view?.display(theoryPost)
+                    self.view?.display(theoryPost, with: graphQLResult.data?.webViewSetting?.data)
                 }
                 // TODO: add else case
             case .failure(let error):

@@ -13,7 +13,6 @@ protocol StoryPresenterProtocol: BasePostPresenterProtocol {
 
 protocol StoryViewProtocol: BasePostViewProtocol {
     func display(_ post: StoryPostQuery.Data.Post)
-    func display(_ error: Error)
 }
 
 final class StoryPresenter: BasePostPresenter {
@@ -40,7 +39,7 @@ extension StoryPresenter: StoryPresenterProtocol {
                     self.view?.display(post)
                 }
             case .failure(let error):
-                print(error)
+                self.view?.display(error)
             }
         }
     }

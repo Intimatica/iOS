@@ -24,27 +24,35 @@ class TellStoryViewController: PopViewController {
     private lazy var titleLabel = UILabel(font: .rubik(fontSize: .title, fontWeight: .bold),
                                           text: L10n("TELL_STORY_TITLE"))
     
-    private lazy var subTitleLable = UILabel(font: .rubik(fontSize: .small, fontWeight: .regular),
-                                             textColor: .black.withAlphaComponent(0.3),
-                                             text: L10n("TELL_STOTY_SUBTILE"))
+    private lazy var messageContainerView: UIView = {
+        let view = UIView()
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.cornerRadius = 20
+        view.layer.masksToBounds = true
+        return view
+    }()
     
     private lazy var messageTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.sizeToFit()
-        textView.isScrollEnabled = false
+//        textView.sizeToFit()
+        textView.isScrollEnabled = true
         textView.font = .rubik(fontSize: .regular, fontWeight: .regular)
+        textView.delegate = self
+        
+        textView.text = L10n("TELL_STOTY_SUBTILE")
+        textView.textColor = UIColor.lightGray
+        
         return textView
     }()
-    
-    private lazy var underlineView = SpacerView(height: 1, backgroundColor: .black.withAlphaComponent(0.3))
-    
+        
     private lazy var publishingAgreeView = PublishingAgreeView()
     
     private lazy var sendButton = UIRoundedButton(title: L10n("TELL_STOTY_BUTTON_TITLE"),
                                                     titleColor: .white,
                                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                                    backgroundColor: .appPurple)
+                                                    backgroundColor: .appDarkPurple)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -53,7 +61,7 @@ class TellStoryViewController: PopViewController {
         setupView()
         setupConstraints()
         setupActions()
-        
+
         enableHideKeyboardOnTap()
     }
     
@@ -76,11 +84,11 @@ class TellStoryViewController: PopViewController {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(titleLabel)
-        contentView.addSubview(subTitleLable)
-        contentView.addSubview(messageTextView)
-        contentView.addSubview(underlineView)
+        contentView.addSubview(messageContainerView)
         contentView.addSubview(publishingAgreeView)
         contentView.addSubview(sendButton)
+        
+        messageContainerView.addSubview(messageTextView)
     }
     
     private func setupConstraints() {
@@ -100,33 +108,27 @@ class TellStoryViewController: PopViewController {
             make.top.equalTo(contentView).offset(Constants.titleLabelTop)
         }
         
-        subTitleLable.snp.makeConstraints { make in
+        messageContainerView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
             make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
-            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.subTitleLabelTop)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.messageContainerViewTop)
+            make.height.equalTo(Constants.messageContainerViewHeight)
         }
         
         messageTextView.snp.makeConstraints { make in
-            make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
-            make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
-            make.top.equalTo(subTitleLable.snp.bottom).offset(Constants.messageTextViewTop)
-        }
-        
-        underlineView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(messageTextView)
-            make.top.equalTo(messageTextView.snp.bottom)
+            make.edges.equalTo(Constants.messageTextViewEdges)
         }
         
         publishingAgreeView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
             make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
-            make.top.equalTo(messageTextView.snp.bottom).offset(50)
+            make.top.equalTo(messageContainerView.snp.bottom).offset(Constants.publishingAgreeViewTop)
         }
         
         sendButton.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(Constants.leadingTrailing)
             make.trailing.equalTo(contentView).offset(-Constants.leadingTrailing)
-            make.top.equalTo(publishingAgreeView.snp.bottom).offset(Constants.messageTextViewTop)
+            make.top.equalTo(publishingAgreeView.snp.bottom).offset(Constants.sendButtonTop)
             make.bottom.equalTo(contentView).offset(-Constants.sendButtonBottom)
             make.height.equalTo(Constants.sendButtonHeight)
         }
@@ -152,9 +154,11 @@ class TellStoryViewController: PopViewController {
 extension TellStoryViewController {
     struct Constants {
         static let leadingTrailing: CGFloat = 50
-        static let titleLabelTop: CGFloat = 140
-        static let subTitleLabelTop: CGFloat = 20
-        static let messageTextViewTop: CGFloat = 10
+        static let titleLabelTop: CGFloat = 120
+        static let messageContainerViewHeight: CGFloat = 300
+        static let messageContainerViewTop: CGFloat = 20
+        static let messageTextViewEdges: CGFloat = 10
+        static let publishingAgreeViewTop: CGFloat = 20
         static let sendButtonTop: CGFloat = 20
         static let sendButtonBottom: CGFloat = 150
         static let sendButtonHeight: CGFloat = 50
@@ -169,5 +173,22 @@ extension TellStoryViewController: TellStoryViewProtocol {
     
     func dispay(_ error: Error) {
         showError(error.localizedDescription)
+    }
+}
+
+
+extension TellStoryViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = L10n("TELL_STOTY_SUBTILE")
+            textView.textColor = UIColor.lightGray
+        }
     }
 }

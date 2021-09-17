@@ -1,5 +1,0 @@
-query Conditions {
-  condition {
-    content
-    }
-}

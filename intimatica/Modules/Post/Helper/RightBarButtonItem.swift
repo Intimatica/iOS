@@ -58,7 +58,7 @@ class RightBarButtonItem: UIBarButtonItem {
 
     // MARK: - Layout
     private func setupUI() {
-        tintColor = .appPurple
+        tintColor = .appDarkPurple
         
         switch buttonType {
         case .course:
@@ -92,7 +92,7 @@ class RightBarButtonItem: UIBarButtonItem {
 // MARK: - Helper/Constants
 extension RightBarButtonItem {
     struct Constants {
-        static let favoriteActiveImageName = "favorite_active"
-        static let favoriteInactiveImageName = "favorite_inactive"
+        static let favoriteActiveImageName = "favorite_button_active_x2"
+        static let favoriteInactiveImageName = "favorite_button_inactive_x2"
     }
 }

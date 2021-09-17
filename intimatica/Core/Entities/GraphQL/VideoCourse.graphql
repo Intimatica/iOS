@@ -24,7 +24,17 @@ query VideoCoursePost($id: ID!) {
           youtube_link
           title
         }
+        finishText
+        finishImage {
+          url
+        }
       }
     }
+  }
+  webViewSetting {
+    data
+  }
+  me {
+    hasPremium
   }
 }

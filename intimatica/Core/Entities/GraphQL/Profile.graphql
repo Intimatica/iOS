@@ -9,8 +9,8 @@ query Profile {
   }
 }
 
-mutation CreateProfile($nickname: String, $gender: ID, $birthDate: Date) {
- createProfile(input:{data:{nickname: $nickname, gender: $gender, birthDate: $birthDate}}) {
+mutation UpdateProfile($nickname: String, $gender: ID, $birthDate: Date) {
+ updateProfile(input:{data:{nickname: $nickname, gender: $gender, birthDate: $birthDate}}) {
     profile {
       nickname
       gender {
@@ -22,15 +22,10 @@ mutation CreateProfile($nickname: String, $gender: ID, $birthDate: Date) {
   }
 }
 
-mutation UpdateProfile($nickname: String, $gender: ID, $birthDate: Date) {
- updateProfile(input:{data:{nickname: $nickname, gender: $gender, birthDate: $birthDate}}) {
+mutation UpdatePushToken($pushToken: String) {
+ updateProfile(input:{data:{pushToken: $pushToken}}) {
     profile {
-      nickname
-      gender {
-        id,
-        name
-      }
-      birthDate
+      pushToken
     }
   }
 }

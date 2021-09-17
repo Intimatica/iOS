@@ -12,6 +12,7 @@ typealias ServiceProviderProtocol = HasAuthNetworkServiceProtocol
     & HasAuthValidatorServiceProtocol
     & HasGraphqlServiceProtocol
     & HasFavoriteServiceProtocol
+    & HasViewedNotificationsServiceProtocol
 
 
 final class ServiceProvider: ServiceProviderProtocol {
@@ -20,17 +21,20 @@ final class ServiceProvider: ServiceProviderProtocol {
     let authValidatorService: AuthValidatorServiceProtocol
     let graphqlService: GraphqlServiceProtocol
     let favoriteService: FavoritesSeviceProtocol
+    let viewedNotificationsService: ViewedNotificationsServiceProtocol
     
     init(authNetworkService: AuthNetworkServiceProtocol = AuthNetworkService(),
          keychainService: KeychainServiceProtocol = KeychainService(),
          authValidatorService: AuthValidatorServiceProtocol = AuthValidatorService(),
          graphqlService: GraphqlServiceProtocol = GraphqlService(),
-         favoriteService: FavoritesSeviceProtocol = FavoritesSevice()
+         favoriteService: FavoritesSeviceProtocol = FavoritesSevice(),
+         viewedNotificationsService: ViewedNotificationsServiceProtocol = ViewedNotificationsService()
     ) {
         self.authNetworkService = authNetworkService
         self.keychainService = keychainService
         self.authValidatorService = authValidatorService
         self.graphqlService = graphqlService
         self.favoriteService = favoriteService
+        self.viewedNotificationsService = viewedNotificationsService
     }
 }

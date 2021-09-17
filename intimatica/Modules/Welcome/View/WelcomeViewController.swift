@@ -10,7 +10,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     // MARK: - Properties
-    private var presenter: WelcomePresenterProtocol!
+    private let presenter: WelcomePresenterProtocol
     
     private lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView(frame: view.bounds)
@@ -55,8 +55,9 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Initializers
     init(presenter: WelcomePresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -69,6 +70,15 @@ class WelcomeViewController: UIViewController {
         
         setupUI()
         setupActions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
  
     // MARK: - Layout

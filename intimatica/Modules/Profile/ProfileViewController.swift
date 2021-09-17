@@ -63,7 +63,7 @@ final class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("PROFILE_PAGE_LOGOUT_BUTTON_TITLE"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setBackgroundColor(.appPurple, for: .normal)
+        button.setBackgroundColor(.appDarkPurple, for: .normal)
         button.titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
     
         return button

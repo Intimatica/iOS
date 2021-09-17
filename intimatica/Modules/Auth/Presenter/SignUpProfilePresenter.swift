@@ -55,7 +55,7 @@ extension SignUpProfilePresenter: SignUpProfilePresenterDelegate {
         
         let genderID = genders.filter {$0.name == gender ?? "" }.map {$0.id}.first
         
-        graphQLUseCase.perform(mutaion: CreateProfileMutation(nickname: nickname, gender: genderID, birthDate: bDate)) { [weak self] result in
+        graphQLUseCase.perform(mutaion: UpdateProfileMutation (nickname: nickname, gender: genderID, birthDate: bDate)) { [weak self] result in
             guard let self = self else { return }
 
             switch result {

@@ -9,7 +9,7 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     // MARK: - Properties
-    private var presenter: LaunchPresenterProtocol!
+    private let presenter: LaunchPresenterProtocol
     
     private lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -25,12 +25,12 @@ class LaunchViewController: UIViewController {
         imageView.image = UIImage(named: "Intimatica_title")
         return imageView
     }()
-    
+        
     // MARK: - Initializers
     init(presenter: LaunchPresenterProtocol) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -49,12 +49,11 @@ class LaunchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        setNeedsStatusBarAppearanceUpdate()
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
     
     // MARK: - Layout
@@ -73,10 +72,9 @@ class LaunchViewController: UIViewController {
             titleImage.heightAnchor.constraint(equalToConstant: Constants.titleImageHeight),
             titleImage.widthAnchor.constraint(equalTo: titleImage.heightAnchor, multiplier: Constants.titleImageRatio),
             titleImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            titleImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
-
 }
 
 // MARK: - Helper/Constants

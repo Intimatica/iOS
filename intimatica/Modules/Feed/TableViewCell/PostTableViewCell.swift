@@ -44,9 +44,9 @@ class PostTableViewCell: BaseTableViewCell {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             postView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.postViewLeadingTrailing),
-            postView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            postView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.postViewSpacing),
             postView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.postViewLeadingTrailing),
-            postView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.postViewSpacing),
+            postView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             backgroundImageView.leadingAnchor.constraint(equalTo: postView.leadingAnchor),
             backgroundImageView.topAnchor.constraint(equalTo: postView.topAnchor),

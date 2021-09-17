@@ -15,10 +15,10 @@ class SignUpProfileViewController: AuthViewController {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .rubik(fontWeight: .medium)
-        button.setTitleColor(.appPurple, for: .normal)
+        button.setTitleColor(.appDarkPurple, for: .normal)
         button.setTitle(L10n("PROFILE_FILL_LATER_BUTTON_TITLE"), for: .normal)
         button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.appPurple.cgColor
+        button.layer.borderColor = UIColor.appDarkPurple.cgColor
         return button
     }()
     
@@ -59,7 +59,7 @@ class SignUpProfileViewController: AuthViewController {
         stackView.addArrangedSubview(genderView)
         stackView.addArrangedSubview(birthdateView)
         
-        view.addSubview(fillLateButton)
+        contentView.addSubview(fillLateButton)
     }
     
     private func setupConstraints() {
@@ -67,7 +67,8 @@ class SignUpProfileViewController: AuthViewController {
             fillLateButton.topAnchor.constraint(equalTo: authButton.bottomAnchor, constant: 20),
             fillLateButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             fillLateButton.heightAnchor.constraint(equalTo: authButton.heightAnchor),
-            fillLateButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+            fillLateButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            fillLateButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
     
@@ -86,9 +87,7 @@ class SignUpProfileViewController: AuthViewController {
             else {
                 return
             }
-            
-            
-            
+
             self.presenter.saveButtonDidTap(nickname: nickname, gender: gender, birthDate: birthDateViewText.isEmpty ? nil : pickerDate)
         }
     }

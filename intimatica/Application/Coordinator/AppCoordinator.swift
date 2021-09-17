@@ -87,7 +87,11 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             let presenter = SignUpProfilePresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = SignUpProfileViewController(presenter: presenter)
             presenter.setView(viewController)
-            return .multiple([.dismiss(), .present(viewController)])
+            
+            let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider, appRouter: strongRouter)
+            coordinator.rootViewController.modalPresentationStyle = .fullScreen
+            
+            return .multiple([.dismiss(), .present(coordinator), .present(viewController)])
             
         case .home:
             let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider, appRouter: strongRouter)

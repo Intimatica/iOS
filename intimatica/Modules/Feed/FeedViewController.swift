@@ -171,6 +171,12 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
         presenter.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+              self,
+              selector: #selector(applicationWillEnterForeground(_:)),
+              name: UIApplication.willEnterForegroundNotification,
+              object: nil)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -191,6 +197,8 @@ class FeedViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Layout
@@ -253,6 +261,11 @@ class FeedViewController: UIViewController {
     
     @objc func tagFilterButtonDidTap() {
         presenter.tagFilterButtonDidTap()
+    }
+    
+    @objc private func applicationWillEnterForeground(_ notification: NSNotification) {
+        presenter.viewDidLoad()
+        presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
     }
 }
 

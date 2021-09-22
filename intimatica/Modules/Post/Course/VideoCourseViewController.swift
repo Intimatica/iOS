@@ -237,7 +237,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
             return
         }
         
-        let userHasPremium = response.me?.hasPremium ?? false
+        let userHasPremium = response.profile?.hasPremium ?? false
         let postIsPaid = response.post?.isPaid ?? false
         
         headerImageView.kf.indicatorType = .activity

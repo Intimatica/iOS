@@ -67,8 +67,7 @@ extension ProfilePresenter: ProfilePresenterDelegate {
     }
     
     func logoutButtonDidTap() {
-        authUseCase.signOut()
-        router.trigger(.dismiss)
+        router.trigger(.editProfile)
     }
 }
 

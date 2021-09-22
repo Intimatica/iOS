@@ -34,7 +34,7 @@ query VideoCoursePost($id: ID!) {
   webViewSetting {
     data
   }
-  me {
+  profile(id:0) {
     hasPremium
   }
 }

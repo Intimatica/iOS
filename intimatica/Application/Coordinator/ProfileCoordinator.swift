@@ -13,6 +13,8 @@ enum ProfileRoute: Route {
     case initial
     case showStory(UserStoriesQuery.Data.Story)
     case premium
+    case editProfile
+    case back
     case dismiss
 }
 
@@ -40,6 +42,13 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
+        case .editProfile:
+            let presenter = ProfileEditPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = ProfileEditViewController(presenter: presenter)
+            presenter.view = viewController
+            return .push(viewController)
+        case .back:
+            return .pop()
         case .dismiss:
             return .dismiss()
         }

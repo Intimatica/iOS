@@ -17,8 +17,6 @@
 		DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */; };
 		DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */; };
 		DB0BC68026F0C490007D097D /* aler1.apns in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67F26F0C490007D097D /* aler1.apns */; };
-		DB0BC67826EA84E0007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67726EA84E0007D097D /* StringProtocol+Utils.swift */; };
-		DB0BC67A26EB5A18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67926EB5A18007D097D /* ApplyForPremiumButton.swift */; };
 		DB0BC68326F0E91C007D097D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68226F0E91C007D097D /* NotificationViewController.swift */; };
 		DB0BC68526F0E92B007D097D /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */; };
 		DB0BC68726F0F089007D097D /* Notifications.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC68626F0F089007D097D /* Notifications.graphql */; };
@@ -95,6 +93,8 @@
 		DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C566F26C129CC0087663E /* CoursesActionButton.swift */; };
 		DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567126C143D50087663E /* CourseFinishedViewController.swift */; };
 		DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */; };
+		DB4660D826F4E07200F5200F /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4660D726F4E07200F5200F /* ProfileEditViewController.swift */; };
+		DB4660DA26F4E07E00F5200F /* ProfileEditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4660D926F4E07E00F5200F /* ProfileEditPresenter.swift */; };
 		DB57272C26D62037002D6B46 /* PickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57272B26D62037002D6B46 /* PickerKeyboard.swift */; };
 		DB57272E26D620F3002D6B46 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57272D26D620F3002D6B46 /* UITextField+Utils.swift */; };
 		DB57273026D621B9002D6B46 /* SignUpProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57272F26D621B9002D6B46 /* SignUpProfilePresenter.swift */; };
@@ -190,8 +190,6 @@
 		DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
 		DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
 		DB0BC67F26F0C490007D097D /* aler1.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = aler1.apns; sourceTree = "<group>"; };
-		DB0BC67726EA84E0007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
-		DB0BC67926EB5A18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
 		DB0BC68226F0E91C007D097D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		DB0BC68626F0F089007D097D /* Notifications.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notifications.graphql; sourceTree = "<group>"; };
@@ -272,6 +270,8 @@
 		DB3C566F26C129CC0087663E /* CoursesActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesActionButton.swift; sourceTree = "<group>"; };
 		DB3C567126C143D50087663E /* CourseFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseFinishedViewController.swift; sourceTree = "<group>"; };
 		DB3C567326C1A8E40087663E /* UITapGestureRecognizer+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Utils.swift"; sourceTree = "<group>"; };
+		DB4660D726F4E07200F5200F /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		DB4660D926F4E07E00F5200F /* ProfileEditPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditPresenter.swift; sourceTree = "<group>"; };
 		DB57272B26D62037002D6B46 /* PickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerKeyboard.swift; sourceTree = "<group>"; };
 		DB57272D26D620F3002D6B46 /* UITextField+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 		DB57272F26D621B9002D6B46 /* SignUpProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfilePresenter.swift; sourceTree = "<group>"; };
@@ -504,6 +504,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB4660D626F4E05C00F5200F /* ProfileEdit */,
 				DB0BC68126F0E8FF007D097D /* Notification */,
 				DBDBC78326D3779100CB839C /* UserStory */,
 				DB2E196326CD6D3D004FF77C /* TellStory */,
@@ -713,6 +714,15 @@
 				DB3C567126C143D50087663E /* CourseFinishedViewController.swift */,
 			);
 			path = Course;
+			sourceTree = "<group>";
+		};
+		DB4660D626F4E05C00F5200F /* ProfileEdit */ = {
+			isa = PBXGroup;
+			children = (
+				DB4660D726F4E07200F5200F /* ProfileEditViewController.swift */,
+				DB4660D926F4E07E00F5200F /* ProfileEditPresenter.swift */,
+			);
+			path = ProfileEdit;
 			sourceTree = "<group>";
 		};
 		DB6F316B269DA973005E7578 = {
@@ -986,7 +996,6 @@
 				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
 				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
 				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
-				DBDBC78826D396BB00CB839C /* PremiumDescription.graphql */,
 				DB73014326DEAAB700AE2892 /* Profile.graphql */,
 				DB73014526DEB64900AE2892 /* Gender.graphql */,
 				DB0BC66F26E94018007D097D /* StaticPages.graphql */,
@@ -1247,6 +1256,7 @@
 				DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */,
 				DB2E196B26CD7F29004FF77C /* PopViewController.swift in Sources */,
 				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
+				DB4660DA26F4E07E00F5200F /* ProfileEditPresenter.swift in Sources */,
 				DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */,
 				DBF99D7426B495E100E04D40 /* SpacerView.swift in Sources */,
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
@@ -1273,6 +1283,7 @@
 				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */,
+				DB4660D826F4E07200F5200F /* ProfileEditViewController.swift in Sources */,
 				DBDBC77026CFC11100CB839C /* RightBarButtonItem.swift in Sources */,
 				DB8A595326AC9B4600842771 /* AuthValidatorService.swift in Sources */,
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,

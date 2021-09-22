@@ -7,6 +7,10 @@ query Profile {
     }
     birthDate
   }
+  genders {
+    id
+    name
+  }
 }
 
 mutation UpdateProfile($nickname: String, $gender: ID, $birthDate: Date) {

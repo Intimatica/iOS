@@ -10,6 +10,7 @@ import Foundation
 protocol ProfileEditPresenterDelegate: AnyObject {
     func viewDidLoad()
     func saveButtonDidTap()
+    func changePasswordButtonDidTap()
 }
 
 protocol ProfileEditViewControllerDelegate: AnyObject {
@@ -83,7 +84,7 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let bDate = birthDate == nil ? nil : dateFormatter.string(from: birthDate!)
 
-        useCase.perform(mutaion: UpdateProfileMutation (nickname: nickname, gender: genderID, birthDate: bDate)) { [weak self] result in
+        useCase.perform(mutaion: UpdateProfileMutation(nickname: nickname, gender: genderID, birthDate: bDate)) { [weak self] result in
             guard let self = self else { return }
 
             switch result {
@@ -93,5 +94,9 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
                 self.view?.displayError(error.localizedDescription)
             }
         }
+    }
+    
+    func changePasswordButtonDidTap() {
+        router.trigger(.updatePassword)
     }
 }

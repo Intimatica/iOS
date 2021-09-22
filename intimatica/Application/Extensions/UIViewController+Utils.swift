@@ -63,4 +63,14 @@ extension UIViewController {
             spinnerView = nil
         })
     }
+    
+    func hideNavigationBarBottomLine() {
+//        let navigationBar = navigationController?.navigationBar
+//        let navigationBarAppearence = UINavigationBarAppearance()
+//        navigationBarAppearence.shadowColor = .clear
+//        navigationBar?.scrollEdgeAppearance = navigationBarAppearence
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }

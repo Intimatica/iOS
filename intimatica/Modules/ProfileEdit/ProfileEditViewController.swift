@@ -26,9 +26,17 @@ class ProfileEditViewController: UIViewController {
     
     private lazy var saveButton = UIRoundedButton(title: L10n("PROFILE_SAVE_BUTTON_TITLE"),
                                                titleColor: .white,
-                                               font: .rubik(fontSize: .regular, fontWeight: .regular),
+                                               font: .rubik(fontSize: .regular, fontWeight: .bold),
                                                backgroundColor: .appDarkPurple)
     
+    private lazy var changePasswordView = ChangePasswordView()
+    
+    private lazy var backBarButtonItem: UIBarButtonItem = {
+        let barButton = UIBarButtonItem()
+        barButton.title = "    "
+        barButton.tintColor = .appDarkPurple
+        return barButton
+    }()
     
     // MARK: - Initializers
     init(presenter: ProfileEditPresenterDelegate) {
@@ -45,11 +53,19 @@ class ProfileEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        hideNavigationBarBottomLine()
+        title = L10n("PROFILE_PAGE_TITLE")
+        
         setupView()
         setupConstraints()
         setupActions()
         
         presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Layout
@@ -60,22 +76,23 @@ class ProfileEditViewController: UIViewController {
         view.addSubview(genderView)
         view.addSubview(birthdateView)
         view.addSubview(saveButton)
+        view.addSubview(changePasswordView)
     }
     
     private func setupConstraints() {
         nicknameView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view).inset(Constants.leadingTrailing)
-            make.top.equalTo(view).offset(50)
+            make.top.equalTo(view).offset(Constants.nicknameViewTop)
         }
         
         genderView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view).inset(Constants.leadingTrailing)
-            make.top.equalTo(nicknameView.snp.bottom).offset(30)
+            make.top.equalTo(nicknameView.snp.bottom).offset(Constants.genderViewTop)
         }
         
         birthdateView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view).inset(Constants.leadingTrailing)
-            make.top.equalTo(genderView.snp.bottom).offset(30)
+            make.top.equalTo(genderView.snp.bottom).offset(Constants.birthdateView)
         }
         
         saveButton.snp.makeConstraints { make in
@@ -83,11 +100,20 @@ class ProfileEditViewController: UIViewController {
             make.leading.trailing.equalTo(view).inset(Constants.leadingTrailing)
             make.top.equalTo(birthdateView.snp.bottom).offset(Constants.saveButtonTop)
         }
+        
+        changePasswordView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.equalTo(saveButton.snp.bottom).offset(Constants.changePasswordViewTop)
+        }
     }
     
     private func setupActions() {
         saveButton.addAction { [weak self] in
             self?.presenter.saveButtonDidTap()
+        }
+        
+        changePasswordView.actionButton.addAction { [weak self] in
+            self?.presenter.changePasswordButtonDidTap()
         }
     }
 }
@@ -96,8 +122,12 @@ class ProfileEditViewController: UIViewController {
 extension ProfileEditViewController {
     struct Constants {
         static let leadingTrailing: CGFloat = 25
+        static let nicknameViewTop: CGFloat = 50
+        static let genderViewTop: CGFloat = 30
+        static let birthdateView: CGFloat = 30
         static let saveButtonHeight: CGFloat = 50
         static let saveButtonTop: CGFloat = 50
+        static let changePasswordViewTop: CGFloat = 60
     }
 }
 

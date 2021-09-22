@@ -197,7 +197,7 @@ extension TextFieldView {
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.returnKeyType = settings.returnKeyType
-        textField.text = "12345678"
+//        textField.text = "12345678"
         return textField
     }
     

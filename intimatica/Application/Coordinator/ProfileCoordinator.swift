@@ -14,6 +14,7 @@ enum ProfileRoute: Route {
     case showStory(UserStoriesQuery.Data.Story)
     case premium
     case editProfile
+    case updatePassword
     case back
     case dismiss
 }
@@ -45,6 +46,11 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
         case .editProfile:
             let presenter = ProfileEditPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = ProfileEditViewController(presenter: presenter)
+            presenter.view = viewController
+            return .push(viewController)
+        case .updatePassword:
+            let presenter = UpdatePasswordPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = UpdatePasswordViewController(presenter: presenter)
             presenter.view = viewController
             return .push(viewController)
         case .back:

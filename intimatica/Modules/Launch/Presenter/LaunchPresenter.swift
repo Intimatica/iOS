@@ -32,7 +32,8 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             return
         }
 
-        useCase.perform(mutaion: SignInMutation(email: userCredentials.email, password: userCredentials.password)) { [weak self] result in
+        let mutation = SignInMutation(email: userCredentials.email, password: userCredentials.password)
+        useCase.perform(mutaion: mutation) { [weak self] result in
             guard let self = self else { return }
 
             switch(result) {

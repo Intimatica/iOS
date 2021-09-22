@@ -161,7 +161,6 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .appDarkPurple
 
         navigationController?.navigationBar.isTranslucent = false
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
 
         tabBarController?.tabBar.tintColor = .appDarkPurple

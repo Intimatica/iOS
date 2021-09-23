@@ -30,7 +30,7 @@ final class SignInPresenter: AuthPresenter {
 // MARK: - SingInPresenterProtocol
 extension SignInPresenter: SignInPresenterProtocol {
     func forgotPasswordButtonDidTap() {
-//        router.trigger(.forgotPassword)
+        router.trigger(.resetPassword)
     }
     
     override func doAuthButtonDidTap(email: String, password: String) {

@@ -14,11 +14,11 @@ protocol LaunchPresenterProtocol {
 
 final class LaunchPresenter {    
     // MARK: - Properties
-    private let router: Router
+    private let router: AppRouter
     private let useCase: AuthUseCaseProtocol
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol) {
+    init(router: AppRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.authUseCase
     }

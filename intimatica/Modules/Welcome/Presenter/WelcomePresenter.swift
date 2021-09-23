@@ -15,10 +15,10 @@ protocol WelcomePresenterProtocol {
 
 class WelcomePresenter {
     // MARK: - Properties
-    let router: Router!
+    let router: AppRouter!
     
     // MARK: - Initializers
-    init(router: Router) {
+    init(router: AppRouter) {
         self.router = router
     }
 }

@@ -22,6 +22,7 @@ enum TextFieldViewField {
     case nickname(TextFieldViewFieldSettings)
     case gender(TextFieldViewFieldSettings)
     case birthdate(TextFieldViewFieldSettings)
+    case code(TextFieldViewFieldSettings)
 }
 
 protocol TextFieldViewDelegate {
@@ -103,7 +104,13 @@ final class TextFieldView: UIView {
         
         case .birthdate(let settings):
             textField = createBirthDateField(from: settings)
+            
+        case .code(let settings):
+            textField = createCodeField(from: settings)
         }
+        
+        
+            
 
         textField.delegate = self
     }
@@ -234,6 +241,14 @@ extension TextFieldView {
                                         selector: #selector(birthDateFieldTapDone),
                                         minimumDate: Calendar.current.date(byAdding: .year, value: -128, to: Date()),
                                         maximumDate: Calendar.current.date(byAdding: .year, value: -16, to: Date()))
+        return textField
+    }
+    
+    func createCodeField(from settings: TextFieldViewFieldSettings) -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = settings.placeholder
+        textField.returnKeyType = settings.returnKeyType
         return textField
     }
     

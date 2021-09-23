@@ -28,6 +28,7 @@ WELCOME_SIGN_UP = "Зарегистрироваться";
 WELCOME_GREETING_TEXT = "У нас интересно! Присоединяйся";
 
 AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
+AUTH_CODE_FIELD_PLACEHOLDER = "Код";
 AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль (8+ символов)";
 AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторить пароль";
 
@@ -144,3 +145,11 @@ CHANGE_PASSWORD_NEW_PASSWORD_TITLE = "Новый пароль (8+ символо
 CHANGE_PASSWORD_CONFIRM_PASSWORD_TITLE = "Повторить пароль";
 CHANGE_PASSWORD_CONFIRM_BUTTON_TITLE_UPDATE = "Обновить";
 CHANGE_PASSWORD_PAGE_TITLE = "Изменение пароля";
+
+RESET_PASSWORD_PAGE_TITLE = "Восстановление пароля";
+RESET_PASSWORD_EMAIL_PAGE_SUBTITLE = "Введи почту, которая указывалась при регистрации. На нее придет код для изменения пароля.";
+RESET_PASSWORD_EMAIL_PAGE_ACTION_BUTTON_TTTLE = "Отправить";
+RESET_PASSWORD_CODE_PAGE_SUBTITLE = "Введи код, который пришел тебе на почту. Если код не пришел, вернись на шаг назад и отправь его снова.";
+RESET_PASSWORD_CODE_PAGE_ACTION_BUTTON_TTTLE = "Далее";
+RESET_PASSWORD_NEW_PASSWORD_PAGE_SUBTITLE = "Постарайся придумать надежный пароль с символами и цифрами.";
+RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Обновить и войти";

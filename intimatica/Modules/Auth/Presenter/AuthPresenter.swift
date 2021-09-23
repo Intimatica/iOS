@@ -29,7 +29,7 @@ protocol AuthViewDelegate: AnyObject {
 
 class AuthPresenter {    
     //MARK: - Properties
-    let router: Router
+    let router: AppRouter
     let useCase: AuthUseCaseProtocol
     let graphQLUseCase: GraphQLUseCaseProtocol
     private weak var view: AuthViewDelegate?
@@ -40,7 +40,7 @@ class AuthPresenter {
     var passwordValue = ""
     
     // MARK: - Initializers
-    init(router: Router, dependencies: UseCaseProviderProtocol) {
+    init(router: AppRouter, dependencies: UseCaseProviderProtocol) {
         self.router = router
         self.useCase = dependencies.authUseCase
         self.graphQLUseCase = dependencies.graphQLUseCase

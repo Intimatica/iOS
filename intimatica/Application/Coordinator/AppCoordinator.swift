@@ -8,11 +8,10 @@
 import Foundation
 import XCoordinator
 
-typealias Router = StrongRouter<AppRoute>
+typealias AppRouter = StrongRouter<AppRoute>
 typealias FeedRouter = StrongRouter<FeedRoute>
-//typealias PostsRouter = UnownedErased<StrongRouter<FeedRoute>>
 typealias ProfileRouter = StrongRouter<ProfileRoute>
-//typealias ProfileRouter = UnownedErased<StrongRouter<ProfileRoute>>
+typealias ResetPasswordRouter = StrongRouter<ResetPasswordRoute>
 
 enum AppRoute: Route {
     case launch
@@ -23,6 +22,7 @@ enum AppRoute: Route {
     case signIn
     case signUp
     case signUpProfile
+    case resetPassword
     
     case home
 
@@ -34,8 +34,8 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
     private let useCaseProvider = UseCaseProvider()
     
     init() {
-        super.init(rootViewController: UIViewController(), initialRoute: .launch)
-//        super.init(rootViewController: UIViewController(), initialRoute: .signUpProfile)
+//        super.init(rootViewController: UIViewController(), initialRoute: .launch)
+        super.init(rootViewController: UIViewController(), initialRoute: .welcome)
     }
     
     override func prepareTransition(for route: AppRoute) -> ViewTransition {
@@ -97,10 +97,14 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             let coordinator = HomeCoordinator(useCaseProvider: useCaseProvider, appRouter: strongRouter)
             coordinator.rootViewController.modalPresentationStyle = .fullScreen
             return .present(coordinator)
+            
+        case .resetPassword:
+            let coordinator = ResetPasswrodCoordinator(appRouter: strongRouter, useCaseProvider: useCaseProvider)
+            coordinator.rootViewController.modalPresentationStyle = .fullScreen
+            return .present(coordinator)
 
         case .dismiss:
             return .dismiss()
-
         }
     }
 }

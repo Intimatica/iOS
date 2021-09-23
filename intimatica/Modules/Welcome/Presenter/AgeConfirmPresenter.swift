@@ -16,10 +16,10 @@ protocol AgeConfirmPresenterProtocol {
 
 final class AgeConfirmPresenter {
     // MARK: - Properties
-    private let router: Router!
+    private let router: AppRouter!
     
     // MARK: - Initializers
-    init(router: Router) {
+    init(router: AppRouter) {
         self.router = router
     }
 }

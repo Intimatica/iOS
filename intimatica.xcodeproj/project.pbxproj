@@ -111,7 +111,15 @@
 		DB79A79426FB52B7002B34B8 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */; };
 		DB79A79626FB52F5002B34B8 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */; };
 		DB79A79826FBAB68002B34B8 /* ResetPassword.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */; };
-		DB79A79A26FBAB8E002B34B8 /* UpdatePassword.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB79A79926FBAB8E002B34B8 /* UpdatePassword.graphql */; };
+		DB79A79D26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */; };
+		DB79A79F26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79E26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift */; };
+		DB79A7A426FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7A326FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift */; };
+		DB79A7A626FC5C5C002B34B8 /* ResetPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7A526FC5C5C002B34B8 /* ResetPasswordEmailViewController.swift */; };
+		DB79A7A826FC5C87002B34B8 /* ResetPasswordCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7A726FC5C87002B34B8 /* ResetPasswordCodePresenter.swift */; };
+		DB79A7AA26FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7A926FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift */; };
+		DB79A7AC26FC8739002B34B8 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AB26FC8739002B34B8 /* ResetPasswordCoordinator.swift */; };
+		DB79A7AE26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AD26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift */; };
+		DB79A7B026FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AF26FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift */; };
 		DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB726B7EA4000948B1F /* VideoViewController.swift */; };
 		DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */; };
 		DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */; };
@@ -295,7 +303,15 @@
 		DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ResetPassword.graphql; sourceTree = "<group>"; };
-		DB79A79926FBAB8E002B34B8 /* UpdatePassword.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UpdatePassword.graphql; sourceTree = "<group>"; };
+		DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBasePresenter.swift; sourceTree = "<group>"; };
+		DB79A79E26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBaseViewController.swift; sourceTree = "<group>"; };
+		DB79A7A326FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenter.swift; sourceTree = "<group>"; };
+		DB79A7A526FC5C5C002B34B8 /* ResetPasswordEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailViewController.swift; sourceTree = "<group>"; };
+		DB79A7A726FC5C87002B34B8 /* ResetPasswordCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCodePresenter.swift; sourceTree = "<group>"; };
+		DB79A7A926FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCodeViewController.swift; sourceTree = "<group>"; };
+		DB79A7AB26FC8739002B34B8 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
+		DB79A7AD26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenter.swift; sourceTree = "<group>"; };
+		DB79A7AF26FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordViewController.swift; sourceTree = "<group>"; };
 		DB81AFB726B7EA4000948B1F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresenter.swift; sourceTree = "<group>"; };
 		DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostPresenter.swift; sourceTree = "<group>"; };
@@ -514,6 +530,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB79A79B26FBC9B3002B34B8 /* ResetPassword */,
 				DB79A79226FB51EB002B34B8 /* UpdatePassword */,
 				DB4660D626F4E05C00F5200F /* ProfileEdit */,
 				DB0BC68126F0E8FF007D097D /* Notification */,
@@ -786,6 +803,45 @@
 			path = UpdatePassword;
 			sourceTree = "<group>";
 		};
+		DB79A79B26FBC9B3002B34B8 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				DB79A7A026FC5BE3002B34B8 /* email */,
+				DB79A7A126FC5BFD002B34B8 /* code */,
+				DB79A7A226FC5C04002B34B8 /* newPassword */,
+				DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */,
+				DB79A79E26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		DB79A7A026FC5BE3002B34B8 /* email */ = {
+			isa = PBXGroup;
+			children = (
+				DB79A7A326FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift */,
+				DB79A7A526FC5C5C002B34B8 /* ResetPasswordEmailViewController.swift */,
+			);
+			path = email;
+			sourceTree = "<group>";
+		};
+		DB79A7A126FC5BFD002B34B8 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				DB79A7A726FC5C87002B34B8 /* ResetPasswordCodePresenter.swift */,
+				DB79A7A926FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift */,
+			);
+			path = code;
+			sourceTree = "<group>";
+		};
+		DB79A7A226FC5C04002B34B8 /* newPassword */ = {
+			isa = PBXGroup;
+			children = (
+				DB79A7AD26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift */,
+				DB79A7AF26FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift */,
+			);
+			path = newPassword;
+			sourceTree = "<group>";
+		};
 		DB8A594F26AC997200842771 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,6 +1013,7 @@
 				DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */,
 				DBDBC76926CEEFAD00CB839C /* FeedCoordinator.swift */,
 				DBDBC76B26CEF64B00CB839C /* ProfileCoordinator.swift */,
+				DB79A7AB26FC8739002B34B8 /* ResetPasswordCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1030,7 +1087,6 @@
 				DB0BC66F26E94018007D097D /* StaticPages.graphql */,
 				DB0BC68626F0F089007D097D /* Notifications.graphql */,
 				DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */,
-				DB79A79926FBAB8E002B34B8 /* UpdatePassword.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -1175,7 +1231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0BC66B26E10CB6007D097D /* main.js in Resources */,
-				DB79A79A26FBAB8E002B34B8 /* UpdatePassword.graphql in Resources */,
 				DB0BC66926E10CB6007D097D /* index.html in Resources */,
 				DBF99D3926B069A200E04D40 /* schema.json in Resources */,
 				DB2F8B39269F46E0007020C0 /* LaunchScreen.storyboard in Resources */,
@@ -1296,11 +1351,13 @@
 				DB8A597C26AF3A7E00842771 /* LaunchPresenter.swift in Sources */,
 				DBF99D6026B2C89F00E04D40 /* TheoryPresenter.swift in Sources */,
 				DB57273926D7B93C002D6B46 /* LeftSideMenuPresenter.swift in Sources */,
+				DB79A7AC26FC8739002B34B8 /* ResetPasswordCoordinator.swift in Sources */,
 				DB2F8B16269ED1A2007020C0 /* AppCoordinator.swift in Sources */,
 				DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */,
 				DB2E196026CCD1E1004FF77C /* StoryView.swift in Sources */,
 				DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */,
 				DB8A598326AF4AE900842771 /* ServiceProvider.swift in Sources */,
+				DB79A7A626FC5C5C002B34B8 /* ResetPasswordEmailViewController.swift in Sources */,
 				DB2F8B41269F6D0D007020C0 /* UIControl+Utils.swift in Sources */,
 				DBFA7C3D26C3E3330042D31D /* CategoryCollectionViewCell.swift in Sources */,
 				DBFA7C7526C9663E0042D31D /* FavoritesSevice.swift in Sources */,
@@ -1323,6 +1380,7 @@
 				DB2F8B6C26A34DEF007020C0 /* AuthPresenter.swift in Sources */,
 				DB2F8B24269F38A2007020C0 /* UIRoundedButton.swift in Sources */,
 				DB8A598826AF6CB100842771 /* RepositoryProvider.swift in Sources */,
+				DB79A79F26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB3C565F26BC18B40087663E /* VideoCourseViewController.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
@@ -1331,6 +1389,7 @@
 				DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */,
 				DB2E196726CD6E30004FF77C /* TellStoryViewController.swift in Sources */,
 				DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */,
+				DB79A7A826FC5C87002B34B8 /* ResetPasswordCodePresenter.swift in Sources */,
 				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
@@ -1341,6 +1400,7 @@
 				DBF99D4426B07ECB00E04D40 /* FeedPresenter.swift in Sources */,
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
+				DB79A79D26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift in Sources */,
 				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
 				DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */,
 				DB0BC68926F1386B007D097D /* NotificationTableViewCell.swift in Sources */,
@@ -1362,6 +1422,7 @@
 				DB2F8B4826A219FC007020C0 /* TextFieldView.swift in Sources */,
 				DB3C565A26BBDA4F0087663E /* PostLabelView.swift in Sources */,
 				DBF99D6E26B41DA400E04D40 /* FixedWidthAspectFitImageView.swift in Sources */,
+				DB79A7AE26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift in Sources */,
 				DB2E196526CD6D52004FF77C /* TellStoryPresenter.swift in Sources */,
 				DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */,
 				DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */,
@@ -1383,6 +1444,7 @@
 				DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */,
 				DB57272E26D620F3002D6B46 /* UITextField+Utils.swift in Sources */,
 				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
+				DB79A7A426FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
 				DB57273026D621B9002D6B46 /* SignUpProfilePresenter.swift in Sources */,
@@ -1403,6 +1465,7 @@
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */,
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
+				DB79A7B026FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift in Sources */,
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
@@ -1414,6 +1477,7 @@
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
+				DB79A7AA26FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift in Sources */,
 				DBFA7C7726C972B50042D31D /* FavoriteButtonView.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,
 			);

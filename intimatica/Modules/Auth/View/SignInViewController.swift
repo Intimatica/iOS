@@ -31,6 +31,7 @@ final class SignInViewController: AuthViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     // MARK: - Layout

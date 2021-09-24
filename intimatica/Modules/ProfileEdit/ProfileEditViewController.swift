@@ -29,7 +29,7 @@ class ProfileEditViewController: UIViewController {
                                                font: .rubik(fontSize: .regular, fontWeight: .bold),
                                                backgroundColor: .appDarkPurple)
     
-    private lazy var changePasswordView = ChangePasswordView()
+//    private lazy var changePasswordView = ChangePasswordView()
     
     private lazy var backBarButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem()
@@ -80,7 +80,7 @@ class ProfileEditViewController: UIViewController {
         view.addSubview(genderView)
         view.addSubview(birthdateView)
         view.addSubview(saveButton)
-        view.addSubview(changePasswordView)
+//        view.addSubview(changePasswordView)
     }
     
     private func setupConstraints() {
@@ -105,10 +105,10 @@ class ProfileEditViewController: UIViewController {
             make.top.equalTo(birthdateView.snp.bottom).offset(Constants.saveButtonTop)
         }
         
-        changePasswordView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view)
-            make.top.equalTo(saveButton.snp.bottom).offset(Constants.changePasswordViewTop)
-        }
+//        changePasswordView.snp.makeConstraints { make in
+//            make.leading.trailing.equalTo(view)
+//            make.top.equalTo(saveButton.snp.bottom).offset(Constants.changePasswordViewTop)
+//        }
     }
     
     private func setupActions() {
@@ -116,9 +116,9 @@ class ProfileEditViewController: UIViewController {
             self?.presenter.saveButtonDidTap()
         }
         
-        changePasswordView.actionButton.addAction { [weak self] in
-            self?.presenter.changePasswordButtonDidTap()
-        }
+//        changePasswordView.actionButton.addAction { [weak self] in
+//            self?.presenter.changePasswordButtonDidTap()
+//        }
     }
 }
 

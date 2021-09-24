@@ -71,6 +71,7 @@ extension UIViewController {
         navigationBar?.scrollEdgeAppearance = navigationBarAppearence
         
 //        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
     }
 }

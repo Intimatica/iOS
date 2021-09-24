@@ -54,7 +54,6 @@ class ProfileEditViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
-        hideNavigationBarBottomLine()
         title = L10n("PROFILE_PAGE_TITLE")
         
         setupView()
@@ -66,6 +65,11 @@ class ProfileEditViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black,
+                                                                   NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
     }
     
     // MARK: - Layout

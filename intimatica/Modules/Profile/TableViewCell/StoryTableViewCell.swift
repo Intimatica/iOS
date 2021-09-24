@@ -133,7 +133,7 @@ class StoryTableViewCell: UITableViewCell {
 // MARK: - Helper/Constants
 extension StoryTableViewCell {
     struct Constants {
-        static let stackViewSpacing: CGFloat = 30
+        static let stackViewSpacing: CGFloat = 15
         static let stackViewLeadingTrailing: CGFloat = 25
         static let stackViewTopBottom:  CGFloat = 25
         

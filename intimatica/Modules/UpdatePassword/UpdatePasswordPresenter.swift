@@ -15,6 +15,7 @@ enum UpdatePasswordFieldType {
 
 protocol UpdatePasswordPresenterDelegate: AnyObject {
     func validate(field: UpdatePasswordFieldType, with value: String?)
+    func updatePasswordButtonDidTap()
 }
 
 protocol UpdatePasswordViewControllerDelegate: AnyObject {
@@ -48,6 +49,10 @@ class UpdatePasswordPresenter {
 
 // MARK: - UpdatePasswordPresenterDelegate
 extension UpdatePasswordPresenter: UpdatePasswordPresenterDelegate {
+    func updatePasswordButtonDidTap() {
+        router.trigger(.back)
+    }
+    
     func validate(field: UpdatePasswordFieldType, with value: String?) {
         switch field {
         case .currentPassword:

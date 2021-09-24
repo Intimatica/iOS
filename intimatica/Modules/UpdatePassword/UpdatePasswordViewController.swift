@@ -64,6 +64,7 @@ class UpdatePasswordViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     // MARK: - Layout
@@ -96,6 +97,12 @@ class UpdatePasswordViewController: UIViewController {
             make.height.equalTo(Constants.updatePasswordButtonHeight)
             make.leading.trailing.equalTo(view).inset(Constants.leadingTrailing)
             make.top.equalTo(confirmPassword.snp.bottom).offset(Constants.updatePasswordButtonTop)
+        }
+    }
+    
+    private func setupActions() {
+        updatePasswordButton.addAction { [weak self] in
+            self?.presenter.updatePasswordButtonDidTap()
         }
     }
 }

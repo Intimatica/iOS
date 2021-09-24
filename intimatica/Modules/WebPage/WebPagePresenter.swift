@@ -63,7 +63,10 @@ extension WebPagePresenter: WebPagePresenterProtocol {
                 } else if let termsAndConditionsData = graphQLResult.data as? TermsAndConditionsPageQuery.Data,
                           let content = termsAndConditionsData.termsAndConditionsPage?.content {
                     self.view?.display(content)
-                } else {
+                } else if let privacyPolicyPageData = graphQLResult.data as? PrivacyPolicyPageQuery.Data,
+                          let content = privacyPolicyPageData.privacyPolicyPage?.content {
+                    self.view?.display(content)
+                }else {
                     fatalError("Content not found")
                 }
             case .failure(let error):

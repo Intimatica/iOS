@@ -26,6 +26,7 @@ enum FeedRoute: Route {
     case helpPage
     case aboutPage
     case termsAndConditionsPage
+    case privacyPolicy
     case premiumPage
     case logout
     
@@ -125,6 +126,12 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             
         case .termsAndConditionsPage:
             let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsAndConditionsPageQuery())
+            let viewController = WebPageViewController(presenter: presenter)
+            presenter.view = viewController
+            return .present(viewController)
+            
+        case .privacyPolicy:
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PrivacyPolicyPageQuery())
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

@@ -8,7 +8,7 @@
 import Foundation
 
 enum LeftSideMenuActionButton {
-    case help, about, termsAndConditions, applyForPremium, logout
+    case help, about, termsAndConditions, privacyPolicy, applyForPremium, logout
 }
 
 protocol LeftSideMenuPresenterDelegate: AnyObject {
@@ -36,6 +36,8 @@ extension LeftSideMenuPresenter: LeftSideMenuPresenterDelegate {
             router.trigger(.aboutPage)
         case .termsAndConditions:
             router.trigger(.termsAndConditionsPage)
+        case .privacyPolicy:
+            router.trigger(.privacyPolicy)
         case .applyForPremium:
             router.trigger(.premiumPage)
         case .logout:

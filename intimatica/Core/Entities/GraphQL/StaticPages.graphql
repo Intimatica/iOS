@@ -16,6 +16,12 @@ query TermsAndConditionsPage {
   }
 }
 
+query PrivacyPolicyPage {
+  privacyPolicyPage {
+    content
+  }
+}
+
 query PremiumDescription {
   premiumDescription {
     content

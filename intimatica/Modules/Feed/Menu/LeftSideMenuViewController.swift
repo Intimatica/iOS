@@ -14,8 +14,9 @@ class LeftSideMenuViewController: UIViewController {
     
     private lazy var helpButton = createMenuButton(title: L10n("MENU_ITEM_HELP"), imageName: "help_button_icon_x2")
     private lazy var aboutButton = createMenuButton(title: L10n("MENU_ITEM_ABOUT"), imageName: "about_icon_x2")
-    private lazy var termsAndConditionsButton = createMenuButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS")
-                                                             , imageName: "terms_and_condition_icon_x2")
+    private lazy var termsAndConditionsButton = createMenuButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS"),
+                                                                 imageName: "terms_and_condition_icon_x2")
+    private lazy var privacyPolicyButtton = createMenuButton(title: L10n("MENU_ITEM_PRIVACY_POLICY"), imageName: "lock_x3")
     
     private lazy var applyForPremiumButton = ApplyForPremiumButton()
     
@@ -60,6 +61,7 @@ class LeftSideMenuViewController: UIViewController {
         view.addSubview(helpButton)
         view.addSubview(aboutButton)
         view.addSubview(termsAndConditionsButton)
+        view.addSubview(privacyPolicyButtton)
         view.addSubview(applyForPremiumButton)
         view.addSubview(logoutButton)
     }
@@ -83,10 +85,16 @@ class LeftSideMenuViewController: UIViewController {
             make.top.equalTo(aboutButton.snp.bottom).offset(Constants.buttonTop)
         }
         
+        privacyPolicyButtton.snp.makeConstraints { make in
+            make.height.equalTo(Constants.buttonHeight)
+            make.leading.trailing.equalTo(view).inset(Constants.buttonLeadingTrailing)
+            make.top.equalTo(termsAndConditionsButton.snp.bottom).offset(Constants.buttonTop)
+        }
+        
         applyForPremiumButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.buttonHeight)
             make.leading.trailing.equalTo(view).inset(Constants.buttonLeadingTrailing)
-            make.top.equalTo(termsAndConditionsButton.snp.bottom).offset(Constants.applyForPremiumButtonTop)
+            make.top.equalTo(privacyPolicyButtton.snp.bottom).offset(Constants.applyForPremiumButtonTop)
         }
         
         logoutButton.snp.makeConstraints { make in
@@ -107,6 +115,10 @@ class LeftSideMenuViewController: UIViewController {
         
         termsAndConditionsButton.addAction { [weak self] in
             self?.presenter.buttonDidTap(.termsAndConditions)
+        }
+        
+        privacyPolicyButtton.addAction { [weak self] in
+            self?.presenter.buttonDidTap(.privacyPolicy)
         }
         
         applyForPremiumButton.addAction { [weak self] in

@@ -136,7 +136,8 @@ MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ псих�
 // BurgerMenuViewController
 MENU_ITEM_HELP = "Помощь";
 MENU_ITEM_ABOUT = "О нас";
-MENU_ITEM_TERMS_AND_CONDITIONS = "Terms & Conditions";
+MENU_ITEM_TERMS_AND_CONDITIONS = "Условия и правила";
+MENU_ITEM_PRIVACY_POLICY = "Конфиденциальность";
 MENU_ITEM_LOGOUT = "Выйти из аккаунта";
 
 // ChangePasswordViewController

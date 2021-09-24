@@ -13,15 +13,10 @@ final class ProfileViewController: UIViewController {
     private let presenter: ProfilePresenterDelegate
     private var stories: [UserStoriesQuery.Data.Story] = []
     private let storyCellID = "StoryTableViewCellID"
-//    private lazy var tableHeightConstraint = NSLayoutConstraint.init(item: tableView,
-//                                                                     attribute: .height,
-//                                                                     relatedBy: .equal,
-//                                                                     toItem: nil,
-//                                                                     attribute: .notAnAttribute,
-//                                                                     multiplier: 1,
-//                                                                     constant: 0)
   
     private var tableHeightConstraint: Constraint?
+    
+    private var navBarSpacer = SpacerView(height: 1, backgroundColor: .appLightPurple)
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -99,6 +94,13 @@ final class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setNeedsStatusBarAppearanceUpdate()
+        navigationController?.navigationBar.barTintColor = .appDarkPurple
+
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                                                   NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
         presenter.viewDidLoad()
     }
 
@@ -113,11 +115,17 @@ final class ProfileViewController: UIViewController {
         contentView.addSubview(tableView)
         contentView.addSubview(activityIndicatorView)
         
+        view.addSubview(navBarSpacer)
+        
         profileView.fill(by: "Name", and: "email")
     }
     
     private func setupConstraints() {
 //        tableHeightConstraint.isActive = true
+        
+        navBarSpacer.snp.makeConstraints { make in
+            make.leading.top.trailing.equalTo(view)
+        }
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view)

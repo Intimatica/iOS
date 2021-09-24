@@ -51,10 +51,11 @@ extension ProfilePresenter: ProfilePresenterDelegate {
                 if let nickname = graphQLResult.data?.profile?.nickname, let userCredentials = self.authUseCase.getUserCredentials() {
                     self.view?.setProfile(email: userCredentials.email, nickname: nickname)
                 } else {
-                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
+//                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
                 }
-            case .failure(let error):
-                self.view?.displayError(error.localizedDescription)
+            case .failure(let _):
+                break
+//                self.view?.displayError(error.localizedDescription)
             }
         }
         

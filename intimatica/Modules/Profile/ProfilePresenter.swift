@@ -37,9 +37,25 @@ final class ProfilePresenter {
 }
 
 extension ProfilePresenter: ProfilePresenterDelegate {
+    // TODO: refactor
     func viewDidLoad() {
         if let userCredentials = authUseCase.getUserCredentials() {
-            view?.setProfile(email: userCredentials.email, nickname: nil)
+            view?.setProfile(email: userCredentials.email, nickname: "   ")
+        }
+        
+        useCase.fetch(query: ProfileQuery()) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let graphQLResult):
+                if let nickname = graphQLResult.data?.profile?.nickname, let userCredentials = self.authUseCase.getUserCredentials() {
+                    self.view?.setProfile(email: userCredentials.email, nickname: nickname)
+                } else {
+                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
+                }
+            case .failure(let error):
+                self.view?.displayError(error.localizedDescription)
+            }
         }
         
         useCase.fetch(query: UserStoriesQuery()) { [weak self] result in

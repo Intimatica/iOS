@@ -117,7 +117,7 @@ final class ProfileViewController: UIViewController {
         
         view.addSubview(navBarSpacer)
         
-        profileView.fill(by: "Name", and: "email")
+        profileView.fill(by: "   ", and: "email")
     }
     
     private func setupConstraints() {
@@ -173,7 +173,7 @@ final class ProfileViewController: UIViewController {
 // MARK: - Helper/Constants
 extension ProfileViewController {
     struct Constants {
-        static let tableTitleLabelLeading: CGFloat = 25
+        static let tableTitleLabelLeading: CGFloat = 15
         static let tableTitleLabelTop: CGFloat = 30
     }
 }

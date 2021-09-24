@@ -31,13 +31,8 @@ final class ProfileView: UIView {
                                                    textColor: .white)
     
     lazy var editProfileButton: UIRoundedButton = {
-        let button = UIRoundedButton(title: L10n("EDIT_PROFILE_BUTTON_TITLE"),
-                                     titleColor: .white,
-                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                     backgroundColor: .clear)
-        
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.white.cgColor
+        let button = UIRoundedButton()
+        button.setImage(UIImage(named: "settings_button_icon"), for: .normal)
         return button
     }()
     
@@ -77,28 +72,27 @@ final class ProfileView: UIView {
     private func setupConstraints() {
         avatarImageView.snp.makeConstraints { make in
             make.height.width.equalTo(Constants.avatarImageViewWidthHeight)
-            make.leading.equalTo(view).offset(Constants.avatarImageViewLeading)
-            make.top.equalTo(view).offset(Constants.avatarImageViewTop)
+            make.leading.equalTo(self).offset(Constants.avatarImageViewLeading)
+            make.top.equalTo(self).offset(Constants.avatarImageViewTop)
         }
         
         nameStackView.snp.makeConstraints { make in
             make.leading.equalTo(avatarImageView.snp.trailing).offset(Constants.nameStackViewLeadingTrailing)
-            make.trailing.equalTo(view).offset(-Constants.nameStackViewLeadingTrailing)
+            make.trailing.equalTo(self).offset(-Constants.nameStackViewLeadingTrailing)
             make.centerY.equalTo(avatarImageView.snp.centerY)
         }
         
         editProfileButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.editProfileButtonHeight)
-            make.leading.equalTo(view).offset(Constants.editProfileButtonLeadingTrailing)
-            make.top.equalTo(avatarImageView.snp.bottom).offset(Constants.editProfileButtonTop)
-            make.trailing.equalTo(view).offset(-Constants.editProfileButtonLeadingTrailing)
+            make.centerY.equalTo(nicknameLabel.snp.centerY)
+            make.trailing.equalTo(self).offset(-Constants.editProfileButtonLeadingTrailing)
         }
         
         premiumButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.premiumButtonHeight)
-            make.leading.trailing.equalTo(editProfileButton)
-            make.top.equalTo(editProfileButton.snp.bottom).offset(Constants.premiumButtonTop)
-            make.bottom.equalTo(view).offset(-Constants.premiumButtonBottom)
+            make.leading.trailing.equalTo(self).inset(Constants.premiumButtonLeadingTrailing)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(Constants.premiumButtonTop)
+            make.bottom.equalTo(self).offset(-Constants.premiumButtonBottom)
         }
     }
     
@@ -119,18 +113,19 @@ extension ProfileView {
     struct Constants {
         static let nameStackViewSpacing: CGFloat = 0
         
-        static let avatarImageViewWidthHeight: CGFloat = 90
+        static let avatarImageViewWidthHeight: CGFloat = 60
         static let avatarImageViewTop: CGFloat = 30
-        static let avatarImageViewLeading: CGFloat = 25
+        static let avatarImageViewLeading: CGFloat = 15
         
         static let nameStackViewLeadingTrailing: CGFloat = 20
         
         static let editProfileButtonHeight: CGFloat = 40
         static let editProfileButtonTop: CGFloat = 30
-        static let editProfileButtonLeadingTrailing: CGFloat = 25
+        static let editProfileButtonLeadingTrailing: CGFloat = 15
         
         static let premiumButtonHeight: CGFloat = 50
-        static let premiumButtonTop: CGFloat = 20
-        static let premiumButtonBottom: CGFloat = 50
+        static let premiumButtonTop: CGFloat = 25
+        static let premiumButtonLeadingTrailing: CGFloat = 15
+        static let premiumButtonBottom: CGFloat = 30
     }
 }

@@ -156,11 +156,11 @@ extension ProfileEditViewController: ProfileEditViewControllerDelegate {
     }
     
     func setNickname(_ nickname: String) {
-        nicknameView.textField.text = nickname
+        nicknameView.setText(nickname)
     }
     
     func setGender(_ gender: String) {
-        genderView.textField.text = gender
+        genderView.setText(gender)
     }
     
     func setBirthDate(_ birthDate: String?) {
@@ -170,7 +170,7 @@ extension ProfileEditViewController: ProfileEditViewControllerDelegate {
         
         if let birthDate = birthDate, let date = dateFormatter.date(from:birthDate) {
             (birthdateView.textField.inputView as? UIDatePicker)?.date = date
-            birthdateView.textField.text = localizeDate(birthDate)
+            birthdateView.setText(localizeDate(birthDate))
         }
     }
     

@@ -141,6 +141,7 @@ final class TextFieldView: UIView {
         }
     }
 
+    // MARK: - Public
     func showError(message: String) {
         errorLabel.text = message
         errorLabel.isHidden = false
@@ -151,6 +152,16 @@ final class TextFieldView: UIView {
         errorLabel.isHidden = true
     }
     
+    func setText(_ text: String?) {
+        if let text = text, !text.isEmpty {
+            fieldLabel.textColor = .appGray
+            fieldLabel.text = textField.placeholder
+            textField.text = text
+        }
+    }
+    
+    
+    // MARK: - Private
     private func addEyeButton() {
         view.addSubview(eyeButton)
         
@@ -193,7 +204,7 @@ extension TextFieldView {
         textField.returnKeyType = settings.returnKeyType
         textField.spellCheckingType = .no
         textField.autocapitalizationType = .none
-        textField.text = "a@key42.net"
+//        textField.text = "a@key42.net"
         return textField
     }
     

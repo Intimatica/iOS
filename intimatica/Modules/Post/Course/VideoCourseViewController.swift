@@ -281,6 +281,10 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         } else {
             videoContainerView.isHidden = true
         }
+        
+        if let post = response.post {
+            addToAnalytics(postId: post.id, postTitle: post.title)
+        }
     }
 }
 

@@ -101,6 +101,8 @@ extension TheoryViewController: TheoryViewProtocol {
         authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
         
         markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
+        
+        addToAnalytics(postId: theoryPost.id, postTitle: theoryPost.title)
     }
 }
 

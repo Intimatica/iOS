@@ -8,6 +8,7 @@
 import UIKit
 import MarkdownView
 import Kingfisher
+import FirebaseAnalytics
 
 class BasePostViewController: UIViewController {
     // MARK: - Properties
@@ -161,6 +162,13 @@ class BasePostViewController: UIViewController {
     @objc func display(_ error: Error) {
         hideSpinner()
         showError(error.localizedDescription)
+    }
+    
+    func addToAnalytics(postId: String, postTitle: String) {
+        FirebaseAnalytics.Analytics.logEvent(AnalyticsParameterContent, parameters: [
+            "post_id": postId,
+            "post_title": postTitle
+        ])
     }
 }
 

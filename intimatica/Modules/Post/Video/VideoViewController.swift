@@ -124,6 +124,8 @@ extension VideoViewController: VideoViewProtocol {
         markdownView.onRendered = { [weak self] height in
             self?.hideSpinner()
         }
+        
+        addToAnalytics(postId: post.id, postTitle: post.title)
     }
 }
 

@@ -120,6 +120,7 @@
 		DB79A7AC26FC8739002B34B8 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AB26FC8739002B34B8 /* ResetPasswordCoordinator.swift */; };
 		DB79A7AE26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AD26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift */; };
 		DB79A7B026FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7AF26FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift */; };
+		DB79A7B42701CE59002B34B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB79A7B32701CE59002B34B8 /* GoogleService-Info.plist */; };
 		DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB726B7EA4000948B1F /* VideoViewController.swift */; };
 		DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */; };
 		DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */; };
@@ -312,6 +313,7 @@
 		DB79A7AB26FC8739002B34B8 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		DB79A7AD26FCECD5002B34B8 /* ResetPasswordNewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenter.swift; sourceTree = "<group>"; };
 		DB79A7AF26FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordViewController.swift; sourceTree = "<group>"; };
+		DB79A7B32701CE59002B34B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB81AFB726B7EA4000948B1F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresenter.swift; sourceTree = "<group>"; };
 		DB81AFBB26B7EB0500948B1F /* BasePostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePostPresenter.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */,
 				DB6F3180269DA977005E7578 /* Assets.xcassets */,
 				DB2F8B31269F3FEB007020C0 /* Info.plist */,
+				DB79A7B32701CE59002B34B8 /* GoogleService-Info.plist */,
 				DB2F8B2D269F3CB2007020C0 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -718,8 +721,8 @@
 		DB3C566426BC1EA80087663E /* Theory */ = {
 			isa = PBXGroup;
 			children = (
-				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
 				DBF99D5F26B2C89F00E04D40 /* TheoryPresenter.swift */,
+				DBF99D5D26B2C82A00E04D40 /* TheoryViewController.swift */,
 			);
 			path = Theory;
 			sourceTree = "<group>";
@@ -727,8 +730,8 @@
 		DB3C566526BC1EB90087663E /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				DB81AFB726B7EA4000948B1F /* VideoViewController.swift */,
 				DB81AFB926B7EA4E00948B1F /* VideoPresenter.swift */,
+				DB81AFB726B7EA4000948B1F /* VideoViewController.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -1269,6 +1272,7 @@
 				DBFA7C5026C515920042D31D /* Tags.graphql in Resources */,
 				DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */,
 				DB2F8B9426A371B9007020C0 /* Rubik-BoldItalic.ttf in Resources */,
+				DB79A7B42701CE59002B34B8 /* GoogleService-Info.plist in Resources */,
 				DB2F8B8E26A371B9007020C0 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

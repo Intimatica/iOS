@@ -105,6 +105,8 @@ extension StoryViewController: StoryViewProtocol {
         storyView.fill(by: story, and: comment, authorName: authorName, authorJobTitle: authorJobTitle, authorAvatar: authorPhotoUrl)
         
         hideSpinner()
+        
+        addToAnalytics(postId: post.id, postTitle: post.title)
     }
 }
 

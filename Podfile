@@ -39,4 +39,5 @@ target 'intimatica' do
   pod 'IQKeyboardManagerSwift'
   pod 'SideMenu', '~> 6.0'
   pod 'LocalizedTimeAgo', '~> 1.3.0'
+  pod 'Firebase/Analytics'
 end

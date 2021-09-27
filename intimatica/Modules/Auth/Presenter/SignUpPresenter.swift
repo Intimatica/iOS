@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAnalytics
 
 protocol SignUpPresenterProtocol: AuthPresenterDelegate {
     func accountExistButtonDidTap()
@@ -41,6 +42,9 @@ extension SignUpPresenter: SignUpPresenterProtocol {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
                 self.useCase.setAuthToken(authResponse.jwt)
+                
+                FirebaseAnalytics.Analytics.logEvent(AnalyticsEventSignUp, parameters: [:])
+                
                 self.router.trigger(.signUpProfile)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))

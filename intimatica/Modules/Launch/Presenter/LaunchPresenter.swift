@@ -7,6 +7,7 @@
 
 import Foundation
 import XCoordinator
+import FirebaseAnalytics
 
 protocol LaunchPresenterProtocol {
     func viewDidLoad()
@@ -44,6 +45,8 @@ extension LaunchPresenter: LaunchPresenterProtocol {
                     if let token = PushTokenKeeper.sharedInstance.token {
                         self.updatePushToken(with: token)
                     }
+                    
+                    FirebaseAnalytics.Analytics.logEvent("Launch", parameters: [:])
                     
                     self.router.trigger(.home)
                 } else {

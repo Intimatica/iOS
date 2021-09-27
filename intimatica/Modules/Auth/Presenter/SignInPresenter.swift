@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAnalytics
 
 protocol  SignInPresenterProtocol: AuthPresenterDelegate {
     func forgotPasswordButtonDidTap()
@@ -41,6 +42,9 @@ extension SignInPresenter: SignInPresenterProtocol {
             case .success(let authResponse):
                 self.useCase.storeUserCredentials(UserCredentials(email: email, password: password))
                 self.useCase.setAuthToken(authResponse.jwt)
+                
+                FirebaseAnalytics.Analytics.logEvent(AnalyticsEventLogin, parameters: [:])
+                
                 self.router.trigger(.home)
             case .failure(let authError):
                 self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 final class SignInViewController: AuthViewController {
     // MARK: - Properties
@@ -32,6 +33,14 @@ final class SignInViewController: AuthViewController {
         setupView()
         setupConstraints()
         setupActions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        FirebaseAnalytics.Analytics.logEvent(AnalyticsParameterScreenName, parameters: [
+            "screen_name": "SignUp",
+        ])
     }
     
     // MARK: - Layout

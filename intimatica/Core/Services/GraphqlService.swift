@@ -82,14 +82,17 @@ class GraphqlService: GraphqlServiceProtocol {
     private func parseGetPostsGraphQLResult(_ graphQLResult: GraphQLResult<PostsQuery.Data>) -> [Post] {
         var posts: [Post] = []
         
+        // TODO: refactor to streams
         graphQLResult.data?.posts?.forEach({ post in
-            posts.append(PostsQueryData2Post(post: post))
+            if let post = PostsQueryData2Post(post: post) {
+                posts.append(post)
+            }
         })
  
         return posts
     }
     
-    private func PostsQueryData2Post(post: PostsQuery.Data.Post?) -> Post {
+    private func PostsQueryData2Post(post: PostsQuery.Data.Post?) -> Post? {
         guard let post = post,
               let postTypeString = post.postType?.name,
               let postType = PostType(rawValue: postTypeString),
@@ -98,7 +101,8 @@ class GraphqlService: GraphqlServiceProtocol {
               let tags = post.tags
         else {
             // TODO: add logger here
-            fatalError("Failed to parseGraphQLResult: \(String(describing: post))")
+            print("Failed to parseGraphQLResult: \(String(describing: post))")
+            return nil
         }
         
         return Post(id: post.id,

@@ -52,13 +52,15 @@ extension UIViewController {
         activityIndicator.startAnimating()
         spinnerView.addSubview(activityIndicator)
         self.view.addSubview(spinnerView)
-        
+        print("show spinner \(spinnerView) for \(self)")
     }
     
     func hideSpinner() {
         UIView.animate(withDuration: 0.3, animations: {
+            print("hide animation spinner \(spinnerView) for \(self)")
             spinnerView?.alpha = 0
         }, completion: { _ in
+            print("hide completion spinner \(spinnerView) for \(self)")
             spinnerView?.removeFromSuperview()
             spinnerView = nil
         })

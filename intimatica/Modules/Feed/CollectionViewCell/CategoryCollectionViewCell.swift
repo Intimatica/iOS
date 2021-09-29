@@ -18,7 +18,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .init(hex: 0xB38EFF)
-        label.font = .rubik(fontSize: .regular, fontWeight: .medium)
+        label.font = .rubik(fontSize: .subRegular, fontWeight: .medium)
         return label
     }()
     

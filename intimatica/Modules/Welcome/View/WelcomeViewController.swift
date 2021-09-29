@@ -26,7 +26,7 @@ class WelcomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = L10n("WELCOME_GREETING_TEXT")
         label.textColor = .white
-        label.font = .rubik(fontSize: .subTitle, fontWeight: .medium)
+        label.font = .rubik(fontSize: .subTitle, fontWeight: .bold)
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
@@ -37,7 +37,7 @@ class WelcomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("WELCOME_SIGN_UP"), for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = .rubik(fontWeight: .medium)
+        button.titleLabel?.font = .rubik(fontWeight: .bold)
         button.backgroundColor = .appYellow
         return button
     }()
@@ -46,7 +46,7 @@ class WelcomeViewController: UIViewController {
         let button = UIRoundedButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n("WELCOME_SIGN_IN"), for: .normal)
-        button.titleLabel?.font = .rubik(fontWeight: .medium)
+        button.titleLabel?.font = .rubik(fontWeight: .bold)
         button.setTitleColor(.white, for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor

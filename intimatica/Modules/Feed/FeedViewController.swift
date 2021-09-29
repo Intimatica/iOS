@@ -14,7 +14,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
     private let leftSideMenu: UIViewController
     
     internal lazy var activityContainerView: UIView = {
-        UIView(frame: self.tableView.frame)
+        UIView(frame: .zero)
     }()
 
     private var favorites: Set<String> = []
@@ -233,7 +233,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.tableViewLeadingTrailing),
             tableView.topAnchor.constraint(equalTo: topBackgroundView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.tableViewLeadingTrailing),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.tableViewBottom),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -285,7 +285,6 @@ extension FeedViewController {
         static let categoryFilterViewTop: CGFloat = 15
         static let categoryFilterViewHeight: CGFloat = 32
         
-        static let tableViewBottom: CGFloat = 15
         static let tableViewLeadingTrailing: CGFloat = 0
     }
 }
@@ -399,7 +398,7 @@ extension FeedViewController: FeedViewDelegate {
         // TODO refactor this
         posts = []
         tableView.reloadData()
-        showActivityIndicator(with: tableView.frame, opacity: 0)
+        showActivityIndicator(with: tableView.frame, opacity: 0.5)
     }
 }
 
@@ -428,7 +427,7 @@ extension FeedViewController: UICollectionViewDelegate {
         
         posts = []
         tableView.reloadData()
-        showActivityIndicator(with: tableView.frame, opacity: 0)
+        showActivityIndicator(with: tableView.frame, opacity: 0.5)
         
         if let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as? CategoryCollectionViewCell {
             selectedCell.setState(.normal)

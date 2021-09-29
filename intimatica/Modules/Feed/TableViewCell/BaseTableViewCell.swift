@@ -130,15 +130,15 @@ extension BaseTableViewCell {
         static let postViewLeadingTrailing: CGFloat = 15
         static let backgroundImageViewHeight: CGFloat = 130
         
-        static let favoriteButtonViewTopTrailing: CGFloat = 13
+        static let favoriteButtonViewTopTrailing: CGFloat = 15
         static let postLabelLeading: CGFloat = 13
         
         static let tagStackViewHeight: CGFloat = 17
-        static let tagStackViewLeadingTrailing: CGFloat = 25
+        static let tagStackViewLeadingTrailing: CGFloat = 15
         static let tagStackViewTop: CGFloat = 15
         
         static let titleLabelTop: CGFloat = 6
-        static let titleLabelLeadingTrailing: CGFloat = 25
+        static let titleLabelLeadingTrailing: CGFloat = 15
         static let titleLabelBottom: CGFloat = 20
         
         static let playImageViewWidthHeight: CGFloat = 66

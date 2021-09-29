@@ -12,7 +12,7 @@ class StoryViewController: BasePostViewController {
     private let presenter: StoryPresenterProtocol
     
     private lazy var storyView = StoryView()
-    private lazy var tellStoryView = TellStoryView()
+    private lazy var tellStoryView = TellStoryView(screen: .story)
     private lazy var allowedPublishingView = AllowedPublishingView()
 
     

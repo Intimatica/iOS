@@ -7,8 +7,28 @@
 
 import UIKit
 
+protocol TellStoryViewConstantsProtocol {
+    var backgroundImageName: String { get }
+    var titleText: String { get }
+    var actionButtonText: String { get }
+    
+    var titleLabelTop: CGFloat { get }
+    var titleLeadingTrailing: CGFloat { get }
+    
+    var actionButtonHeight: CGFloat { get }
+    var actionButtonTop: CGFloat { get }
+    var actionButtonBottom: CGFloat { get }
+}
+
 final class TellStoryView: UIView {
+    enum Screen {
+        case story
+        case profile
+    }
+    
     // MARK: - Properties
+    private let settings: TellStoryViewConstantsProtocol
+    
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +59,14 @@ final class TellStoryView: UIView {
     }()
     
     // MARK: - Initializers
-    init() {
+    init(screen: Screen) {
+        switch screen {
+        case .story:
+            settings = StoryConstants()
+        case .profile:
+            settings = ProfileConstants()
+        }
+        
         super.init(frame: .zero)
         
         setupView()
@@ -56,6 +83,10 @@ final class TellStoryView: UIView {
         layer.cornerRadius = 35
         layer.masksToBounds = true
         
+        backgroundImageView.image = UIImage(named: settings.backgroundImageName)
+        titleLabel.text = settings.titleText
+        actionButton.setTitle(settings.actionButtonText, for: .normal)
+        
         addSubview(backgroundImageView)
         addSubview(titleLabel)
         addSubview(actionButton)
@@ -65,29 +96,46 @@ final class TellStoryView: UIView {
         backgroundImageView.fillSuperview()
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.titleLeadingTrailing),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.titleLabelTop),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.titleLeadingTrailing),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: settings.titleLeadingTrailing),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: settings.titleLabelTop),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -settings.titleLeadingTrailing),
             // QUESTION how to remove this?
             titleLabel.heightAnchor.constraint(equalToConstant: 70),
             
-            actionButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight),
+            actionButton.heightAnchor.constraint(equalToConstant: settings.actionButtonHeight),
             actionButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            actionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.actionButtonTop),
+            actionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: settings.actionButtonTop),
             actionButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.actionButtonBottom),
+            actionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -settings.actionButtonBottom),
         ])
     }
 }
 
 // MARK: - Helper/Constants
 extension TellStoryView {
-    struct Constants {
-        static let titleLabelTop: CGFloat = 40
-        static let titleLeadingTrailing: CGFloat = 25
+    struct StoryConstants: TellStoryViewConstantsProtocol {
+        var backgroundImageName: String = "tell_story_background"
+        var titleText: String = L10n("STORY_TELL_TITLE_LABEL")
+        var actionButtonText: String = L10n("STORY_TELL_BUTTON_LABEL")
         
-        static let actionButtonHeight: CGFloat = 50
-        static let actionButtonTop: CGFloat = 20
-        static let actionButtonBottom: CGFloat = 50
+        let titleLabelTop: CGFloat = 40
+        let titleLeadingTrailing: CGFloat = 25
+        
+        let actionButtonHeight: CGFloat = 50
+        let actionButtonTop: CGFloat = 20
+        let actionButtonBottom: CGFloat = 50
+    }
+    
+    struct ProfileConstants: TellStoryViewConstantsProtocol {
+        var backgroundImageName: String = "tellstory_background_for_profile"
+        var titleText: String = L10n("PROFILE_TELL_TITLE_LABEL")
+        var actionButtonText: String = L10n("PROFILE_TELL_BUTTON_LABEL")
+        
+        let titleLabelTop: CGFloat = 25
+        let titleLeadingTrailing: CGFloat = 25
+        
+        let actionButtonHeight: CGFloat = 50
+        let actionButtonTop: CGFloat = 10
+        let actionButtonBottom: CGFloat = 25
     }
 }

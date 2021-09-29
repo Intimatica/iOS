@@ -32,6 +32,8 @@ final class ProfileViewController: UIViewController {
     
     private lazy var profileView = ProfileView()
     
+    private lazy var tellStoryView = TellStoryView(screen: .profile)
+    
     private lazy var tableTitleLabel = UILabel(font: .rubik(fontSize: .subTitle, fontWeight: .bold),
                                                text: L10n("PROFILE_TABLE_TITLE"))
     
@@ -111,6 +113,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(profileView)
+        contentView.addSubview(tellStoryView)
         contentView.addSubview(tableTitleLabel)
         contentView.addSubview(tableView)
         contentView.addSubview(activityIndicatorView)
@@ -141,9 +144,14 @@ final class ProfileViewController: UIViewController {
             make.leading.top.trailing.equalTo(contentView)
         }
         
+        tellStoryView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(contentView).inset(Constants.tellStoryViewLeadingTrailing)
+            make.top.equalTo(profileView.snp.bottom).offset(Constants.tellStoryViewTop)
+        }
+        
         tableTitleLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(Constants.tableTitleLabelLeading)
-            make.top.equalTo(profileView.snp.bottom).offset(Constants.tableTitleLabelTop)
+            make.top.equalTo(tellStoryView.snp.bottom).offset(Constants.tableTitleLabelTop)
         }
         
         tableView.snp.makeConstraints { make in
@@ -167,14 +175,20 @@ final class ProfileViewController: UIViewController {
         profileView.premiumButton.addAction { [weak self] in
             self?.presenter.applyForPremiumButtonDidTap()
         }
+        
+        tellStoryView.actionButton.addAction { [weak self] in
+            self?.presenter.tellStoryButtonDidTap()
+        }
     }
 }
 
 // MARK: - Helper/Constants
 extension ProfileViewController {
     struct Constants {
+        static let tellStoryViewTop: CGFloat = 20
+        static let tellStoryViewLeadingTrailing: CGFloat = 15
         static let tableTitleLabelLeading: CGFloat = 15
-        static let tableTitleLabelTop: CGFloat = 30
+        static let tableTitleLabelTop: CGFloat = 25
     }
 }
 
@@ -193,6 +207,8 @@ extension ProfileViewController: ProfileViewDelegate {
         self.stories = stories
         tableView.reloadData()
 
+        tableTitleLabel.isHidden = stories.isEmpty
+        
         tableHeightConstraint?.layoutConstraints.first?.constant = view.frame.height * CGFloat(stories.count)
         tableView.layoutIfNeeded()
         tableHeightConstraint?.layoutConstraints.first?.constant = tableView.contentSize.height

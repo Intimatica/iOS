@@ -106,8 +106,13 @@ TAG_CLOUD_SHOW_BUTTON_TITLE = "Показать";
 TAG_CLOUD_CLEAR_BUTTON_TITLE = "Очистить";
 
 STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
+
+// TellStoryView
 STORY_TELL_TITLE_LABEL = "Хотите рассказать свою историю?";
 STORY_TELL_BUTTON_LABEL = "Рассказать";
+PROFILE_TELL_TITLE_LABEL = "Поделись историей и получи ответ психолога";
+PROFILE_TELL_BUTTON_LABEL = "Рассказать историю";
+
 
 // TellStoryViewController
 TELL_STORY_TITLE = "Моя история";

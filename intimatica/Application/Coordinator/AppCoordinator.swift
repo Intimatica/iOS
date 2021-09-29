@@ -12,6 +12,7 @@ typealias AppRouter = StrongRouter<AppRoute>
 typealias FeedRouter = StrongRouter<FeedRoute>
 typealias ProfileRouter = StrongRouter<ProfileRoute>
 typealias ResetPasswordRouter = StrongRouter<ResetPasswordRoute>
+typealias TellStoryRouter = StrongRouter<TellStoryRoute>
 
 enum AppRoute: Route {
     case launch

@@ -21,7 +21,6 @@ enum FeedRoute: Route {
     case courseFinished(String, String)
 
     case tellStory
-    case tellStoryThanks
     
     case helpPage
     case aboutPage
@@ -103,14 +102,9 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             return .present(viewController)
             
         case .tellStory:
-            let presenter = TellStoryPresenter(router: strongRouter, dependencies: useCaseProvider)
-            let viewController = TellStoryViewController(presenter: presenter)
-            presenter.view = viewController
-            return .present(viewController)
-            
-        case .tellStoryThanks:
-            let viewController = TellStoryThanksViewController()
-            return .multiple(.dismiss(), .present(viewController))
+            let coordinator = TellStoryCoordinator(useCaseProvider: useCaseProvider)
+            coordinator.rootViewController.modalPresentationStyle = .popover
+            return .present(coordinator)
         
         case .helpPage:
             let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: HelpPageQuery())

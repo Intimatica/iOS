@@ -10,9 +10,13 @@ import MarkdownView
 import Kingfisher
 import FirebaseAnalytics
 
-class BasePostViewController: UIViewController {
+class BasePostViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: BasePostPresenterProtocol
+    
+    lazy var activityContainerView: UIView = {
+        UIView(frame: view.frame)
+    }()
     
     private var isFavorite = false
     private var rightBarButtonType: RightBarButtonItem.ButtonType = .favorite
@@ -105,7 +109,7 @@ class BasePostViewController: UIViewController {
         setupConstraints()
         setupActions()
         
-        showSpinner()
+        showActivityIndicator(with: view.frame)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,7 +164,7 @@ class BasePostViewController: UIViewController {
     }
     
     @objc func display(_ error: Error) {
-        hideSpinner()
+        hideActivityIndicator()
         showError(error.localizedDescription)
     }
     

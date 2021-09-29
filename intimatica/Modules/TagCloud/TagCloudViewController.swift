@@ -88,7 +88,7 @@ final class TagCloudViewController: PopViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showSpinner()
+        showActivityIndicator()
     }
     
     // MARK: - Layout
@@ -186,7 +186,7 @@ extension TagCloudViewController: TagCloudViewDelegate {
         view.layoutIfNeeded()
         view.layoutSubviews()
         
-        hideSpinner()
+        hideActivityIndicator()
     }
     
     func displayError(_ text: String) {

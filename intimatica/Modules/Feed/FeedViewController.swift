@@ -8,10 +8,14 @@
 import UIKit
 import SideMenu
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: FeedPresenterDelegate
     private let leftSideMenu: UIViewController
+    
+    internal lazy var activityContainerView: UIView = {
+        UIView(frame: self.tableView.frame)
+    }()
 
     private var favorites: Set<String> = []
     private var posts: [Post] = []
@@ -189,7 +193,7 @@ class FeedViewController: UIViewController {
         cell.setState(.selected)
         
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
-        showSpinner(frame: tableView.bounds, opacity: 0)
+        showActivityIndicator(with: tableView.frame, opacity: 0.5)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -380,7 +384,7 @@ extension FeedViewController: FeedViewDelegate {
         self.posts = posts
         tableView.reloadData()
         
-        hideSpinner()
+        hideActivityIndicator()
     }
     
     func setHasSelectedTags(to has: Bool) {
@@ -395,7 +399,7 @@ extension FeedViewController: FeedViewDelegate {
         // TODO refactor this
         posts = []
         tableView.reloadData()
-        showSpinner(frame: tableView.bounds, opacity: 0)
+        showActivityIndicator(with: tableView.frame, opacity: 0)
     }
 }
 
@@ -424,7 +428,7 @@ extension FeedViewController: UICollectionViewDelegate {
         
         posts = []
         tableView.reloadData()
-        showSpinner(frame: tableView.bounds, opacity: 0)
+        showActivityIndicator(with: tableView.frame, opacity: 0)
         
         if let selectedCell = collectionView.cellForItem(at: selectedCategoryIndexPath) as? CategoryCollectionViewCell {
             selectedCell.setState(.normal)

@@ -26,46 +26,37 @@ extension UIViewController {
     }
 }
 
-fileprivate var spinnerView: UIView?
+protocol ActivityIndicatable {
+    var activityContainerView: UIView { get }
+}
 
-// MARK: Helper/Spinner
-extension UIViewController {
-
-    func showSpinner() {
-        showSpinner(frame: self.view.bounds)
+extension ActivityIndicatable where Self: UIViewController {
+    func showActivityIndicator() {
+        showActivityIndicator(with: view.frame)
     }
     
-    func showSpinner(frame: CGRect, opacity: CGFloat = 1) {
-        spinnerView = UIView(frame: frame)
-        
-        guard let spinnerView = spinnerView else { return }
-        
-        if opacity != 1 {
-            spinnerView.backgroundColor = .black.withAlphaComponent(opacity)
-        } else {
-            spinnerView.backgroundColor = .white
-        }
-        
+    func showActivityIndicator(with frame: CGRect, opacity: CGFloat = 1.0) {
+        activityContainerView.frame = frame
+        activityContainerView.backgroundColor = opacity != 1 ? .black.withAlphaComponent(opacity) : .white
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = spinnerView.center
+        activityIndicator.center = activityContainerView.center
         activityIndicator.startAnimating()
-        spinnerView.addSubview(activityIndicator)
-        self.view.addSubview(spinnerView)
-        print("show spinner \(spinnerView) for \(self)")
+        activityIndicator.hidesWhenStopped = true
+        activityContainerView.addSubview(activityIndicator)
+        view.addSubview(activityContainerView)
     }
-    
-    func hideSpinner() {
-        UIView.animate(withDuration: 0.3, animations: {
-            print("hide animation spinner \(spinnerView) for \(self)")
-            spinnerView?.alpha = 0
-        }, completion: { _ in
-            print("hide completion spinner \(spinnerView) for \(self)")
-            spinnerView?.removeFromSuperview()
-            spinnerView = nil
+
+    func hideActivityIndicator() {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.activityContainerView.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.activityContainerView.removeFromSuperview()
         })
     }
-    
+}
+
+extension UIViewController {
     func hideNavigationBarBottomLine() {
         let navigationBar = navigationController?.navigationBar
         let navigationBarAppearence = UINavigationBarAppearance()

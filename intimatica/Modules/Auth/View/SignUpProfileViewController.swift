@@ -46,7 +46,7 @@ class SignUpProfileViewController: AuthViewController {
         setupConstraints()
         setupActions()
         
-        showSpinner()
+        showActivityIndicator()
         presenter.viewDidLoad()
     }
     
@@ -122,7 +122,7 @@ extension SignUpProfileViewController {
 // MARK: - SignUpProfileViewDelegate
 extension SignUpProfileViewController: SignUpProfileViewDelegate {
     func setGenders(_ genders: [String]) {
-        hideSpinner()
+        hideActivityIndicator()
         (genderView.textField.inputView as? PickerKeyboard)?.data = genders
     }
 }

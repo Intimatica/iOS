@@ -8,9 +8,12 @@
 import UIKit
 import SnapKit
 
-class ResetPasswordBaseViewController: UIViewController {
+class ResetPasswordBaseViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: ResetPasswordBasePresenterDelegate
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
         
     lazy var containerView = UIView()
     
@@ -106,7 +109,7 @@ class ResetPasswordBaseViewController: UIViewController {
     private func setupActions() {
         actionButton.addAction { [weak self] in
             guard let self = self else { return }
-            self.showSpinner(frame: self.view.frame, opacity: 0.5)
+            self.showActivityIndicator(with: self.view.frame, opacity: 0.5)
             self.presenter.actionButtonDidTap()
         }
     }
@@ -123,8 +126,12 @@ extension ResetPasswordBaseViewController {
 
 // MARK: - ResetPasswordBaseViewControllerDelegate
 extension ResetPasswordBaseViewController: ResetPasswordBaseViewControllerDelegate {
+    func hideSpinner() {
+        hideActivityIndicator()
+    }
+    
     func showValidationError(for field: ResetPasswordFieldType, message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         
         switch field {
         case .email:
@@ -160,7 +167,7 @@ extension ResetPasswordBaseViewController: ResetPasswordBaseViewControllerDelega
     }
     
     func displayError(message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         showError(message)
     }
 }

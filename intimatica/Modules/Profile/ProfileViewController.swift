@@ -8,9 +8,12 @@
 import UIKit
 import SnapKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: ProfilePresenterDelegate
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
     private var stories: [UserStoriesQuery.Data.Story] = []
     private let storyCellID = "StoryTableViewCellID"
   
@@ -195,7 +198,7 @@ extension ProfileViewController {
 // MARK: - ProfileViewDelegate
 extension ProfileViewController: ProfileViewDelegate {
     func displayError(_ message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         showError(message)
     }
     

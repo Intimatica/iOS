@@ -73,7 +73,7 @@ class TheoryViewController: BasePostViewController {
     
     private func setupAction() {
         markdownView.onRendered = { [weak self] height in
-            self?.hideSpinner()
+            self?.hideActivityIndicator()
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }

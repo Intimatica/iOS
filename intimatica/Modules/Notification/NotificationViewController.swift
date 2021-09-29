@@ -8,9 +8,12 @@
 import UIKit
 import SnapKit
 
-class NotificationViewController: UIViewController {
+class NotificationViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: NotificationPresenterDelegate
+    internal lazy var activityContainerView: UIView = {
+        UIView(frame: view.frame)
+    }()
     private var posts: [NotificationsQuery.Data.PostNotification] = []
     private var viewedPosts: Set<String> = []
     private let cellID = "NotificationCellID"
@@ -61,7 +64,7 @@ class NotificationViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         
         presenter.viewWillAppear()
-        showSpinner()
+        showActivityIndicator(with: view.frame)
         
         NotificationCenter.default.addObserver(
               self,
@@ -124,7 +127,7 @@ extension NotificationViewController: NotificationViewControllerDelegate {
     func setNotificatons(_ notifications: [NotificationsQuery.Data.PostNotification]) {
         posts = notifications
         tableView.reloadData()
-        hideSpinner()
+        hideActivityIndicator()
     }
     
     func setViewedNotifications(_ viewNotifications: Set<String>) {

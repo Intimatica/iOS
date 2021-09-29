@@ -122,7 +122,7 @@ extension VideoViewController: VideoViewProtocol {
         markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
 
         markdownView.onRendered = { [weak self] height in
-            self?.hideSpinner()
+            self?.hideActivityIndicator()
         }
         
         addToAnalytics(postId: post.id, postTitle: post.title)

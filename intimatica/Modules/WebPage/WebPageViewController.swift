@@ -8,9 +8,12 @@
 import UIKit
 import MarkdownView
 
-class WebPageViewController: UIViewController {
+class WebPageViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: WebPagePresenterProtocol
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
     private lazy var closeButton = CloseButton()
     private lazy var markdownView: MarkdownView = {
         let markdownView = MarkdownView()
@@ -37,7 +40,7 @@ class WebPageViewController: UIViewController {
         setupConstraints()
         setupAction()
         
-        showSpinner()
+        showActivityIndicator()
         
         presenter.viewDidLoad()
     }
@@ -70,7 +73,7 @@ class WebPageViewController: UIViewController {
         }
         
         markdownView.onRendered = { [weak self] _ in
-            self?.hideSpinner()
+            self?.hideActivityIndicator()
         }
     }
 }
@@ -92,7 +95,7 @@ extension WebPageViewController: WebPageViewProtocol {
     }
     
     func displayError(_ message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         showError(message)
     }
 }

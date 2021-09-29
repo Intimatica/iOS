@@ -7,9 +7,12 @@
 
 import UIKit
 
-class UpdatePasswordViewController: UIViewController {
+class UpdatePasswordViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
     private let presenter: UpdatePasswordPresenterDelegate
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
     
     private lazy var currentPassword = TextFieldView(field: .password(.settings(
                                                                         placeholder: L10n("CHANGE_PASSWORD_CURRENT_PASSWORD_TITLE"),
@@ -143,7 +146,7 @@ extension UpdatePasswordViewController: UpdatePasswordViewControllerDelegate {
     }
     
     func showValidationError(for fieldContent: UpdatePasswordFieldType, message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         
         switch fieldContent {
         case .currentPassword:

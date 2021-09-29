@@ -7,8 +7,11 @@
 
 import UIKit
 
-class PopViewController: UIViewController {
+class PopViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
     lazy var closeButton = CloseButton()
     
     // MARK: - Lifecycle

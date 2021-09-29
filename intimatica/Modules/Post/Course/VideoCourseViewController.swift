@@ -253,7 +253,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         markdownView.load(markdown: fixContentStrapiLinks(content) + webViewSettings, enableImage: true)
        
         markdownView.onRendered = { [weak self] height in
-            self?.hideSpinner()
+            self?.hideActivityIndicator()
             self?.markdownView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         

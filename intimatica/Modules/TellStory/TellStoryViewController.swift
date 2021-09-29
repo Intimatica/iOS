@@ -155,7 +155,7 @@ class TellStoryViewController: PopViewController {
         sendButton.addAction { [weak self] in
             guard let self = self else { return }
             
-            self.showSpinner(frame: self.view.bounds, opacity: 0.3)
+            self.showActivityIndicator(with: self.view.bounds, opacity: 0.5)
             self.presenter.sendButtonDidTap(with: self.messageTextView.text ?? "",
                                             isAllowedToPublish: self.publishingAgreeView.state == .active)
         }

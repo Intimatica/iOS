@@ -7,10 +7,13 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, ActivityIndicatable {
 
     // MARK: - Properties
     private let presenter: AuthPresenterDelegate
+    lazy var activityContainerView: UIView = {
+        UIView(frame: .zero)
+    }()
     
     lazy var contentView: UIView = {
         let view = UIView()
@@ -148,7 +151,7 @@ class AuthViewController: UIViewController {
                   let password = self.passwordView.textField.text
             else { return }
             
-            self.showSpinner(frame: self.view.bounds, opacity: 0.5)
+            self.showActivityIndicator(with: self.view.bounds, opacity: 0.5)
             self.presenter.doAuthButtonDidTap(email: email, password: password)
         }
     }
@@ -184,7 +187,7 @@ extension AuthViewController {
 // MARK: - AuthViewProtocol
 extension AuthViewController: AuthViewDelegate {
     func displayError(_ message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         showError(message)
     }
     
@@ -193,13 +196,13 @@ extension AuthViewController: AuthViewDelegate {
     }
     
     func showNotification(_ message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         
         showError(message)
     }
     
     func showValidationError(for fieldContent: FieldType, message: String) {
-        hideSpinner()
+        hideActivityIndicator()
         
         switch fieldContent {
         case .email:

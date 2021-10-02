@@ -12,15 +12,15 @@ class LeftSideMenuViewController: UIViewController {
     // MARK: - Properties
     private let presenter: LeftSideMenuPresenterDelegate
     
-    private lazy var helpButton = createMenuButton(title: L10n("MENU_ITEM_HELP"), imageName: "help_button_icon_x2")
-    private lazy var aboutButton = createMenuButton(title: L10n("MENU_ITEM_ABOUT"), imageName: "about_icon_x2")
+    private lazy var helpButton = createMenuButton(title: L10n("MENU_ITEM_HELP"), imageName: "menu_help")
+    private lazy var aboutButton = createMenuButton(title: L10n("MENU_ITEM_ABOUT"), imageName: "menu_about")
     private lazy var termsAndConditionsButton = createMenuButton(title: L10n("MENU_ITEM_TERMS_AND_CONDITIONS"),
-                                                                 imageName: "terms_and_condition_icon_x2")
-    private lazy var privacyPolicyButtton = createMenuButton(title: L10n("MENU_ITEM_PRIVACY_POLICY"), imageName: "lock_x3")
+                                                                 imageName: "menu_terms_and_conditions")
+    private lazy var privacyPolicyButtton = createMenuButton(title: L10n("MENU_ITEM_PRIVACY_POLICY"), imageName: "menu_privacy")
     
     private lazy var applyForPremiumButton = ApplyForPremiumButton()
     
-    private lazy var logoutButton = createMenuButton(title: L10n("MENU_ITEM_LOGOUT"), imageName: "logout_icon_x2")
+    private lazy var logoutButton = createMenuButton(title: L10n("MENU_ITEM_LOGOUT"), imageName: "menu_logout")
     
     // MARK: - Initializers
     init(presenter: LeftSideMenuPresenterDelegate) {

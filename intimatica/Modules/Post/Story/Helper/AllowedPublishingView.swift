@@ -18,7 +18,7 @@ final class AllowedPublishingView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "course_selection_button_image_active")
+        imageView.image = UIImage(named: "course_selection_active")
         return imageView
     }()
     

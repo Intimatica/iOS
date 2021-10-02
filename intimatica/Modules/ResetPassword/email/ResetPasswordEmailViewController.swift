@@ -16,7 +16,7 @@ class ResetPasswordEmailViewController: ResetPasswordBaseViewController {
         let barButton = UIBarButtonItem()
         barButton.title = ""
         barButton.tintColor = .appDarkPurple
-        barButton.primaryAction = UIAction(image: UIImage(named: "back_button_icon")) { [weak self] _ in
+        barButton.primaryAction = UIAction(image: UIImage(named: "back_button")) { [weak self] _ in
             self?.presenter.dismissButtomDidTap()
         }
         return barButton

@@ -87,8 +87,8 @@ final class FavoriteButtonView: UIView {
 // MARK: - Helper/Constants
 extension FavoriteButtonView {
     struct Constants {
-        static let imageNameForActive = "favorite_button_active"
-        static let imageNameForInactive = "favorite_button_inactive"
+        static let imageNameForActive = "favorite_active"
+        static let imageNameForInactive = "favorite_inactive"
         
         static let viewWidthHeight: CGFloat = 30
         static let viewBackgroundColorForInactive: UIColor = .appDarkPurple.withAlphaComponent(0.5)

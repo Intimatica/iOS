@@ -134,8 +134,8 @@ final class CourseButtonView: UIView {
 // MARK: - Helper/Constants
 extension CourseButtonView {
     struct Constants {
-        static let imageNameForActive = "course_selection_button_image_active"
-        static let imageNameForInactive = "course_selection_button_image_inactive"
+        static let imageNameForActive = "course_selection_active"
+        static let imageNameForInactive = "course_selection_inactive"
         
         static let textLabelLeading: CGFloat = 15
         static let textLabelTopBottomForPostFeed: CGFloat = 7

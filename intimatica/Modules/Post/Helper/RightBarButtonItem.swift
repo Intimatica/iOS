@@ -92,7 +92,7 @@ class RightBarButtonItem: UIBarButtonItem {
 // MARK: - Helper/Constants
 extension RightBarButtonItem {
     struct Constants {
-        static let favoriteActiveImageName = "favorite_button_active_x2"
-        static let favoriteInactiveImageName = "favorite_button_inactive_x2"
+        static let favoriteActiveImageName = "favorite_barbutton_active"
+        static let favoriteInactiveImageName = "favorite_barbutton_inactive"
     }
 }

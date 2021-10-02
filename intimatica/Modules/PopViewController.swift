@@ -49,7 +49,7 @@ class PopViewController: UIViewController, ActivityIndicatable {
 // MARK: - Helper/Constants
 extension PopViewController {
     struct Constants {
-        static let closeButtonWidth: CGFloat = 40
+        static let closeButtonWidth: CGFloat = 21
         static let closeButtonTopTrailing: CGFloat = 15
     }
 }

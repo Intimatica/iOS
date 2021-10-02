@@ -7,22 +7,16 @@
 
 import UIKit
 
-class AuthViewController: UIViewController, ActivityIndicatable {
-
+class AuthViewController: PopViewController {
     // MARK: - Properties
     private let presenter: AuthPresenterDelegate
-    lazy var activityContainerView: UIView = {
-        UIView(frame: .zero)
-    }()
     
     lazy var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    lazy var closeButton = CloseButton()
-    
+        
     lazy var emailView = TextFieldView(field: .email(
                                                 .settings(placeholder: L10n("AUTH_EMAIL_FIELD_PLACEHOLDER"), returnKeyType: .next)))
     
@@ -119,12 +113,7 @@ class AuthViewController: UIViewController, ActivityIndicatable {
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
-            closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
-            
+
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.titleLabelLeadingTrailing),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.titleLabelLeadingTrailing),
@@ -160,9 +149,6 @@ class AuthViewController: UIViewController, ActivityIndicatable {
 // MARK: - Helper/Constants
 extension AuthViewController {
     private struct Constants {
-        static let closeButtonWidth: CGFloat = 40
-        static let closeButtonTopTrailing: CGFloat = 15
-        
         static let titleLabelLeadingTrailing: CGFloat = 45
         
         static let stackViewSpacing: CGFloat = 30

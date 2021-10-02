@@ -47,11 +47,11 @@ class EyeButton: UIButton {
     private func changeImage(to imageState: ImageState) {
         switch(imageState) {
         case .inactive:
-            setBackgroundImage(UIImage(named: "eye_gray_cross_out"), for: .normal)
+            setBackgroundImage(UIImage(named: "password_hidden_inactive"), for: .normal)
         case .active:
-            setBackgroundImage(UIImage(named: "eye_black_cross_out"), for: .normal)
+            setBackgroundImage(UIImage(named: "password_hidden_active"), for: .normal)
         case .insecure:
-            setBackgroundImage(UIImage(named: "eye_black"), for: .normal)
+            setBackgroundImage(UIImage(named: "password_visable_active"), for: .normal)
         }
     }
 }

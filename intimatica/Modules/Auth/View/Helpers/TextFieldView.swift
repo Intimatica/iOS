@@ -169,7 +169,7 @@ final class TextFieldView: UIView {
             eyeButton.topAnchor.constraint(equalTo: textField.topAnchor),
             eyeButton.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             eyeButton.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
-            eyeButton.widthAnchor.constraint(equalTo: eyeButton.heightAnchor)
+            eyeButton.widthAnchor.constraint(equalTo: eyeButton.heightAnchor, multiplier: 17.72 / 14.6)
         ])
     }
     

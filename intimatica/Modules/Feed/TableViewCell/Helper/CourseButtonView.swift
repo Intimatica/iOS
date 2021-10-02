@@ -51,6 +51,7 @@ final class CourseButtonView: UIView {
     
     lazy var actionButton: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = .systemFont(ofSize: 10)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

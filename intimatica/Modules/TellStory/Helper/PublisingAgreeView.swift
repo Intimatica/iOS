@@ -70,8 +70,8 @@ class PublishingAgreeView: UIView {
 // MARK: - Helper/Constants
 extension PublishingAgreeView {
     struct Constants {
-        static let actionButtonBackgrounImageForActive = "check_active_x2"
-        static let actionButtonBackgrounImageForInactive = "check_inactive_x2"
+        static let actionButtonBackgrounImageForActive = "radio_active_purple"
+        static let actionButtonBackgrounImageForInactive = "radio_inactive_gray"
         
         static let actionButtonHeightWidth: CGFloat = 30
         static let titleLabelLeading: CGFloat = 15

@@ -17,8 +17,8 @@ class CheckboxWithLabelView: UIView {
     lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "radio_button"), for: .normal)
-        button.setImage(UIImage(named: "radio_button_selected"), for: .selected)
+        button.setImage(UIImage(named: "radio_inactive_white"), for: .normal)
+        button.setImage(UIImage(named: "radio_active_yellow"), for: .selected)
         return button
     }()
 

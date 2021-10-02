@@ -101,7 +101,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
     
     private lazy var leftBarButtonItem: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: nil,
-                        image: UIImage(named: "burger_menu_x1.5"),
+                        image: UIImage(named: "menu"),
                         primaryAction: nil,
                         menu: nil)
         
@@ -275,11 +275,11 @@ class FeedViewController: UIViewController, ActivityIndicatable {
 // MARK: - Helper/Constraints
 extension FeedViewController {
     struct Constants {
-        static let rightBarButtonItemImageForActive = "tags_active_x2"
-        static let rightBarButtonItemImageForInactive = "tags_inactive_x2"
+        static let rightBarButtonItemImageForActive = "tag_filter_active"
+        static let rightBarButtonItemImageForInactive = "tag_filter_inactive"
         
-        static let bellBarButtonForActive = "bell_active_x2"
-        static let bellBarButtonForInactive = "bell_inactive_x2"
+        static let bellBarButtonForActive = "notifications_active"
+        static let bellBarButtonForInactive = "notifications_inactive"
         
         static let categoryFilterViewLeading: CGFloat = 15
         static let categoryFilterViewTop: CGFloat = 15

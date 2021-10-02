@@ -15,12 +15,12 @@ protocol FeedSettings {
 
 struct PostFeedSettings: FeedSettings {
     let tabBarTitle = L10n("POST_LIST_TABBAR_ITEM_TITLE")
-    let tabBarImageName = "posts"
+    let tabBarImageName = "tabbar_main_inactive"
     let categories: [FeedCategory] = [.all, .theory, .story, .video, .favorite]
 }
 
 struct CourseFeedSettings: FeedSettings {
     let tabBarTitle = L10n("COURSES_TABBAR_ITEM_TITLE")
-    let tabBarImageName = "courses"
+    let tabBarImageName = "tabbar_course_inactive"
     let categories: [FeedCategory] = [.allCourses, .myCourses]
 }

@@ -76,7 +76,7 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
         super.init(nibName: nil, bundle: nil)
 
         tabBarItem = UITabBarItem(title: L10n("PROFILE_TABBAR_ITEM_TITLE"),
-                                  image: UIImage(named: "profile"),
+                                  image: UIImage(named: "tabbar_profile_inactive"),
                                   tag: 0)
     }
     

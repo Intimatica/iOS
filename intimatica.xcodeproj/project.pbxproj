@@ -16,7 +16,6 @@
 		DB0BC67626EA3B02007D097D /* PushTokenKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */; };
 		DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */; };
 		DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */; };
-		DB0BC68026F0C490007D097D /* aler1.apns in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC67F26F0C490007D097D /* aler1.apns */; };
 		DB0BC68326F0E91C007D097D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68226F0E91C007D097D /* NotificationViewController.swift */; };
 		DB0BC68526F0E92B007D097D /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */; };
 		DB0BC68726F0F089007D097D /* Notifications.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC68626F0F089007D097D /* Notifications.graphql */; };
@@ -196,6 +195,7 @@
 		1B1D93AEC6467AC0D96AA317 /* Pods-intimatica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.debug.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.debug.xcconfig"; sourceTree = "<group>"; };
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0A98B32709E271009B3C8D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0BC66626E10CB6007D097D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Pods/MarkdownView/Sources/MarkdownView/Resources/index.html; sourceTree = SOURCE_ROOT; };
 		DB0BC66726E10CB6007D097D /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.css; sourceTree = SOURCE_ROOT; };
 		DB0BC66826E10CB6007D097D /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.js; sourceTree = SOURCE_ROOT; };
@@ -204,7 +204,6 @@
 		DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenKeeper.swift; sourceTree = "<group>"; };
 		DB0BC67B26EF6C18007D097D /* ApplyForPremiumButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForPremiumButton.swift; sourceTree = "<group>"; };
 		DB0BC67D26EF6C4D007D097D /* StringProtocol+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Utils.swift"; sourceTree = "<group>"; };
-		DB0BC67F26F0C490007D097D /* aler1.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = aler1.apns; sourceTree = "<group>"; };
 		DB0BC68226F0E91C007D097D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		DB0BC68426F0E92B007D097D /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		DB0BC68626F0F089007D097D /* Notifications.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notifications.graphql; sourceTree = "<group>"; };
@@ -786,7 +785,6 @@
 				DB2F8B19269EDB21007020C0 /* Modules */,
 				DB2F8B17269EDA69007020C0 /* Application */,
 				DB2F8B13269ECEF9007020C0 /* Resources */,
-				DB0BC67F26F0C490007D097D /* aler1.apns */,
 			);
 			path = intimatica;
 			sourceTree = "<group>";
@@ -1218,7 +1216,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				ru,
 			);
 			mainGroup = DB6F316B269DA973005E7578;
@@ -1270,7 +1267,6 @@
 				DB2F8B9B26A371B9007020C0 /* README.txt in Resources */,
 				DB2F8B8C26A371B9007020C0 /* Rubik-VariableFont_wght.ttf in Resources */,
 				DB2F8B9626A371B9007020C0 /* Rubik-Italic.ttf in Resources */,
-				DB0BC68026F0C490007D097D /* aler1.apns in Resources */,
 				DB2F8B9226A371B9007020C0 /* Rubik-ExtraBoldItalic.ttf in Resources */,
 				DBFA7C5026C515920042D31D /* Tags.graphql in Resources */,
 				DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */,
@@ -1498,6 +1494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DB2F8B2C269F3CB2007020C0 /* en */,
+				DB0A98B32709E271009B3C8D /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -27,7 +27,7 @@ protocol HasAuthUseCaseProtocol {
     var authUseCase: AuthUseCaseProtocol { get }
 }
 
-final class AuthUseCase: AuthUseCaseProtocol {
+final class AuthUseCase: NSObject, AuthUseCaseProtocol {
     // MARK: - Properties
     private let repository: AuthRepositoryProtocol
     
@@ -70,5 +70,17 @@ final class AuthUseCase: AuthUseCaseProtocol {
     
     func isPasswordValid(_ string: String?) -> Bool {
         return repository.isPasswordValid(string)
+    }
+}
+
+
+extension AuthUseCase: UIApplicationDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { data in
+            String(format: "%02.2hhx", data)
+        }.joined()
+
+        print("Device Token: \(token)")
+        PushTokenKeeper.sharedInstance.token = token
     }
 }

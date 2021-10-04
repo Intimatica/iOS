@@ -433,7 +433,7 @@ extension FeedViewController: FeedViewDelegate {
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let referenceSize = (categoryItems[indexPath.row].rawValue as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .regular, fontWeight: .medium)])
+        let referenceSize = (categoryItems[indexPath.row].rawValue as NSString).size(withAttributes: [.font: UIFont.rubik(fontSize: .subRegular, fontWeight: .medium)])
         return .init(width: referenceSize.width + 2, height: referenceSize.height + CategoryCollectionViewCell.Constants.nameLabelTop)
     }
 }

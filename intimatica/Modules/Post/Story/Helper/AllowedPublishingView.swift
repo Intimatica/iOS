@@ -11,7 +11,7 @@ import SnapKit
 final class AllowedPublishingView: UIView {
     // MARK: - Properties
     private lazy var label = UILabel(font: .rubik(fontSize: .small, fontWeight: .regular),
-                                          textColor: .init(hex: 0xB7B7B7),
+                                     textColor: .appDarkGray,
                                           text: L10n("STORY_AGREE_LABEL"))
     
     private lazy var imageView: UIImageView = {

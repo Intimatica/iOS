@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 final class AuthorView: UIView {
     enum Writer {
@@ -17,7 +18,6 @@ final class AuthorView: UIView {
     // MARK: - Properties
     private lazy var imageView: AvatarImageView = {
         let imageView = AvatarImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "post_author_avatar_placeholder")
@@ -26,7 +26,6 @@ final class AuthorView: UIView {
 
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .rubik(fontSize: .subRegular, fontWeight: .regular)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -55,17 +54,16 @@ final class AuthorView: UIView {
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: Constants.imageViewWidthHeight),
-            imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewWidthHeight),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            
-            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.labelLeading),
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+        imageView.snp.makeConstraints { make in
+            make.height.width.equalTo(Constants.imageViewWidthHeight)
+            make.leading.top.bottom.equalTo(self)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.centerY.equalTo(imageView.snp.centerY)
+            make.leading.equalTo(imageView.snp.trailing).offset(Constants.labelLeading)
+            make.trailing.equalTo(self)
+        }
     }
     
     // MARK: - Public
@@ -73,7 +71,7 @@ final class AuthorView: UIView {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar), options: AppConstants.kingFisherOptions)
 
-        let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appGray]
+        let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appDarkGray]
         
         let nameTextAttribute: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: label.font.pointSize),
                                                                 .foregroundColor: textColor]

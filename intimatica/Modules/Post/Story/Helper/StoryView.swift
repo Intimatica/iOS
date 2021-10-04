@@ -12,7 +12,6 @@ final class StoryView: UIView {
     // MARK: - Properties
     private lazy var storyView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .appGrayPurple
         return view
     }()
@@ -21,7 +20,6 @@ final class StoryView: UIView {
     
     private lazy var commentView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.appDarkPurple.withAlphaComponent(0.3).cgColor
         view.layer.cornerRadius = 20
@@ -57,7 +55,7 @@ final class StoryView: UIView {
     // MARK: - Layout
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
-        
+                
         addSubview(storyView)
         addSubview(commentView)
         
@@ -95,6 +93,9 @@ final class StoryView: UIView {
     func fill(by story: String, and comment: String?, authorName: String?, authorJobTitle: String?, authorAvatar: String?) {
         storyLabel.text = story
         commentLabel.text = comment
+        
+        storyLabel.lineSpacing = 3
+        commentLabel.lineSpacing = 3
         
         if let comment = comment, !comment.isEmpty {
             guard

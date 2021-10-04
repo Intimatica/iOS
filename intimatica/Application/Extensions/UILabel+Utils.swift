@@ -17,4 +17,16 @@ extension UILabel {
         self.textColor = textColor
         self.text = text
     }
+    
+    var lineSpacing: CGFloat {
+        get { return 0 }
+        set {
+            let textAlignment = self.textAlignment
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = newValue
+            let attributedString = NSAttributedString(string: self.text ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            self.attributedText = attributedString
+            self.textAlignment = textAlignment
+        }
+    }
 }

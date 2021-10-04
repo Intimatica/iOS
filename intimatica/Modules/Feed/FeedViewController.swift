@@ -152,6 +152,8 @@ class FeedViewController: UIViewController, ActivityIndicatable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.topItem?.title = title?.lowercased().uppercaseFirstLetter()
+        
         setupView()
         setupConstraints()
         setupActions()

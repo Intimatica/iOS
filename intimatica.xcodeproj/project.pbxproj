@@ -196,6 +196,7 @@
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0A98B32709E271009B3C8D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB0A98B4270B0F60009B3C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0BC66626E10CB6007D097D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Pods/MarkdownView/Sources/MarkdownView/Resources/index.html; sourceTree = SOURCE_ROOT; };
 		DB0BC66726E10CB6007D097D /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.css; sourceTree = SOURCE_ROOT; };
 		DB0BC66826E10CB6007D097D /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.js; sourceTree = SOURCE_ROOT; };
@@ -1216,7 +1217,6 @@
 			knownRegions = (
 				en,
 				ru,
-				Base,
 			);
 			mainGroup = DB6F316B269DA973005E7578;
 			productRefGroup = DB6F3175269DA973005E7578 /* Products */;
@@ -1494,6 +1494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DB0A98B32709E271009B3C8D /* ru */,
+				DB0A98B4270B0F60009B3C8D /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

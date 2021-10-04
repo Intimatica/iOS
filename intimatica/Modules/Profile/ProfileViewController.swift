@@ -99,13 +99,26 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setNeedsStatusBarAppearanceUpdate()
-        navigationController?.navigationBar.barTintColor = .appDarkPurple
-
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .appDarkPurple
+            appearance.shadowImage = UIImage()
+            appearance.shadowColor = .clear
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                              NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            setNeedsStatusBarAppearanceUpdate()
+            navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.barTintColor = .appDarkPurple
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                                                       NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
+        }
+        
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                                   NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
+        
         presenter.viewDidLoad()
     }
 

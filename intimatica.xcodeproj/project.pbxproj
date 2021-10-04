@@ -229,7 +229,6 @@
 		DB2F8B15269ED1A2007020C0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DB2F8B23269F38A2007020C0 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
-		DB2F8B2C269F3CB2007020C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB2F8B31269F3FEB007020C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB2F8B36269F4345007020C0 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8B38269F46E0007020C0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1493,7 +1492,6 @@
 		DB2F8B2D269F3CB2007020C0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DB2F8B2C269F3CB2007020C0 /* en */,
 				DB0A98B32709E271009B3C8D /* ru */,
 			);
 			name = Localizable.strings;

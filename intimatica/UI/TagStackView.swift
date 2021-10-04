@@ -42,7 +42,7 @@ class TagStackView: UIStackView {
     
     // MARK: - Private
     func addTagView(with text: String) -> UIView {
-        return LabelWithBackground(with: text,
+        return LabelWithBackground(with: text.uppercased(),
                                    textColor: Constants.tagLabelTextColor,
                                    backgroundColor: Constants.tagBackgroundColor,
                                    font: Constants.tagLabelFont,
@@ -55,9 +55,9 @@ extension TagStackView {
     struct Constants {
         static let spacing: CGFloat = 7
         
-        static let tagLabelFont: UIFont = .rubik(fontSize: .small, fontWeight: .regular)
+        static let tagLabelFont: UIFont = .rubik(fontSize: .verySmall, fontWeight: .medium)
         static let tagLabelTextColor: UIColor = .appDarkPurple
-        static let tagBackgroundColor: UIColor = .init(hex: 0xF2ECFF)
+        static let tagBackgroundColor: UIColor = .appGrayPurple
         static let tagLabelTopBottom: CGFloat = 3
         static let tagLabelLeadingTrailing: CGFloat = 8
     }

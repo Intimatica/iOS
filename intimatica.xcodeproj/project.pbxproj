@@ -105,7 +105,6 @@
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
-		DB73014426DEAAB700AE2892 /* Profile.graphql in Sources */ = {isa = PBXBuildFile; fileRef = DB73014326DEAAB700AE2892 /* Profile.graphql */; };
 		DB73014626DEB64900AE2892 /* Gender.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB73014526DEB64900AE2892 /* Gender.graphql */; };
 		DB79A79026FB41CA002B34B8 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */; };
 		DB79A79426FB52B7002B34B8 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */; };
@@ -197,6 +196,7 @@
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0A98B32709E271009B3C8D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0A98B4270B0F60009B3C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB0A98B5270B25A2009B3C8D /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
 		DB0BC66626E10CB6007D097D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Pods/MarkdownView/Sources/MarkdownView/Resources/index.html; sourceTree = SOURCE_ROOT; };
 		DB0BC66726E10CB6007D097D /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.css; sourceTree = SOURCE_ROOT; };
 		DB0BC66826E10CB6007D097D /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = Pods/MarkdownView/Sources/MarkdownView/Resources/main.js; sourceTree = SOURCE_ROOT; };
@@ -298,7 +298,6 @@
 		DB6F3177269DA973005E7578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6F3179269DA973005E7578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB73014326DEAAB700AE2892 /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
 		DB73014526DEB64900AE2892 /* Gender.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gender.graphql; sourceTree = "<group>"; };
 		DB73014726E0BEFF00AE2892 /* intimatica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intimatica.entitlements; sourceTree = "<group>"; };
 		DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
@@ -1086,11 +1085,11 @@
 				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
 				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
 				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
-				DB73014326DEAAB700AE2892 /* Profile.graphql */,
 				DB73014526DEB64900AE2892 /* Gender.graphql */,
 				DB0BC66F26E94018007D097D /* StaticPages.graphql */,
 				DB0BC68626F0F089007D097D /* Notifications.graphql */,
 				DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */,
+				DB0A98B5270B25A2009B3C8D /* Profile.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -1432,7 +1431,6 @@
 				DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */,
 				DB81AFB826B7EA4000948B1F /* VideoViewController.swift in Sources */,
 				DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */,
-				DB73014426DEAAB700AE2892 /* Profile.graphql in Sources */,
 				DB8A596126AEB78900842771 /* UserCredentials.swift in Sources */,
 				DB0BC68326F0E91C007D097D /* NotificationViewController.swift in Sources */,
 				DB2F8B3C269F5EC9007020C0 /* SignUpViewController.swift in Sources */,

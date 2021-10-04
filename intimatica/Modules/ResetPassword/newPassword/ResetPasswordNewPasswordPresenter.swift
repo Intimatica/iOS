@@ -76,7 +76,7 @@ extension ResetPasswordNewPasswordPresenter: ResetPasswordNewPasswordPresenterDe
                     self.useCase.storeUserCredentials(UserCredentials(email: resetPassword.user.email, password: newPassword))
                     self.router.trigger(.home)
                 } else {
-                    print(graphQLResult.errors)
+//                    print(graphQLResult.errors)
                     self.view?.displayError(message: "Неверный код")
                 }
             case .failure(let error):

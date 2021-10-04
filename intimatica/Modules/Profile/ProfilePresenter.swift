@@ -54,7 +54,7 @@ extension ProfilePresenter: ProfilePresenterDelegate {
                 } else {
 //                    self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
                 }
-            case .failure(let _):
+            case .failure(_):
                 break
 //                self.view?.displayError(error.localizedDescription)
             }

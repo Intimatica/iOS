@@ -110,7 +110,7 @@ STORY_AGREE_LABEL = "Автор дал согласие на анонимную 
 // TellStoryView
 STORY_TELL_TITLE_LABEL = "Хочешь рассказать свою историю?";
 STORY_TELL_BUTTON_LABEL = "Рассказать";
-PROFILE_TELL_TITLE_LABEL = "Поделись историей и получи ответ психолога";
+PROFILE_TELL_TITLE_LABEL = "Поделись историей\nи получи ответ психолога";
 PROFILE_TELL_BUTTON_LABEL = "Рассказать историю";
 
 

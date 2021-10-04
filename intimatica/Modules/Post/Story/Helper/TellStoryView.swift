@@ -8,6 +8,7 @@
 import UIKit
 
 protocol TellStoryViewConstantsProtocol {
+    var titleLabelFont: UIFont { get }
     var backgroundImageName: String { get }
     var titleText: String { get }
     var actionButtonText: String { get }
@@ -40,7 +41,6 @@ final class TellStoryView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .rubik(fontSize: .subTitle, fontWeight: .bold)
         label.text = L10n("STORY_TELL_TITLE_LABEL")
         label.textColor = .white
         label.textAlignment = .center
@@ -85,6 +85,7 @@ final class TellStoryView: UIView {
         
         backgroundImageView.image = UIImage(named: settings.backgroundImageName)
         titleLabel.text = settings.titleText
+        titleLabel.font = settings.titleLabelFont
         actionButton.setTitle(settings.actionButtonText, for: .normal)
         
         addSubview(backgroundImageView)
@@ -114,6 +115,7 @@ final class TellStoryView: UIView {
 // MARK: - Helper/Constants
 extension TellStoryView {
     struct StoryConstants: TellStoryViewConstantsProtocol {
+        var titleLabelFont: UIFont = .rubik(fontSize: .subTitle, fontWeight: .bold)
         var backgroundImageName: String = "tell_story_background"
         var titleText: String = L10n("STORY_TELL_TITLE_LABEL")
         var actionButtonText: String = L10n("STORY_TELL_BUTTON_LABEL")
@@ -127,6 +129,7 @@ extension TellStoryView {
     }
     
     struct ProfileConstants: TellStoryViewConstantsProtocol {
+        var titleLabelFont: UIFont = .rubik(fontSize: .regular, fontWeight: .bold)
         var backgroundImageName: String = "tellstory_background_for_profile"
         var titleText: String = L10n("PROFILE_TELL_TITLE_LABEL")
         var actionButtonText: String = L10n("PROFILE_TELL_BUTTON_LABEL")

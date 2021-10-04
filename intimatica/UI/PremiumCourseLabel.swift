@@ -13,7 +13,7 @@ final class PremiumCourseLabel: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "star")
+        imageView.image = UIImage(named: "star_yellow")
         return imageView
     }()
     

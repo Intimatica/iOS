@@ -8,26 +8,38 @@
 import UIKit
 
 class ApplyForPremiumButton: UIRoundedButton {
+    enum Design {
+        case purle
+        case yellow
+    }
+    
     // MARK: - Initializers
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(desing: Design) {
+        super.init(frame: .zero)
         
-        setupUI()
+        setupUI(with: desing)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
+    private func setupUI(with desing: Design) {
         translatesAutoresizingMaskIntoConstraints = false
         
-        setTitle(L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"), for: .normal)
-        setTitleColor(.init(hex: 0xFFE70D), for: .normal)
-        setBackgroundColor(.appDarkPurple, for: .normal)
-        setImage(UIImage(named: "star"), for: .normal)
-        imageEdgeInsets = UIEdgeInsets(top: 10, left: -10, bottom: 10, right: 0)
+        switch desing {
+        case .purle:
+            setTitleColor(.appYellow, for: .normal)
+            setBackgroundColor(.appDarkPurple, for: .normal)
+            setImage(UIImage(named: "star_yellow"), for: .normal)
+        case .yellow:
+            setTitleColor(.black, for: .normal)
+            setBackgroundColor(.appYellow, for: .normal)
+            setImage(UIImage(named: "star_black"), for: .normal)
+        }
         
+        setTitle(L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"), for: .normal)
+        imageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: 0)
         titleLabel?.font = .rubik(fontSize: .subRegular, fontWeight: .bold)
     }
 }

@@ -36,13 +36,7 @@ final class ProfileView: UIView {
         return button
     }()
     
-    lazy var premiumButton: UIRoundedButton = {
-        let button = UIRoundedButton(title: L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"),
-                                     titleColor: .black,
-                                     font: .rubik(fontSize: .regular, fontWeight: .bold),
-                                     backgroundColor: .init(hex: 0xFFE70D))
-        return button
-    }()
+    lazy var premiumButton = ApplyForPremiumButton(desing: .yellow)
     
     // MARK: - Initializers
     override init(frame: CGRect) {

@@ -53,7 +53,7 @@ class VideoCourseViewController: BasePostViewController {
         return view
     }()
     
-    private lazy var applyForPremiumButton = ApplyForPremiumButton()
+    private lazy var applyForPremiumButton = ApplyForPremiumButton(desing: .purle)
     
     private lazy var videoTitle: UILabel = {
         let label = UILabel()

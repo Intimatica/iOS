@@ -1185,6 +1185,7 @@
 				DB6F3171269DA973005E7578 /* Frameworks */,
 				DB6F3172269DA973005E7578 /* Resources */,
 				D6BF8FFC829410A67C7A88BC /* [CP] Embed Pods Frameworks */,
+				DB0A98B7270B28D0009B3C8D /* FirebaseCrashlytics */,
 			);
 			buildRules = (
 			);
@@ -1316,6 +1317,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-intimatica/Pods-intimatica-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DB0A98B7270B28D0009B3C8D /* FirebaseCrashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = FirebaseCrashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\n";
 		};
 		DBF99D3326B0678C00E04D40 /* Apollo CLI */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1535,7 +1556,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

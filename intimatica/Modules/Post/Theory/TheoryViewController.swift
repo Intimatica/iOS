@@ -94,7 +94,7 @@ extension TheoryViewController: TheoryViewProtocol {
         }
         
         headerImageView.kf.indicatorType = .activity
-        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
+        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl), options: AppConstants.kingFisherOptions)
         
         titleLabel.text = theoryPost.title
         tagsStackView.fill(by: tags)

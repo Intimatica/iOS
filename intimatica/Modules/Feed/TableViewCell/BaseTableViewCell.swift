@@ -101,7 +101,7 @@ class BaseTableViewCell: UITableViewCell {
         
         let url = URL(string: AppConstants.serverURL + post.imageUrl)
         backgroundImageView.kf.indicatorType = .activity
-        backgroundImageView.kf.setImage(with: url)
+        backgroundImageView.kf.setImage(with: url, options: AppConstants.kingFisherOptions)
         
         titleLabel.text = post.title
         tagStackView.fill(by: post.tags)

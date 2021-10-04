@@ -98,7 +98,7 @@ extension StoryViewController: StoryViewProtocol {
         }
         
         headerImageView.kf.indicatorType = .activity
-        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
+        headerImageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl), options: AppConstants.kingFisherOptions)
         
         titleLabel.text = post.title
         tagsStackView.fill(by: tags)

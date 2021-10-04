@@ -77,7 +77,7 @@ class CourseFinishedViewController: PopViewController {
     func setupView() {
         subTitleLabel.text = subTitle
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl))
+        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + imageUrl), options: AppConstants.kingFisherOptions)
         
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)

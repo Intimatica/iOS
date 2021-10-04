@@ -71,7 +71,7 @@ final class AuthorView: UIView {
     // MARK: - Public
     func fill(by name: Writer, jobTitle: String, avatar: String, textColor: UIColor = .black) {
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar))
+        imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar), options: AppConstants.kingFisherOptions)
 
         let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appGray]
         

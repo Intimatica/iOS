@@ -131,7 +131,7 @@ class NotificationTableViewCell: UITableViewCell {
         if let previewUrl = post.image?.url {
             let url = URL(string: AppConstants.serverURL + previewUrl)
             notificationImageView.kf.indicatorType = .activity
-            notificationImageView.kf.setImage(with: url)
+            notificationImageView.kf.setImage(with: url, options: AppConstants.kingFisherOptions)
         } else {
             // TODO: add placeholder
         }

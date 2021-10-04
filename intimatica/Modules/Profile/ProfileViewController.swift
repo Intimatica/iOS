@@ -126,6 +126,8 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
     private func setupView() {
         view.backgroundColor = .white
         
+        tableTitleLabel.isHidden = true
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(profileView)

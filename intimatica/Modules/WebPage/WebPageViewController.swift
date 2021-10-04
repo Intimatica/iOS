@@ -8,13 +8,10 @@
 import UIKit
 import MarkdownView
 
-class WebPageViewController: UIViewController, ActivityIndicatable {
+class WebPageViewController: PopViewController {
     // MARK: - Properties
     private let presenter: WebPagePresenterProtocol
-    lazy var activityContainerView: UIView = {
-        UIView(frame: .zero)
-    }()
-    private lazy var closeButton = CloseButton()
+    
     private lazy var markdownView: MarkdownView = {
         let markdownView = MarkdownView()
         markdownView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,17 +46,11 @@ class WebPageViewController: UIViewController, ActivityIndicatable {
     private func setupView() {
         view.backgroundColor = .white
         
-        view.addSubview(closeButton)
         view.addSubview(markdownView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: Constants.closeButtonWidth),
-            closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.closeButtonTopTrailing),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.closeButtonTopTrailing),
-            
             markdownView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             markdownView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: Constants.markdownViewTop),
             markdownView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -68,10 +59,6 @@ class WebPageViewController: UIViewController, ActivityIndicatable {
     }
     
     private func setupAction() {
-        closeButton.addAction { [weak self] in
-            self?.dismiss(animated: true)
-        }
-        
         markdownView.onRendered = { [weak self] _ in
             self?.hideActivityIndicator()
         }
@@ -81,9 +68,6 @@ class WebPageViewController: UIViewController, ActivityIndicatable {
 // MARK: - Helper/Constants
 extension WebPageViewController {
     struct Constants {
-        static let closeButtonWidth: CGFloat = 40
-        static let closeButtonTopTrailing: CGFloat = 15
-        
         static let markdownViewTop: CGFloat = 15
     }
 }

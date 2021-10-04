@@ -108,10 +108,6 @@ class CourseFinishedViewController: PopViewController {
     }
     
     private func setupActions() {
-        closeButton.addAction { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-        }
-        
         button.addAction { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }

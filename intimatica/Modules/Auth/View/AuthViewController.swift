@@ -102,7 +102,6 @@ class AuthViewController: PopViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        view.addSubview(closeButton)
         view.addSubview(contentView)
         
         contentView.addSubview(titleLabel)
@@ -130,10 +129,6 @@ class AuthViewController: PopViewController {
     }
     
     private func setupActions() {
-        closeButton.addAction { [weak self] in
-            self?.dismiss(animated: true)
-        }
-        
         authButton.addAction { [weak self] in
             guard let self = self,
                   let email = self.emailView.textField.text,

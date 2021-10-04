@@ -150,13 +150,13 @@ class LeftSideMenuViewController: UIViewController {
 // MARK: - Helper/Constants
 extension LeftSideMenuViewController {
     struct Constants {
-        static let buttonFont: UIFont = .rubik(fontSize: .regular, fontWeight: .medium)
-        static let buttonImageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: 0)
-        static let butttonImageContentInsets = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+        static let buttonFont: UIFont = .rubik(fontSize: .subRegular, fontWeight: .medium)
+        static let buttonImageEdgeInsets = UIEdgeInsets(top: 10, left: -10, bottom: 10, right: 0)
+        static let butttonImageContentInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         
         static let helpButtonTop: CGFloat = 150
         static let buttonTop: CGFloat = 5
-        static let buttonLeadingTrailing: CGFloat = 40
+        static let buttonLeadingTrailing: CGFloat = 30
         static let buttonHeight: CGFloat = 50
         
         static let applyForPremiumButtonTop: CGFloat = 40

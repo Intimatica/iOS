@@ -93,7 +93,7 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
         
         setupView()
         setupConstraints()
-        setupAction() 
+        setupAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {

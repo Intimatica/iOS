@@ -26,8 +26,8 @@ class ApplyForPremiumButton: UIRoundedButton {
         setTitleColor(.init(hex: 0xFFE70D), for: .normal)
         setBackgroundColor(.appDarkPurple, for: .normal)
         setImage(UIImage(named: "star"), for: .normal)
-        imageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: 0)
+        imageEdgeInsets = UIEdgeInsets(top: 10, left: -10, bottom: 10, right: 0)
         
-        titleLabel?.font = .rubik(fontSize: .regular, fontWeight: .bold)
+        titleLabel?.font = .rubik(fontSize: .subRegular, fontWeight: .bold)
     }
 }

@@ -68,7 +68,7 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
     
     lazy var tagsStackView = TagStackView()
     lazy var authorView = AuthorView()
-    lazy var spacerView = SpacerView(height: 1, backgroundColor: .init(hex: 0x9E6FFF))
+    lazy var spacerView = SpacerView(height: 1, backgroundColor: .appPalePurple)
     
     lazy var markdownView: MarkdownView = {
         let md = MarkdownView()

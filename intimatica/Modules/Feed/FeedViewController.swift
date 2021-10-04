@@ -139,7 +139,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
 //        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
         navigationItem.setRightBarButtonItems([rightBarButtonItem, notificationsBarButtonItem], animated: false)
         
-        title = feedSettings.tabBarTitle.lowercased().uppercaseFirstLetter()
+        title = feedSettings.tabBarTitle
     }
     
     required init?(coder: NSCoder) {

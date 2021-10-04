@@ -134,6 +134,14 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
         }
         
         navigationController?.navigationBar.isTranslucent = false
+        
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Layout

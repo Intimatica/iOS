@@ -164,7 +164,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -185,6 +185,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
         
         navigationController?.navigationBar.isTranslucent = false
         
+        self.tabBarController?.tabBar.isHidden = false
         
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()

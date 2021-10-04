@@ -1216,6 +1216,7 @@
 			knownRegions = (
 				en,
 				ru,
+				Base,
 			);
 			mainGroup = DB6F316B269DA973005E7578;
 			productRefGroup = DB6F3175269DA973005E7578 /* Products */;

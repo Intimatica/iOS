@@ -99,7 +99,6 @@
 		DB57272E26D620F3002D6B46 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57272D26D620F3002D6B46 /* UITextField+Utils.swift */; };
 		DB57273026D621B9002D6B46 /* SignUpProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57272F26D621B9002D6B46 /* SignUpProfilePresenter.swift */; };
 		DB57273226D621C5002D6B46 /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273126D621C5002D6B46 /* SignUpProfileViewController.swift */; };
-		DB57273426D78D0E002D6B46 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273326D78D0E002D6B46 /* ContainerViewController.swift */; };
 		DB57273726D78D69002D6B46 /* LeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273626D78D69002D6B46 /* LeftSideMenuViewController.swift */; };
 		DB57273926D7B93C002D6B46 /* LeftSideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57273826D7B93C002D6B46 /* LeftSideMenuPresenter.swift */; };
 		DB6F3178269DA973005E7578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3177269DA973005E7578 /* AppDelegate.swift */; };
@@ -291,7 +290,6 @@
 		DB57272D26D620F3002D6B46 /* UITextField+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 		DB57272F26D621B9002D6B46 /* SignUpProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfilePresenter.swift; sourceTree = "<group>"; };
 		DB57273126D621C5002D6B46 /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
-		DB57273326D78D0E002D6B46 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		DB57273626D78D69002D6B46 /* LeftSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuViewController.swift; sourceTree = "<group>"; };
 		DB57273826D7B93C002D6B46 /* LeftSideMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuPresenter.swift; sourceTree = "<group>"; };
 		DB6F3174269DA973005E7578 /* intimatica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intimatica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,7 +547,6 @@
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
 				DB2E196A26CD7F29004FF77C /* PopViewController.swift */,
-				DB57273326D78D0E002D6B46 /* ContainerViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1492,7 +1489,6 @@
 				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
-				DB57273426D78D0E002D6B46 /* ContainerViewController.swift in Sources */,
 				DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */,
 				DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */,
 				DB2E195D26CBF20F004FF77C /* TagStackView.swift in Sources */,

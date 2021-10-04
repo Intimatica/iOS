@@ -71,12 +71,23 @@ final class AuthorView: UIView {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar), options: AppConstants.kingFisherOptions)
 
-        let greyTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.appDarkGray]
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 2
         
-        let nameTextAttribute: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: label.font.pointSize),
-                                                                .foregroundColor: textColor]
+        let greyTextAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.rubik(fontSize: .px14, fontWeight: .regular),
+            .foregroundColor: UIColor.appDarkGray
+        ]
         
-        let jobTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: textColor]
+        let nameTextAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.rubik(fontSize: .px14, fontWeight: .regular),
+            .foregroundColor: textColor
+        ]
+        
+        let jobTextAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.rubik(fontSize: .px14, fontWeight: .regular),
+            .foregroundColor: textColor
+        ]
         
         switch name {
         case .author(let name):
@@ -85,11 +96,13 @@ final class AuthorView: UIView {
             text.append(NSAttributedString(string: name, attributes: nameTextAttribute))
             text.append(NSAttributedString(string: "\n"))
             text.append(NSAttributedString(string: jobTitle, attributes: jobTextAttribute))
+            text.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, text.length))
             label.attributedText = text
         case .creator(let name):
             let text = NSMutableAttributedString(string: name, attributes: nameTextAttribute)
             text.append(NSAttributedString(string: "\n"))
             text.append(NSAttributedString(string: jobTitle, attributes: greyTextAttribute))
+            text.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, text.length))
             label.attributedText = text
         }
     }
@@ -99,6 +112,6 @@ final class AuthorView: UIView {
 extension AuthorView {
     private struct Constants {
         static let imageViewWidthHeight: CGFloat = 50
-        static let labelLeading: CGFloat = 13
+        static let labelLeading: CGFloat = 14
     }
 }

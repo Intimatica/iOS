@@ -136,8 +136,10 @@ class FeedViewController: UIViewController, ActivityIndicatable {
                                   tag: 0)
         
         navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
-//        navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
-        navigationItem.setRightBarButtonItems([rightBarButtonItem, notificationsBarButtonItem], animated: false)
+        // TODO: refactor this
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        space.width = 15
+        navigationItem.setRightBarButtonItems([rightBarButtonItem, space, notificationsBarButtonItem], animated: false)
         
         title = feedSettings.tabBarTitle
     }

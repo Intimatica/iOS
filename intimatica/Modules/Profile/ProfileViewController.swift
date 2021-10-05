@@ -89,7 +89,6 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
         super.viewDidLoad()
         
         navigationController?.navigationBar.topItem?.title = L10n("PROFILE")
-        navigationController?.navigationBar.isTranslucent = false
         
         setupView()
         setupConstraints()
@@ -99,25 +98,7 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .appDarkPurple
-            appearance.shadowImage = UIImage()
-            appearance.shadowColor = .clear
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                              NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        } else {
-            navigationController?.navigationBar.shadowImage = UIImage()
-            navigationController?.navigationBar.barTintColor = .appDarkPurple
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                                       NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
-        }
-        
-        navigationController?.navigationBar.isTranslucent = false
-        
+        setNavigationBar(titleColor: .white, backgroundColor: .appDarkPurple)
         presenter.viewDidLoad()
     }
 

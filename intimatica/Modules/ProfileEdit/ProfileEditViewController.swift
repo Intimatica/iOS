@@ -66,27 +66,7 @@ class ProfileEditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black,
-                                                                   NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
-        
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .white
-            appearance.shadowImage = UIImage()
-            appearance.shadowColor = .clear
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black,
-                                              NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        } else {
-            navigationController?.navigationBar.shadowImage = UIImage()
-            navigationController?.navigationBar.barTintColor = .white
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black,
-                                                                       NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
-        }
+        setNavigationBar(titleColor: .black, backgroundColor: .white)
     }
     
     // MARK: - Layout

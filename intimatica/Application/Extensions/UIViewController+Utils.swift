@@ -24,6 +24,19 @@ extension UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
+    
+    func setNavigationBar(titleColor: UIColor, backgroundColor: UIColor) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = backgroundColor
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : titleColor,
+                                          NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.isTranslucent = false
+    }
 }
 
 protocol ActivityIndicatable {

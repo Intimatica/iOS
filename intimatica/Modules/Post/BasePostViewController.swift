@@ -34,13 +34,6 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-//    lazy var headerImageView: FixedWidthAspectFitImageView = {
-//        let imageView = FixedWidthAspectFitImageView()
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.contentMode = .scaleAspectFit
-//        return imageView
-//    }()
 
     lazy var headerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -116,13 +109,6 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
         super.viewWillAppear(animated)
         
         setNavigationBar(titleColor: .black, backgroundColor: .white)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Layout

@@ -166,9 +166,7 @@ class FeedViewController: UIViewController, ActivityIndicatable {
         super.viewWillAppear(animated)
         
         setNavigationBar(titleColor: .white, backgroundColor: .appDarkPurple)
-        
-        self.tabBarController?.tabBar.isHidden = false
-        
+                
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()

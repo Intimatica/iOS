@@ -41,7 +41,7 @@ extension ProfilePresenter: ProfilePresenterDelegate {
     // TODO: refactor
     func viewDidLoad() {
         if let userCredentials = authUseCase.getUserCredentials() {
-            view?.setProfile(email: userCredentials.email, nickname: "   ")
+            view?.setProfile(email: userCredentials.email, nickname: nil)
         }
         
         useCase.fetch(query: ProfileQuery()) { [weak self] result in

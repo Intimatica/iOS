@@ -51,7 +51,7 @@ extension ActivityIndicatable where Self: UIViewController {
     func showActivityIndicator(with frame: CGRect, opacity: CGFloat = 1.0) {
         activityContainerView.frame = frame
         activityContainerView.backgroundColor = opacity != 1 ? .black.withAlphaComponent(opacity) : .white
-        
+
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = activityContainerView.center
         activityIndicator.startAnimating()

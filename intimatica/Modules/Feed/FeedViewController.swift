@@ -201,8 +201,8 @@ class FeedViewController: UIViewController, ActivityIndicatable {
         let cell = categoryCollectionView.cellForItem(at: selectedCategoryIndexPath) as! CategoryCollectionViewCell
         cell.setState(.selected)
         
-        presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
         showActivityIndicator(with: tableView.frame, opacity: 0.5)
+        presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -261,14 +261,6 @@ class FeedViewController: UIViewController, ActivityIndicatable {
             menu.delegate = self
             self.present(menu, animated: true, completion: nil)
         }
-        
-//        rightBarButtonItem.primaryAction = UIAction(image: rightBarButtonItem.image) { [weak self] _ in
-//            self?.presenter.tagFilterButtonDidTap()
-//       }
-//
-//        notificationsBarButtonItem.primaryAction = UIAction(image: notificationsBarButtonItem.image) { [weak self] _ in
-//            self?.presenter.notificationsButtonDidTap()
-//        }
     }
     
     @objc func tagFilterButtonDidTap() {

@@ -52,8 +52,7 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
             case .success(let graphQLResult):
                 guard
                     let genders = graphQLResult.data?.genders?.compactMap({ $0 }),
-                    let profile = graphQLResult.data?.profile,
-                    let nickname = profile.nickname
+                    let profile = graphQLResult.data?.profile
                 else {
                     return
                 }
@@ -62,7 +61,7 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
                 let genderList = genders.compactMap({ $0.name })
                 self.view?.setGenderList(genderList)
                 
-                self.view?.setNickname(nickname)
+                self.view?.setNickname(profile.nickname ?? "")
                 self.view?.setGender(profile.gender?.name ?? "")
                 self.view?.setBirthDate(profile.birthDate)
                 

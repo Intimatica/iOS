@@ -162,8 +162,12 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
     
     func addToAnalytics(postId: String, postTitle: String) {
         FirebaseAnalytics.Analytics.logEvent(AnalyticsParameterContent, parameters: [
-            "post_id": postId,
-            "post_title": postTitle
+            AnalyticsParameterValue: "\(postId) - \(postTitle)",
+        ])
+        
+        FirebaseAnalytics.Analytics.logEvent("post_screen_viewed", parameters: [
+          AnalyticsParameterScreenName: "post_view",
+          "name": "\(postId) - \(postTitle)"
         ])
     }
 }

@@ -110,7 +110,6 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
         } else {
-            setNeedsStatusBarAppearanceUpdate()
             navigationController?.navigationBar.shadowImage = UIImage()
             navigationController?.navigationBar.barTintColor = .appDarkPurple
             navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,

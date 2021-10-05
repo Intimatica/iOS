@@ -96,7 +96,7 @@ extension FeedPresenter: FeedPresenterDelegate {
         
         switch category {
         case .all:
-            postTypeIdList = []
+            postTypeIdList = [1, 2, 3]
         case .theory:
             postTypeIdList = [1]
         case .story:

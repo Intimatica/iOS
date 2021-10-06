@@ -27,7 +27,7 @@ class ResetPasswordCodeViewController: ResetPasswordBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        navigationItem.leftBarButtonItem = Button.backBarButtonItem()
         
         setupView()
         setupConstraints()

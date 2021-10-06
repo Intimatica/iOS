@@ -31,13 +31,6 @@ class ProfileEditViewController: UIViewController {
     
 //    private lazy var changePasswordView = ChangePasswordView()
     
-    private lazy var backBarButtonItem: UIBarButtonItem = {
-        let barButton = UIBarButtonItem()
-        barButton.title = "    "
-        barButton.tintColor = .appDarkPurple
-        return barButton
-    }()
-    
     // MARK: - Initializers
     init(presenter: ProfileEditPresenterDelegate) {
         self.presenter = presenter
@@ -53,7 +46,7 @@ class ProfileEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        navigationItem.leftBarButtonItem = Button.backBarButtonItem()
         title = L10n("PROFILE_PAGE_TITLE")
         
         setupView()

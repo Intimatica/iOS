@@ -7,6 +7,7 @@
 
 import UIKit
 import MarkdownView
+import SafariServices
 
 class WebPageViewController: PopViewController {
     // MARK: - Properties
@@ -62,6 +63,22 @@ class WebPageViewController: PopViewController {
         markdownView.onRendered = { [weak self] _ in
             self?.hideActivityIndicator()
         }
+        
+        markdownView.onTouchLink = { request in
+            guard let url = request.url else { return false }
+
+            if url.scheme == "file" {
+                return false
+            } else if url.scheme == "https" {
+                UIApplication.shared.open(url)
+//                let safari = SFSafariViewController(url: url)
+//                self?.present(safari, animated: true, completion: nil)
+//                self?.navigationController?.pushViewController(safari, animated: true)
+                return false
+            } else {
+                return false
+            }
+        }
     }
 }
 
@@ -75,11 +92,17 @@ extension WebPageViewController {
 // MARK: - WebPageViewProtocol
 extension WebPageViewController: WebPageViewProtocol {
     func display(_ text: String) {
-        markdownView.load(markdown: text, enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(text), enableImage: true)
     }
     
     func displayError(_ message: String) {
         hideActivityIndicator()
         showError(message)
+    }
+    
+    func fixContentStrapiLinks(_ text: String) -> String {
+        let regex = "(\\!\\[.*\\]\\()(\\/.+)(\\))"
+        let replaceBy = "$1" + AppConstants.serverURL + "$2$3"
+        return text.replacingOccurrences(of: regex, with: replaceBy, options: .regularExpression)
     }
 }

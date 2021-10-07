@@ -96,6 +96,7 @@ final class ProfileView: UIView {
         
         if let nickname = nickname {
             nicknameLabel.text = nickname
+            nicknameLabel.isHidden = false
         } else {
             nicknameLabel.isHidden = true
         }

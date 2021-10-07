@@ -19,7 +19,7 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
   
     private var tableHeightConstraint: Constraint?
     
-    private var navBarSpacer = SpacerView(height: 1, backgroundColor: .appPalePurple)
+    private var navBarSpacer = SpacerView(height: 1, backgroundColor: .init(hex: 0x9A69FF))
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()

@@ -78,7 +78,7 @@ final class ProfileView: UIView {
         
         editProfileButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.editProfileButtonHeight)
-            make.centerY.equalTo(nicknameLabel.snp.centerY)
+            make.centerY.equalTo(avatarImageView.snp.centerY)
             make.trailing.equalTo(self).offset(-Constants.editProfileButtonLeadingTrailing)
         }
         

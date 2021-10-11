@@ -9,8 +9,8 @@ import Foundation
 import Apollo
 
 protocol AuthRepositoryProtocol {
-    func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
-    func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>)->Void)
+    func signUp(email: String, password: String, completionHandler: @escaping GraphQLResultHandler<SignUpMutation.Data>)
+    func signIn(email: String, password: String, completionHandler: @escaping GraphQLResultHandler<SignInMutation.Data>)
     func signOut()
     
     func setAuthToken(_ token: String)
@@ -30,25 +30,23 @@ protocol HasAuthRepositoryProtocol {
 final class AuthRepository: AuthRepositoryProtocol {
     
     // MARK: - Properties
-    private let networkService: AuthNetworkServiceProtocol
     private let graphQLService: GraphqlServiceProtocol
     private let keychainService: KeychainServiceProtocol
     private let validatorService: AuthValidatorServiceProtocol
     
     // MARK: - Initializers
     init(dependencies: ServiceProviderProtocol) {
-        networkService = dependencies.authNetworkService
         graphQLService = dependencies.graphqlService
         keychainService = dependencies.keychainService
         validatorService = dependencies.authValidatorService
     }
     
-    func signUp(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
-        networkService.signUp(email: email, password: password, completionHandler: completionHandler)
+    func signUp(email: String, password: String, completionHandler: @escaping GraphQLResultHandler<SignUpMutation.Data>) {
+        graphQLService.perform(mutaion: SignUpMutation(email: email, password: password), completionHandler: completionHandler)
     }
     
-    func signIn(email: String, password: String, completionHandler: @escaping (Result<AuthResponse, AuthError>) -> Void) {
-        networkService.signIn(email: email, password: password, completionHandler: completionHandler)
+    func signIn(email: String, password: String, completionHandler: @escaping GraphQLResultHandler<SignInMutation.Data>) {
+        graphQLService.perform(mutaion: SignInMutation(email: email, password: password), completionHandler: completionHandler)
     }
     
     func signOut() {

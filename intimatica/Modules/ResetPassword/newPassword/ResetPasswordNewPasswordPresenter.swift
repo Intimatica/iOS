@@ -63,22 +63,16 @@ extension ResetPasswordNewPasswordPresenter: ResetPasswordNewPasswordPresenterDe
             let confirmPassword = view?.getConfirmPassword()
         else { return }
         
-        let mutation = ResetPasswordMutation(password: newPassword, passwordConfirmation: confirmPassword, code: code)
-        useCase.perform(mutaion: mutation) { [weak self] result in
+        useCase.resetPasswrod(password: newPassword, passwordConfirm: confirmPassword, code: code) { [weak self] result in
             guard let self = self else { return }
 
             self.view?.hideSpinner()
 
             switch result {
-            case .success(let graphQLResult):
-                if let resetPassword = graphQLResult.data?.resetPassword, let jwt = resetPassword.jwt {
-                    self.useCase.setAuthToken(jwt)
-                    self.useCase.storeUserCredentials(UserCredentials(email: resetPassword.user.email, password: newPassword))
-                    self.router.trigger(.home)
-                } else {
-//                    print(graphQLResult.errors)
-                    self.view?.displayError(message: "Неверный код")
-                }
+            case .success(let authResponse):
+                self.useCase.setAuthToken(authResponse.jwt)
+                self.useCase.storeUserCredentials(UserCredentials(email: authResponse.email, password: newPassword))
+                self.router.trigger(.home)
             case .failure(let error):
                 self.view?.displayError(message: error.localizedDescription)
             }

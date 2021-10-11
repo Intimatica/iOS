@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.4.3)
   - AlignedCollectionViewFlowLayout (1.1.2)
   - Apollo (0.45.0):
     - Apollo/Core (= 0.45.0)
@@ -110,7 +109,6 @@ PODS:
   - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.4)
   - AlignedCollectionViewFlowLayout
   - Apollo
   - Firebase/Analytics
@@ -129,7 +127,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - AlignedCollectionViewFlowLayout
     - Apollo
     - Firebase
@@ -156,7 +153,6 @@ SPEC REPOS:
     - YouTubePlayer
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   Apollo: 241254e8b26f49dc180e3be848f0b3fc5699e6f4
   Firebase: bc9325d5ee2041524bac78a5213d0e530c651309
@@ -182,6 +178,6 @@ SPEC CHECKSUMS:
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: a8dc74d3318f6698c10d31913ec8b82ed25e7205
+PODFILE CHECKSUM: 371b2feac58987512fe3102e28baf81419f852c5
 
 COCOAPODS: 1.10.1

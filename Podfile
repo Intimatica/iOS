@@ -18,7 +18,6 @@ target 'intimatica' do
   pod 'XCoordinator', '~> 2.0'
   
   # Network
-  pod 'Alamofire', '~> 5.4'
   pod "Apollo"
   
   # Persistance

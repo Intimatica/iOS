@@ -7,8 +7,7 @@
 
 import Foundation
 
-typealias ServiceProviderProtocol = HasAuthNetworkServiceProtocol
-    & HasKeychainServiceProtocol
+typealias ServiceProviderProtocol = HasKeychainServiceProtocol
     & HasAuthValidatorServiceProtocol
     & HasGraphqlServiceProtocol
     & HasFavoriteServiceProtocol
@@ -16,21 +15,18 @@ typealias ServiceProviderProtocol = HasAuthNetworkServiceProtocol
 
 
 final class ServiceProvider: ServiceProviderProtocol {
-    let authNetworkService: AuthNetworkServiceProtocol
     let keychainService: KeychainServiceProtocol
     let authValidatorService: AuthValidatorServiceProtocol
     let graphqlService: GraphqlServiceProtocol
     let favoriteService: FavoritesSeviceProtocol
     let viewedNotificationsService: ViewedNotificationsServiceProtocol
     
-    init(authNetworkService: AuthNetworkServiceProtocol = AuthNetworkService(),
-         keychainService: KeychainServiceProtocol = KeychainService(),
+    init(keychainService: KeychainServiceProtocol = KeychainService(),
          authValidatorService: AuthValidatorServiceProtocol = AuthValidatorService(),
          graphqlService: GraphqlServiceProtocol = GraphqlService(),
          favoriteService: FavoritesSeviceProtocol = FavoritesSevice(),
          viewedNotificationsService: ViewedNotificationsServiceProtocol = ViewedNotificationsService()
     ) {
-        self.authNetworkService = authNetworkService
         self.keychainService = keychainService
         self.authValidatorService = authValidatorService
         self.graphqlService = graphqlService

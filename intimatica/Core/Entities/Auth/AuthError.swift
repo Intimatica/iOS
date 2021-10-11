@@ -7,26 +7,12 @@
 
 import Foundation
 
-enum AuthError: Error {
-    case connectionFailed
-    case unhandledError(String)
+struct AuthError: Error {
+    var message: String
     
-    // auth
-    case emailProvide
-    case passwordProvide
-    case rateLimit
-    
-    //sign up
-    case usernameTaken
-    case emailInvalid
-    case emailTaken
-    case passwordFormat
-
-    
-    // sign in
-    case invalid
-    case blocked
-    case passwordLocal
-    case userNotExist
-    case emailNotConfirmed
+    var localizedDescription: String {
+        get {
+            L10n(message)
+        }
+    }
 }

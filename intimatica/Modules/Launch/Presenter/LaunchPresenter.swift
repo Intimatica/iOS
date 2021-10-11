@@ -33,25 +33,20 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             return
         }
 
-        let mutation = SignInMutation(email: userCredentials.email, password: userCredentials.password)
-        useCase.perform(mutaion: mutation) { [weak self] result in
+        useCase.signIn(email: userCredentials.email, password: userCredentials.password) { [weak self] result in
             guard let self = self else { return }
 
             switch(result) {
-            case .success(let graphQLResult):
-                if let token = graphQLResult.data?.login.jwt {
-                    self.useCase.setAuthToken(token)
-                    
-                    if let token = PushTokenKeeper.sharedInstance.token {
-                        self.updatePushToken(with: token)
-                    }
-                    
-                    FirebaseAnalytics.Analytics.logEvent("Launch", parameters: [:])
-                    
-                    self.router.trigger(.home)
-                } else {
-                    self.router.trigger(.ageConfirm)
+            case .success(let authResponse):
+                self.useCase.setAuthToken(authResponse.jwt)
+                
+                if let token = PushTokenKeeper.sharedInstance.token {
+                    self.updatePushToken(with: token)
                 }
+                
+                FirebaseAnalytics.Analytics.logEvent("Launch", parameters: [:])
+                
+                self.router.trigger(.home)
             case .failure(_):
                 self.router.trigger(.ageConfirm)
             }

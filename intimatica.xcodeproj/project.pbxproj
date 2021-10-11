@@ -69,13 +69,9 @@
 		DB2F8B9B26A371B9007020C0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B8926A371B8007020C0 /* README.txt */; };
 		DB2F8B9C26A371B9007020C0 /* Rubik-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB2F8B8A26A371B8007020C0 /* Rubik-Italic-VariableFont_wght.ttf */; };
 		DB2F8B9E26A37400007020C0 /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */; };
-		DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */; };
 		DB2F8BA626A5BA73007020C0 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */; };
-		DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BA826A5BAF9007020C0 /* SignIn.swift */; };
-		DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */; };
 		DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BAE26A5E234007020C0 /* AppConstants.swift */; };
 		DB2F8BB126A5E2FD007020C0 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */; };
-		DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB226A5FDB1007020C0 /* SignUp.swift */; };
 		DB2F8BB726A72176007020C0 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */; };
 		DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BB826A84427007020C0 /* EyeButton.swift */; };
 		DB2F8BBB26A8B7CF007020C0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8BBA26A8B7CF007020C0 /* Utils.swift */; };
@@ -109,7 +105,6 @@
 		DB79A79026FB41CA002B34B8 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */; };
 		DB79A79426FB52B7002B34B8 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */; };
 		DB79A79626FB52F5002B34B8 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */; };
-		DB79A79826FBAB68002B34B8 /* ResetPassword.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */; };
 		DB79A79D26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */; };
 		DB79A79F26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79E26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift */; };
 		DB79A7A426FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A7A326FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift */; };
@@ -149,8 +144,7 @@
 		DBDBC77426D13CB400CB839C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77326D13CB400CB839C /* ProfileView.swift */; };
 		DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77626D159F000CB839C /* StoryTableViewCell.swift */; };
 		DBDBC77B26D15E5600CB839C /* StoryTagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */; };
-		DBDBC77D26D2150F00CB839C /* SignIn.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77C26D2150F00CB839C /* SignIn.graphql */; };
-		DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77E26D2162C00CB839C /* SignUp.graphql */; };
+		DBDBC77D26D2150F00CB839C /* Auth.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC77C26D2150F00CB839C /* Auth.graphql */; };
 		DBDBC78526D377D400CB839C /* UserStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78426D377D400CB839C /* UserStoryViewController.swift */; };
 		DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */; };
 		DBDBC78B26D3A0B100CB839C /* PublisingAgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC78A26D3A0B100CB839C /* PublisingAgreeView.swift */; };
@@ -261,13 +255,9 @@
 		DB2F8B8926A371B8007020C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		DB2F8B8A26A371B8007020C0 /* Rubik-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		DB2F8B9D26A37400007020C0 /* UIFont+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Utils.swift"; sourceTree = "<group>"; };
-		DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkService.swift; sourceTree = "<group>"; };
 		DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		DB2F8BA826A5BAF9007020C0 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
-		DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrapiError.swift; sourceTree = "<group>"; };
 		DB2F8BAE26A5E234007020C0 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
-		DB2F8BB226A5FDB1007020C0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DB2F8BB626A72176007020C0 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		DB2F8BB826A84427007020C0 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		DB2F8BBA26A8B7CF007020C0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -303,7 +293,6 @@
 		DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
-		DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ResetPassword.graphql; sourceTree = "<group>"; };
 		DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBasePresenter.swift; sourceTree = "<group>"; };
 		DB79A79E26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBaseViewController.swift; sourceTree = "<group>"; };
 		DB79A7A326FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenter.swift; sourceTree = "<group>"; };
@@ -346,8 +335,7 @@
 		DBDBC77326D13CB400CB839C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBDBC77626D159F000CB839C /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		DBDBC77A26D15E5600CB839C /* StoryTagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTagStackView.swift; sourceTree = "<group>"; };
-		DBDBC77C26D2150F00CB839C /* SignIn.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignIn.graphql; sourceTree = "<group>"; };
-		DBDBC77E26D2162C00CB839C /* SignUp.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SignUp.graphql; sourceTree = "<group>"; };
+		DBDBC77C26D2150F00CB839C /* Auth.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Auth.graphql; sourceTree = "<group>"; };
 		DBDBC78426D377D400CB839C /* UserStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryViewController.swift; sourceTree = "<group>"; };
 		DBDBC78626D3847100CB839C /* AllowedPublishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPublishingView.swift; sourceTree = "<group>"; };
 		DBDBC78A26D3A0B100CB839C /* PublisingAgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisingAgreeView.swift; sourceTree = "<group>"; };
@@ -679,7 +667,6 @@
 			isa = PBXGroup;
 			children = (
 				DB8A598126AF4AD800842771 /* Provider */,
-				DB2F8BA326A5A421007020C0 /* AuthNetworkService.swift */,
 				DB2F8BB026A5E2FD007020C0 /* KeychainService.swift */,
 				DB8A595226AC9B4600842771 /* AuthValidatorService.swift */,
 				DBF99D4526B0833600E04D40 /* GraphqlService.swift */,
@@ -869,9 +856,6 @@
 			isa = PBXGroup;
 			children = (
 				DB2F8BA526A5BA73007020C0 /* AuthResponse.swift */,
-				DB2F8BA826A5BAF9007020C0 /* SignIn.swift */,
-				DB2F8BB226A5FDB1007020C0 /* SignUp.swift */,
-				DB2F8BAC26A5C5DA007020C0 /* StrapiError.swift */,
 				DB8A595726AD553200842771 /* AuthError.swift */,
 				DB8A596026AEB78900842771 /* UserCredentials.swift */,
 			);
@@ -1074,6 +1058,7 @@
 			children = (
 				DBF99D4126B07D9A00E04D40 /* API.swift */,
 				DBF99D3826B069A100E04D40 /* schema.json */,
+				DBDBC77C26D2150F00CB839C /* Auth.graphql */,
 				DBF99D3F26B07D2D00E04D40 /* Posts.graphql */,
 				DBF99D6126B2D39300E04D40 /* TheoryPost.graphql */,
 				DB81AFBD26B82B8000948B1F /* VideoPost.graphql */,
@@ -1082,12 +1067,9 @@
 				DBFA7C4F26C515920042D31D /* Tags.graphql */,
 				DB2E195A26CBE962004FF77C /* StoryPost.graphql */,
 				DB2E196C26CE4ACD004FF77C /* UserStory.graphql */,
-				DBDBC77C26D2150F00CB839C /* SignIn.graphql */,
-				DBDBC77E26D2162C00CB839C /* SignUp.graphql */,
 				DB73014526DEB64900AE2892 /* Gender.graphql */,
 				DB0BC66F26E94018007D097D /* StaticPages.graphql */,
 				DB0BC68626F0F089007D097D /* Notifications.graphql */,
-				DB79A79726FBAB68002B34B8 /* ResetPassword.graphql */,
 				DB0A98B5270B25A2009B3C8D /* Profile.graphql */,
 			);
 			path = GraphQL;
@@ -1249,11 +1231,9 @@
 				DB2F8B9726A371B9007020C0 /* Rubik-Bold.ttf in Resources */,
 				DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */,
 				DB2F8B9326A371B9007020C0 /* Rubik-Black.ttf in Resources */,
-				DB79A79826FBAB68002B34B8 /* ResetPassword.graphql in Resources */,
 				DB2E196D26CE4ACD004FF77C /* UserStory.graphql in Resources */,
-				DBDBC77F26D2162C00CB839C /* SignUp.graphql in Resources */,
 				DB2F8B9026A371B9007020C0 /* Rubik-Medium.ttf in Resources */,
-				DBDBC77D26D2150F00CB839C /* SignIn.graphql in Resources */,
+				DBDBC77D26D2150F00CB839C /* Auth.graphql in Resources */,
 				DB3C566326BC1A160087663E /* VideoCourse.graphql in Resources */,
 				DB2F8B9126A371B9007020C0 /* Rubik-Light.ttf in Resources */,
 				DB2F8B9926A371B9007020C0 /* Rubik-ExtraBold.ttf in Resources */,
@@ -1394,7 +1374,6 @@
 				DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */,
 				DB57273226D621C5002D6B46 /* SignUpProfileViewController.swift in Sources */,
 				DBFA7C5A26C5A7490042D31D /* TagCollectionViewCell.swift in Sources */,
-				DB2F8BA926A5BAF9007020C0 /* SignIn.swift in Sources */,
 				DB8A596626AEBF7400842771 /* LaunchViewController.swift in Sources */,
 				DBDBC78726D3847100CB839C /* AllowedPublishingView.swift in Sources */,
 				DB4660D826F4E07200F5200F /* ProfileEditViewController.swift in Sources */,
@@ -1414,7 +1393,6 @@
 				DB2E196726CD6E30004FF77C /* TellStoryViewController.swift in Sources */,
 				DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */,
 				DB79A7A826FC5C87002B34B8 /* ResetPasswordCodePresenter.swift in Sources */,
-				DB2F8BB326A5FDB1007020C0 /* SignUp.swift in Sources */,
 				DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
@@ -1467,7 +1445,6 @@
 				DB0BC67E26EF6C4D007D097D /* StringProtocol+Utils.swift in Sources */,
 				DB2E196F26CE587D004FF77C /* TellStoryThanksViewController.swift in Sources */,
 				DB57272E26D620F3002D6B46 /* UITextField+Utils.swift in Sources */,
-				DB2F8BAD26A5C5DA007020C0 /* StrapiError.swift in Sources */,
 				DB79A7A426FC5C4B002B34B8 /* ResetPasswordEmailPresenter.swift in Sources */,
 				DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */,
 				DB2F8BB926A84427007020C0 /* EyeButton.swift in Sources */,
@@ -1490,7 +1467,6 @@
 				DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */,
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB79A7B026FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift in Sources */,
-				DB2F8BA426A5A421007020C0 /* AuthNetworkService.swift in Sources */,
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
 				DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */,

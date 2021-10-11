@@ -39,16 +39,29 @@ class GraphqlService: GraphqlServiceProtocol {
     // TODO refactor this
     // https://www.apollographql.com/docs/ios/tutorial/tutorial-authentication/#define-login-logic
     func setAuthToken(_ token: String) {
-        apollo = ApolloClient(
-            networkTransport: RequestChainNetworkTransport(
-                interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
-                endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
-                additionalHeaders: ["Authorization": "Bearer \(token)"],
-                autoPersistQueries: false,
-                requestBodyCreator: ApolloRequestBodyCreator(),
-                useGETForQueries: false,
-                useGETForPersistedQueryRetry: false),
-            store: ApolloStore())
+        if token.isEmpty {
+            // to remove token after sign out
+            apollo = ApolloClient(
+                networkTransport: RequestChainNetworkTransport(
+                    interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
+                    endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
+                    autoPersistQueries: false,
+                    requestBodyCreator: ApolloRequestBodyCreator(),
+                    useGETForQueries: false,
+                    useGETForPersistedQueryRetry: false),
+                store: ApolloStore())
+        } else {
+            apollo = ApolloClient(
+                networkTransport: RequestChainNetworkTransport(
+                    interceptorProvider: DefaultInterceptorProvider(store: ApolloStore()),
+                    endpointURL: URL(string: AppConstants.serverURL + "/graphql")!,
+                    additionalHeaders: ["Authorization": "Bearer \(token)"],
+                    autoPersistQueries: false,
+                    requestBodyCreator: ApolloRequestBodyCreator(),
+                    useGETForQueries: false,
+                    useGETForPersistedQueryRetry: false),
+                store: ApolloStore())
+        }
     }
     
     func fetch<T>(query: T, completionHandler: @escaping GraphQLResultHandler<T.Data>) where T : GraphQLQuery {

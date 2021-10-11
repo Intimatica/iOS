@@ -47,7 +47,7 @@ extension SignInPresenter: SignInPresenterProtocol {
                 
                 self.router.trigger(.home)
             case .failure(let authError):
-                self.view?.showNotification(self.getLocalizedAuthErrorMessage(from: authError))
+                self.view?.showNotification(authError.localizedDescription)
             }
         }
     }

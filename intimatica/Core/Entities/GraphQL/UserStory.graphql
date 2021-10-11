@@ -11,6 +11,7 @@ query UserStories {
       photo {
         url
       }
+      profile_url
     }
   }
 }
@@ -26,6 +27,7 @@ query UserStory($id: ID!) {
       photo {
         url
       }
+      profile_url
     }
   }
 }

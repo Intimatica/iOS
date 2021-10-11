@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Apollo
+import SafariServices
 
 class UserStoryViewController: UIViewController {
     // MARK: - Properties
@@ -47,6 +48,8 @@ class UserStoryViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        
+        storyView.authorView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +74,8 @@ class UserStoryViewController: UIViewController {
                        and: story.comment,
                        authorName: story.commentAuthor?.name,
                        authorJobTitle: story.commentAuthor?.jobTitle,
-                       authorAvatar: story.commentAuthor?.photo?.url)
+                       authorAvatar: story.commentAuthor?.photo?.url,
+                       profileUrl: story.commentAuthor?.profileUrl)
     }
     
     private func setupConstraints() {
@@ -101,5 +105,21 @@ extension UserStoryViewController {
     struct Constants {
         static let storyViewLeadingTrailing: CGFloat = 15
         static let storyViewTopBottom: CGFloat = 30
+    }
+}
+
+// MARK: - AuthorViewDelegate
+extension UserStoryViewController: AuthorViewDelegate {
+    func urlDidTap(url: URL) {
+        let safari = SFSafariViewController(url: url)
+        safari.delegate = self
+        present(safari, animated: true, completion: nil)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+extension UserStoryViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

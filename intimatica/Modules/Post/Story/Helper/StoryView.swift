@@ -29,7 +29,7 @@ final class StoryView: UIView {
     
     private lazy var commentLabel = UILabel(font: Constants.labelFont)
     
-    private lazy var authorView = AuthorView()
+    lazy var authorView = AuthorView()
     
     
     // MARK: - Initializers
@@ -90,7 +90,7 @@ final class StoryView: UIView {
     }
     
     // MARK: - Public
-    func fill(by story: String, and comment: String?, authorName: String?, authorJobTitle: String?, authorAvatar: String?) {
+    func fill(by story: String, and comment: String?, authorName: String?, authorJobTitle: String?, authorAvatar: String?, profileUrl: String?) {
         storyLabel.text = story
         commentLabel.text = comment
         
@@ -107,7 +107,7 @@ final class StoryView: UIView {
                 return
             }
             
-            authorView.fill(by: .creator(authorName), jobTitle: authorJobTitle, avatar: authorAvatar)
+            authorView.fill(by: .creator(authorName), jobTitle: authorJobTitle, avatar: authorAvatar, profileUrl: profileUrl)
         } else {
             authorView.isHidden = true
             commentView.isHidden = true

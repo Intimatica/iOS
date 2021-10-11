@@ -247,7 +247,11 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
         tagsStackView.fill(by: tags)
         
         let textColor: UIColor = postIsPaid ? .white : .black
-        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl, textColor: textColor)
+        authorView.fill(by: .author(authorName),
+                        jobTitle: authorJobTitle,
+                        avatar: authorPhotoUrl,
+                        profileUrl: response.post?.author?.profileUrl,
+                        textColor: textColor)
         
         let webViewSettings = response.webViewSetting?.data ?? ""
         markdownView.load(markdown: fixContentStrapiLinks(content) + webViewSettings, enableImage: true)

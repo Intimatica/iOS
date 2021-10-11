@@ -14,6 +14,7 @@ query VideoCoursePost($id: ID!) {
       photo {
         url
       }
+      profile_url
     }
     is_paid
     post_type_dz {

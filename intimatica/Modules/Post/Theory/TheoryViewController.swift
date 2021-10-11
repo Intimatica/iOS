@@ -31,6 +31,7 @@ class TheoryViewController: BasePostViewController {
         setupAction()
         
         scrollView.delegate = self
+        authorView.delegate = self
         
         presenter.viewDidLoad()
     }
@@ -98,7 +99,7 @@ extension TheoryViewController: TheoryViewProtocol {
         
         titleLabel.text = theoryPost.title
         tagsStackView.fill(by: tags)
-        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl)
+        authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl, profileUrl: theoryPost.author?.profileUrl)
         
         markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
         

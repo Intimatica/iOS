@@ -35,6 +35,8 @@ class StoryViewController: BasePostViewController {
         setupConstraints()
         setupActions()
         
+        storyView.authorView.delegate = self
+        
         presenter.viewDidLoad()
     }
     
@@ -102,7 +104,7 @@ extension StoryViewController: StoryViewProtocol {
         
         titleLabel.text = post.title
         tagsStackView.fill(by: tags)
-        storyView.fill(by: story, and: comment, authorName: authorName, authorJobTitle: authorJobTitle, authorAvatar: authorPhotoUrl)
+        storyView.fill(by: story, and: comment, authorName: authorName, authorJobTitle: authorJobTitle, authorAvatar: authorPhotoUrl, profileUrl: post.author?.profileUrl)
         
         hideActivityIndicator()
         

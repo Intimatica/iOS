@@ -9,6 +9,10 @@ import UIKit
 import Kingfisher
 import SnapKit
 
+protocol AuthorViewDelegate: AnyObject {
+    func urlDidTap(url: URL)
+}
+
 final class AuthorView: UIView {
     enum Writer {
         case creator(String)
@@ -16,6 +20,8 @@ final class AuthorView: UIView {
     }
     
     // MARK: - Properties
+    var delegate: AuthorViewDelegate?
+    private var profileUrl: String?
     private lazy var imageView: AvatarImageView = {
         let imageView = AvatarImageView()
         imageView.contentMode = .scaleAspectFill
@@ -38,6 +44,7 @@ final class AuthorView: UIView {
         
         setupView()
         setupConstraints()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +74,9 @@ final class AuthorView: UIView {
     }
     
     // MARK: - Public
-    func fill(by name: Writer, jobTitle: String, avatar: String, textColor: UIColor = .black) {
+    func fill(by name: Writer, jobTitle: String, avatar: String, profileUrl: String?, textColor: UIColor = .black) {
+        self.profileUrl = profileUrl
+        
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: AppConstants.serverURL + avatar), options: AppConstants.kingFisherOptions)
 
@@ -104,6 +113,17 @@ final class AuthorView: UIView {
             text.append(NSAttributedString(string: jobTitle, attributes: greyTextAttribute))
             text.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, text.length))
             label.attributedText = text
+        }
+    }
+    
+    private func setupActions() {
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector (self.showBrowser(_:)))
+        self.addGestureRecognizer(tapGuesture)
+    }
+    
+    @objc private func showBrowser(_ sender:UITapGestureRecognizer) {
+        if let profileUrl = profileUrl, let url = URL(string: profileUrl) {
+            delegate?.urlDidTap(url: url)
         }
     }
 }

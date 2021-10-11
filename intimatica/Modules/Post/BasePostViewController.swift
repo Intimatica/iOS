@@ -9,6 +9,7 @@ import UIKit
 import MarkdownView
 import Kingfisher
 import FirebaseAnalytics
+import SafariServices
 
 class BasePostViewController: UIViewController, ActivityIndicatable {
     // MARK: - Properties
@@ -187,5 +188,21 @@ extension BasePostViewController: BasePostViewProtocol {
         if isFavorite {
             rightBarButtonItem.state = .active
         }
+    }
+}
+
+// MARK: - AuthorViewDelegate
+extension BasePostViewController: AuthorViewDelegate {
+    func urlDidTap(url: URL) {
+        let safari = SFSafariViewController(url: url)
+        safari.delegate = self
+        present(safari, animated: true, completion: nil)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+extension BasePostViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

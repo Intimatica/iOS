@@ -12,7 +12,13 @@ class PopViewController: UIViewController, ActivityIndicatable {
     lazy var activityContainerView: UIView = {
         UIView(frame: .zero)
     }()
-    lazy var closeButton = CloseButton()
+    
+    lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "close_button"), for: .normal)
+        return button
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

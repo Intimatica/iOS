@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         FirebaseApp.configure()
-        registerPushNotifications()
         IQKeyboardManager.shared.enable = true
         
         let attributes = [NSAttributedString.Key.font: UIFont.rubik(fontSize: .regular, fontWeight: .bold)]
@@ -62,30 +61,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-
-    
-    func registerPushNotifications() {
-        UNUserNotificationCenter.current()
-            .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-                print("Permission granted: \(granted)")
-                
-                guard granted else { return }
-                self?.getNotificationSettings()
-            }
-    }
-    
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current()
-            .getNotificationSettings { settings in
-                print("Notification settings: \(settings)")
-                
-                guard settings.authorizationStatus == .authorized else { return }
-                
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
     }
 }
 

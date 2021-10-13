@@ -58,7 +58,7 @@ class VideoCourseViewController: BasePostViewController {
     private lazy var videoTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .rubik(fontSize: .subTitle, fontWeight: .medium)
+        label.font = .rubik(fontSize: .subTitle, fontWeight: .bold)
         label.textColor = .black
         label.text = L10n("COURSE_VIDEO_TITLE")
         return label

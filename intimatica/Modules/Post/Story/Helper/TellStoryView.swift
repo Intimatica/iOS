@@ -44,7 +44,7 @@ final class TellStoryView: UIView {
         label.text = L10n("STORY_TELL_TITLE_LABEL")
         label.textColor = .white
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
@@ -71,6 +71,11 @@ final class TellStoryView: UIView {
         
         setupView()
         setupConstraints()
+        
+        // QUESTION: how to remove this
+        if screen == .story {
+            titleLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -100,9 +105,7 @@ final class TellStoryView: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: settings.titleLeadingTrailing),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: settings.titleLabelTop),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -settings.titleLeadingTrailing),
-            // QUESTION how to remove this?
-            titleLabel.heightAnchor.constraint(equalToConstant: 70),
-            
+
             actionButton.heightAnchor.constraint(equalToConstant: settings.actionButtonHeight),
             actionButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             actionButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: settings.actionButtonTop),

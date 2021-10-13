@@ -18,7 +18,7 @@ class LeftSideMenuViewController: UIViewController {
                                                                  imageName: "menu_terms_and_conditions")
     private lazy var privacyPolicyButtton = createMenuButton(title: L10n("MENU_ITEM_PRIVACY_POLICY"), imageName: "menu_privacy")
     
-    private lazy var applyForPremiumButton = ApplyForPremiumButton(desing: .purle)
+    private lazy var applyForPremiumButton = ApplyForPremiumButton(desing: .purle, fontSize: .subRegular)
     
     private lazy var logoutButton = createMenuButton(title: L10n("MENU_ITEM_LOGOUT"), imageName: "menu_logout")
     

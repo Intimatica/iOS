@@ -14,17 +14,17 @@ class ApplyForPremiumButton: UIRoundedButton {
     }
     
     // MARK: - Initializers
-    init(desing: Design) {
+    init(desing: Design, fontSize: FontSize = .regular) {
         super.init(frame: .zero)
         
-        setupUI(with: desing)
+        setupUI(with: desing, fontSize: fontSize)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI(with desing: Design) {
+    private func setupUI(with desing: Design, fontSize: FontSize) {
         translatesAutoresizingMaskIntoConstraints = false
         
         switch desing {
@@ -40,6 +40,6 @@ class ApplyForPremiumButton: UIRoundedButton {
         
         setTitle(L10n("APPLY_FOR_A_PREMIUM_BUTTON_TITLE"), for: .normal)
         imageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: 0)
-        titleLabel?.font = .rubik(fontSize: .subRegular, fontWeight: .bold)
+        titleLabel?.font = .rubik(fontSize: fontSize, fontWeight: .bold)
     }
 }

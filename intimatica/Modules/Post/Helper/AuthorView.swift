@@ -89,7 +89,7 @@ final class AuthorView: UIView {
         ]
         
         let nameTextAttribute: [NSAttributedString.Key: Any] = [
-            .font: UIFont.rubik(fontSize: .px14, fontWeight: .regular),
+            .font: UIFont.rubik(fontSize: .px14, fontWeight: .bold),
             .foregroundColor: textColor
         ]
         

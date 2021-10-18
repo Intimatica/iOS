@@ -27,6 +27,7 @@ target 'intimatica' do
   pod 'SwiftLint'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
+  pod 'Firebase/RemoteConfig'
   
   # UI helpers
   pod 'Kingfisher', '~> 6.0'

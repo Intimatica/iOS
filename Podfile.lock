@@ -13,6 +13,11 @@ PODS:
   - Firebase/Crashlytics (8.7.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 8.7.0)
+  - Firebase/RemoteConfig (8.7.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 8.7.0)
+  - FirebaseABTesting (8.8.0):
+    - FirebaseCore (~> 8.0)
   - FirebaseAnalytics (8.7.0):
     - FirebaseAnalytics/AdIdSupport (= 8.7.0)
     - FirebaseCore (~> 8.0)
@@ -52,6 +57,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseRemoteConfig (8.7.0):
+    - FirebaseABTesting (~> 8.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
   - GoogleAppMeasurement (8.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -113,6 +124,7 @@ DEPENDENCIES:
   - Apollo
   - Firebase/Analytics
   - Firebase/Crashlytics
+  - Firebase/RemoteConfig
   - IQKeyboardManagerSwift
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
@@ -130,11 +142,13 @@ SPEC REPOS:
     - AlignedCollectionViewFlowLayout
     - Apollo
     - Firebase
+    - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCrashlytics
     - FirebaseInstallations
+    - FirebaseRemoteConfig
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -156,11 +170,13 @@ SPEC CHECKSUMS:
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   Apollo: 241254e8b26f49dc180e3be848f0b3fc5699e6f4
   Firebase: bc9325d5ee2041524bac78a5213d0e530c651309
+  FirebaseABTesting: 981336dd14d84787e33466e4247f77ec2343f8d9
   FirebaseAnalytics: 52768800c2add1d84b751420cb4caaf8195f2c41
   FirebaseCore: f4804c1d3f4bbbefc88904d15653038f2c99ddf7
   FirebaseCoreDiagnostics: b63732f581a1c6a453ec7241f9ab60b3a5bd3450
   FirebaseCrashlytics: 6fac03d1eef054833b71c929c93ab95c12989728
   FirebaseInstallations: ede6fb72bb6337914e5888b399271259d0c4910c
+  FirebaseRemoteConfig: 34300dd83055c06e2768d0932dd8fb2c1575745f
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
@@ -178,6 +194,6 @@ SPEC CHECKSUMS:
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 371b2feac58987512fe3102e28baf81419f852c5
+PODFILE CHECKSUM: 6971c3fdcdf5b32ddf9034e4a76fc2647654c8dc
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

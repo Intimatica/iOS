@@ -117,3 +117,5 @@ iOSInjectionProject/
 # Intimatica App
 intimatica/Core/Entities/GraphQL/API.swift
 intimatica/Core/Entities/GraphQL/schema.json
+.DS_Store
+

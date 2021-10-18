@@ -40,6 +40,10 @@ class LeftSideMenuViewController: UIViewController {
         setupView()
         setupConstraints()
         setupActions()
+        
+        if !AppConstants.displayPremiumButton {
+            applyForPremiumButton.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -9,10 +9,10 @@ import UIKit
 import IQKeyboardManagerSwift
 import UserNotifications
 import Firebase
+import FirebaseRemoteConfig
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = attributes
         
         registerPushNotifications()
+        initRemoteConfig()
+        
         return true
     }
 
@@ -72,6 +74,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
             }
+    }
+    
+    func initRemoteConfig() {
+//        let settings = RemoteConfigSettings()
+//        settings.minimumFetchInterval = 0
+//        RemoteConfig.remoteConfig().configSettings = settings
+        
+        RemoteConfig.remoteConfig().setDefaults(fromPlist: "AppDefaults")
+        
+        RemoteConfig.remoteConfig().fetch {[weak self] (status, error) -> Void in
+            guard let self = self else { return }
+            
+            if status == .success {
+//                print("Config fetched!")
+                RemoteConfig.remoteConfig().activate { [weak self] changed, error in
+                    self?.bindRemoteConfig2AppConstants()
+                }
+            } else {
+                print("Config not fetched")
+                print("Error: \(error?.localizedDescription ?? "No error available.")")
+            }
+        }
+        
+        bindRemoteConfig2AppConstants()
+    }
+    
+    func bindRemoteConfig2AppConstants() {
+        guard
+            let serverURL = RemoteConfig.remoteConfig().configValue(forKey: "serverURL").stringValue
+        else {
+            fatalError("Failed to init app default paramets")
+        }
+        
+        AppConstants.serverURL = serverURL
+        AppConstants.displayPremiumButton = RemoteConfig.remoteConfig().configValue(forKey: "displayPremiumButton").boolValue
     }
 }
 

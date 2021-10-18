@@ -35,6 +35,7 @@ final class ProfileView: UIView {
         button.setImage(UIImage(named: "settings_button_icon"), for: .normal)
         return button
     }()
+
     
     lazy var premiumButton = ApplyForPremiumButton(desing: .yellow)
     
@@ -57,7 +58,10 @@ final class ProfileView: UIView {
         addSubview(avatarImageView)
         addSubview(nameStackView)
         addSubview(editProfileButton)
-        addSubview(premiumButton)
+        
+        if AppConstants.displayPremiumButton {
+            addSubview(premiumButton)
+        }
         
         nameStackView.addArrangedSubview(nicknameLabel)
         nameStackView.addArrangedSubview(emailLabel)
@@ -82,11 +86,17 @@ final class ProfileView: UIView {
             make.trailing.equalTo(self).offset(-Constants.editProfileButtonLeadingTrailing)
         }
         
-        premiumButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.premiumButtonHeight)
-            make.leading.trailing.equalTo(self).inset(Constants.premiumButtonLeadingTrailing)
-            make.top.equalTo(avatarImageView.snp.bottom).offset(Constants.premiumButtonTop)
-            make.bottom.equalTo(self).offset(-Constants.premiumButtonBottom)
+        if AppConstants.displayPremiumButton {
+            premiumButton.snp.makeConstraints { make in
+                make.height.equalTo(Constants.premiumButtonHeight)
+                make.leading.trailing.equalTo(self).inset(Constants.premiumButtonLeadingTrailing)
+                make.top.equalTo(avatarImageView.snp.bottom).offset(Constants.premiumButtonTop)
+                make.bottom.equalTo(self).offset(-Constants.premiumButtonBottom)
+            }
+        } else {
+            editProfileButton.snp.makeConstraints { make in
+                make.bottom.equalTo(self).offset(-Constants.premiumButtonBottom)
+            }
         }
     }
     

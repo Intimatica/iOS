@@ -141,6 +141,19 @@ class BasePostViewController: UIViewController, ActivityIndicatable {
                 self.rightBarButtonItem.state = .inactive
             }
         }
+        
+        markdownView.onTouchLink = { request in
+            guard let url = request.url else { return false }
+
+            if url.scheme == "file" {
+                return false
+            } else if url.scheme == "https" {
+                UIApplication.shared.open(url)
+                return false
+            } else {
+                return false
+            }
+        }
     }
 
     func fixContentStrapiLinks(_ text: String) -> String {

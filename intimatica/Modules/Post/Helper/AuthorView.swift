@@ -63,13 +63,14 @@ final class AuthorView: UIView {
     private func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.height.width.equalTo(Constants.imageViewWidthHeight)
-            make.leading.top.bottom.equalTo(self)
+            make.leading.equalTo(self)
+            make.centerY.equalTo(label.snp.centerY)
         }
         
         label.snp.makeConstraints { make in
-            make.centerY.equalTo(imageView.snp.centerY)
             make.leading.equalTo(imageView.snp.trailing).offset(Constants.labelLeading)
             make.trailing.equalTo(self)
+            make.top.bottom.equalTo(self)
         }
     }
     

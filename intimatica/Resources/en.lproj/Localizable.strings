@@ -106,7 +106,7 @@ TELL_STORY_THANKS_TITLE = "Thanks!";
 TELL_STORY_THANKS_SUBTITLE = "Your story has been sent. Wait for a comment from a specialist.\n\nThe story and a comment will appear on your profile.";
 TELL_STORY_THANKS_BUTTON_TITLE = "I'll wait for an answer";
 // ProfileViewController
-PROFILE = "Профиль";
+PROFILE = "Profile";
 EDIT_PROFILE_BUTTON_TITLE = "Edit profile";
 APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Get a premium subscription";
 PROFILE_TABLE_TITLE = "My stories";

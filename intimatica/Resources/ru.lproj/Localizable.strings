@@ -19,8 +19,8 @@ AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть бол
 AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
 AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
-AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
-AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфидентиальности";
+AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфиденциальности";
+AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфиденциальности";
 AGE_CONFIRM_CONTINUE_BUTTON = "Продолжить";
 
 WELCOME_SIGN_IN = "Войти";
@@ -99,7 +99,6 @@ COURSE_VIDEO_TITLE = "Видео курса";
 COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";
 
 COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
-COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
 COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
 
 PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
@@ -126,7 +125,6 @@ TELL_STOTY_BUTTON_TITLE = "Отправить";
 // TellStoryThanksViewController
 TELL_STORY_THANKS_TITLE = "Спасибо!";
 TELL_STORY_THANKS_SUBTITLE = "Твоя история отправлена. Жди комментарий специалиста.\n\nИстория и комментарий к ней появится в твоем профиле.";
-TELL_STORY_THANKS_INFO = "";
 TELL_STORY_THANKS_BUTTON_TITLE = "Буду ждать ответ специалиста";
 
 // ProfileViewController

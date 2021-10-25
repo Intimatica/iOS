@@ -27,7 +27,6 @@ class CourseFinishedViewController: PopViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .rubik(fontSize: .regular, fontWeight: .regular)
-        label.text = L10n("COURSE_FINISHED_SUBTITLE")
         label.textAlignment = .center
         label.numberOfLines = 0
         return label

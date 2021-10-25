@@ -8,157 +8,128 @@
 
 // ENGLISH
 
-OK = "Ok";
-ERROR = "Ошибка";
-DONE = "Готово";
-CANCEL = "Отмена";
-UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
-
-
-AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
-AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
-AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
-AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
-AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфидентиальности";
-AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Политикой конфидентиальности";
-AGE_CONFIRM_CONTINUE_BUTTON = "Продолжить";
-
-WELCOME_SIGN_IN = "Войти";
-WELCOME_SIGN_UP = "Зарегистрироваться";
-WELCOME_GREETING_TEXT = "У нас интересно! Присоединяйся";
-
+OK = "Оk";
+ERROR = "Error";
+DONE = "Done";
+CANCEL = "Cancel";
+UNKNOWN_ERROR_MESSAGE = "Unknown error";
+AGE_CONFIRM_WELCOME_LABEL = "Hey! You must be over 16 years old to use the app";
+AGE_CONFIRM_LABEL = "I confirm that I am over 16 years old";
+AGE_CONFIRM_TERMS_LABEL = "I agree to the Terms of Use";
+AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Terms of Use";
+AGE_CONFIRM_CONDITIONS_LABEL = "I agree with the Privacy Policy";
+AGE_CONFIRM_CONDITIONS_LABEL_ATTRIBUTED = "Privacy Policy";
+AGE_CONFIRM_CONTINUE_BUTTON = "Continue";
+WELCOME_SIGN_IN = "Sign in";
+WELCOME_SIGN_UP = "Sign up";
+WELCOME_GREETING_TEXT = "It's going to be fun here, join us!";
 AUTH_EMAIL_FIELD_PLACEHOLDER = "Email";
-AUTH_CODE_FIELD_PLACEHOLDER = "Код";
-AUTH_PASSWORD_FIELD_PLACEHOLDER = "Пароль (8+ символов)";
-AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Повторить пароль";
-
-AUTH_EMAIL_INVALID = "Некорректно введен email";
-AUTH_PASSWORD_INVALID = "Пароль должен включать 8+ символов";
-AUTH_PASSWORD_CONFIRM_DONT_MATCH = "Пароли не совпадают";
-
-SIGN_UP_VIEW_TITLE = "Регистрация";
-SIGN_UP_BUTTON_TITLE = "Зарегистрироваться";
-SIGN_UP_I_HAVE_ACCOUNT_BUTTON = "У меня уже есть аккаунт";
-
-SIGN_IN_VIEW_TITLE = "Войти";
-SIGN_IN_BUTTON_TITLE = "Войти";
-SIGN_IN_FORGOT_PASSWORD_BUTTON = "Не помню пароль";
+AUTH_CODE_FIELD_PLACEHOLDER = "Code";
+AUTH_PASSWORD_FIELD_PLACEHOLDER = "Password (8+ characters)";
+AUTH_PASSWORD_CONFIRM_FIELD_PLACEHOLDER = "Repeat password";
+AUTH_EMAIL_INVALID = "Invalid email";
+AUTH_PASSWORD_INVALID = "Password must include 8+ characters";
+AUTH_PASSWORD_CONFIRM_DONT_MATCH = "Password mismatch";
+SIGN_UP_VIEW_TITLE = "Registration";
+SIGN_UP_BUTTON_TITLE = "Sign up";
+SIGN_UP_I_HAVE_ACCOUNT_BUTTON = "I already have an account";
+SIGN_IN_VIEW_TITLE = "Sign in";
+SIGN_IN_BUTTON_TITLE = "Sign in";
+SIGN_IN_FORGOT_PASSWORD_BUTTON = "Forgot password";
 
 // Strapi errors
-Auth.form.error.blocked = "Ваш аккаунт был заблокирован администратором.";
-Auth.form.error.code.provide = "Указан неверный код.";
-Auth.form.error.confirmed = "Ваш e-mail не подтвержден.";
-Auth.form.error.email.invalid = "Неправильный e-mail.";
-Auth.form.error.email.provide = "Укажите свое имя пользователя или e-mail.";
-Auth.form.error.email.taken = "Данный e-mail уже используется";
-Auth.form.error.invalid = "Неверный логин или пароль.";
-Auth.form.error.params.provide = "Предоставлены неверные параметры.";
-Auth.form.error.password.format = "Пароль не может содержать символ `$` больше трех раз.";
-Auth.form.error.password.local = "Этот пользователь никогда не задавал пароль, пожалуйста, войдите в систему через провайдера, используемого при создании учетной записи.";
-Auth.form.error.password.matching = "Пароли не совпадают.";
-Auth.form.error.password.provide = "Укажите свой пароль.";
-Auth.form.error.ratelimit = "Слишком много попыток, повторите через минуту";
-Auth.form.error.user.not-exist = "Этот e-mail не существует.";
-Auth.form.error.username.taken = "Имя пользователя уже используется";
+Auth.form.error.blocked = "Your account has been blocked by the administrator.";
+Auth.form.error.code.provide = "Incorrect code provided.";
+Auth.form.error.confirmed = "Your account email is not confirmed.";
+Auth.form.error.email.invalid = "This email is invalid.";
+Auth.form.error.email.provide = "Please provide your username or your email.";
+Auth.form.error.email.taken = "Email is already taken.";
+Auth.form.error.invalid = "Identifier or password invalid.";
+Auth.form.error.params.provide = "Incorrect params provided.";
+Auth.form.error.password.format = "Your password cannot contain the symbol `$` more than three times.";
+Auth.form.error.password.local = "This user never set a local password, please login via the provider used during account creation.";
+Auth.form.error.password.matching = "Passwords do not match.";
+Auth.form.error.password.provide = "Please provide your password.";
+Auth.form.error.ratelimit = "Too many attempts, please try again in a minute.";
+Auth.form.error.user.not-exist = "This email does not exist.";
+Auth.form.error.username.taken = "Username is already taken.";
 
-PROFILE_PAGE_TITLE = "Редактирование профиля";
-PROFILE_VIEW_TITLE = "Мой профиль";
-PROFILE_NICKNAME_FIELD_TITLE = "Никнейм";
-PROFILE_SEX_FIELD_TITLE = "Пол";
-PROFILE_BIRTHDATE_FIELD_TITLE = "Дата рождения";
-PROFILE_SAVE_BUTTON_TITLE = "Сохранить";
-PROFILE_FILL_LATER_BUTTON_TITLE = "Заполнить позже";
-PROFILE_CHANGE_PASSWORD = "Изменить пароль";
-
+PROFILE_PAGE_TITLE = "Profile Editing";
+PROFILE_VIEW_TITLE = "My profile";
+PROFILE_NICKNAME_FIELD_TITLE = "Nickname";
+PROFILE_SEX_FIELD_TITLE = "Gender";
+PROFILE_BIRTHDATE_FIELD_TITLE = "Date of Birth";
+PROFILE_SAVE_BUTTON_TITLE = "Save";
+PROFILE_FILL_LATER_BUTTON_TITLE = "Complete the profile later";
+PROFILE_CHANGE_PASSWORD = "Change password";
 // HOME TABBAR
-POST_LIST_TABBAR_ITEM_TITLE = "ГЛАВНАЯ";
-COURSES_TABBAR_ITEM_TITLE = "КУРСЫ";
-PROFILE_TABBAR_ITEM_TITLE = "ПРОФИЛЬ";
-
-TABLE_CELL_POST_LABEL_COURSE = "КУРС";
-TABLE_CELL_POST_LABEL_STORY = "ИСТОРИИ";
-TABLE_CELL_POST_LABEL_THEORY = "ТЕОРИЯ";
-TABLE_CELL_POST_LABEL_VIDEO = "ВИДЕО";
-TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "ПРЕМИУМ КУРС";
-
-CATEGORY_ALL = "Все";
-CATEGORY_THEORY = "Теория";
-CATEGORY_STORY = "Истории";
-CATEGORY_VIDEO = "Видео";
-CATEGORY_FAVORITE = "Избранное";
-CATEGORY_ALL_COURSES = "Все курсы";
-CATEGORY_MY_COURSES = "Мои курсы";
-
+POST_LIST_TABBAR_ITEM_TITLE = "INTIMATICA";
+COURSES_TABBAR_ITEM_TITLE = "COURSES";
+PROFILE_TABBAR_ITEM_TITLE = "PROFILE";
+TABLE_CELL_POST_LABEL_COURSE = "COURSE";
+TABLE_CELL_POST_LABEL_STORY = "STORIES";
+TABLE_CELL_POST_LABEL_THEORY = "THEORY";
+TABLE_CELL_POST_LABEL_VIDEO = "VIDEOS";
+TABLE_CELL_POST_LABEL_PRIMIUM_COURSE = "PREMIUM COURSE";
+CATEGORY_ALL = "All";
+CATEGORY_THEORY = "Theory";
+CATEGORY_STORY = "Stories";
+CATEGORY_VIDEO = "Videos";
+CATEGORY_FAVORITE = "Favorites";
+CATEGORY_ALL_COURSES = "All courses";
+CATEGORY_MY_COURSES = "My courses";
 // POST VIEW
-COURSE_SELECTION_BUTTON_TITLE_INACTIVE = "В мои курсы";
-COURSE_SELECTION_BUTTON_TITLE_ACTIVE = "Добавлен";
-AUTHOR = "Автор";
-
-COURSE_POST_TITLE = "Программа курса";
-COURSE_VIDEO_TITLE = "Видео курса";
-COURSE_VIDEO_FINISH_BUTTON_TITLE = "Завершить курс";
-
-COURSE_FINISHED_TITLE = "Ура!\nКурс успешно пройден";
-COURSE_FINISHED_SUBTITLE = "Теперь ты знаешь больше о половом созревании у мальчиков";
-COURSE_FINISHED_BUTTON_TITLE = "Я молодец!";
-
-PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Выйти";
-
-
-TAG_CLOUD_SHOW_BUTTON_TITLE = "Показать";
-TAG_CLOUD_CLEAR_BUTTON_TITLE = "Очистить";
-
-STORY_AGREE_LABEL = "Автор дал согласие на анонимную публикацию";
-
+COURSE_SELECTION_BUTTON_TITLE_INACTIVE = "Add to my courses";
+COURSE_SELECTION_BUTTON_TITLE_ACTIVE = "Added";
+AUTHOR = "Author";
+COURSE_POST_TITLE = "Course program";
+COURSE_VIDEO_TITLE = "Course videos";
+COURSE_VIDEO_FINISH_BUTTON_TITLE = "Complete the course";
+COURSE_FINISHED_TITLE = "Hooray!\nThe course has been successfully completed.";
+COURSE_FINISHED_BUTTON_TITLE = "I did great!";
+PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Sign out";
+TAG_CLOUD_SHOW_BUTTON_TITLE = "Show";
+TAG_CLOUD_CLEAR_BUTTON_TITLE = "Clear";
+STORY_AGREE_LABEL = "The author has consented to anonymous publication";
 // TellStoryView
-STORY_TELL_TITLE_LABEL = "Хочешь рассказать свою историю?";
-STORY_TELL_BUTTON_LABEL = "Рассказать";
-PROFILE_TELL_TITLE_LABEL = "Поделись историей\nи получи ответ психолога";
-PROFILE_TELL_BUTTON_LABEL = "Рассказать историю";
-
-
+STORY_TELL_TITLE_LABEL = "Want to tell your story?";
+STORY_TELL_BUTTON_LABEL = "Tell";
+PROFILE_TELL_TITLE_LABEL = "Share your story\nand get an answer from a psychologist";
+PROFILE_TELL_BUTTON_LABEL = "Tell a story";
 // TellStoryViewController
-TELL_STORY_TITLE = "Моя история";
-TELL_STOTY_SUBTILE = "Расскажи тут свою историю";
-TELL_STORY_AGREE_TITLE = "Даю согласие на анонимную публикацию истории и исправление грамматических ошибок";
-TELL_STOTY_BUTTON_TITLE = "Отправить";
-
+TELL_STORY_TITLE = "My story";
+TELL_STOTY_SUBTILE = "Tell your story here";
+TELL_STORY_AGREE_TITLE = "I agree to anonymous publication of my story and correction of grammatical mistakes";
+TELL_STOTY_BUTTON_TITLE = "Send";
 // TellStoryThanksViewController
-TELL_STORY_THANKS_TITLE = "Спасибо!";
-TELL_STORY_THANKS_SUBTITLE = "Твоя история отправлена. Жди комментарий специалиста.\n\nИстория и комментарий к ней появится в твоем профиле.";
-TELL_STORY_THANKS_INFO = "";
-TELL_STORY_THANKS_BUTTON_TITLE = "Буду ждать ответ специалиста";
-
+TELL_STORY_THANKS_TITLE = "Thanks!";
+TELL_STORY_THANKS_SUBTITLE = "Your story has been sent. Wait for a comment from a specialist.\n\nThe story and a comment will appear on your profile.";
+TELL_STORY_THANKS_BUTTON_TITLE = "I'll wait for an answer";
 // ProfileViewController
 PROFILE = "Профиль";
-EDIT_PROFILE_BUTTON_TITLE = "Редактировать профиль";
-APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Оформить премиум";
-PROFILE_TABLE_TITLE = "Мои истории";
-
-TAG_LABEL_PRIVATE = "ПРИВАТНАЯ";
-TAG_LABEL_UNDER_CONSIDERATION = "НА РАССМОТРЕНИИ";
-TAG_LABEL_PUBLISHED = "ОПУБЛИКОВАНО";
-
-MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="Посмотреть ответ психолога";
-
+EDIT_PROFILE_BUTTON_TITLE = "Edit profile";
+APPLY_FOR_A_PREMIUM_BUTTON_TITLE = "Get a premium subscription";
+PROFILE_TABLE_TITLE = "My stories";
+TAG_LABEL_PRIVATE = "PRIVATE";
+TAG_LABEL_UNDER_CONSIDERATION = "AT THE REVIEW";
+TAG_LABEL_PUBLISHED = "PUBLISHED";
+MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="View the answer";
 // BurgerMenuViewController
-MENU_ITEM_HELP = "Помощь";
-MENU_ITEM_ABOUT = "О нас";
-MENU_ITEM_TERMS_AND_CONDITIONS = "Условия и правила";
-MENU_ITEM_PRIVACY_POLICY = "Конфиденциальность";
-MENU_ITEM_LOGOUT = "Выйти из аккаунта";
-
+MENU_ITEM_HELP = "Help";
+MENU_ITEM_ABOUT = "About Us";
+MENU_ITEM_TERMS_AND_CONDITIONS = "Terms and Conditions";
+MENU_ITEM_PRIVACY_POLICY = "Privacy Policy";
+MENU_ITEM_LOGOUT = "Sign out";
 // ChangePasswordViewController
-CHANGE_PASSWORD_CURRENT_PASSWORD_TITLE = "Текущий пароль";
-CHANGE_PASSWORD_NEW_PASSWORD_TITLE = "Новый пароль (8+ символов)";
-CHANGE_PASSWORD_CONFIRM_PASSWORD_TITLE = "Повторить пароль";
-CHANGE_PASSWORD_CONFIRM_BUTTON_TITLE_UPDATE = "Обновить";
-CHANGE_PASSWORD_PAGE_TITLE = "Изменение пароля";
-
-RESET_PASSWORD_PAGE_TITLE = "Восстановление пароля";
-RESET_PASSWORD_EMAIL_PAGE_SUBTITLE = "Введи почту, которая указывалась при регистрации. На нее придет код для изменения пароля.";
-RESET_PASSWORD_EMAIL_PAGE_ACTION_BUTTON_TTTLE = "Отправить";
-RESET_PASSWORD_CODE_PAGE_SUBTITLE = "Введи код, который пришел тебе на почту. Если код не пришел, вернись на шаг назад и отправь его снова.";
-RESET_PASSWORD_CODE_PAGE_ACTION_BUTTON_TTTLE = "Далее";
-RESET_PASSWORD_NEW_PASSWORD_PAGE_SUBTITLE = "Постарайся придумать надежный пароль с символами и цифрами.";
-RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Обновить и войти";
+CHANGE_PASSWORD_CURRENT_PASSWORD_TITLE = "Current password";
+CHANGE_PASSWORD_NEW_PASSWORD_TITLE = "New password (8+ characters)";
+CHANGE_PASSWORD_CONFIRM_PASSWORD_TITLE = "Repeat password";
+CHANGE_PASSWORD_CONFIRM_BUTTON_TITLE_UPDATE = "Update";
+CHANGE_PASSWORD_PAGE_TITLE = "Change password";
+RESET_PASSWORD_PAGE_TITLE = "Reset Password";
+RESET_PASSWORD_EMAIL_PAGE_SUBTITLE = "Enter the email address you used during registration. A code to change the password will be sent to your email.";
+RESET_PASSWORD_EMAIL_PAGE_ACTION_BUTTON_TTTLE = "Send";
+RESET_PASSWORD_CODE_PAGE_SUBTITLE = "Enter the code that came to your mail. If the code did not come, go back one step and send it again.";
+RESET_PASSWORD_CODE_PAGE_ACTION_BUTTON_TTTLE = "Next";
+RESET_PASSWORD_NEW_PASSWORD_PAGE_SUBTITLE = "Try to come up with a strong password with symbols and numbers";
+RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Update and Sign in";

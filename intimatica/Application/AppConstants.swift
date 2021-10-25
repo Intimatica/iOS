@@ -14,4 +14,5 @@ struct AppConstants {
         .diskCacheExpiration(.seconds(TimeInterval(15 * 60)))
     ]
     static var displayPremiumButton: Bool!
+    static var language: String!
 }

@@ -16,6 +16,7 @@ enum ProfileRoute: Route {
     case tellStory
     case editProfile
     case updatePassword
+    case updateLanguage
     case back
     case dismiss
 }
@@ -56,6 +57,11 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
         case .updatePassword:
             let presenter = UpdatePasswordPresenter(router: strongRouter, dependencies: useCaseProvider)
             let viewController = UpdatePasswordViewController(presenter: presenter)
+            presenter.view = viewController
+            return .push(viewController)
+        case .updateLanguage:
+            let presenter = LanguageSettingsPresenter(router: strongRouter, dependencies: useCaseProvider)
+            let viewController = LanguageSettingsViewController(presenter: presenter)
             presenter.view = viewController
             return .push(viewController)
         case .back:

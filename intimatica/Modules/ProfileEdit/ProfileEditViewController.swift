@@ -29,7 +29,7 @@ class ProfileEditViewController: UIViewController {
                                                font: .rubik(fontSize: .regular, fontWeight: .bold),
                                                backgroundColor: .appDarkPurple)
     
-//    private lazy var changePasswordView = ChangePasswordView()
+    private lazy var languageSettingsView = LanguageSettingsView()
     
     // MARK: - Initializers
     init(presenter: ProfileEditPresenterDelegate) {
@@ -70,7 +70,7 @@ class ProfileEditViewController: UIViewController {
         view.addSubview(genderView)
         view.addSubview(birthdateView)
         view.addSubview(saveButton)
-//        view.addSubview(changePasswordView)
+        view.addSubview(languageSettingsView)
     }
     
     private func setupConstraints() {
@@ -95,10 +95,10 @@ class ProfileEditViewController: UIViewController {
             make.top.equalTo(birthdateView.snp.bottom).offset(Constants.saveButtonTop)
         }
         
-//        changePasswordView.snp.makeConstraints { make in
-//            make.leading.trailing.equalTo(view)
-//            make.top.equalTo(saveButton.snp.bottom).offset(Constants.changePasswordViewTop)
-//        }
+        languageSettingsView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.equalTo(saveButton.snp.bottom).offset(Constants.languageSettingsViewTop)
+        }
     }
     
     private func setupActions() {
@@ -106,9 +106,9 @@ class ProfileEditViewController: UIViewController {
             self?.presenter.saveButtonDidTap()
         }
         
-//        changePasswordView.actionButton.addAction { [weak self] in
-//            self?.presenter.changePasswordButtonDidTap()
-//        }
+        languageSettingsView.actionButton.addAction { [weak self] in
+            self?.presenter.updateLanguageButtonDidTap()
+        }
     }
 }
 
@@ -121,7 +121,7 @@ extension ProfileEditViewController {
         static let birthdateView: CGFloat = 30
         static let saveButtonHeight: CGFloat = 50
         static let saveButtonTop: CGFloat = 50
-        static let changePasswordViewTop: CGFloat = 60
+        static let languageSettingsViewTop: CGFloat = 60
     }
 }
 

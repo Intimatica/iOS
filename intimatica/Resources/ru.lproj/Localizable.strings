@@ -68,6 +68,7 @@ PROFILE_SEX_FIELD_TITLE = "Пол";
 PROFILE_BIRTHDATE_FIELD_TITLE = "Дата рождения";
 PROFILE_SAVE_BUTTON_TITLE = "Сохранить";
 PROFILE_FILL_LATER_BUTTON_TITLE = "Заполнить позже";
+PROFILE_CHANGE_LANGUAGE = "Язык";
 PROFILE_CHANGE_PASSWORD = "Изменить пароль";
 
 // HOME TABBAR
@@ -160,3 +161,6 @@ RESET_PASSWORD_CODE_PAGE_SUBTITLE = "Введи код, который приш�
 RESET_PASSWORD_CODE_PAGE_ACTION_BUTTON_TTTLE = "Далее";
 RESET_PASSWORD_NEW_PASSWORD_PAGE_SUBTITLE = "Постарайся придумать надежный пароль с символами и цифрами.";
 RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Обновить и войти";
+
+// LanguageSettings
+LANGUAGE_SETTINGS_NOTIFICATION = "Изменения вступят в силу после перезапуска приложения";

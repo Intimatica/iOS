@@ -23,6 +23,8 @@
 		DB0BC68B26F1C461007D097D /* NotificationLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68A26F1C461007D097D /* NotificationLabelView.swift */; };
 		DB0BC68F26F1FAD5007D097D /* VideoPostLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC68E26F1FAD5007D097D /* VideoPostLabel.swift */; };
 		DB0BC69326F278A3007D097D /* ViewedNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BC69226F278A3007D097D /* ViewedNotificationService.swift */; };
+		DB1BB4A72726F1DF00D47145 /* LanguageSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BB4A62726F1DF00D47145 /* LanguageSettingsPresenter.swift */; };
+		DB1BB4A92726F1F200D47145 /* LanguageSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BB4A82726F1F200D47145 /* LanguageSettingsViewController.swift */; };
 		DB2E195426CB84C4004FF77C /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195326CB84C4004FF77C /* CourseButtonView.swift */; };
 		DB2E195626CBE37A004FF77C /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195526CBE37A004FF77C /* StoryPresenter.swift */; };
 		DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E195826CBE3A4004FF77C /* StoryViewController.swift */; };
@@ -102,7 +104,7 @@
 		DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F3179269DA973005E7578 /* SceneDelegate.swift */; };
 		DB6F3181269DA977005E7578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6F3180269DA977005E7578 /* Assets.xcassets */; };
 		DB73014626DEB64900AE2892 /* Gender.graphql in Resources */ = {isa = PBXBuildFile; fileRef = DB73014526DEB64900AE2892 /* Gender.graphql */; };
-		DB79A79026FB41CA002B34B8 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */; };
+		DB79A79026FB41CA002B34B8 /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A78F26FB41CA002B34B8 /* LanguageSettingsView.swift */; };
 		DB79A79426FB52B7002B34B8 /* UpdatePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */; };
 		DB79A79626FB52F5002B34B8 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */; };
 		DB79A79D26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */; };
@@ -206,6 +208,8 @@
 		DB0BC68A26F1C461007D097D /* NotificationLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLabelView.swift; sourceTree = "<group>"; };
 		DB0BC68E26F1FAD5007D097D /* VideoPostLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostLabel.swift; sourceTree = "<group>"; };
 		DB0BC69226F278A3007D097D /* ViewedNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedNotificationService.swift; sourceTree = "<group>"; };
+		DB1BB4A62726F1DF00D47145 /* LanguageSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsPresenter.swift; sourceTree = "<group>"; };
+		DB1BB4A82726F1F200D47145 /* LanguageSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsViewController.swift; sourceTree = "<group>"; };
 		DB2E195326CB84C4004FF77C /* CourseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		DB2E195526CBE37A004FF77C /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		DB2E195826CBE3A4004FF77C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -290,7 +294,7 @@
 		DB6F3180269DA977005E7578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB73014526DEB64900AE2892 /* Gender.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gender.graphql; sourceTree = "<group>"; };
 		DB73014726E0BEFF00AE2892 /* intimatica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = intimatica.entitlements; sourceTree = "<group>"; };
-		DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		DB79A78F26FB41CA002B34B8 /* LanguageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsView.swift; sourceTree = "<group>"; };
 		DB79A79326FB52B7002B34B8 /* UpdatePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordPresenter.swift; sourceTree = "<group>"; };
 		DB79A79526FB52F5002B34B8 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		DB79A79C26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordBasePresenter.swift; sourceTree = "<group>"; };
@@ -442,6 +446,15 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		DB1BB4A52726F1C000D47145 /* LanguageSettings */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB4A62726F1DF00D47145 /* LanguageSettingsPresenter.swift */,
+				DB1BB4A82726F1F200D47145 /* LanguageSettingsViewController.swift */,
+			);
+			path = LanguageSettings;
+			sourceTree = "<group>";
+		};
 		DB2E195226CA4AF2004FF77C /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +535,7 @@
 		DB2F8B19269EDB21007020C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DB1BB4A52726F1C000D47145 /* LanguageSettings */,
 				DB79A79B26FBC9B3002B34B8 /* ResetPassword */,
 				DB79A79226FB51EB002B34B8 /* UpdatePassword */,
 				DB4660D626F4E05C00F5200F /* ProfileEdit */,
@@ -778,7 +792,7 @@
 		DB79A79126FB48F3002B34B8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				DB79A78F26FB41CA002B34B8 /* ChangePasswordView.swift */,
+				DB79A78F26FB41CA002B34B8 /* LanguageSettingsView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1409,8 +1423,9 @@
 				DB0BC68926F1386B007D097D /* NotificationTableViewCell.swift in Sources */,
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
 				DBFA7C5D26C835EB0042D31D /* WebPageViewController.swift in Sources */,
-				DB79A79026FB41CA002B34B8 /* ChangePasswordView.swift in Sources */,
+				DB79A79026FB41CA002B34B8 /* LanguageSettingsView.swift in Sources */,
 				DBDBC78B26D3A0B100CB839C /* PublisingAgreeView.swift in Sources */,
+				DB1BB4A92726F1F200D47145 /* LanguageSettingsViewController.swift in Sources */,
 				DB8A59A026B01E3100842771 /* FeedViewController.swift in Sources */,
 				DBFA7C6326C852670042D31D /* GraphQLUseCase.swift in Sources */,
 				DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */,
@@ -1476,6 +1491,7 @@
 				DBF99D5B26B2A1FC00E04D40 /* CourseTableViewCell.swift in Sources */,
 				DB6F317A269DA973005E7578 /* SceneDelegate.swift in Sources */,
 				DBF99D4226B07D9A00E04D40 /* API.swift in Sources */,
+				DB1BB4A72726F1DF00D47145 /* LanguageSettingsPresenter.swift in Sources */,
 				DB79A7AA26FC5CAF002B34B8 /* ResetPasswordCodeViewController.swift in Sources */,
 				DBFA7C7726C972B50042D31D /* FavoriteButtonView.swift in Sources */,
 				DB2F8B7326A356B2007020C0 /* SignUpPresenter.swift in Sources */,

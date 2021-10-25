@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerPushNotifications()
         initRemoteConfig()
         
+        AppConstants.language = getCurrentLanguage()
+        
         return true
     }
 
@@ -109,6 +111,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppConstants.serverURL = serverURL
         AppConstants.displayPremiumButton = RemoteConfig.remoteConfig().configValue(forKey: "displayPremiumButton").boolValue
+    }
+    
+    func getCurrentLanguage() -> String {
+        let userDefaultsLangKey = "appLanguage"
+        var currentLanguage: String = ""
+        
+        if let lang = UserDefaults.standard.string(forKey: userDefaultsLangKey) {
+            currentLanguage = lang
+        } else if let lang = Locale.current.languageCode {
+            currentLanguage = lang
+        }
+        
+        return !currentLanguage.isEmpty ? currentLanguage : "en"
     }
 }
 

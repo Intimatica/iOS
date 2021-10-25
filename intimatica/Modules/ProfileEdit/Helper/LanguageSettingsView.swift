@@ -7,16 +7,16 @@
 
 import UIKit
 
-class ChangePasswordView: UIView {
+class LanguageSettingsView: UIView {
     // MARK: - Properies
     private lazy var topSpacer = SpacerView(height: 1, backgroundColor: .appPalePurple)
     private lazy var bottomSpacer = SpacerView(height: 1, backgroundColor: .appPalePurple)
     
-    private lazy var passwordImageView = UIImageView(name: "Password", contentMode: .scaleAspectFill)
+    private lazy var imageView = UIImageView(name: "Password", contentMode: .scaleAspectFill)
     
     private lazy var titleLabel = UILabel(font: .rubik(fontSize: .regular, fontWeight: .regular),
                                           textColor: .black,
-                                          text: L10n("PROFILE_CHANGE_PASSWORD"))
+                                          text: L10n("PROFILE_CHANGE_LANGUAGE"))
     
     private lazy var forwardImageView = UIImageView(name: "forward_icon", contentMode: .scaleAspectFill)
     
@@ -37,7 +37,7 @@ class ChangePasswordView: UIView {
     // MARK: - Layout
     private func setupView() {
         addSubview(topSpacer)
-        addSubview(passwordImageView)
+        addSubview(imageView)
         addSubview(titleLabel)
         addSubview(forwardImageView)
         addSubview(bottomSpacer)
@@ -57,14 +57,14 @@ class ChangePasswordView: UIView {
             make.leading.bottom.trailing.equalTo(self)
         }
         
-        passwordImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.passwordImageViewLeading)
-            make.leading.equalTo(self).offset(Constants.passwordImageViewLeading)
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(Constants.imageViewLeading)
+            make.leading.equalTo(self).offset(Constants.imageViewLeading)
             make.centerY.equalTo(self)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(passwordImageView.snp.trailing).offset(Constants.titleLabelLeading)
+            make.leading.equalTo(imageView.snp.trailing).offset(Constants.titleLabelLeading)
             make.centerY.equalTo(self)
         }
         
@@ -80,14 +80,14 @@ class ChangePasswordView: UIView {
 }
 
 // MARK: - Helper/Constants
-extension ChangePasswordView {
+extension LanguageSettingsView {
     struct Constants {
         static let viewHeight: CGFloat = 64
         static let borderHeight: CGFloat = 1
         static let borderColor: UIColor = .appPalePurple
         
-        static let passwordImageViewWidthHeight: CGFloat = 19
-        static let passwordImageViewLeading: CGFloat = 25
+        static let imageViewWidthHeight: CGFloat = 19
+        static let imageViewLeading: CGFloat = 25
         static let titleLabelLeading: CGFloat = 10
         static let forwardImageViewWidth: CGFloat = 7
         static let letforwardImageViewTrailing: CGFloat = 25

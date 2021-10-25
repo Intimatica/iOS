@@ -61,7 +61,9 @@ PROFILE_SEX_FIELD_TITLE = "Gender";
 PROFILE_BIRTHDATE_FIELD_TITLE = "Date of Birth";
 PROFILE_SAVE_BUTTON_TITLE = "Save";
 PROFILE_FILL_LATER_BUTTON_TITLE = "Complete the profile later";
+PROFILE_CHANGE_LANGUAGE = "Language";
 PROFILE_CHANGE_PASSWORD = "Change password";
+
 // HOME TABBAR
 POST_LIST_TABBAR_ITEM_TITLE = "INTIMATICA";
 COURSES_TABBAR_ITEM_TITLE = "COURSES";
@@ -78,6 +80,7 @@ CATEGORY_VIDEO = "Videos";
 CATEGORY_FAVORITE = "Favorites";
 CATEGORY_ALL_COURSES = "All courses";
 CATEGORY_MY_COURSES = "My courses";
+
 // POST VIEW
 COURSE_SELECTION_BUTTON_TITLE_INACTIVE = "Add to my courses";
 COURSE_SELECTION_BUTTON_TITLE_ACTIVE = "Added";
@@ -91,20 +94,24 @@ PROFILE_PAGE_LOGOUT_BUTTON_TITLE = "Sign out";
 TAG_CLOUD_SHOW_BUTTON_TITLE = "Show";
 TAG_CLOUD_CLEAR_BUTTON_TITLE = "Clear";
 STORY_AGREE_LABEL = "The author has consented to anonymous publication";
+
 // TellStoryView
 STORY_TELL_TITLE_LABEL = "Want to tell your story?";
 STORY_TELL_BUTTON_LABEL = "Tell";
 PROFILE_TELL_TITLE_LABEL = "Share your story\nand get an answer from a psychologist";
 PROFILE_TELL_BUTTON_LABEL = "Tell a story";
+
 // TellStoryViewController
 TELL_STORY_TITLE = "My story";
 TELL_STOTY_SUBTILE = "Tell your story here";
 TELL_STORY_AGREE_TITLE = "I agree to anonymous publication of my story and correction of grammatical mistakes";
 TELL_STOTY_BUTTON_TITLE = "Send";
+
 // TellStoryThanksViewController
 TELL_STORY_THANKS_TITLE = "Thanks!";
 TELL_STORY_THANKS_SUBTITLE = "Your story has been sent. Wait for a comment from a specialist.\n\nThe story and a comment will appear on your profile.";
 TELL_STORY_THANKS_BUTTON_TITLE = "I'll wait for an answer";
+
 // ProfileViewController
 PROFILE = "Profile";
 EDIT_PROFILE_BUTTON_TITLE = "Edit profile";
@@ -114,12 +121,14 @@ TAG_LABEL_PRIVATE = "PRIVATE";
 TAG_LABEL_UNDER_CONSIDERATION = "AT THE REVIEW";
 TAG_LABEL_PUBLISHED = "PUBLISHED";
 MY_STORY_FEED_SHOW_STORY_BUTTON_TITLE="View the answer";
+
 // BurgerMenuViewController
 MENU_ITEM_HELP = "Help";
 MENU_ITEM_ABOUT = "About Us";
 MENU_ITEM_TERMS_AND_CONDITIONS = "Terms and Conditions";
 MENU_ITEM_PRIVACY_POLICY = "Privacy Policy";
 MENU_ITEM_LOGOUT = "Sign out";
+
 // ChangePasswordViewController
 CHANGE_PASSWORD_CURRENT_PASSWORD_TITLE = "Current password";
 CHANGE_PASSWORD_NEW_PASSWORD_TITLE = "New password (8+ characters)";
@@ -133,3 +142,6 @@ RESET_PASSWORD_CODE_PAGE_SUBTITLE = "Enter the code that came to your mail. If t
 RESET_PASSWORD_CODE_PAGE_ACTION_BUTTON_TTTLE = "Next";
 RESET_PASSWORD_NEW_PASSWORD_PAGE_SUBTITLE = "Try to come up with a strong password with symbols and numbers";
 RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Update and Sign in";
+
+// LanguageSettings
+LANGUAGE_SETTINGS_NOTIFICATION = "Changes will take effect after the application is restarted";

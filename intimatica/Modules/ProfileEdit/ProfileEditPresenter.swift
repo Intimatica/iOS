@@ -10,7 +10,7 @@ import Foundation
 protocol ProfileEditPresenterDelegate: AnyObject {
     func viewDidLoad()
     func saveButtonDidTap()
-    func changePasswordButtonDidTap()
+    func updateLanguageButtonDidTap()
 }
 
 protocol ProfileEditViewControllerDelegate: AnyObject {
@@ -94,7 +94,7 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
         }
     }
     
-    func changePasswordButtonDidTap() {
-        router.trigger(.updatePassword)
+    func updateLanguageButtonDidTap() {
+        router.trigger(.updateLanguage)
     }
 }

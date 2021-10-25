@@ -12,6 +12,7 @@ class LanguageSettingsViewController: UIViewController {
     //MARK: - Properties
     private let presenter: LanguageSettingsPresenter
     private var currentLanguage = ""
+    private var selectedIndexPath = IndexPath(row: 0, section: 0)
     private var languages: [(code: String, name: String)] = []
     
     private let tableCellID = "tableCellID";
@@ -82,13 +83,14 @@ extension LanguageSettingsViewController: LanguageSettingsViewControllerDelegate
 // MARK: - UITableViewDelegate
 extension LanguageSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // deselect
+        tableView.cellForRow(at: selectedIndexPath)?.accessoryType = .none
+        
+        // select new
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         presenter.updateCurrentLanguage(to: languages[indexPath.row].code)
+        selectedIndexPath = indexPath
         showError(L10n("LANGUAGE_SETTINGS_NOTIFICATION"), title: "")
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 }
 
@@ -104,6 +106,10 @@ extension LanguageSettingsViewController: UITableViewDataSource {
         }
         
         cell.textLabel?.text = languages[indexPath.row].name
+        if currentLanguage == languages[indexPath.row].code {
+            cell.accessoryType = .checkmark
+            selectedIndexPath = indexPath
+        }
         cell.selectionStyle = .none
         
         return cell

@@ -12,7 +12,7 @@ class LanguageSettingsView: UIView {
     private lazy var topSpacer = SpacerView(height: 1, backgroundColor: .appPalePurple)
     private lazy var bottomSpacer = SpacerView(height: 1, backgroundColor: .appPalePurple)
     
-    private lazy var imageView = UIImageView(name: "Password", contentMode: .scaleAspectFill)
+    private lazy var imageView = UIImageView(name: "language", contentMode: .scaleAspectFill)
     
     private lazy var titleLabel = UILabel(font: .rubik(fontSize: .regular, fontWeight: .regular),
                                           textColor: .black,

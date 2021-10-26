@@ -58,11 +58,11 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
                 }
                 
                 self.genders = genders
-                let genderList = genders.compactMap({ $0.name })
+                let genderList = genders.compactMap({ L10n($0.name) })
                 self.view?.setGenderList(genderList)
                 
                 self.view?.setNickname(profile.nickname ?? "")
-                self.view?.setGender(profile.gender?.name ?? "")
+                self.view?.setGender(L10n(profile.gender?.name ?? ""))
                 self.view?.setBirthDate(profile.birthDate)
                 
             case .failure(let error):
@@ -75,7 +75,7 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
         let nickname = view?.getNickname()
         
         let genderName = view?.getGender() ?? ""
-        let genderID = genders.filter {$0.name == genderName}.map {$0.id}.first
+        let genderID = genders.filter { L10n($0.name) == genderName}.map {$0.id}.first
         
         let birthDate = view?.getBirthDate()
         let dateFormatter = DateFormatter()

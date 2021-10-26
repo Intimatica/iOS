@@ -14,7 +14,6 @@ DONE = "Готово";
 CANCEL = "Отмена";
 UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
 
-
 AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
 AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
@@ -164,3 +163,9 @@ RESET_PASSWORD_NEW_PASSWORD_PAGE_ACTION_BUTTON_TTTLE = "Обновить и во
 
 // LanguageSettings
 LANGUAGE_SETTINGS_NOTIFICATION = "Изменения вступят в силу после перезапуска приложения";
+
+// GEDNER
+GENDER_FEMALE = "Женский";
+GENDER_MALE = "Мужской";
+GENDER_OTHER = "Другой";
+GENDER_STILL_THINK = "Пока не решил";

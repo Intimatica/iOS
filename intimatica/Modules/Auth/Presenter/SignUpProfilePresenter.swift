@@ -38,7 +38,7 @@ extension SignUpProfilePresenter: SignUpProfilePresenterDelegate {
             case .success(let graphQLResult):
                 if let genders = graphQLResult.data?.genders?.compactMap({$0}) {
                     self.genders = genders
-                    self.view?.setGenders(genders.map({$0.name}))
+                    self.view?.setGenders(genders.map({L10n($0.name)}))
                 } else {
                     self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))
                 }
@@ -53,7 +53,7 @@ extension SignUpProfilePresenter: SignUpProfilePresenterDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let bDate = birthDate == nil ? nil : dateFormatter.string(from: birthDate!)
         
-        let genderID = genders.filter {$0.name == gender ?? "" }.map {$0.id}.first
+        let genderID = genders.filter {L10n($0.name) == gender ?? "" }.map {$0.id}.first
         
         graphQLUseCase.perform(mutaion: UpdateProfileMutation (nickname: nickname, gender: genderID, birthDate: bDate)) { [weak self] result in
             guard let self = self else { return }

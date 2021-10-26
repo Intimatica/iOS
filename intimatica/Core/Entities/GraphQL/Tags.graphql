@@ -1,5 +1,5 @@
-query Tags {
-    tags {
+query Tags($locale: String!) {
+    tags(locale: $locale) {
         id
         name
     }

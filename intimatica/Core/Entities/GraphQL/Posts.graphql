@@ -1,5 +1,5 @@
-query Posts($postTypeIdList: [Int!], $tagIdList: [Int!], $idList: [String!]) {
-    posts (sort:"published_at:desc",  where:{tags: {id: [$tagIdList]}, post_type: {id:[$postTypeIdList]}, id: [$idList]}){
+query Posts($locale: String!, $postTypeIdList: [Int!], $tagIdList: [Int!], $idList: [String!]) {
+    posts (locale: $locale, sort:"published_at:desc",  where:{tags: {id: [$tagIdList]}, post_type: {id:[$postTypeIdList]}, id: [$idList]}){
         id
         title
         image {

@@ -73,7 +73,11 @@ class GraphqlService: GraphqlServiceProtocol {
     }
 
     func getPosts(postTypeIdList: [Int], tagIdList: [Int], idList: [String], completionHandler: @escaping ([Post]) -> Void) {
-        apollo.fetch(query: PostsQuery(postTypeIdList: postTypeIdList, tagIdList: tagIdList, idList: idList), cachePolicy: .fetchIgnoringCacheData) { [weak self] result in
+        apollo.fetch(query: PostsQuery(locale: AppConstants.language,
+                                       postTypeIdList: postTypeIdList,
+                                       tagIdList: tagIdList,
+                                       idList: idList),
+                     cachePolicy: .fetchIgnoringCacheData) { [weak self] result in
               guard let self = self else { return }
                     
               switch result {
@@ -127,6 +131,6 @@ class GraphqlService: GraphqlServiceProtocol {
     }
     
     func getTags(completionHandler: @escaping TagsCompletionHandler) {
-        apollo.fetch(query: TagsQuery(), resultHandler: completionHandler)
+        apollo.fetch(query: TagsQuery(locale: AppConstants.language), resultHandler: completionHandler)
     }
 }

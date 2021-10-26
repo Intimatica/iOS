@@ -55,13 +55,13 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             return .present(viewController)
         
         case .terms:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
 
         case .conditions:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: ConditionsQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: ConditionsQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

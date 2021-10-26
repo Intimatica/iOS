@@ -44,6 +44,7 @@ extension TagCloudPresenter: TagCloudPresenterDelegate {
             switch result {
             case .success(let graphQLResult):
                 if let tags = graphQLResult.data?.tags?.compactMap({$0}) {
+                    print(tags)
                     self.view?.display(tags, with: self.selectedTags)
                 } else {
                     self.view?.displayError(graphQLResult.errors?.first?.localizedDescription ?? L10n("UNKNOWN_ERROR_MESSAGE"))

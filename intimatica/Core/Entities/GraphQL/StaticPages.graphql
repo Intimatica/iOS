@@ -1,41 +1,41 @@
-query AboutPage {
-  aboutPage {
+query AboutPage($locale: String!) {
+  aboutPage(locale: $locale) {
     content
   }
 }
 
-query HelpPage {
-  helpPage {
+query HelpPage($locale: String!) {
+  helpPage(locale: $locale) {
     content
   }
 }
 
-query TermsAndConditionsPage {
-  termsAndConditionsPage {
+query TermsAndConditionsPage($locale: String!) {
+  termsAndConditionsPage(locale: $locale) {
     content
   }
 }
 
-query PrivacyPolicyPage {
-  privacyPolicyPage {
+query PrivacyPolicyPage($locale: String!) {
+  privacyPolicyPage(locale: $locale) {
     content
   }
 }
 
-query PremiumDescription {
-  premiumDescription {
+query PremiumDescription($locale: String!) {
+  premiumDescription(locale: $locale) {
     content
   }
 }
 
-query Terms {
-  term {
+query Terms($locale: String!) {
+  term(locale: $locale) {
     content
     }
 }
 
-query Conditions {
-  condition {
+query Conditions($locale: String!) {
+  condition(locale: $locale) {
     content
     }
 }

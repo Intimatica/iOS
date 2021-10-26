@@ -83,4 +83,3 @@ extension WebPagePresenter: WebPagePresenterProtocol {
         }
     }
 }
-

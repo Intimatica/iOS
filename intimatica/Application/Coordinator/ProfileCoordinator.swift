@@ -41,7 +41,8 @@ final class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
             let viewController = UserStoryViewController(story: story)
             return .push(viewController)
         case .premium:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PremiumDescriptionQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider,
+                                             graphQLQuery: PremiumDescriptionQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

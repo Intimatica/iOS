@@ -107,31 +107,36 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
             return .present(coordinator)
         
         case .helpPage:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: HelpPageQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider,
+                                             graphQLQuery: HelpPageQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .aboutPage:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: AboutPageQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery:
+                                                AboutPageQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .termsAndConditionsPage:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: TermsAndConditionsPageQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider,
+                                             graphQLQuery: TermsAndConditionsPageQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .privacyPolicy:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PrivacyPolicyPageQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider,
+                                             graphQLQuery: PrivacyPolicyPageQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)
             
         case .premiumPage:
-            let presenter = WebPagePresenter(dependencies: useCaseProvider, graphQLQuery: PremiumDescriptionQuery())
+            let presenter = WebPagePresenter(dependencies: useCaseProvider,
+                                             graphQLQuery: PremiumDescriptionQuery(locale: AppConstants.language))
             let viewController = WebPageViewController(presenter: presenter)
             presenter.view = viewController
             return .present(viewController)

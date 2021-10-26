@@ -71,7 +71,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public
     func fill(by name: String) {
-        nameLabel.text = name
+        nameLabel.text = L10n(name)
     }
     
     func setState(_ state: State) {

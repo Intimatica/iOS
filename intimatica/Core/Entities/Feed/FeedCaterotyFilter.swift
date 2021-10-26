@@ -8,13 +8,13 @@
 import Foundation
 
 enum FeedCategory: String, CaseIterable {
-    case all = "Все"
-    case theory = "Теория"
-    case story = "Истории"
-    case video = "Видео"
-    case favorite = "Избранное"
-    case allCourses = "Все курсы"
-    case myCourses = "Мои курсы"
+    case all = "CATEGORY_ALL"
+    case theory = "CATEGORY_THEORY"
+    case story = "CATEGORY_STORY"
+    case video = "CATEGORY_VIDEO"
+    case favorite = "CATEGORY_FAVORITE"
+    case allCourses = "CATEGORY_ALL_COURSES"
+    case myCourses = "CATEGORY_MY_COURSES"
     
     static func toArray() -> [String] {
         FeedCategory.allCases.map {

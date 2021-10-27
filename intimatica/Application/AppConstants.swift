@@ -13,6 +13,7 @@ struct AppConstants {
     static let kingFisherOptions: KingfisherOptionsInfo = [
         .diskCacheExpiration(.seconds(TimeInterval(15 * 60)))
     ]
-    static var displayPremiumButton: Bool!
-    static var language: String!
+    static var displayPremiumButton = false
+    static var language = "en"
+    static var webViewSetting = ""
 }

@@ -111,6 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppConstants.serverURL = serverURL
         AppConstants.displayPremiumButton = RemoteConfig.remoteConfig().configValue(forKey: "displayPremiumButton").boolValue
+        
+        let webViewSettings = RemoteConfig.remoteConfig().configValue(forKey: "webViewSetting").stringValue
+        AppConstants.webViewSetting = webViewSettings ?? ""
     }
     
     func getCurrentLanguage() -> String {

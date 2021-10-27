@@ -82,7 +82,7 @@ class TheoryViewController: BasePostViewController {
 
 // MARK: - TheoryViewProtocol
 extension TheoryViewController: TheoryViewProtocol {
-    func display(_ theoryPost: TheoryPostQuery.Data.Post, with webViewSettings: String?) {
+    func display(_ theoryPost: TheoryPostQuery.Data.Post) {
         guard
             let imageUrl = theoryPost.image?.url,
             let tags = theoryPost.tags?.compactMap({ $0?.name }),
@@ -101,7 +101,7 @@ extension TheoryViewController: TheoryViewProtocol {
         tagsStackView.fill(by: tags)
         authorView.fill(by: .author(authorName), jobTitle: authorJobTitle, avatar: authorPhotoUrl, profileUrl: theoryPost.author?.profileUrl)
         
-        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(content) + AppConstants.webViewSetting, enableImage: true)
         
         addToAnalytics(postId: theoryPost.id, postTitle: theoryPost.title)
     }

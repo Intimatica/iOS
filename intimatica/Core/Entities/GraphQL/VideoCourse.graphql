@@ -32,9 +32,6 @@ query VideoCoursePost($id: ID!) {
       }
     }
   }
-  webViewSetting {
-    data
-  }
   profile(id:0) {
     hasPremium
   }

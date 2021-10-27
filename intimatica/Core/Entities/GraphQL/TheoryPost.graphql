@@ -24,7 +24,4 @@ query TheoryPost($id: ID!) {
       }
     }
   }
-  webViewSetting {
-    data
-  }
 }

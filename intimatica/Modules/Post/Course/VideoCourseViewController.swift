@@ -253,8 +253,7 @@ extension VideoCourseViewController: VideoCourseViewProtocol {
                         profileUrl: response.post?.author?.profileUrl,
                         textColor: textColor)
         
-        let webViewSettings = response.webViewSetting?.data ?? ""
-        markdownView.load(markdown: fixContentStrapiLinks(content) + webViewSettings, enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(content) + AppConstants.webViewSetting, enableImage: true)
        
         markdownView.onRendered = { [weak self] height in
             self?.hideActivityIndicator()

@@ -92,7 +92,7 @@ extension WebPageViewController {
 // MARK: - WebPageViewProtocol
 extension WebPageViewController: WebPageViewProtocol {
     func display(_ text: String) {
-        markdownView.load(markdown: fixContentStrapiLinks(text), enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(text) + AppConstants.webViewSetting, enableImage: true)
     }
     
     func displayError(_ message: String) {

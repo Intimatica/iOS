@@ -8,7 +8,7 @@
 import Foundation
 
 protocol VideoViewProtocol: BasePostViewProtocol {
-    func display(_ post: VideoPostQuery.Data.Post, with webViewSettings: String?)
+    func display(_ post: VideoPostQuery.Data.Post)
 }
 
 protocol VideoPresenterProtocol: BasePostPresenterProtocol {
@@ -37,7 +37,7 @@ extension VideoPresenter: VideoPresenterProtocol {
             switch result {
             case .success(let graphQLResult):
                 if let post = graphQLResult.data?.post {
-                    self.view?.display(post, with: graphQLResult.data?.webViewSetting?.data)
+                    self.view?.display(post)
                 }
                 // TODO: add else case
             case .failure(let error):

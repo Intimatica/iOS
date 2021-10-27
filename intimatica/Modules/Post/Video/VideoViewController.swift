@@ -96,7 +96,7 @@ class VideoViewController: BasePostViewController {
 
 // MARK: - VideoViewProtocol
 extension VideoViewController: VideoViewProtocol {
-    func display(_ post: VideoPostQuery.Data.Post, with webViewSettings: String?) {
+    func display(_ post: VideoPostQuery.Data.Post) {
         guard
             let tags = post.tags?.compactMap({ $0?.name }),
             let videoId = post.postTypeDz.first??.asComponentPostTypeVideo?.youtubeLink
@@ -119,7 +119,7 @@ extension VideoViewController: VideoViewProtocol {
         videoPlayer.playVideo()
         
         let content = post.postTypeDz.first??.asComponentPostTypeVideo?.description ?? ""
-        markdownView.load(markdown: fixContentStrapiLinks(content) + (webViewSettings ?? ""), enableImage: true)
+        markdownView.load(markdown: fixContentStrapiLinks(content) + AppConstants.webViewSetting, enableImage: true)
 
         markdownView.onRendered = { [weak self] height in
             self?.hideActivityIndicator()

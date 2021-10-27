@@ -1639,7 +1639,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = intimatica/intimatica.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = UL5Y5QW9KR;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1647,7 +1647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.18;
+				MARKETING_VERSION = 0.1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.intimatica.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1663,7 +1663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = intimatica/intimatica.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = UL5Y5QW9KR;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1671,7 +1671,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.18;
+				MARKETING_VERSION = 0.1.19;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.intimatica.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

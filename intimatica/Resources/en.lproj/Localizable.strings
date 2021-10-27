@@ -149,5 +149,4 @@ LANGUAGE_SETTINGS_NOTIFICATION = "Changes will take effect after the application
 // GEDNER
 GENDER_FEMALE = "Female";
 GENDER_MALE = "Male";
-GENDER_OTHER = "Other";
-GENDER_STILL_THINK = "I haven't decided yet";
+GENDER_ANOTHER = "Another";

@@ -167,5 +167,4 @@ LANGUAGE_SETTINGS_NOTIFICATION = "Изменения вступят в силу 
 // GEDNER
 GENDER_FEMALE = "Женский";
 GENDER_MALE = "Мужской";
-GENDER_OTHER = "Другой";
-GENDER_STILL_THINK = "Пока не решил";
+GENDER_ANOTHER = "Другой";

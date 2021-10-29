@@ -86,7 +86,7 @@ extension LanguageSettingsView {
         static let borderHeight: CGFloat = 1
         static let borderColor: UIColor = .appPalePurple
         
-        static let imageViewWidthHeight: CGFloat = 19
+        static let imageViewWidthHeight: CGFloat = 18
         static let imageViewLeading: CGFloat = 25
         static let titleLabelLeading: CGFloat = 10
         static let forwardImageViewWidth: CGFloat = 7

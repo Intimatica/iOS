@@ -52,7 +52,7 @@ class PostRepository: PostRepositoryProtocol {
     }
     
     func getNotifications(completionHandler: @escaping GraphQLResultHandler<NotificationsQuery.Data>) {
-        graphqlService.fetch(query: NotificationsQuery(), completionHandler: completionHandler)
+        graphqlService.fetch(query: NotificationsQuery(locale: AppConstants.language), completionHandler: completionHandler)
     }
     
     func getFavorites() -> Set<String> {

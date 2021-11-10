@@ -1,5 +1,5 @@
-query Notifications {
-  postNotifications {
+query Notifications($locale: String!) {
+  postNotifications(locale: $locale) {
     id
     title
     published_at

@@ -33,6 +33,7 @@ class VideoViewController: BasePostViewController {
     
     private lazy var videoPlayer: YTPlayerView = {
         let player = YTPlayerView()
+        player.delegate = self
         player.translatesAutoresizingMaskIntoConstraints = false
         return player
     }()
@@ -91,6 +92,15 @@ class VideoViewController: BasePostViewController {
             markdownView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             markdownView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
+    }
+}
+
+// MARK: - VideoViewProtocol
+extension VideoViewController: YTPlayerViewDelegate {
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        if state == .playing {
+            EventLogger.logEvent("content_video_click")
+        }
     }
 }
 

@@ -50,6 +50,12 @@ class SignUpProfileViewController: AuthViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        EventLogger.logEvent("sign_up_profile_open")
+    }
+    
     // MARK: - Layout
     private func setupView() {
         titleLabel.text = L10n("PROFILE_VIEW_TITLE")
@@ -72,9 +78,12 @@ class SignUpProfileViewController: AuthViewController {
         ])
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         fillLateButton.addAction { [weak self] in
             self?.dismiss(animated: true)
+            
+            EventLogger.logEvent("sign_up_profile_skip")
         }
         
         authButton.addAction { [weak self] in
@@ -89,6 +98,8 @@ class SignUpProfileViewController: AuthViewController {
             }
 
             self.presenter.saveButtonDidTap(nickname: nickname, gender: gender, birthDate: birthDateViewText.isEmpty ? nil : pickerDate)
+            
+            EventLogger.logEvent("sing_up_profile_save")
         }
     }
 }

@@ -92,9 +92,13 @@ extension ProfileEditPresenter: ProfileEditPresenterDelegate {
                 self.view?.displayError(error.localizedDescription)
             }
         }
+        
+        EventLogger.logEvent("save_click")
     }
     
     func updateLanguageButtonDidTap() {
         router.trigger(.updateLanguage)
+        
+        EventLogger.logEvent("language_click")
     }
 }

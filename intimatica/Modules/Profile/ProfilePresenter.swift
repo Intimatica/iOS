@@ -18,7 +18,7 @@ protocol ProfilePresenterDelegate: AnyObject {
     func viewDidLoad()
     func showStoryButtonDidTap(story: UserStoriesQuery.Data.Story)
     func applyForPremiumButtonDidTap()
-    func logoutButtonDidTap()
+    func editProfileButtonDidTap()
     func tellStoryButtonDidTap()
 }
 
@@ -77,6 +77,8 @@ extension ProfilePresenter: ProfilePresenterDelegate {
     }
     
     func showStoryButtonDidTap(story: UserStoriesQuery.Data.Story) {
+        EventLogger.logEvent("my_story_click")
+        
         router.trigger(.showStory(story))
     }
     
@@ -84,11 +86,15 @@ extension ProfilePresenter: ProfilePresenterDelegate {
         router.trigger(.premium)
     }
     
-    func logoutButtonDidTap() {
+    func editProfileButtonDidTap() {
+        EventLogger.logEvent("edit_profile_click")
+        
         router.trigger(.editProfile)
     }
     
     func tellStoryButtonDidTap() {
+        EventLogger.logEvent("tell_a_story_click")
+        
         router.trigger(.tellStory)
     }
 }

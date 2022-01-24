@@ -128,7 +128,8 @@ class AuthViewController: PopViewController {
         ])
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         authButton.addAction { [weak self] in
             guard let self = self,
                   let email = self.emailView.textField.text,

@@ -15,30 +15,33 @@ target 'intimatica' do
   use_frameworks!
 
   # Pods for intimatica
-  pod 'XCoordinator', '~> 2.0'
+  pod 'XCoordinator', '2.0.7'
   
   # Network
-  pod "Apollo"
+  pod "Apollo", '0.45.0'
   
   # Persistance
-  pod 'KeychainSwift', '~> 19.0'
+  pod 'KeychainSwift', '19.0.0'
   
   # Utils
-  pod 'SwiftLint'
-  pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/RemoteConfig'
+  pod 'SwiftLint', '0.43.1'
+  pod 'Firebase/Crashlytics', '8.7.0'
+  pod 'Firebase/Analytics', '8.7.0'
+  pod 'Firebase/RemoteConfig', '8.7.0'
   
   # UI helpers
-  pod 'Kingfisher', '~> 6.0'
-  pod 'MarkdownView'
+  pod 'Kingfisher', '6.3.0'
+  pod 'MarkdownView', '1.7.1'
   #pod "PlayerKit"
-  pod "youtube-ios-player-helper", "~> 1.0.2"
-  pod 'YouTubePlayer'
+  pod "youtube-ios-player-helper", "1.0.3"
+  pod 'YouTubePlayer', '0.7.2'
   
-  pod "AlignedCollectionViewFlowLayout"
-  pod 'SnapKit', '~> 5.0.0'
-  pod 'IQKeyboardManagerSwift'
-  pod 'SideMenu', '~> 6.0'
-  pod 'LocalizedTimeAgo', '~> 1.3.0'
+  pod "AlignedCollectionViewFlowLayout", '1.1.2'
+  pod 'SnapKit', '5.0.1'
+  pod 'IQKeyboardManagerSwift', '6.5.6'
+  pod 'SideMenu', '6.5.0'
+  pod 'LocalizedTimeAgo', '1.3.0'
+
+  pod 'Amplitude', '8.7.1'
+  pod 'FBSDKCoreKit', '12.2.1'
 end

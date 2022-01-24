@@ -64,7 +64,8 @@ final class SignInViewController: AuthViewController {
         ])
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         forgotPasswordButton.addAction { [weak self] in
             self?.presenter.forgotPasswordButtonDidTap()
         }

@@ -30,19 +30,29 @@ final class LeftSideMenuPresenter {
 extension LeftSideMenuPresenter: LeftSideMenuPresenterDelegate {
     func buttonDidTap(_ button: LeftSideMenuActionButton) {
         switch button {
-        case .help:
-            router.trigger(.helpPage)
-        case .about:
-            router.trigger(.aboutPage)
-        case .termsAndConditions:
-            router.trigger(.termsAndConditionsPage)
-        case .privacyPolicy:
-            router.trigger(.privacyPolicy)
-        case .applyForPremium:
-            router.trigger(.premiumPage)
-        case .logout:
-            authUseCase.signOut()
-            router.trigger(.logout)
-        }
+            case .help:
+                router.trigger(.helpPage)
+                EventLogger.logEvent("about_us_click")
+            
+            case .about:
+                router.trigger(.aboutPage)
+                EventLogger.logEvent("about_us_click")
+            
+            case .termsAndConditions:
+                router.trigger(.termsAndConditionsPage)
+                EventLogger.logEvent("terms_and_conditions_click")
+            
+            case .privacyPolicy:
+                router.trigger(.privacyPolicy)
+                EventLogger.logEvent("privacy_policy_click")
+            
+            case .applyForPremium:
+                router.trigger(.premiumPage)
+            
+            case .logout:
+                authUseCase.signOut()
+                router.trigger(.logout)
+                EventLogger.logEvent("sing_out_click")
+            }
     }
 }

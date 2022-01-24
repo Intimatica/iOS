@@ -32,6 +32,8 @@ final class TellStoryPresenter {
 // MARK: - TellStoryPresenterProtocol
 extension TellStoryPresenter: TellStoryPresenterProtocol {
     func sendButtonDidTap(with story: String, isAllowedToPublish: Bool) {
+        EventLogger.logEvent("send_story_click")
+        
         useCase.perform(mutaion: StoryMutation(story: story, isAllowedToPublish: isAllowedToPublish)) { [weak self] result in
             guard let self = self else { return }
             

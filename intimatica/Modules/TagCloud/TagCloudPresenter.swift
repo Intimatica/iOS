@@ -58,9 +58,13 @@ extension TagCloudPresenter: TagCloudPresenterDelegate {
     func showButtonDidTap(selectedTags: Set<Int>) {
         feedPresenter?.setSelectedTags(selectedTags)
         router.trigger(.dismiss)
+        
+        EventLogger.logEvent("filter_show_btn_click")
     }
     
     func clearButtonDidTap() {
         feedPresenter?.setSelectedTags(Set<Int>())
+        
+        EventLogger.logEvent("filter_clear_btn_click")
     }
 }

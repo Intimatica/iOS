@@ -83,6 +83,8 @@ class CourseTableViewCell: BaseTableViewCell {
             case .active:
                 self.delegate?.addToFavorites(by: self.indexPath)
             }
+            
+            EventLogger.logEvent("add_to_favorites_flag_click")
         }
     }
     

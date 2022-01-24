@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4FDF040D0DAE9DF466AFA550 /* Pods_intimatica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */; };
+		CA8A785B279850E700FDDD0E /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A785A279850E700FDDD0E /* EventLogger.swift */; };
+		CA8A785C2798659700FDDD0E /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B3E269F65C9007020C0 /* WelcomePresenter.swift */; };
+		CA8A785D2798659D00FDDD0E /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E197226CE7C9B004FF77C /* CheckboxWithLabelView.swift */; };
+		CA8A785E279865A000FDDD0E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F8B1A269EDB62007020C0 /* WelcomeViewController.swift */; };
 		DB0BC66926E10CB6007D097D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66626E10CB6007D097D /* index.html */; };
 		DB0BC66A26E10CB6007D097D /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66726E10CB6007D097D /* main.css */; };
 		DB0BC66B26E10CB6007D097D /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB0BC66826E10CB6007D097D /* main.js */; };
@@ -135,8 +139,6 @@
 		DB8A59A126B01E3100842771 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599326B01E3100842771 /* BaseTableViewCell.swift */; };
 		DB8A59A226B01E3100842771 /* LabelWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599426B01E3100842771 /* LabelWithBackground.swift */; };
 		DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599626B01E3100842771 /* ProfileViewController.swift */; };
-		DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599C26B01E3100842771 /* WelcomeViewController.swift */; };
-		DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599F26B01E3100842771 /* WelcomePresenter.swift */; };
 		DB8A59AB26B01E9A00842771 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A59AA26B01E9A00842771 /* Post.swift */; };
 		DBAD1744271D998700C28A1F /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBAD1743271D998700C28A1F /* AppDefaults.plist */; };
 		DBDBC76826CEECE100CB839C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */; };
@@ -171,7 +173,6 @@
 		DBF99D7826B585C400E04D40 /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF99D7726B585C400E04D40 /* UIStackView+Utils.swift */; };
 		DBFA7C3D26C3E3330042D31D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3C26C3E3330042D31D /* CategoryCollectionViewCell.swift */; };
 		DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C3E26C43BE60042D31D /* FeedCaterotyFilter.swift */; };
-		DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */; };
 		DBFA7C4226C465690042D31D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4126C465690042D31D /* ProfilePresenter.swift */; };
 		DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4826C4FBA90042D31D /* UIView+Utils.swift */; };
 		DBFA7C4C26C505F40042D31D /* TagCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7C4B26C505F40042D31D /* TagCloudViewController.swift */; };
@@ -190,6 +191,7 @@
 		1B1D93AEC6467AC0D96AA317 /* Pods-intimatica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.debug.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.debug.xcconfig"; sourceTree = "<group>"; };
 		674D71951467449ECC4A0DC3 /* Pods-intimatica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-intimatica.release.xcconfig"; path = "Target Support Files/Pods-intimatica/Pods-intimatica.release.xcconfig"; sourceTree = "<group>"; };
 		76CF2E7EF918F355B08923CA /* Pods_intimatica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_intimatica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA8A785A279850E700FDDD0E /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
 		DB0A98B32709E271009B3C8D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0A98B4270B0F60009B3C8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0A98B5270B25A2009B3C8D /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
@@ -325,11 +327,6 @@
 		DB8A599326B01E3100842771 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DB8A599426B01E3100842771 /* LabelWithBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithBackground.swift; sourceTree = "<group>"; };
 		DB8A599626B01E3100842771 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxWithLabelView.swift; sourceTree = "<group>"; };
-		DB8A599B26B01E3100842771 /* AgeConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmViewController.swift; sourceTree = "<group>"; };
-		DB8A599C26B01E3100842771 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeConfirmPresenter.swift; sourceTree = "<group>"; };
-		DB8A599F26B01E3100842771 /* WelcomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		DB8A59AA26B01E9A00842771 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DBAD1743271D998700C28A1F /* AppDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppDefaults.plist; sourceTree = "<group>"; };
 		DBDBC76726CEECE100CB839C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -519,6 +516,7 @@
 				DB2F8BAE26A5E234007020C0 /* AppConstants.swift */,
 				DB2F8BBA26A8B7CF007020C0 /* Utils.swift */,
 				DB0BC67526EA3B02007D097D /* PushTokenKeeper.swift */,
+				CA8A785A279850E700FDDD0E /* EventLogger.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -547,7 +545,6 @@
 				DBF99D5C26B2C7F500E04D40 /* Post */,
 				DB8A599026B01E3100842771 /* Feed */,
 				DB8A599526B01E3100842771 /* Profile */,
-				DB8A599726B01E3100842771 /* Welcome */,
 				DB8A596226AEBEBE00842771 /* Launch */,
 				DB2F8B9F26A59E10007020C0 /* Welcome */,
 				DB2F8B18269EDAE7007020C0 /* Auth */,
@@ -561,8 +558,8 @@
 			children = (
 				DB2F8B4626A219E6007020C0 /* Helpers */,
 				DB2F8B4426A037D0007020C0 /* AuthViewController.swift */,
-				DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */,
 				DB2F8B7426A35726007020C0 /* SignInViewController.swift */,
+				DB2F8B3B269F5EC9007020C0 /* SignUpViewController.swift */,
 				DB57273126D621C5002D6B46 /* SignUpProfileViewController.swift */,
 			);
 			path = View;
@@ -960,42 +957,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		DB8A599726B01E3100842771 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A599826B01E3100842771 /* View */,
-				DB8A599D26B01E3100842771 /* Presenter */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
-		DB8A599826B01E3100842771 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A599926B01E3100842771 /* Helpers */,
-				DB8A599B26B01E3100842771 /* AgeConfirmViewController.swift */,
-				DB8A599C26B01E3100842771 /* WelcomeViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		DB8A599926B01E3100842771 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A599A26B01E3100842771 /* CheckboxWithLabelView.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		DB8A599D26B01E3100842771 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A599E26B01E3100842771 /* AgeConfirmPresenter.swift */,
-				DB8A599F26B01E3100842771 /* WelcomePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		DB8A59A926B01E9A00842771 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -1359,7 +1320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBFA7C4926C4FBA90042D31D /* UIView+Utils.swift in Sources */,
-				DBFA7C4026C45AD20042D31D /* CheckboxWithLabelView.swift in Sources */,
 				DB79A79426FB52B7002B34B8 /* UpdatePasswordPresenter.swift in Sources */,
 				DB2E196B26CD7F29004FF77C /* PopViewController.swift in Sources */,
 				DBF99D5E26B2C82A00E04D40 /* TheoryViewController.swift in Sources */,
@@ -1401,6 +1361,7 @@
 				DB79A79F26FBCAC9002B34B8 /* ResetPasswordBaseViewController.swift in Sources */,
 				DB8A595126AC998A00842771 /* AuthRepository.swift in Sources */,
 				DB3C565F26BC18B40087663E /* VideoCourseViewController.swift in Sources */,
+				CA8A785D2798659D00FDDD0E /* CheckboxWithLabelView.swift in Sources */,
 				DB2F8B7526A35726007020C0 /* SignInViewController.swift in Sources */,
 				DBF99D6626B3D6D000E04D40 /* BasePostViewController.swift in Sources */,
 				DBF99D4826B1439900E04D40 /* PostRepository.swift in Sources */,
@@ -1409,6 +1370,7 @@
 				DBFA7C3F26C43BE60042D31D /* FeedCaterotyFilter.swift in Sources */,
 				DB79A7A826FC5C87002B34B8 /* ResetPasswordCodePresenter.swift in Sources */,
 				DB2E196226CD44A8004FF77C /* TellStoryView.swift in Sources */,
+				CA8A785E279865A000FDDD0E /* WelcomeViewController.swift in Sources */,
 				DB2F8B4526A037D0007020C0 /* AuthViewController.swift in Sources */,
 				DB3C566126BC18E00087663E /* VideoCoursePresenter.swift in Sources */,
 				DB2E196926CD7251004FF77C /* UILabel+Utils.swift in Sources */,
@@ -1418,7 +1380,6 @@
 				DB3C567426C1A8E40087663E /* UITapGestureRecognizer+Utils.swift in Sources */,
 				DB8A59AB26B01E9A00842771 /* Post.swift in Sources */,
 				DB79A79D26FBCAB3002B34B8 /* ResetPasswordBasePresenter.swift in Sources */,
-				DB8A59A826B01E3100842771 /* WelcomePresenter.swift in Sources */,
 				DB3C567026C129CD0087663E /* CoursesActionButton.swift in Sources */,
 				DB0BC68926F1386B007D097D /* NotificationTableViewCell.swift in Sources */,
 				DB81AFBA26B7EA4E00948B1F /* VideoPresenter.swift in Sources */,
@@ -1453,7 +1414,6 @@
 				DB2F8BC426A97421007020C0 /* UIButton+Utils.swift in Sources */,
 				DB2E195926CBE3A4004FF77C /* StoryViewController.swift in Sources */,
 				DB3C567226C143D50087663E /* CourseFinishedViewController.swift in Sources */,
-				DB8A59A626B01E3100842771 /* WelcomeViewController.swift in Sources */,
 				DB0BC68B26F1C461007D097D /* NotificationLabelView.swift in Sources */,
 				DB8A595626ACA2F900842771 /* AuthUseCase.swift in Sources */,
 				DB2F8BBD26A9486D007020C0 /* AgeConfirmViewController.swift in Sources */,
@@ -1480,11 +1440,13 @@
 				DB2F8BAF26A5E234007020C0 /* AppConstants.swift in Sources */,
 				DB8A598B26AF6FFC00842771 /* UseCaseProvider.swift in Sources */,
 				DB81AFBC26B7EB0500948B1F /* BasePostPresenter.swift in Sources */,
+				CA8A785B279850E700FDDD0E /* EventLogger.swift in Sources */,
 				DBF99D7026B4316000E04D40 /* AuthorView.swift in Sources */,
 				DB79A7B026FCED02002B34B8 /* ResetPasswordNewPasswordViewController.swift in Sources */,
 				DBDBC77726D159F000CB839C /* StoryTableViewCell.swift in Sources */,
 				DB8A59A326B01E3100842771 /* ProfileViewController.swift in Sources */,
 				DB0BC67C26EF6C18007D097D /* ApplyForPremiumButton.swift in Sources */,
+				CA8A785C2798659700FDDD0E /* WelcomePresenter.swift in Sources */,
 				DBFA7C4E26C506C00042D31D /* TagCloudPresenter.swift in Sources */,
 				DB2E195D26CBF20F004FF77C /* TagStackView.swift in Sources */,
 				DB79A79626FB52F5002B34B8 /* UpdatePasswordViewController.swift in Sources */,
@@ -1639,15 +1601,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = intimatica/intimatica.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_TEAM = UL5Y5QW9KR;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = KNPCWZ64A2;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.21;
+				MARKETING_VERSION = 0.1.25;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.intimatica.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1663,15 +1625,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = intimatica/intimatica.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_TEAM = UL5Y5QW9KR;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = KNPCWZ64A2;
 				INFOPLIST_FILE = intimatica/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.21;
+				MARKETING_VERSION = 0.1.25;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.intimatica.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

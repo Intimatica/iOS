@@ -72,10 +72,14 @@ extension FeedPresenter: FeedPresenterDelegate {
     
     func tagFilterButtonDidTap() {
         router.trigger(.tagCloud(self, selectedTags))
+        
+        EventLogger.logEvent("filter_btn_click")
     }
 
     func notificationsButtonDidTap() {
         router.trigger(.notifications)
+        
+        EventLogger.logEvent("notifications_click")
     }
     
     func show(_ post: Post) {
@@ -95,22 +99,22 @@ extension FeedPresenter: FeedPresenterDelegate {
         idList = []
         
         switch category {
-        case .all:
-            postTypeIdList = [1, 2, 3]
-        case .theory:
-            postTypeIdList = [1]
-        case .story:
-            postTypeIdList = [2]
-        case .video:
-            postTypeIdList = [3]
-        case .favorite:
-            postTypeIdList = []
-            idList = Array(favotires)
-        case .allCourses:
-            postTypeIdList = [4]
-        case .myCourses:
-            postTypeIdList = [4]
-            idList = Array(favotires)
+            case .all:
+                postTypeIdList = [1, 2, 3]
+            case .theory:
+                postTypeIdList = [1]
+            case .story:
+                postTypeIdList = [2]
+            case .video:
+                postTypeIdList = [3]
+            case .favorite:
+                postTypeIdList = []
+                idList = Array(favotires)
+            case .allCourses:
+                postTypeIdList = [4]
+            case .myCourses:
+                postTypeIdList = [4]
+                idList = Array(favotires)
         }
         
         if (category == .favorite || category == .myCourses) && favotires.isEmpty {

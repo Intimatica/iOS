@@ -93,6 +93,8 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
         setupView()
         setupConstraints()
         setupAction()
+        
+        EventLogger.logEvent("profile_page_opened")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +102,10 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
         
         setNavigationBar(titleColor: .white, backgroundColor: .appDarkPurple)
         presenter.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     // MARK: - Layout
@@ -167,7 +173,7 @@ final class ProfileViewController: UIViewController, ActivityIndicatable {
     
     private func setupAction() {
         profileView.editProfileButton.addAction { [weak self] in
-            self?.presenter.logoutButtonDidTap()
+            self?.presenter.editProfileButtonDidTap()
         }
         
         profileView.premiumButton.addAction { [weak self] in

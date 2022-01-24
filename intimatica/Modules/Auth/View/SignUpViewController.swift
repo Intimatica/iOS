@@ -40,6 +40,7 @@ final class SignUpViewController: AuthViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        EventLogger.logEvent("sign_up_screen_open")
         FirebaseAnalytics.Analytics.logEvent(AnalyticsParameterScreenName, parameters: [
             "screen_name": "SignUp",
         ])
@@ -69,9 +70,14 @@ final class SignUpViewController: AuthViewController {
         ])
     }
     
-    private func setupActions() {
+    override func setupActions() {
         accountExistButton.addAction { [weak self] in
             self?.presenter.accountExistButtonDidTap()
+        }
+        
+        closeButton.addAction { [weak self] in
+            EventLogger.logEvent("sign_up_screen_closed")
+            self?.dismiss(animated: true)
         }
     }
 }

@@ -106,7 +106,8 @@ class CourseFinishedViewController: PopViewController {
         ])
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         button.addAction { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }

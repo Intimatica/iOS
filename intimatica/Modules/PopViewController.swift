@@ -45,7 +45,7 @@ class PopViewController: UIViewController, ActivityIndicatable {
         ])
     }
     
-    private func setupActions() {
+    func setupActions() {
         closeButton.addAction { [weak self] in
             self?.dismiss(animated: true)
         }

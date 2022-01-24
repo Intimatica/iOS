@@ -10,13 +10,19 @@ import IQKeyboardManagerSwift
 import UserNotifications
 import Firebase
 import FirebaseRemoteConfig
+import FBSDKCoreKit
+import Amplitude
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        Amplitude.instance().trackingSessionEvents = true
+        Amplitude.instance().initializeApiKey("bff16a790197251cd2e2eb564be077b5")
         
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
@@ -30,6 +36,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppConstants.language = getCurrentLanguage()
         
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppEvents.shared.activateApp()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 
     // MARK: UISceneSession Lifecycle
@@ -59,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
                 print("Permission granted: \(granted)")
+                
+                EventLogger.logEvent("push_notifications", ["granted": granted])
                 
                 guard granted else { return }
                 self?.getNotificationSettings()

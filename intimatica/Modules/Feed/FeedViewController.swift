@@ -154,12 +154,16 @@ class FeedViewController: UIViewController, ActivityIndicatable {
 
         navigationController?.navigationBar.topItem?.title = title?.lowercased().uppercaseFirstLetter()
         
+        //hot fix for tabbar events
+        tabBarController?.delegate = self
+        
         setupView()
         setupConstraints()
         setupActions()
         
         // QUESION: how to update cell in case of changing favorite state in post view. Delegate?
 //        presenter.viewDidLoad()
+        EventLogger.logEvent("home_page_opened")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,6 +262,8 @@ class FeedViewController: UIViewController, ActivityIndicatable {
             menu.presentationStyle = .viewSlideOutMenuPartialIn
             menu.delegate = self
             self.present(menu, animated: true, completion: nil)
+            
+            EventLogger.logEvent("menu_click")
         }
     }
     
@@ -268,6 +274,22 @@ class FeedViewController: UIViewController, ActivityIndicatable {
     @objc private func applicationWillEnterForeground(_ notification: NSNotification) {
         presenter.viewDidLoad()
         presenter.filter(by: categoryItems[selectedCategoryIndexPath.row])
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+extension FeedViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        switch tabBarController.selectedIndex {
+        case 0:
+            EventLogger.logEvent("intimatica_click")
+        case 1:
+            EventLogger.logEvent("courses_click")
+        case 2:
+            EventLogger.logEvent("profile_click")
+        default:
+            break
+        }
     }
 }
 
@@ -292,6 +314,7 @@ extension FeedViewController {
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.show(posts[indexPath.row])
+        EventLogger.logEvent("content_click")
     }
 }
 
@@ -425,6 +448,8 @@ extension FeedViewController: UICollectionViewDelegate {
         
         presenter.filter(by: category)
         
+        logCategorySelected(category)
+        
         posts = []
         tableView.reloadData()
         showActivityIndicator(with: tableView.frame, opacity: 0.5)
@@ -433,10 +458,28 @@ extension FeedViewController: UICollectionViewDelegate {
             selectedCell.setState(.normal)
         }
         
-        
         selectedCategoryIndexPath = indexPath
         
         collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
+    }
+    
+    private func logCategorySelected(_ categorySelected: FeedCategory) {
+        switch categorySelected {
+        case .theory:
+            EventLogger.logEvent("theory_click")
+        case .story:
+            EventLogger.logEvent("stories_click")
+        case .video:
+            EventLogger.logEvent("videos_click")
+        case .allCourses:
+            EventLogger.logEvent("all_courses_click")
+        case .myCourses:
+            EventLogger.logEvent("my_courses_click")
+        case .favorite:
+            EventLogger.logEvent("favourites_click")
+        case .all:
+            break
+        }
     }
 }
 

@@ -35,6 +35,8 @@ extension SignUpPresenter: SignUpPresenterProtocol {
     }
     
     override func doAuthButtonDidTap(email: String, password: String) {
+        EventLogger.logEvent("sign_up_click")
+        
         useCase.signUp(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             
@@ -44,6 +46,7 @@ extension SignUpPresenter: SignUpPresenterProtocol {
                 self.useCase.setAuthToken(authResponse.jwt)
                 
                 FirebaseAnalytics.Analytics.logEvent(AnalyticsEventSignUp, parameters: [:])
+                EventLogger.logEvent("sign_up_complete")
                 
                 self.router.trigger(.signUpProfile)
             case .failure(let authError):

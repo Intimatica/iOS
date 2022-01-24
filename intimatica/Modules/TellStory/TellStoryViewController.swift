@@ -146,10 +146,13 @@ class TellStoryViewController: PopViewController {
         }
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         publishingAgreeView.actionButton.addAction { [weak self] in
             guard let self = self else { return }
             self.publishingAgreeView.state = self.publishingAgreeView.state == .active ? .inactive : .active
+            
+            EventLogger.logEvent("checkbox_click")
         }
         
         sendButton.addAction { [weak self] in

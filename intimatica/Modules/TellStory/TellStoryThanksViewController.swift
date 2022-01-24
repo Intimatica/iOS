@@ -70,7 +70,8 @@ class TellStoryThanksViewController: PopViewController {
         }
     }
     
-    private func setupActions() {
+    override func setupActions() {
+        super.setupActions()
         actionButton.addAction { [weak self] in
             self?.dismiss(animated: true)
         }

@@ -44,4 +44,5 @@ target 'intimatica' do
 
   pod 'Amplitude', '8.7.1'
   pod 'FBSDKCoreKit', '12.2.1'
+  pod 'YandexMobileMetrica/Dynamic/Core', '4.0.0'
 end

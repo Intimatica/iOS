@@ -12,6 +12,7 @@ import Firebase
 import FirebaseRemoteConfig
 import FBSDKCoreKit
 import Amplitude
+import YandexMobileMetrica
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Amplitude.instance().trackingSessionEvents = true
         Amplitude.instance().initializeApiKey("bff16a790197251cd2e2eb564be077b5")
+        
+        let configuration = YMMYandexMetricaConfiguration.init(apiKey: "80d09a78-7f72-4107-a38a-5767b9b8bdd5")
+        configuration?.crashReporting = false
+        YMMYandexMetrica.activate(with: configuration!)
         
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true

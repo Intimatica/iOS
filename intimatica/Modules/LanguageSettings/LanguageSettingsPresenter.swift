@@ -21,7 +21,7 @@ class LanguageSettingsPresenter {
     // MARK: - Properties
     private let userDefaultsLangKey = "appLanguage"
     private let languages = [
-        (code: "en", name: "Engish"),
+        (code: "en", name: "English"),
         (code: "ru", name: "Русский")
     ]
     private let router: ProfileRouter

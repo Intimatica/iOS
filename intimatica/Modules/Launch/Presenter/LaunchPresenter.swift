@@ -29,7 +29,7 @@ final class LaunchPresenter {
 extension LaunchPresenter: LaunchPresenterProtocol {
     func viewDidLoad() {
         guard let userCredentials = useCase.getUserCredentials() else {
-            router.trigger(.ageConfirm)
+            router.trigger(.onboarding)
             return
         }
 
@@ -48,7 +48,7 @@ extension LaunchPresenter: LaunchPresenterProtocol {
                 
                 self.router.trigger(.home)
             case .failure(_):
-                self.router.trigger(.ageConfirm)
+                self.router.trigger(.onboarding)
             }
         }
     }

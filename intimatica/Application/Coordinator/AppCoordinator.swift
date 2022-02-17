@@ -16,6 +16,7 @@ typealias TellStoryRouter = StrongRouter<TellStoryRoute>
 
 enum AppRoute: Route {
     case launch
+    case onboarding
     case ageConfirm
     case terms
     case conditions
@@ -36,7 +37,6 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
     
     init() {
         super.init(rootViewController: UIViewController(), initialRoute: .launch)
-//        super.init(rootViewController: UIViewController(), initialRoute: .welcome)
     }
     
     override func prepareTransition(for route: AppRoute) -> ViewTransition {
@@ -47,6 +47,12 @@ final class AppCoordinator: ViewCoordinator<AppRoute> {
             let viewController = LaunchViewController(presenter: presenter)
             viewController.modalPresentationStyle = .fullScreen
             return .show(viewController)
+            
+        case .onboarding:
+            let presenter = OnboardingPresenter(router: strongRouter)
+            let viewController = OnboardingViewController.instance(with: presenter)
+            viewController.modalPresentationStyle = .fullScreen
+            return .present(viewController)
             
         case .ageConfirm:
             let presenter = AgeConfirmPresenter(router: strongRouter)

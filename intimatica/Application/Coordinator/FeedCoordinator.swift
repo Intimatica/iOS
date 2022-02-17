@@ -143,7 +143,7 @@ final class FeedCoordinator: NavigationCoordinator<FeedRoute> {
 
         case .logout:
 //            return .multiple(.dismiss(), .dismiss())
-            return .trigger(.ageConfirm, on: appRouter)
+            return .trigger(.onboarding, on: appRouter)
 
         case .dismiss:
             return .dismiss()

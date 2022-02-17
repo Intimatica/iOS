@@ -168,3 +168,14 @@ LANGUAGE_SETTINGS_NOTIFICATION = "Изменения вступят в силу 
 GENDER_FEMALE = "Женский";
 GENDER_MALE = "Мужской";
 GENDER_ANOTHER = "Другой";
+
+//ONBOARD
+ONBOARD_TITLE_0 = "Читай";
+ONBOARD_TITLE_1 = "Смотри";
+ONBOARD_TITLE_2 = "Делись";
+ONBOARD_BUTTON_SKIP = "Пропустить";
+ONBOARD_BUTTON_NEXT = "Дальше";
+ONBOARD_BUTTON_GO = "Поехали!";
+ONBOARD_DESCRIPTION_0 = "и узнавай много нового о себе!";
+ONBOARD_DESCRIPTION_1 = "видео о том, что происходит\nс тобой на этапе взросления!";
+ONBOARD_DESCRIPTION_2 = "личными историями взросления\nи получай советы от психологов!";

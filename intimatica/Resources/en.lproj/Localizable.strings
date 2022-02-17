@@ -150,3 +150,14 @@ LANGUAGE_SETTINGS_NOTIFICATION = "Changes will take effect after the application
 GENDER_FEMALE = "Female";
 GENDER_MALE = "Male";
 GENDER_ANOTHER = "Another";
+
+// ONBOARD
+ONBOARD_TITLE_0 = "Read";
+ONBOARD_TITLE_1 = "Watch";
+ONBOARD_TITLE_2 = "Share";
+ONBOARD_BUTTON_SKIP = "Skip";
+ONBOARD_BUTTON_NEXT = "Next";
+ONBOARD_BUTTON_GO = "Let's Go";
+ONBOARD_DESCRIPTION_0 = "and find out more about yourself";
+ONBOARD_DESCRIPTION_1 = "videos about becoming an adult";
+ONBOARD_DESCRIPTION_2 = "your stories about growing up";

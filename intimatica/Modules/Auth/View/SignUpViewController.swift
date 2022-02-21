@@ -34,7 +34,6 @@ final class SignUpViewController: AuthViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {

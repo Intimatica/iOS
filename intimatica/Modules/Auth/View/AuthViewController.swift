@@ -94,7 +94,6 @@ class AuthViewController: PopViewController {
         super.viewDidLoad()
         
         setupUI()
-        setupActions()
         enableHideKeyboardOnTap()
     }
     

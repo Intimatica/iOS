@@ -44,7 +44,6 @@ class SignUpProfileViewController: AuthViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
         
         showActivityIndicator()
         presenter.viewDidLoad()

@@ -14,8 +14,8 @@ DONE = "Готово";
 CANCEL = "Отмена";
 UNKNOWN_ERROR_MESSAGE = "Неизвестная ошибка";
 
-AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 16 лет, чтобы использовать приложение";
-AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 16 лет";
+AGE_CONFIRM_WELCOME_LABEL = "Привет! Тебе должно быть больше 14 лет, чтобы использовать приложение";
+AGE_CONFIRM_LABEL = "Я подтверждаю, что я старше 14 лет";
 AGE_CONFIRM_TERMS_LABEL = "Я согласна (ен) с Условиями использования";
 AGE_CONFIRM_TERMS_LABEL_ATTRIBUTED = "Условиями использования";
 AGE_CONFIRM_CONDITIONS_LABEL = "Я согласна (ен) с Политикой конфиденциальности";

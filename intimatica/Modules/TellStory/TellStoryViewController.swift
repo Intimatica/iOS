@@ -60,7 +60,6 @@ class TellStoryViewController: PopViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
 
         enableHideKeyboardOnTap()
     }

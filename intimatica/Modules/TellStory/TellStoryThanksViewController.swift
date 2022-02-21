@@ -34,7 +34,6 @@ class TellStoryThanksViewController: PopViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
     }
 
     // MARK: - Layout

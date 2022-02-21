@@ -69,7 +69,6 @@ class CourseFinishedViewController: PopViewController {
         
         setupView()
         setupConstraints()
-        setupActions()
     }
     
     // MARK: - Layout

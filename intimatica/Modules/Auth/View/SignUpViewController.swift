@@ -70,6 +70,7 @@ final class SignUpViewController: AuthViewController {
     }
     
     override func setupActions() {
+        super.setupActions()
         accountExistButton.addAction { [weak self] in
             self?.presenter.accountExistButtonDidTap()
         }
